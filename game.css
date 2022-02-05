@@ -1,0 +1,33 @@
+.box{
+    /* width: 1500px;
+    height: 1000px;
+    border:1px solid black;
+    border-radius: 200px; */
+    background-color: #FFFFFF;
+    margin: 1.5em 300px;
+    border-radius: 1.5em;
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+#out{
+    border-radius: 200px;
+    width: 1000px;
+    height: 50px;
+}
+#play{
+    margin: 3em 300px;
+    width: 1000px;
+    height: 500px;
+}
+#in{
+    position: absolute;
+    width: 700px;
+    height: 60px;
+    border: none;
+    margin-top: -90px;
+    margin-left: 455px;
+    /* margin-left: 250px; */
+}
+.text{
+    margin-left: 100px;
+    line-height: 50px;
+}
