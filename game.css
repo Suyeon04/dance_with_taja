@@ -4,30 +4,107 @@
     border:1px solid black;
     border-radius: 200px; */
     background-color: #FFFFFF;
-    margin: 1.5em 300px;
+    margin: 1.5em 350px;
     border-radius: 1.5em;
     box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
 }
-#out{
+#out1{
+    /*타자미리보기*/
+    position: relative;
     border-radius: 200px;
     width: 1000px;
-    height: 50px;
+    height: 60px;
+    z-index: 1;
+    animation: ani1 3s linear 4 both;
+}
+/* #out1:hover{
+    transform: translate(-50px,50%);
+} */
+#out2{
+    /*타자*/
+    position: absolute;
+    border-radius: 200px;
+    width: 1000px;
+    height: 60px;
+    margin-top: -50px;
+    left: -50px;
+    z-index: 2;
+    animation: ani2 3s linear 4 both;
+}
+/*out1애니메이션*/
+@keyframes ani1{
+    0%{
+        transform: translate(0);
+        background-color: gray;
+    }
+    20%{
+        transform: translate(-68px, -10px);
+        background-color: gray;
+    }
+    40%{
+        transform: translate(-80px, 40px);
+    }
+    60%{
+        transform: translate(-50px, 40px);
+        z-index: 2;
+        background-color: #FFFFFF;
+    }
+    80%{
+        transform: translate(10px, 55px);
+        z-index: 2;
+        background-color: #FFFFFF;
+    }
+    100%{
+        transform: translate(0);
+        z-index: 1;
+        background-color: gray;
+    }
+}
+/*out2애니메이션*/
+@keyframes ani2{
+    0%{
+        transform: translate(0);
+        background-color: #FFFFFF;
+    }
+    20%{
+        transform: translate(45px, 15px);
+        background-color: #FFFFFF;
+    }
+    40%{
+        transform: translate(110px, 15px);
+        background-color: #FFFFFF;
+    }
+    60%{
+        transform: translate(60px,-39px);
+        z-index: 1;
+        background-color: gray;
+    }
+    80%{
+        transform: translate(-10px,-39px);
+        z-index: 1;
+        background-color: gray;
+    }
+    100%{
+        transform: translate(0);
+        z-index: 2;
+        background-color: #FFFFFF;
+    }
 }
 #play{
-    margin: 3em 300px;
+    margin: 4em 300px;
     width: 1000px;
     height: 500px;
 }
-#in{
-    position: absolute;
-    width: 700px;
-    height: 60px;
-    border: none;
-    margin-top: -90px;
-    margin-left: 455px;
-    /* margin-left: 250px; */
-}
 .text{
     margin-left: 100px;
-    line-height: 50px;
+    line-height: 40px;
+}
+.taga{
+    width: 900px;
+    height: 40px;
+    outline: none;
+    border: none;
+    margin-top: 9px;
+    margin-left: 4%;
+    font-size: 17px;
 }
