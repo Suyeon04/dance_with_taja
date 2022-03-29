@@ -9,7 +9,7 @@ const app = express();
 const home = require("./src/routes");
 
 // 웹 세팅 -> html엔진은 ejs
-app.set("views", "./src/public/views");
+app.set("views", "./src/public/html");
 app.set("view engine", "ejs");
 app.use(express.static(`${__dirname}/src/public`));
 app.use(bodyParser.json());

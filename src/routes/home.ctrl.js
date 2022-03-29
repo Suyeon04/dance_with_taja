@@ -3,26 +3,29 @@
 //const User = require("../models/User");
 
 const output ={
+home : (req, res) => {
+        res.render("ListView");
+      },
 ListView : (req, res) => {
-    res.render("home/ListView");
+    res.render("ListView");
   },
   game : (req, res) => {
-    res.render("home/game");
+    res.render("game");
   },
   ranking: (req,res)=>{
-    res.render("home/ranking");
+    res.render("ranking");
   }
   };
 
-const process={
-//   apply:async (req, res)=>{
-//     const user = new User(req.body);
-//     const response = await user.apply();
-//     return res.json(response);
-//   }
-};
+
+// const process={
+// //   apply:async (req, res)=>{
+// //     const user = new User(req.body);
+// //     const response = await user.apply();
+// //     return res.json(response);
+// //   }
+// };
 
 module.exports = {
   output,
-  process,
 };
