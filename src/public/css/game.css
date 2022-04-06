@@ -109,7 +109,7 @@
     font-size: 17px;
     position: relative;
     z-index: 1;
-
+    color: transparent;
 }
 .tx{
     font-size: 17px;

@@ -19,7 +19,9 @@ nowinput.oninput = function(){
     alp = (inputvalue||"").split("");
     keywords = (nowkeyword||"").split("");
     if(alp[alp.length-1]!=keywords[alp.length-1]){
-        
+        //한 글자의 색만 바꾸기
+    }else{
+
     }
 
 }
