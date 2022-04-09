@@ -19,7 +19,9 @@ nowinput.oninput = function(){
     alp = (inputvalue||"").split("");
     keywords = (nowkeyword||"").split("");
     if(alp[alp.length-1]!=keywords[alp.length-1]){
-        
+        now.style.color = "#228B22";
+    }else{
+
     }
 
 }
