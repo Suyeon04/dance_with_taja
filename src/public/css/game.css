@@ -30,7 +30,18 @@
     height: 40px;
     outline: none;
     border: none;
-    margin-top: 9px;
-    margin-left: 4%;
+    margin-top: 11.5px;
+    margin-left: 3.8%;
     font-size: 17px;
+    position: relative;
+    z-index: 1;
+    color: transparent;
+}
+.tx{
+    font-size: 17px;
+    margin-top: 20px;
+    margin-left: 4%;
+    position: absolute;
+    z-index: 2;
+    color: gray;
 }
