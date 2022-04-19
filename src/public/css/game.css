@@ -6,15 +6,15 @@
     box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
 }
 #out1{
+    /*타자미리보기*/
     border-radius: 200px;
     width: 1000px;
     height: 60px;
     top: 20px;
     z-index: 1;
 }
-
 #out2{
-    /*타자*/
+    /*타자1*/
     border-radius: 200px;
     width: 1000px;
     height: 60px;
@@ -22,26 +22,16 @@
     right: 5px;
     z-index: 2;
 }
-
-.Text{
+.text{
     margin-left: 100px;
     line-height: 40px;
+}
+.taga{
     width: 900px;
     height: 40px;
     outline: none;
     border: none;
-    margin-top: 11.5px;
-    margin-left: 3.8%;
-    font-size: 17px;
-    position: relative;
-    z-index: 1;
-    color: transparent;
-}
-.tx{
-    font-size: 17px;
-    margin-top: 20px;
+    margin-top: 9px;
     margin-left: 4%;
-    position: absolute;
-    z-index: 2;
-    color: gray;
+    font-size: 17px;
 }
