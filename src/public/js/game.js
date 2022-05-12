@@ -12,7 +12,7 @@ let alpLength = 0;
 function change(){
     now.innerText = nowkeyword;
     next.innerText = nextkeyword;
-}
+}//걍 input으로 하는데 밑줄을 그어버릴까?
 nowinput.oninput = function(){
     document.addEventListener("keydown",isRight, false);
     let inputvalue = nowinput.value;
