@@ -1,6 +1,10 @@
+
+let wordDisplay = document.querySelector('#word-display'); // 타자미리보기
+let wordinput = document.querySelector('#word-input'); // 타자치는 곳
+
 let cnt=0
-const char_r = document.getElementById("mychar");
-const char_n = document.getElementById("youchar");
+const char_r = document.getElementById("mychar"); // 리정 이미지
+const char_n = document.getElementById("youchar"); // 노제 이미지
 
 $($("#btn").on("click", function(){
     ++cnt
@@ -21,7 +25,7 @@ $($("#btn").on("click", function(){
     else {
         $(function(){
             $("#out2").remove();
-            $("<div class=box id=out2> <input type=text class=Text placeholder=타자치는곳2 autofocus> </div>").appendTo("#taja");
+            $("<div class=box id=out2> <input type=text class=word-input placeholder=타자치는곳2 autofocus> </div>").appendTo("#taja");
         })
     }
 }))

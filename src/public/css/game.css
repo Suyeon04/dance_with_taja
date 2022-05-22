@@ -16,6 +16,7 @@ body{
     height: 60px;
     top: 20px;
     z-index: 1;
+    /*글자속성*/
 }
 #out2{
     /*타자1*/
@@ -26,11 +27,18 @@ body{
     right: 5px;
     z-index: 2;
 }
-.text{
+/* .text{
     margin-left: 100px;
     line-height: 40px;
+} */
+.word-display{
+    color: gray;
+    font-size: 17px;
+    /* text-align: left; */
+    line-height: 55px;
+    margin-left: 38px;
 }
-.Text{
+.word-input{
     width: 900px;
     height: 40px;
     outline: none;
@@ -39,6 +47,7 @@ body{
     margin-left: 4%;
     font-size: 17px;
 }
+
 
 /*캐릭터*/
 #mychar{
