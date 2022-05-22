@@ -26,15 +26,31 @@ $($("#btn").on("click", function(){
     }
 }))
 
-function ChnImg(){
-    
-//     let str=""
-//     let timer
-//     for(let i=1; i<10; i++){
-//         str="/css/r"+i+".jpg"
-//         console.log(i);
-//         char_id.src=str;
-//         //timer=setInterval(()=>char_id.src=str, 800);
-//     }
-//     clearInterval(timer);
+let nowkeyword = "My name is Suyeon";
+let nextkeyword = "My name is hyuna";
+let alp = "";
+let keywords = "";
+let alpLength = 0;
+
+function change(){
+    now.innerText = nowkeyword;
+    next.innerText = nextkeyword;
+}//걍 input으로 하는데 밑줄을 그어버릴까?
+nowinput.oninput = function(){
+    document.addEventListener("keydown",isRight, false);
+    let inputvalue = nowinput.value;
+    alp = (inputvalue||"").split("");
+    keywords = (nowkeyword||"").split("");
+    if(alp[alp.length-1]!=keywords[alp.length-1]){
+        now.style.color = "#228B22";
+    }else{
+
+    }
+
 }
+
+function isRight(){
+
+}
+
+change();
