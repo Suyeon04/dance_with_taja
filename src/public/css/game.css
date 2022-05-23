@@ -48,6 +48,14 @@ body{
     font-size: 17px;
 }
 
+/*span 속성*/
+.correct{
+    color: rgb(141, 252, 141);
+}
+.wrong{
+    color: rgb(250, 132, 132);
+}
+
 
 /*캐릭터*/
 #mychar{
