@@ -46,7 +46,7 @@ input.addEventListener("keyup", () => {
                     (x => {
                         setTimeout(() => {
                         console.log(x)
-                        let str="/css/r"+x+".jpg"
+                        let str="/img/r"+x+".jpg"
                         char_r.src=str
                         },150*x)
                     })(i)
