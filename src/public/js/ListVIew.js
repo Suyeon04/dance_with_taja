@@ -1,3 +1,20 @@
+const socket = io();
+
+const welcome = document.getElementById("welcome");
+const list = document.getElementById("list");
+
+let roomName = 0;
+
+function handleRoomSubmit(event) {
+  event.preventDefault();
+  const input = form.querySelector("input");
+  const name = form.querySelector("input-name");
+  socket.emit("enter_room", {roomName : input.value, id : name.value});//emit 마지막 argument는 funciton
+  roomName = name.value;
+}
+form.addEventListener("submit", handleRoomSubmit)
+
+
 //모달창
 var trigger = document.querySelector(".trigger");
 var modal = document.querySelector(".modal");
@@ -64,6 +81,7 @@ window.onload=()=>{
   }
 // 모달창 end
 
+
 // 수연이가 짠 코드?
 let clickButton = document.querySelectorAll(".Startbtn");
 console.log("실행");
@@ -76,4 +94,8 @@ function onclickBox(e){
     //alert(value);
     location.replace('/game'); //파일 game으로 넘어가기
 }
+
+
+
+
 
