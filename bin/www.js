@@ -1,6 +1,6 @@
 "use strict";
 
-const app = require("../app");
+const app = require("../src/index.js");
 const PORT = 3002;
 
 app.listen(PORT, () => {

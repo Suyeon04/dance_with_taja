@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "bin": {
-    "dance_with_taja": "bin/www.js"
+    "dance_with_taja": ""
   },
   "scripts": {
     "start": "node ./bin/www.js",
@@ -21,7 +21,11 @@
   },
   "homepage": "https://github.com/Suyeon04/dance_with_taja#readme",
   "dependencies": {
+    "@socket.io/admin-ui": "^0.3.0",
     "ejs": "^3.1.6",
-    "express": "^4.18.1"
-  }
+    "express": "^4.18.1",
+    "socket.io": "^4.5.1",
+    "socket.io-client": "^4.5.1"
+  },
+  "type": "module"
 }
