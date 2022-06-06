@@ -2,18 +2,28 @@ const socket = io();
 
 const form = document.getElementById("welcome");
 const list = document.getElementById("list");
+const select = document.querySelector("#select");
 
 let version = 0;
 let roomName = 0;
 
 function handleRoomSubmit(event) {
   event.preventDefault();
-  const name = form.querySelector("input-name");
-  socket.emit("enter_room", {roomName : input.value, id : name.value});//emit 마지막 argument는 funciton
+  const name = document.querySelector(".input-name");
+  console.log(name.value + " "+ version);
+  socket.emit("enter_room", name.value);//emit 마지막 argument는 funciton
+  socket.emit("version", version);
+  socket.emit("nickname", nickname)
   roomName = name.value;
+  name.value = "";
 }
-//form.addEventListener("submit", handleRoomSubmit)
 
+function showRoom(){
+  location.replace('/charView');
+  localStorage.setItem("roomName",JSON.stringify(roomName));
+  localStorage.setItem("version",JSON.stringify(version));
+}
+select.addEventListener("click", handleRoomSubmit);
 
 //모달창
 var trigger = document.querySelector(".trigger");
@@ -51,11 +61,11 @@ window.onload=()=>{
       dropbtn.style.borderColor = 'rgb(94, 94, 94)';
     }
 
-    showMenu=(value, version)=>{
+    showMenu=(value, v)=>{
       var dropbtn_content = document.querySelector('.dropbtn_content');
       var dropbtn_click = document.querySelector('.dropbtn_click');
       var dropbtn = document.querySelector('.dropbtn');
-      this.version = version;
+      version = parseInt(v);
       dropbtn_content.innerText = value;
       dropbtn_content.style.color = '#252525';
       dropbtn.style.borderColor = '#3992a8';
@@ -82,18 +92,6 @@ window.onload=()=>{
 // 모달창 end
 
 
-// 수연이가 짠 코드?
-let clickButton = document.querySelectorAll(".Startbtn");
-console.log("실행");
-clickButton.forEach((box) =>{
-    box.addEventListener('click', onclickBox)
-});
-
-function onclickBox(e){
-    let value = this.id;//id이름 가져오기(여기에선 번호 가져옴-id이름이 번호이기 때문)
-    //alert(value);
-    location.replace('/game'); //파일 game으로 넘어가기
-}
 
 
 
