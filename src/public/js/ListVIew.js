@@ -1,18 +1,18 @@
 const socket = io();
 
-const welcome = document.getElementById("welcome");
+const form = document.getElementById("welcome");
 const list = document.getElementById("list");
 
+let version = 0;
 let roomName = 0;
 
 function handleRoomSubmit(event) {
   event.preventDefault();
-  const input = form.querySelector("input");
   const name = form.querySelector("input-name");
   socket.emit("enter_room", {roomName : input.value, id : name.value});//emit 마지막 argument는 funciton
   roomName = name.value;
 }
-form.addEventListener("submit", handleRoomSubmit)
+//form.addEventListener("submit", handleRoomSubmit)
 
 
 //모달창
@@ -42,7 +42,7 @@ window.onload=()=>{
       dropdown();
     }
     document.getElementsByClassName('code').onclick = ()=>{
-      showMenu(value);
+      showMenu(value, version);
     };
     dropdown = () => {
       var v = document.querySelector('.dropdown-content');
@@ -51,11 +51,11 @@ window.onload=()=>{
       dropbtn.style.borderColor = 'rgb(94, 94, 94)';
     }
 
-    showMenu=(value)=>{
+    showMenu=(value, version)=>{
       var dropbtn_content = document.querySelector('.dropbtn_content');
       var dropbtn_click = document.querySelector('.dropbtn_click');
       var dropbtn = document.querySelector('.dropbtn');
-
+      this.version = version;
       dropbtn_content.innerText = value;
       dropbtn_content.style.color = '#252525';
       dropbtn.style.borderColor = '#3992a8';

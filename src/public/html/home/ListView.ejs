@@ -18,7 +18,6 @@
                     <div class="modal-content">
                         <span class="close-button">&times;</span>
                         <h1 class="title">방 생성</h1>
-                        <div id = "welcome">
                             <!--속성 드롭바-->
                             <section id="theme">
                                 <div class="select">
@@ -37,11 +36,11 @@
                                     <img src="../img/arrow.png" class="dropbtn_click" style="width: 25px; height: 25px; float:right;" onclick="dropdown()"/>
                                 </button>
                                 <div class="dropdown-content">
-                                    <div class="code" onclick="showMenu(this.innerText)">사칙연산 - JAVA</div>
-                                    <div class="code" onclick="showMenu(this.innerText)">역참조 배제하기 - JS</div>
-                                    <div class="code" onclick="showMenu(this.innerText)">양의 정수 - JS</div>
-                                    <div class="code" onclick="showMenu(this.innerText)">스크롤 만들기 - Android</div>
-                                    <div class="code" onclick="showMenu(this.innerText)">파일 업로드 - PHP</div>
+                                    <div class="code" onclick="showMenu(this.innerText, 0)">사칙연산 - JAVA</div>
+                                    <div class="code" onclick="showMenu(this.innerText, 1)">역참조 배제하기 - JS</div>
+                                    <div class="code" onclick="showMenu(this.innerText, 2)">양의 정수 - JS</div>
+                                    <div class="code" onclick="showMenu(this.innerText, 3)">스크롤 만들기 - Android</div>
+                                    <div class="code" onclick="showMenu(this.innerText, 4)">파일 업로드 - PHP</div>
                                 </div>
                             </div>
                             <!--방이름-->
@@ -49,10 +48,9 @@
                             <div class="input-box">
                                 <input type="text" class="input-name"/>
                             </div>
-                        </div>
                         
                         <div class="modal-btn">
-                            <button id="select" onclick="location.href='http://localhost:3002/game'">생성</button>
+                            <button id="select" onclick="location.href='/'">생성</button>
                             <button id="cancel">취소</button>
                         </div>
                     </div>
