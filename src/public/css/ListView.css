@@ -197,7 +197,12 @@ body {
     }
   
     /*방이름입력*/
-    .input-box{
+    .title1{
+      position: absolute;
+      left: 150px;
+      top: 150px;
+    }
+    .input-box1{
       position: absolute;
       border : 2px solid rgb(94, 94, 94);
       border-radius : 4px;
@@ -207,10 +212,37 @@ body {
       padding : 12px;
       width: 210px;
       height: 20px;
-      top: 190px;
+      top: 150px;
       left: 227px;
     }
-    .input-name{
+    .input-name1{
+      outline: none;
+      border: none;
+      margin-top: -10px;
+      margin-left: 4px;
+      font-size: 17px;
+    }
+
+    .title2{
+      position: absolute;
+      left: 150px;
+      top: 220px;
+    }
+
+    .input-box2{
+      position: absolute;
+      border : 2px solid rgb(94, 94, 94);
+      border-radius : 4px;
+      background-color: #fcfcfc;
+      font-weight: 400;
+      color : rgb(124, 124, 124);
+      padding : 12px;
+      width: 210px;
+      height: 20px;
+      top: 220px;
+      left: 227px;
+    }
+    .input-name2{
       outline: none;
       border: none;
       margin-top: -10px;
