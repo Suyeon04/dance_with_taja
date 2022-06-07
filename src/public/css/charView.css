@@ -1,0 +1,120 @@
+body::before {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("/img/배경2.jpg");
+    -webkit-filter: blur(5px); 
+    -moz-filter: blur(5px); 
+    -o-filter: blur(5px); 
+    -ms-filter: blur(5px); 
+    filter: blur(5px);
+    z-index: -1; 
+    content: "";
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.namebox{
+    position: absolute;
+    border-radius: 80px;
+    border: 3px solid white;
+    background-color: plum;
+    width: 600px;
+    height: 60px;
+    margin-left: 455px;
+    margin-top: 50px;
+    text-align: center;
+    line-height: 20px;
+}
+button:disabled{ /* disabled 된 버튼 */
+    background-color: gray;
+}
+.mychar{
+    border-radius: 30px;
+    border: 3px solid white;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 600px;
+    height: 400px;
+    z-index: 1;
+    margin-left: 40px;
+    margin-top: 170px;
+    position: absolute;
+}
+.Malbum{
+    width: 600px;
+    height: 400px;
+    overflow: hidden; 
+} /* overflow 되면 숨긴다*/
+.Mimages{ 
+    display: flex; height: 400px; width: 2560px;
+    transition-property: transform; /* transform 속성에대해, js코드에 의해 transform 스타일 추가된다*/
+    transition-duration: 1s; /* transition 지속시간 */
+}
+.Mimage{width: 400px; height: 400px;}
+.Mimage:nth-child(1){background-image: url("/img/r1.png");}
+.Mimage:nth-child(2){background-image: url("/img/n1.png");}
+.Mimage:nth-child(3){background-image: url("/img/r1.png");}
+.Mimage:nth-child(4){background-image: url("/img/n1.png");}
+
+.Mprev{
+    width: 100px; height: 30px; border:none;
+    color: white; background-color: blueviolet;
+    position: absolute;
+    left: 50px; 
+    top: 200px; 
+}
+.Mnext{ 
+    width: 100px; height: 30px; border:none;
+    color: white; background-color: blueviolet;
+    position: absolute;
+    left: 450px;
+    top: 200px;
+}
+
+.youchar{
+    border-radius: 30px;
+    border: 3px solid white;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 600px;
+    height: 400px;
+    z-index: 1;
+    margin-left: 880px;
+    margin-top: 170px;
+    position: absolute;
+}
+
+.Yalbum{
+    width: 600px;
+    height: 400px; 
+    overflow: hidden; 
+} /* overflow 되면 숨긴다*/
+.Yimages{ 
+    display: flex; height: 400px; width: 2560px;
+    transition-property: transform; /* transform 속성에대해, js코드에 의해 transform 스타일 추가된다*/
+    transition-duration: 1s; /* transition 지속시간 */
+}
+.Yimage{width: 400px; height: 400px;}
+.Yimage:nth-child(1){background-image: url("../img/r1.png");}
+.Yimage:nth-child(2){background-image: url("../img/n1.png");}
+.Yimage:nth-child(3){background-image: url("../img/r1.png");}
+.Yimage:nth-child(4){background-image: url("../img/n1.png");}
+
+.Yprev{
+    width: 100px; height: 30px; border:none;
+    color: white; background-color: blueviolet;
+    position: absolute;
+    left: 50px; 
+    top: 200px;
+}
+.Ynext{ 
+    width: 100px; height: 30px; border:none;
+    color: white; background-color: blueviolet;
+    position: absolute;
+    left: 450px;
+    top: 200px;
+}
+
+button:visited{
+    background-color: blueviolet;
+}
