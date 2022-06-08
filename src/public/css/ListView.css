@@ -1,7 +1,12 @@
 body {
-	font-family: 'Lato', Arial, sans-serif;
+	/* font-family: 'Lato', Arial, sans-serif;
 	color: #989c9b;
+  background-image: url("/img/리스트배경.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; */
+  background-image: linear-gradient(#17082e 0%, #1a0933 7%, #1a0933 80%, #0c1f4c 100%);
 }
+
 /*모달창*/
  /* body{
     text-align: center;
@@ -10,6 +15,34 @@ body {
     font-size: 16px;
     color: #999;
   } */
+  .maintitle{
+    color: white;
+    /* text-shadow:
+        0 0 4px #fff,
+        0 0 11px #fff,
+        0 0 19px #fff,
+        0 0 40px #fff,
+        0 0 80px #fff,
+        0 0 90px #fff; */
+    animation: flicker 1.5s infinite alternate; 
+  }
+  @keyframes flicker {
+    
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+  
+        text-shadow:
+        0 0 4px #fff,
+        0 0 11px #fff,
+        0 0 19px #fff,
+        0 0 40px #fff,
+        0 0 80px #fff,
+        0 0 90px #fff
+    }
+    
+    20%, 24%, 55% {        
+        text-shadow: none;
+    }    
+  }
   .modal-btn{
     z-index: 1;
   }
@@ -82,6 +115,91 @@ body {
     transform: scale(1.0);
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
   }
+  /*이름입력 모달창*/
+  .modal-btn2{
+    z-index: 1;
+  }
+  #cancel2{
+    width: 127px; height: 48px;
+    text-align: center;
+    border: none;
+    top: 170px;
+    right: 120px;
+    cursor: pointer;
+    position: absolute;
+  }
+  #cancel2:hover{
+    color: #fff;
+    background-color: #AF4848;
+    opacity: 0.9;
+  }
+  #select2{
+    width: 127px; height: 48px;
+    text-align: center;
+    border: none;
+    /* margin-top: 300px;
+    margin-left: 145px; */
+    top: 170px;
+    left: 120px;
+    cursor: pointer;
+    position: absolute;
+  }
+  #select2:hover{
+    color: #fff;
+    background-color: #216282;
+    opacity: 0.9;
+  }
+  
+  .modal2{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+  }
+  .modal-content2{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 1rem 1.5rem;
+    width: 450px;
+    height: 200px;
+    border-radius: 0.5rem;
+  }
+  .close-button2{
+    float: right;
+    width: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    background-color: white;
+  }
+  .close-button2:hover {
+    background-color: darkgray;
+  }
+  .show-modal2 {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+  }
+  #modal2-name1{
+    top: 100px;
+    left: -10px;
+  }
+  #modal2-name2{
+    top: 100px;
+    left: 180px;
+  }
+  /*이름입력 모달창 end*/
    /*속성 드롭바*/
    .select {
      width: 70px;
@@ -102,33 +220,19 @@ body {
     max-height: none;
   }
   
-  /* 테마 적용하기 */
+  /* 선택 */
   #theme {
     margin-left: 80px;
+    margin-top: 30px;
   }
   #theme .select {
     box-shadow: 0 0 2px rgba(0,0,0,0.3);
-    border-radius: 5px;
     padding: 10px 15px;
-    cursor: pointer;
-  }
-  #theme .select:hover {
-    color: #333;
-    transition: all .3s;
-  }
-  #theme .select .text {}
-  #theme .select .option-list {
     list-style: none;
-    padding: 0;
     border-radius: 5px;
-    box-shadow: 0 0 2px rgba(0,0,0,0.3);
+    color: #333;
   }
-  #theme .select .option-list .option {
-    padding: 10px 15px;
-  }
-  #theme .select .option-list .option:hover {
-    background-color: #f2f2f2;
-  }
+
    /*코드 드롭바*/
    .dropdown-label{
       font-size : 12px;
@@ -153,6 +257,7 @@ body {
       padding : 12px;
       width :240px;
       text-align: left;
+      line-height: 30px;
       cursor : pointer;
       font-size : 12px;
       z-index :1;
@@ -225,8 +330,13 @@ body {
 
     .title2{
       position: absolute;
-      left: 150px;
-      top: 220px;
+      margin-left: 80px;
+      top: 195px;
+      box-shadow: 0 0 2px rgba(0,0,0,0.3);
+      padding: 10px 27px;
+      list-style: none;
+      border-radius: 5px;
+      color: #333;
     }
 
     .input-box2{
@@ -236,11 +346,14 @@ body {
       background-color: #fcfcfc;
       font-weight: 400;
       color : rgb(124, 124, 124);
+
       padding : 12px;
-      width: 210px;
-      height: 20px;
-      top: 220px;
-      left: 227px;
+
+      width: 212px;
+      height: 24px;
+      line-height: 30px;
+      top: 190px;
+      left: 228px;
     }
     .input-name2{
       outline: none;

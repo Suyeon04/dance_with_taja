@@ -25,7 +25,7 @@ function showRoom(){
 }
 select.addEventListener("click", handleRoomSubmit);
 
-//모달창
+// 방 만들기 모달창
 var trigger = document.querySelector(".trigger");
 var modal = document.querySelector(".modal");
 var closeButton = document.querySelector(".close-button");
@@ -63,7 +63,7 @@ window.onload=()=>{
 
     showMenu=(value, v)=>{
       var dropbtn_content = document.querySelector('.dropbtn_content');
-      var dropbtn_click = document.querySelector('.dropbtn_click');
+
       var dropbtn = document.querySelector('.dropbtn');
       version = parseInt(v);
       dropbtn_content.innerText = value;
@@ -75,11 +75,6 @@ window.onload=()=>{
     if(!e.target.matches('.dropbtn_click')){
       var dropdowns = document.getElementsByClassName("dropdown-content");
 
-      var dropbtn_icon = document.querySelector('.dropbtn_icon');
-      var dropbtn_content = document.querySelector('.dropbtn_content');
-      var dropbtn_click = document.querySelector('.dropbtn_click');
-      var dropbtn = document.querySelector('.dropbtn');
-
       var i;
       for (i = 0; i < dropdowns.length; i++) {
         var openDropdown = dropdowns[i];
@@ -89,8 +84,31 @@ window.onload=()=>{
       }
     }
   }
-// 모달창 end
+// 방 만들기 모달창 end
 
+// CLICK 모달창
+  var modal2 = document.querySelector(".modal2");
+  var trigger2 = document.querySelector(".custom-btn");
+  var closeButton2 = document.querySelector(".close-button2");
+  var cancelButton2 = document.querySelector("#cancel2");
+
+//console.log(modal);
+
+function toggleModal2() {
+      modal2.classList.toggle("show-modal2");
+  }
+
+function windowOnClick2(event) {
+      if (event.target === modal2) {
+          toggleModal2();
+      }
+  }
+
+trigger2.addEventListener("click", toggleModal2);
+  closeButton2.addEventListener("click", toggleModal2);
+  cancel2.addEventListener("click", toggleModal2);
+  window2.addEventListener("click", windowOnClick2);
+//  CLICK 모달창 end
 
 
 

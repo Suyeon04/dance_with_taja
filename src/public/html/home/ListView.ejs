@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <header>
-            <h1>Dance with TAJA</h1>
+            <h1 class="maintitle">스트릿타자파이터</h1>
             <!--모달창-->
                 <button class="trigger">방생성</button>
                 <div class="modal">
@@ -20,14 +20,7 @@
                         <h1 class="title">방 생성</h1>
                             <!--속성 드롭바-->
                             <section id="theme">
-                                <div class="select">
-                                <div class="text">선택</div>
-                                <ul class="option-list">
-                                    <li class="option">JAVA</li>
-                                    <li class="option">JS</li>
-                                    <li class="option">Android</li>
-                                </ul>
-                                </div>
+                                <div class="select">선택</div>
                             </section>
                             <!--코드 드롭바-->
                             <div class="dropdown">
@@ -44,11 +37,11 @@
                                 </div>
                             </div>
                             <!--방이름-->
-                            <p class="title1">방이름</p>
+                            <!-- <p class="title1">방이름</p>
                             <div class="input-box1">
                                 <input type="text" class="input-name1"/>
-                            </div>
-                            <p class="title2">닉네임</p>
+                            </div> -->
+                            <div class="title2">닉네임</div>
                             <div class="input-box2">
                                 <input type="text" class="input-name2"/>
                             </div>
@@ -70,13 +63,36 @@
                         <th>버튼</th>
                     </tr>
                 </thead> -->
+                <!--모달창-->
+                    <div class="modal2">
+                        <div class="modal-content2">
+                            <span class="close-button2">&times;</span>
+                            <h1 class="title" style="text-align: center;">닉네임 입력</h1>
+                                <div class="title2" id="modal2-name1">닉네임</div>
+                                <div class="input-box2" id="modal2-name2">
+                                    <input type="text" class="input-name2"/>
+                                </div>
+                            <div class="modal-btn2">
+                                <button id="select2" type = "submit">생성</button>
+                                <button id="cancel2">취소</button>
+                            </div>
+                        </div>
+                    </div>
+                <!--모달창end-->
                 <tbody>
-                    
+                    <tr>
+                        <td class="rank">1</td>
+                        <td class="team">Germany</td>
+                        <td class="points">쭈꾸</td>
+                        <td class="Startbtn" id = "1"><button class="custom-btn btn-16">CLICK</button>
+                        </td>
+                    </tr>
                     <tr>
                         <td class="rank">2</td>
                         <td class="team">Germany</td>
                         <td class="points">뿌꾸</td>
-                        <td class="Startbtn" id = "2"><button class="custom-btn btn-16">CLICK</button></td>
+                        <td class="Startbtn" id = "2"><button class="custom-btn btn-16">CLICK</button>
+                        </td>
                     </tr>
                     <tr>
                         <td class="rank">3</td>
