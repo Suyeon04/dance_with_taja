@@ -38,7 +38,7 @@ function publicRooms() {
         }= wsServer ;
     const publicRooms= [];
     rooms.forEach((_,key)=>{
-        if(sids.get(key)===undefined){
+        if(sids.get(key.room)===undefined){
             publicRooms.push(key)
             console.log(key);
         }
@@ -47,7 +47,8 @@ function publicRooms() {
 }
 
 function countRoom(roomName){
-    return wsServer.sockets.adapter.rooms.get(roomName)?.size;
+    let x = wsServer.sockets.adapter.rooms.get(roomName)?.size;
+    if(x==2) roomName.door = close;
 }
 
 wsServer.on("connection", (socket) => {
@@ -60,7 +61,6 @@ wsServer.on("connection", (socket) => {
         socket.join(roomName);
         done();
         socket.to(roomName).emit("welcome", socket.version, countRoom(roomName));
-        socket.to(roomName).emit("welcome", socket.nickname, countRoom(roomName));
         wsServer.sockets.emit("room_change", publicRooms());
     });;
     socket.on("disconnecting", () => {
