@@ -17,7 +17,7 @@ const Yimages = document.querySelector(".Yimages")
 Minit();
 Yinit();
 
-youchar.hidden = true; // youchar div를 없애는 속성
+//youchar.hidden = true; // youchar div를 없애는 속성
 
 function Mprev(){
     

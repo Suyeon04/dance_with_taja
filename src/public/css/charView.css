@@ -71,6 +71,14 @@ button:disabled{ /* disabled 된 버튼 */
     left: 450px;
     top: 200px;
 }
+.complete{
+    width: 100px; height: 30px; border:none; 
+    color: white; background-color: gray; 
+    margin-left: 250px;
+}
+.complete:hover{
+    background-color: blueviolet;
+}
 
 .youchar{
     border-radius: 30px;

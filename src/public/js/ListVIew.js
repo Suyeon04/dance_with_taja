@@ -39,10 +39,10 @@ socket.on("room_change", (rooms, nickname)=>{
 function createList(){ //요소 추가
   let tagArea = document.getElementById('tagArea');
   let new_list = document.createElement('tr');
-  new_list.innerHTML = `<td class="rank">${count}</td>`
-  new_list.innerHTML = `<td class="team">${room.id}</td>`
-  new_list.innerHTML = `<td class="points">${room.version}</td>`
-  new_list.innerHTML = `<td class="Startbtn" id = ${room.id}><button class="custom-btn btn-16">CLICK</button></td>`
+  new_list.innerHTML = `<td class="number">${count}</td>`
+  new_list.innerHTML = `<td class="Language">${room.id}</td>`
+  new_list.innerHTML = `<td class="NickName">${room.version}</td>`
+  new_list.innerHTML = `<td class="Startbtn" id = ${room.id}><button class="Clickbtn">CLICK</button></td>`
   count++;
   tagArea.appendChild(new_list);
 }
@@ -115,10 +115,10 @@ window.onload=()=>{
 // 방 만들기 모달창 end
 
 // CLICK 모달창
-  var modal2 = document.querySelector(".modal2");
-  var trigger2 = document.querySelector(".custom-btn");
-  var closeButton2 = document.querySelector(".close-button2");
-  var cancelButton2 = document.querySelector("#cancel2");
+var Clickbtns = document.querySelectorAll(".Clickbtn");
+var modal2 = document.querySelector(".modal2");
+var closeButton2 = document.querySelector(".close-button2");
+var cancelButton2 = document.querySelector("#cancel2");
 
 //console.log(modal);
 
@@ -132,10 +132,9 @@ function windowOnClick2(event) {
       }
   }
 
-trigger2.addEventListener("click", toggleModal2);
+  Clickbtns.forEach(b => b.addEventListener("click", toggleModal2));
   closeButton2.addEventListener("click", toggleModal2);
-  cancel2.addEventListener("click", toggleModal2);
-  window2.addEventListener("click", windowOnClick2);
+  cancelButton2.addEventListener("click", toggleModal2);
 //  CLICK 모달창 end
 
 
