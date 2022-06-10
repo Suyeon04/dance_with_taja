@@ -14,10 +14,16 @@ const YprevBtn = document.querySelector(".Yprev")
 const YnextBtn = document.querySelector(".Ynext")
 const Yimages = document.querySelector(".Yimages")
 
+const select1=document.querySelector("#select1"); // 내가 선택완료 됬을 때
+const select2=document.querySelector("#select2"); // 상대가 선택완료 됬을 때
+
 Minit();
 Yinit();
 
 //youchar.hidden = true; // youchar div를 없애는 속성
+// 선택완료 숨기기
+select1.hidden=true;
+select2.hidden=true;
 
 function Mprev(){
     
@@ -105,9 +111,12 @@ function Yinit(){
     YnextBtn.addEventListener("click", Ynext)
 }
 
-//완료
+//완료되면 complete 버튼 색 바꾸고 div 뜨게 하기
 function complete(){
     const completeBtn = document.querySelector(".complete")
-    completeBtn.setAttribute("visited", 'true')
-
+    completeBtn.classList.add("completed");
+    console.log(McurPos+"캐릭터 선택완료");
+    //선택완료 보이기
+    select1.hidden=false;
+    select2.hidden=false;
 }
