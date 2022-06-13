@@ -19,6 +19,7 @@ app.get("/charView",(req, res) =>  res.render("home/charView"));
 app.get("/game",(req, res) =>  res.render("home/game"));
 app.get("/ranking", (req, res) => res.render("home/ranking"));
 
+
 const httpserver = http.createServer(app);
 const wsServer = new Server(httpserver,{
     cors: {
@@ -40,15 +41,16 @@ function publicRooms() {
     rooms.forEach((_,key)=>{
         if(sids.get(key.room)===undefined){
             publicRooms.push(key)
-            console.log(key);
+            console.log(key)
         }
     })
     return publicRooms;
 }
 
 function countRoom(roomName){
-    let x = wsServer.sockets.adapter.rooms.get(roomName)?.size;
-    if(x==2) roomName.door = close;
+    if(wsServer.sockets.adapter.rooms.get(roomName)?.size>2)
+        return false;
+    return true;
 }
 
 wsServer.on("connection", (socket) => {
@@ -60,9 +62,9 @@ wsServer.on("connection", (socket) => {
     socket.on("enter_room", (roomName, done) => {
         socket.join(roomName);
         done();
-        socket.to(roomName).emit("welcome", socket.version, countRoom(roomName));
-        wsServer.sockets.emit("room_change", publicRooms());
-    });;
+        socket.to(roomName).emit("welcome", socket.nickname, countRoom(roomName));
+        wsServer.sockets.emit("room_change", publicRooms(), '');
+    });
     socket.on("disconnecting", () => {
         socket.rooms.forEach(room => 
             socket.to(room).emit("bye", socket.nickname,countRoom(room))
@@ -75,7 +77,10 @@ wsServer.on("connection", (socket) => {
         socket.to(room).emit("new_message", `${socket.nickname} : ${msg}`);
         done();
     });
-    socket.on("nickname", (nickname) => (socket["nickname"] = nickname))
+    socket.on("nickname", (nickname) => {
+        socket["nickname"] = nickname,
+        wsServer.sockets.emit("room_change", publicRooms(), socket.nickname, '');
+    })
 })
 
 
