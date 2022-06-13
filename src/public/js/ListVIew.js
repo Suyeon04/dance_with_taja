@@ -4,18 +4,21 @@ const form = document.getElementById("welcome");
 const list = document.getElementById("list");
 const select = document.querySelector("#select");
 const start = document.querySelector(".Startbtn");
+const name = document.querySelector(".input-name2");
 
 let version = 0; // 방 버전
 let roomName = 0; // 방 이름
-let count = 0; // 방 번호
+let count = 1; // 방 번호
+let roomCount = 0;
 
 function handleRoomSubmit(event) {
   event.preventDefault();
-  const name = document.querySelector(".input-name");
   console.log(name.value + " "+ version);
-  socket.emit("enter_room", {room : name.value, version : version, door : open});//emit 마지막 argument는 funciton
+  socket.emit("enter_room", name.value);//emit 마지막 argument는 funciton
+  socket.emit("nickname", name.value);
   roomName = name.value;
   name.value = "";
+  showRoom();
 }
 
 function showRoom(){
@@ -23,7 +26,8 @@ function showRoom(){
   localStorage.setItem("roomName",JSON.stringify(roomName));
   localStorage.setItem("version",JSON.stringify(version));
 }
-select.addEventListener("click", handleRoomSubmit);
+//방 생성 누르면 이거 실행
+select.addEventListener("click", createList);
 
 socket.on("room_change", (rooms, nickname)=>{
   const roomlist = welcome.querySelector("ul");
@@ -39,12 +43,18 @@ socket.on("room_change", (rooms, nickname)=>{
 function createList(){ //요소 추가
   let tagArea = document.getElementById('tagArea');
   let new_list = document.createElement('tr');
-  new_list.innerHTML = `<td class="number">${count}</td>`
-  new_list.innerHTML = `<td class="Language">${room.id}</td>`
-  new_list.innerHTML = `<td class="NickName">${room.version}</td>`
-  new_list.innerHTML = `<td class="Startbtn" id = ${room.id}><button class="Clickbtn">CLICK</button></td>`
+  new_list.innerHTML = `<td class="number">${count}</td><td class="NickName">${version}</td><td class="Language">${name.value}</td><td class="Startbtn" id = ${count}><button class="Clickbtn">CLICK</button></td>`
   count++;
   tagArea.appendChild(new_list);
+}
+
+function addBtnEvent(e) { 
+  if (e.target.dataset.password === 'true') {
+      const password = prompt('비밀번호를 입력하세요');
+      location.href = '/room/' + e.target.dataset.id + '?password=' + password;
+  } else {
+      location.href = '/room/' + e.target.dataset.id;
+  }
 }
 
 start.addEventListener("click", addUser);
@@ -91,9 +101,8 @@ window.onload=()=>{
 
     showMenu=(value, v)=>{
       var dropbtn_content = document.querySelector('.dropbtn_content');
-
       var dropbtn = document.querySelector('.dropbtn');
-      version = parseInt(v);
+      version = value;
       dropbtn_content.innerText = value;
       dropbtn_content.style.color = '#252525';
       dropbtn.style.borderColor = '#3992a8';
@@ -102,7 +111,6 @@ window.onload=()=>{
   window.onclick= (e)=>{
     if(!e.target.matches('.dropbtn_click')){
       var dropdowns = document.getElementsByClassName("dropdown-content");
-
       var i;
       for (i = 0; i < dropdowns.length; i++) {
         var openDropdown = dropdowns[i];
