@@ -117,6 +117,6 @@ function complete(){
     completeBtn.classList.add("completed");
     console.log(McurPos+"캐릭터 선택완료");
     //선택완료 보이기
-    select1.hidden=false;
-    select2.hidden=false;
+    //select1.hidden=false;
+    // select2.hidden=false;
 }

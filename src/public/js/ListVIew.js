@@ -137,6 +137,10 @@ function windowOnClick2(event) {
   cancelButton2.addEventListener("click", toggleModal2);
 //  CLICK 모달창 end
 
+// 버튼 클릭시 이동
+function moveView(){
+  location.href="http://localhost:3000/charView";
+}
 
 
 

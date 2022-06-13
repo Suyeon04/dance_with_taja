@@ -6,6 +6,21 @@ let text = document.querySelector('.word-display'); // 타자미리보기
 let input = document.querySelector('.word-input'); // 타자치는 곳
 const charEls = []
 
+/*음악버튼*/
+let cnt=1;
+function imgbtn(){
+    if(cnt%2==1){
+        document.querySelector("").src="../images/false.png";
+        cnt = 1;
+        haha = 0;
+      }else{
+        document.getElementById("musicbtn").src="../images/true.png";
+        cnt = 0;
+        haha = 1;
+      }
+      localStorage.setItem("cnt",cnt);
+      cnt++;
+}
 function populateText(str){
     str.split("").map(letter => {
         const span = document.createElement("span")
@@ -48,9 +63,19 @@ input.addEventListener("keyup", () => {
                     (x => {
                         setTimeout(() => {
                         console.log(x)
-                        let str="/img/r"+x+".jpg"
+                        let str="/img/ygx"+x+".png"
                         char_r.src=str
                         },150*x)
+                    })(i)
+                }
+
+                for(let i=2;i<12;i++){
+                    (y => {
+                        setTimeout(() => {
+                        console.log(y)
+                        let str="/img/wavy"+y+".png"
+                        char_n.src=str
+                        },150*y)
                     })(i)
                 }
             }
