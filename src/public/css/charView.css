@@ -38,7 +38,7 @@ button:disabled{ /* disabled 된 버튼 */
     height: 400px;
     z-index: 1;
     margin-left: 40px;
-    margin-top: 170px;
+    margin-top: 150px;
     position: absolute;
 }
 .Malbum{
@@ -71,6 +71,7 @@ button:disabled{ /* disabled 된 버튼 */
     /* left: 50px;  */
     top: 200px;
     z-index: 2;
+    border-radius: 20%;
 }
 .Mprev{
     width: 100px; height: 30px; border:none;
@@ -108,7 +109,7 @@ button:disabled{ /* disabled 된 버튼 */
     height: 400px;
     z-index: 1;
     margin-left: 880px;
-    margin-top: 170px;
+    margin-top: 150px;
     position: absolute;
 }
 

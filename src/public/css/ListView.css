@@ -5,12 +5,19 @@ body {
    */
   background-image: linear-gradient(#17082e 0%, #1a0933 7%, #1a0933 80%, #0c1f4c 100%);
   background-attachment: fixed;
+  font-family: 'Cafe24Ohsquareair';
   /* background-image: linear-gradient(blue, pink); */
 }
 /*폰트*/
-@font-face {
+@font-face { /*제목 폰트*/
   font-family: 'EliceDigitalBaeum-Bd';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_elice@1.0/EliceDigitalBaeum-Bd.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face { /*테이블 안에 글자 폰트*/
+  font-family: 'Cafe24Ohsquareair';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202@1.0/Cafe24Ohsquareair.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -18,6 +25,7 @@ body {
 
 .maintitle{ /*<h1>스트릿타자파이터<h1>*/
   color: white;
+  padding: 0em 0 0.5em;
   animation: flicker 1.5s infinite alternate;
   font-family: 'EliceDigitalBaeum-Bd';
   /* text-shadow:
@@ -95,6 +103,7 @@ body {
   }
   
   .modal {
+    z-index: 3;
     position: fixed;
     left: 0;
     top: 0;
@@ -253,6 +262,7 @@ body {
   }
   
   .modal2{
+    z-index: 3;
     position: fixed;
     left: 0;
     top: 0;
@@ -386,10 +396,13 @@ body {
     }
 /*모달창 end*/
 
-/* button {
-    margin: 20px;
-} */
-
+/*logo*/
+.logo{
+  z-index: 1;
+  position: absolute;
+  left: 640px;
+  top: 260px;
+}
 /*Clickbtn*/
 td .Clickbtn{
   text-shadow: 0 0 1px rgb(255 255 255 / 30%), 0 0 2px rgb(255 255 255 / 30%), 0 0 5px rgb(255 255 255 / 20%);
@@ -417,10 +430,27 @@ td .Clickbtn{
 .wrapper {
 	line-height: 1.5em;
 	margin: 0 auto;
-	padding: 2em 0 3em;
+	padding: 0em 0 3em;
 	width: 80%; /*테이블 가로 사이즈*/
 	max-width: 2000px;
-	overflow: hidden;
+  height: 500px; /*테이블 세로 사이즈*/
+  overflow: auto; /*스크롤 생성*/
+}
+/*스크롤 스타일*/
+.wrapper::-webkit-scrollbar {
+  width: 10px;
+  height: 400px;
+}
+.wrapper::-webkit-scrollbar-thumb {
+  background-color: #2f3542;
+  border-radius: 10px;
+  background-clip: padding-box;
+  border: 2px solid transparent;
+}
+.wrapper::-webkit-scrollbar-track {
+  background-color: grey;
+  border-radius: 10px;
+  box-shadow: inset 0px 0px 5px white;
 }
 
 table {
@@ -430,34 +460,23 @@ table {
     color: #fff;
 }
 
-th {
-    font-weight: bold;
-    white-space: nowrap;
-    color: #fff;
-}
-
-td, th {
+td{
     padding: 1em 3em;
     text-align: center;
 }
 
-tbody th {
-  color: #fff;
-  margin: 10px;
+tbody{
+  position: relative;
+  z-index: 2;
 }
-/* tbody tr:nth-child(2n-1) {
-    color: #fff;
-    transition: all .125s ease-in-out;
-} */
-/* tbody tr:nth-child(2n){
-  box-shadow: 0 0 2px rgba(131, 137, 138, 0.929), 0 0 4px rgba(120, 124, 124, 0.4), 0 0 1rem rgba(71, 75, 75, 0.3), 0 0 4rem rgb(68 217 232 / 10%);
-} */
-
 tbody tr:nth-child(2n-1){
   box-shadow: 0 0 2px #fff, 0 0 4px #fff, 0 0 1rem #fff;
 }
 tbody tr:hover {
     background-color: rgba(50,98,149,.3);
+}
+#head{
+  background-color: rgba(50,98,149,.3);
 }
 
 .number{
