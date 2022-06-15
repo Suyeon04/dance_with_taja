@@ -9,16 +9,16 @@ const MprevBtn = document.querySelector(".Mprev")
 const MnextBtn = document.querySelector(".Mnext")
 const Mimages = document.querySelector(".Mimages")
 
-const youchar = document.querySelector(".youchar")
-const YprevBtn = document.querySelector(".Yprev")
-const YnextBtn = document.querySelector(".Ynext")
-const Yimages = document.querySelector(".Yimages")
+// const youchar = document.querySelector(".youchar")
+// const YprevBtn = document.querySelector(".Yprev")
+// const YnextBtn = document.querySelector(".Ynext")
+// const Yimages = document.querySelector(".Yimages")
 
 const select1=document.querySelector("#select1"); // 내가 선택완료 됬을 때
 const select2=document.querySelector("#select2"); // 상대가 선택완료 됬을 때
 
 Minit();
-Yinit();
+//Yinit();
 
 //youchar.hidden = true; // youchar div를 없애는 속성
 // 선택완료 숨기기
@@ -68,54 +68,13 @@ function Minit(){
     MnextBtn.addEventListener("click", Mnext)
 }
 
-function Yprev(){
-    
-    if(YcurPos > 1){
-    YnextBtn.removeAttribute("disabled") /* disabled 속성 제거*/
-    Yposition += IMAGE_WIDTH /* position 값 증가 */
-    
-    Yimages.style.transform = `translateX(${Yposition}px)` /* images 스타일 transform, x축 변경*/
-    YcurPos -= 1; /* curPos 값 감소*/
-    console.log("slide2 : "+YcurPos) // 이미지 번호 넘겨줄 위치
-    }
-    if(YcurPos == 1){ /* 이미지 index값 0 되면 prev 못하게 */
-        YprevBtn.setAttribute("disabled", 'true')
-    }
- }
-function Ynext(){
-    if(YcurPos < 4){
-        YprevBtn.removeAttribute("disabled")
-        Yposition -= IMAGE_WIDTH
-        /*
-            트랜스폼(변형)의 네가지 속성값(함수)
-            - scale() : 확대 또는 축소
-            - translate() : 위치 이동
-            - rotate() : 회전시키기
-            - skew() : 요소 비틀기
-        */
-        Yimages.style.transform = `translateX(${Yposition}px)`
-        YcurPos += 1;
-        console.log("slide2 : "+YcurPos) // 이미지 번호 넘겨줄 위치
-    }
-    if(YcurPos == 4){
-        // 뒤로 못 가게 하기
-        YnextBtn.setAttribute("disabled", 'true') // 못 누르는 버튼이 됨
-    }
-}
-// 초기 랜더링 시 최초 호출 함수의 관습적 이름
-function Yinit(){
-    // 앞으로 가기는 처음부터 못누르게!
-    console.log("slide2 : "+YcurPos) // 이미지 번호 넘겨줄 위치
-    YprevBtn.setAttribute("disabled", 'true')
-    YprevBtn.addEventListener("click", Yprev)
-    YnextBtn.addEventListener("click", Ynext)
-}
-
 //완료되면 complete 버튼 색 바꾸고 div 뜨게 하기
 function complete(){
     const completeBtn = document.querySelector(".complete")
     completeBtn.classList.add("completed");
     console.log(McurPos+"캐릭터 선택완료");
+    MprevBtn.setAttribute("disabled", 'true')
+    MnextBtn.setAttribute("disabled", 'true')
     //선택완료 보이기
     //select1.hidden=false;
     // select2.hidden=false;

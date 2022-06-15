@@ -47,6 +47,31 @@ body {
     font-family: 'EliceDigitalBaeum-Bd';
     font-size: 50px;
   }
+  /*음악버튼*/
+  .btn{
+    box-shadow: 0 0 2px rgb(234 57 184 / 90%), 0 0 4px rgb(234 57 184 / 40%), 0 0 1rem rgb(234 57 184 / 30%), 0 0 4rem rgb(234 57 184 / 10%);
+    border-color: #ea39b8;
+    background-color: purple;
+    border-radius: 50%;
+  }
+  #playbtn{
+      position: absolute;
+      left: 75%;
+      top: 7%;
+      padding-top: 5px;
+      padding-right: 3px;
+  }
+  #musicbtn{
+      position: absolute;
+      left: 79%;
+      top: 7%;
+      padding-top: 5px;
+      padding-right: 5px;
+  }
+
+  .btn:hover{
+      background-color: #ea39b8;
+  }
 
   /*모달창*/
   .trigger{

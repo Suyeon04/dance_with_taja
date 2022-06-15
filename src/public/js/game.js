@@ -2,14 +2,7 @@ const x =
 `<!DOCTYPE html>
 <html lang="en">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-border-collapse: collapse; }
-border-bottom: 1px solid #444444;
-input:focus { background:rgb(250, 217, 157); }
-<form method="post" action="insert.php" enctype="multipart/form-data">
-<table  cellspacing=0 cellpadding=0>
-<tr><td >제목: <input type="text" name="title" size="10">
-<button type="submit">입력완료</button></td></tr>`;
+<meta name="viewport" content="width=device-width, initial-scale=1.0">`;
 
 let str = x.split('\n');
 let input_text = '';
@@ -24,8 +17,16 @@ let order = 0;
 changeWord();
 
 function changeWord(){
+    // if(order==str.length-1){
+    //     console.log("타자 끝")
+    // }
+    console.log("order : "+order+ " str : "+str.length);
     order++;
-    populateText(str[order]);
+    if(order != str.length){
+        populateText(str[order]);
+    }else{
+        alert("끝")
+    }
     
 }
 
@@ -53,7 +54,7 @@ function removeCorrectCharacter() { // 친 글자 사라지는 함수
     document.querySelectorAll('.correct').forEach(item => item.remove());
 }
 
-input.addEventListener("keyup", (event) => {
+input.addEventListener("keyup", () => {
     const val = input.value
     let errorCount = 0;
     let start=false;
@@ -83,7 +84,7 @@ input.addEventListener("keyup", (event) => {
                 for(let i=2; i<10; i++){
                     (x => {
                         setTimeout(() => {
-                        let str="/img/ygx"+x+".png"
+                        let str="/img/ygx/ygx"+x+".png"
                         char_r.src=str
                         },150*x)
                     })(i)
@@ -104,7 +105,6 @@ input.addEventListener("keyup", (event) => {
                     start=true;
                     input.value=null; // input 나타난 후 썼던 글자 지워주기
                 })
-
                 changeWord() // 다음 타자로 넘어가기
             }
         })
