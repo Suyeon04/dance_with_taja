@@ -2,6 +2,14 @@ body{
     background-image: url("/img/배경2.jpg");
     background-size: cover;
 }
+/*폰트*/
+@font-face {
+    font-family: 'EliceDigitalBaeum_Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_220508@1.0/EliceDigitalBaeum_Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+/*폰트end*/
 .box{
     position: relative;
     background-color: #FFFFFF;
@@ -11,15 +19,15 @@ body{
 }
 #out1{
     /*타자미리보기*/
+    font-family: 'EliceDigitalBaeum_Bold';
     border-radius: 200px;
     width: 1000px;
     height: 60px;
     top: 20px;
     z-index: 1;
-    /*글자속성*/
 }
 #out2{
-    /*타자1*/
+    /*타자input*/
     border-radius: 200px;
     width: 1000px;
     height: 60px;
@@ -27,27 +35,24 @@ body{
     right: 3px;
     z-index: 2;
 }
-/* .text{
-    margin-left: 100px;
-    line-height: 40px;
-} */
+
 .word-display{
     color: gray;
     font-size: 18px;
-    /* text-align: left; */
     line-height: 55px;
     margin-left: 38px;
-    letter-spacing: 1px;
+    letter-spacing: 1px; /*글자자간*/
 }
 .word-input{
+    font-family: 'EliceDigitalBaeum_Bold';
+    font-size: 18px;
+    margin-left: 40px;
+    margin-top: 9px;
     width: 900px;
     height: 40px;
     outline: none;
     border: none;
-    margin-top: 9px;
-    margin-left: 40px;
-    font-size: 18px;
-    letter-spacing: 1px;
+    letter-spacing: 1px; /*글자자간*/
 }
 
 /*span 속성*/
