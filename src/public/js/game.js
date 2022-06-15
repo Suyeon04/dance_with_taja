@@ -1,3 +1,44 @@
+// 오디오
+let playbtn=document.querySelector("#playbtn");
+let musicimg=document.querySelector(".btnimg");
+let musicbtn=document.querySelector("#musicbtn");
+let cnt=1;
+let ClickSound=new Audio("/audio/clicksound.wav");
+let audio=new Audio();
+audio.src="/audio/Music4.mp3";
+audio.autoplay=true;
+audio.volume=0.02;
+ClickSound.volume=0.1;
+
+function MusicPlay(){
+  ClickSound.play();
+  audio.volume=0.02;
+  ClickSound.volume=0.1;
+  if(cnt%2==1){
+    musicimg.src="../img/play.png"; //시작
+    audio.play();
+    ++cnt;
+  }else if(cnt%2==0){
+    musicimg.src="../img/pause.png"; //멈춤
+    audio.pause()
+    ++cnt; 
+  }
+}
+function MusicSelect(){
+  audio=null;
+  ClickSound.play();
+  let rand=Math.floor(Math.random() * 5)+1;
+  console.log(rand)
+  switch(rand){
+      case 1 : audio=new Audio("/audio/Music1.mp3"); break;
+      case 2 : audio=new Audio("/audio/Music2.mp3"); break;
+      case 3 : audio=new Audio("/audio/Music3.mp3"); break;
+      case 4 : audio=new Audio("/audio/Music4.mp3"); break;
+      case 5 : audio=new Audio("/audio/Music5.wav"); break;
+  }
+}
+
+// 타자
 const x = 
 `<!DOCTYPE html>
 <html lang="en">

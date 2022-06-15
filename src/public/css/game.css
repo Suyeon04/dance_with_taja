@@ -26,6 +26,29 @@ body{
     top: 20px;
     z-index: 1;
 }
+
+/*음악버튼*/
+.btn{
+    box-shadow: 0 0 2px rgb(234 57 184 / 90%), 0 0 4px rgb(234 57 184 / 40%), 0 0 1rem rgb(234 57 184 / 30%), 0 0 4rem rgb(234 57 184 / 10%);
+    border-color: #ea39b8;
+    background-color: purple;
+    border-radius: 50%;
+}
+#playbtn{
+    position: absolute;
+    left: 92%;
+    top: 4%;
+    padding-top: 5px;
+    padding-right: 3px;
+}
+#musicbtn{
+    position: absolute;
+    left: 96%;
+    top: 4%;
+    padding-top: 5px;
+    padding-right: 5px;
+}
+
 #out2{
     /*타자input*/
     border-radius: 200px;
