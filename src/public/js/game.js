@@ -1,3 +1,5 @@
+const socket = io();
+
 const x = 
 `<!DOCTYPE html>
 <html lang="en">
@@ -11,6 +13,8 @@ input:focus { background:rgb(250, 217, 157); }
 <tr><td >제목: <input type="text" name="title" size="10">
 <button type="submit">입력완료</button></td></tr>`;
 
+let startWord = 'start';
+
 let str = x.split('\n');
 let input_text = '';
 
@@ -22,12 +26,19 @@ let charEls = [];
 let order = 0;
 
 changeWord();
+function letmeStart(){
+    if(input==startWord){
+        socket.emit('newUserConnect', showRoom)
+    }
+}
 
 function changeWord(){
     order++;
     populateText(str[order]);
-    
 }
+socket.on("message", function(data) {
+    alert(data);  
+});
 
 function populateText(str){
     charEls=[];
