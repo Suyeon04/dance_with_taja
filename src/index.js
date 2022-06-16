@@ -19,10 +19,10 @@ app.get("/charView",(req, res) =>  res.render("home/charView"));
 app.get("/game",(req, res) =>  res.render("home/game"));
 app.get("/ranking", (req, res) => res.render("home/ranking"));
 
-let count = 0;
+let count = 2;
 
-const httpserver = http.createServer(app);
-const wsServer = new Server(httpserver,{
+const httpServer = http.createServer(app);
+const wsServer = new Server(httpServer,{
     cors: {
         origin: ["https://admin.socket.io"],
         credentials: true
@@ -54,28 +54,24 @@ wsServer.on("connection", (socket) => {
       console.log(`Socket Event: ${event}`);
     });
     socket.on("enter_room", (roomName, done) => {
-        socket.join(roomName);
-        done();
-        socket.to(roomName).emit("welcome", socket.nickname, countRoom(roomName));
-        wsServer.sockets.emit("room_change", publicRooms());
-      });
+      socket.join(roomName);
+      done();
+      socket.to(roomName).emit("welcome", countRoom(roomName));
+      wsServer.sockets.emit("room_change", socket.nickname, publicRooms());
+    });
     socket.on("disconnecting", () => {
       socket.rooms.forEach((room) =>
         socket.to(room).emit("bye", socket.nickname)
       );
     });
     socket.on("disconnect", () => {
-        wsServer.sockets.emit("room_change", publicRooms());
-      });
-    socket.on("start", () => {
-    if(count!=countRoom(room)){
-        count++;
-        socket.to(room).emit("new_message", socket.nickname);
-        done();
-    }else{
-        socket.to(room).emit("go");
-    }
+        wsServer.sockets.emit("room_change", socket.nickname, publicRooms());
     });
+    socket.on("nickname", (nickname) => (socket["nickname"] = nickname))
+    socket.on("version", (nickname) => (socket["nickname"] = nickname))
   });
+
+const handleListen = () => console.log(`Listening on http://localhost:3000`);
+httpServer.listen(3002, handleListen);
 
 
