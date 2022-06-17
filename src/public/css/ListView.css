@@ -420,10 +420,12 @@ body {
 
     /*logo*/
     .logo{
-    z-index: 1;
-    position: absolute;
-    left: 640px;
-    top: 260px;
+      z-index: 1;
+      position: absolute;
+    /* left: 640px;
+    top: 260px; */
+      left: 42%;
+      top: 38%;
     }
     /*Clickbtn*/
     td .Clickbtn{
@@ -448,16 +450,40 @@ body {
     font-size: 3em;
     margin: 0;
     }
-
+    .head{
+      background-color: rgba(50,98,149,.3);
+      line-height: 1.5em;
+      margin: 0 auto;
+      margin-bottom: 3em;
+      width: 80%; /*테이블 가로 사이즈*/
+      /* max-width: 2000px; */
+      margin-top: 20px;
+    }
+    .head td{
+      /* padding: 1em 3em; */
+      text-align: center;
+      font-size: 20px;
+    }
+    #tdlaguage{
+      padding-left: 40px;
+    }
+    #tdname{
+      padding-left: 80px;
+      padding-right: 90px;
+    }
+    #tdclick{
+      padding-right: 90px;
+    }
     .wrapper {
       line-height: 1.5em;
       margin: 0 auto;
-      padding: 0em 0 3em;
+      margin-top: -50px;
+      padding: 0em 0 2em;
       width: 80%; /*테이블 가로 사이즈*/
       max-width: 2000px;
       height: 500px; /*테이블 세로 사이즈*/
       overflow: auto; /*스크롤 생성*/
-      margin-top: 15px;
+      /* margin-top: 15px; */
     }
     /*스크롤 스타일*/
     .wrapper::-webkit-scrollbar {
@@ -487,17 +513,15 @@ body {
       text-align: center;
     }
 
-    tbody{
+    #tagArea tbody {
       position: relative;
       z-index: 2;
     }
+
     tbody tr:nth-child(2n-1){
     box-shadow: 0 0 2px #fff, 0 0 4px #fff, 0 0 1rem #fff;
     }
     tbody tr:hover {
-      background-color: rgba(50,98,149,.3);
-    }
-    #head{
       background-color: rgba(50,98,149,.3);
     }
     .number{
@@ -893,7 +917,14 @@ body {
     font-size: 3em;
     margin: 0;
     }
-
+    .head{
+      margin: 0 auto;
+      line-height: 1.5em;
+      padding: 0em 0 3em;
+      width: 80%; /*테이블 가로 사이즈*/
+      max-width: 2000px;
+      height: 1000px; /*테이블 세로 사이즈*/
+    }
     .wrapper {
       line-height: 1.5em;
       margin: 0 auto;

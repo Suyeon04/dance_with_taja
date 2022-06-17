@@ -36,14 +36,14 @@ body::before {
 }
 #playbtn{
     position: absolute;
-    left: 85%;
+    left: 90%;
     top: 7%;
     padding-top: 5px;
     padding-right: 3px;
 }
 #musicbtn{
     position: absolute;
-    left: 89%;
+    left: 94%;
     top: 7%;
     padding-top: 5px;
     padding-right: 5px;
@@ -59,7 +59,7 @@ button:disabled{ /* disabled 된 버튼 */
     width: 600px;
     height: 400px;
     z-index: 1;
-    margin-left: 40px;
+    margin-left: 100px;
     margin-top: 150px;
     position: absolute;
 }
@@ -81,17 +81,22 @@ button:disabled{ /* disabled 된 버튼 */
 
 .CharSelect{
     width: 600px;
-    height: 100px;
-    background-color: blueviolet;
+    height: 400px;
+    /* background-color: blueviolet; */
+    box-shadow: 0 0 20px rgb(111 66 193 / 90%), 0 0 4px rgb(111 66 193 / 40%), 0 0 1rem rgb(111 66 193 / 30%), 0 0 4rem rgb(111 66 193 / 10%);
     color: #fff;
+    background-color: rgb(111 66 193 / 30%);
     text-align: center;
+
     font-size: 30px;
+    /* margin-left: %; */
+    line-height: 60px;
 }
 
 #select1{
     position: absolute;
     /* left: 50px;  */
-    top: 200px;
+    top: 5px;
     z-index: 2;
     border-radius: 20px;
 }
@@ -111,6 +116,7 @@ button:disabled{ /* disabled 된 버튼 */
     top: 200px;
     z-index: 1;
 }
+
 .complete{
     width: 100px; height: 30px; border:none; 
     color: white; background-color: gray; 
@@ -123,6 +129,19 @@ button:disabled{ /* disabled 된 버튼 */
     background-color: blueviolet;
 }
 
+.Start{
+    border:none;
+    color: white; background-color: gray; 
+    margin-top: 620px;
+    margin-left: 690px;
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+}
+.Start:hover{
+    background-color: blueviolet;
+}
+
 .youchar{
     border-radius: 30px;
     border: 3px solid white;
@@ -130,7 +149,7 @@ button:disabled{ /* disabled 된 버튼 */
     width: 600px;
     height: 400px;
     z-index: 1;
-    margin-left: 880px;
+    margin-left: 810px;
     margin-top: 150px;
     position: absolute;
 }

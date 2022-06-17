@@ -89,7 +89,26 @@ body{
     color: rgb(250, 132, 132);
 }
 
-
+/*상태*/
+.state{
+    position: absolute;
+    left: 310px;
+    top: 140px;
+    color: #FFFFFF;
+    font-size: 30px;
+}
+/*효과(조명)*/
+#effect1{
+    position: absolute;
+    left: 550px;
+    bottom: 100px;
+}
+#effect2{
+    position: absolute;
+    transform: scaleX(-1);
+    left: 470px;
+    bottom: 100px;
+}
 /*캐릭터*/
 #mychar{
     width: 350px;

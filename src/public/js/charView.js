@@ -57,6 +57,8 @@ const Mimages = document.querySelector(".Mimages")
 const select1=document.querySelector("#select1"); // 내가 선택완료 됬을 때
 const select2=document.querySelector("#select2"); // 상대가 선택완료 됬을 때
 
+const Startbtn=document.querySelector(".Start"); // 게임 시작 버튼
+
 Minit();
 //Yinit();
 
@@ -64,6 +66,7 @@ Minit();
 // 선택완료 숨기기
 select1.hidden=true;
 select2.hidden=true;
+Startbtn.hidden=true;
 
 function Mprev(){
     
@@ -113,9 +116,17 @@ function complete(){
     const completeBtn = document.querySelector(".complete")
     completeBtn.classList.add("completed");
     console.log(McurPos+"캐릭터 선택완료");
-    MprevBtn.setAttribute("disabled", 'true')
-    MnextBtn.setAttribute("disabled", 'true')
+    // MprevBtn.setAttribute("disabled", 'true')
+    // MnextBtn.setAttribute("disabled", 'true')
+    MprevBtn.hidden=true;
+    MnextBtn.hidden=true;
+    Startbtn.hidden=false; // 게임시작버튼 보이기
+    
     //선택완료 보이기
-    //select1.hidden=false;
+    select1.hidden=false;
     // select2.hidden=false;
+}
+
+function GameStart(){
+    location.href="http://localhost:3000/game";
 }

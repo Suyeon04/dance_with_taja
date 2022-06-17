@@ -112,8 +112,8 @@ var cancelButton = document.querySelector("#cancel");
 //console.log(modal);
 
 function toggleModal() {
-    music.play();
-    audio.play();
+    // music.play();
+    // audio.play();
     modal.classList.toggle("show-modal");
 }
 

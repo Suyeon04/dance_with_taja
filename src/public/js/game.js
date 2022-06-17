@@ -52,9 +52,18 @@ const char_r = document.getElementById("mychar"); // 리정 이미지
 const char_n = document.getElementById("youchar"); // 노제 이미지
 let text = document.querySelector('.word-display'); // 타자미리보기
 let input = document.querySelector('.word-input'); //타자치는곳
+let NowText=document.querySelector('.NowText'); // 현재 타자치는 부분
+let TotalText=document.querySelector('.TotalText');// 타자 총 수
+/*effect 조명 */
+let effect1=document.querySelector('#effect1');
+let effect2=document.querySelector('#effect2');
+
 let charEls = [];
 let order = 0;
 
+TotalText.innerHTML=str.length;
+effect1.hidden=true;
+effect2.hidden=true;
 changeWord();
 
 function changeWord(){
@@ -68,12 +77,18 @@ function changeWord(){
     }else{
         alert("끝")
     }
-    
+    effect(order)
+    NowText.innerHTML=order;
 }
-
+function effect(order){
+    if(order==2){
+        effect1.hidden=false;
+    }else if(order==4){
+        effect2.hidden=false;
+    }
+}
 function populateText(str){
     charEls=[];
-    
     str.split("").map(letter => {
         const span = document.createElement("span")
         span.innerText = letter
