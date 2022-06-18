@@ -13,6 +13,10 @@
     <!-- <div class="namebox">
         <h1 style="color: black;">방이름 : 아무개방</h1>
     </div> -->
+    <div>
+        <button style="width: 50px; height: 50px;" class="btn" id="playbtn" onclick="MusicPlay()"><img class="btnimg" src="../img/pause.png"/></button>
+        <button style="width: 50px; height: 50px;" class="btn" id="musicbtn" onclick="MusicSelect()"><img src="../img/music.png"/></button>
+    </div>
     <div class="content">
         <div class="mychar">
             <div class="Malbum">
@@ -38,11 +42,12 @@
                     <div class="Yimage"></div>
                 </div>
             </div>
-            <!-- <div class="CharSelect" id="select2">캐릭터 선택 완료!</div> -->
-            <button class="Yprev">PREV</button>
-            <button class="Ynext">NEXT</button>
+            <div class="CharSelect" id="select2">캐릭터 선택 완료!</div>
+            <!-- <button class="Yprev">PREV</button>
+            <button class="Ynext">NEXT</button> -->
             <h1 style="color: white; text-align: center;">youchar</h1>
         </div>
+        <button class="Start" onclick="GameStart()">GameStart</button>
     </div> <!--content end-->
 
 <script src="/js/charView.js"></script>

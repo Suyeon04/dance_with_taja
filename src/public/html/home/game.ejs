@@ -9,6 +9,10 @@
     <title>게임실행화면</title>
 </head>
 <body>
+    <div>
+        <button style="width: 50px; height: 50px;" class="btn" id="playbtn" onclick="MusicPlay()"><img class="btnimg" src="../img/pause.png"/></button>
+        <button style="width: 50px; height: 50px;" class="btn" id="musicbtn" onclick="MusicSelect()"><img src="../img/music.png"/></button>
+    </div>
     <div class="box" id="out1">
         <span class="word-display"></span>
     </div>
@@ -18,12 +22,17 @@
             <input type="text" class="word-input" autofocus>
         </div>
     </div>
-    <!-- <button id="btn">next</button> -->
-    <div class="Characters">
-        <img src="/img/ygx1.png" id="mychar">
-        <img src="/img/wavy1.png" id="youchar">
+
+    <p class="state"><span class="NowText">1</span><span>/</span><span class="TotalText">4</span></p>
+    <div class="effect">
+        <img src="/img/핀조명.png" id="effect1">
+        <img src="/img/핀조명.png" id="effect2">
     </div>
-    <!-- <script src="/js/game.js"></script> -->
+    <div class="Characters">
+        <img src="/img/ygx/ygx1.png" id="mychar">
+        <img src="/img/wavy/wavy1.png" id="youchar">
+        <!-- <span>1/4</span> -->
+    </div>
 </body>
 <script src = "/js/game.js"></script>
 </html>

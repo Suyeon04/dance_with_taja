@@ -1,17 +1,49 @@
-const socket = io();
+// 오디오
+let playbtn=document.querySelector("#playbtn");
+let musicimg=document.querySelector(".btnimg");
+let musicbtn=document.querySelector("#musicbtn");
+let cnt=1;
+let ClickSound=new Audio("/audio/clicksound.wav");
+let audio=new Audio();
+audio.src="/audio/Music4.mp3";
+audio.autoplay=true;
+audio.volume=0.02;
+ClickSound.volume=0.1;
 
+function MusicPlay(){
+  ClickSound.play();
+  audio.volume=0.02;
+  ClickSound.volume=0.1;
+  if(cnt%2==1){
+    musicimg.src="../img/play.png"; //시작
+    audio.play();
+    ++cnt;
+  }else if(cnt%2==0){
+    musicimg.src="../img/pause.png"; //멈춤
+    audio.pause()
+    ++cnt; 
+  }
+}
+function MusicSelect(){
+  audio=null;
+  ClickSound.play();
+  let rand=Math.floor(Math.random() * 5)+1;
+  console.log(rand)
+  switch(rand){
+      case 1 : audio=new Audio("/audio/Music1.mp3"); break;
+      case 2 : audio=new Audio("/audio/Music2.mp3"); break;
+      case 3 : audio=new Audio("/audio/Music3.mp3"); break;
+      case 4 : audio=new Audio("/audio/Music4.mp3"); break;
+      case 5 : audio=new Audio("/audio/Music5.wav"); break;
+  }
+}
+
+// 타자
 const x = 
 `<!DOCTYPE html>
 <html lang="en">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-border-collapse: collapse; }
-border-bottom: 1px solid #444444;
-input:focus { background:rgb(250, 217, 157); }
-<form method="post" action="insert.php" enctype="multipart/form-data">
-<table  cellspacing=0 cellpadding=0>
-<tr><td >제목: <input type="text" name="title" size="10">
-<button type="submit">입력완료</button></td></tr>`;
+<meta name="viewport" content="width=device-width, initial-scale=1.0">`;
 
 let startWord = 'start';
 
@@ -22,9 +54,18 @@ const char_r = document.getElementById("mychar"); // 리정 이미지
 const char_n = document.getElementById("youchar"); // 노제 이미지
 let text = document.querySelector('.word-display'); // 타자미리보기
 let input = document.querySelector('.word-input'); //타자치는곳
+let NowText=document.querySelector('.NowText'); // 현재 타자치는 부분
+let TotalText=document.querySelector('.TotalText');// 타자 총 수
+/*effect 조명 */
+let effect1=document.querySelector('#effect1');
+let effect2=document.querySelector('#effect2');
+
 let charEls = [];
 let order = 0;
 
+TotalText.innerHTML=str.length;
+effect1.hidden=true;
+effect2.hidden=true;
 changeWord();
 function letmeStart(){
     if(input==startWord){
@@ -33,16 +74,28 @@ function letmeStart(){
 }
 
 function changeWord(){
+    // if(order==str.length-1){
+    //     console.log("타자 끝")
+    // }
+    console.log("order : "+order+ " str : "+str.length);
     order++;
-    populateText(str[order]);
+    if(order != str.length){
+        populateText(str[order]);
+    }else{
+        alert("끝")
+    }
+    effect(order)
+    NowText.innerHTML=order;
 }
-socket.on("message", function(data) {
-    alert(data);  
-});
-
+function effect(order){
+    if(order==2){
+        effect1.hidden=false;
+    }else if(order==4){
+        effect2.hidden=false;
+    }
+}
 function populateText(str){
     charEls=[];
-    
     str.split("").map(letter => {
         const span = document.createElement("span")
         span.innerText = letter
@@ -64,7 +117,7 @@ function removeCorrectCharacter() { // 친 글자 사라지는 함수
     document.querySelectorAll('.correct').forEach(item => item.remove());
 }
 
-input.addEventListener("keyup", (event) => {
+input.addEventListener("keyup", () => {
     const val = input.value
     let errorCount = 0;
     let start=false;
@@ -94,7 +147,7 @@ input.addEventListener("keyup", (event) => {
                 for(let i=2; i<10; i++){
                     (x => {
                         setTimeout(() => {
-                        let str="/img/ygx"+x+".png"
+                        let str="/img/ygx/ygx"+x+".png"
                         char_r.src=str
                         },150*x)
                     })(i)
@@ -115,7 +168,6 @@ input.addEventListener("keyup", (event) => {
                     start=true;
                     input.value=null; // input 나타난 후 썼던 글자 지워주기
                 })
-
                 changeWord() // 다음 타자로 넘어가기
             }
         })

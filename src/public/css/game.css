@@ -1,5 +1,5 @@
 body{
-    background-image: url("/img/배경2.jpg");
+    background-image: url("/img/배경.jpg");
     background-size: cover;
 }
 /*폰트*/
@@ -26,6 +26,29 @@ body{
     top: 20px;
     z-index: 1;
 }
+
+/*음악버튼*/
+.btn{
+    box-shadow: 0 0 2px rgb(234 57 184 / 90%), 0 0 4px rgb(234 57 184 / 40%), 0 0 1rem rgb(234 57 184 / 30%), 0 0 4rem rgb(234 57 184 / 10%);
+    border-color: #ea39b8;
+    background-color: purple;
+    border-radius: 50%;
+}
+#playbtn{
+    position: absolute;
+    left: 92%;
+    top: 4%;
+    padding-top: 5px;
+    padding-right: 3px;
+}
+#musicbtn{
+    position: absolute;
+    left: 96%;
+    top: 4%;
+    padding-top: 5px;
+    padding-right: 5px;
+}
+
 #out2{
     /*타자input*/
     border-radius: 200px;
@@ -66,7 +89,26 @@ body{
     color: rgb(250, 132, 132);
 }
 
-
+/*상태*/
+.state{
+    position: absolute;
+    left: 310px;
+    top: 140px;
+    color: #FFFFFF;
+    font-size: 30px;
+}
+/*효과(조명)*/
+#effect1{
+    position: absolute;
+    left: 550px;
+    bottom: 100px;
+}
+#effect2{
+    position: absolute;
+    transform: scaleX(-1);
+    left: 470px;
+    bottom: 100px;
+}
 /*캐릭터*/
 #mychar{
     width: 350px;
