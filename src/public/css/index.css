@@ -1,0 +1,119 @@
+@import url(https://fonts.googleapis.com/css?family=Rammetto+One);
+
+body {
+    font: 400 1em/1.5 "Neuton";
+    background: #041e1e;
+    color: rgba(255, 255, 255, 0.455);
+    animation: backcolor 5s infinite alternate;
+    text-align: center;
+    margin: 0;
+}
+p {
+    text-transform: uppercase;
+    letter-spacing: .5em;
+    display: inline-block;
+    border: 4px double rgba(190, 184, 184, 0.25);
+    border-width: 4px 0;
+    padding: 1.5em 0em;
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    width: 40em;
+    margin: 0 0 0 -20em;
+    animation: flicker 1.5s infinite alternate;
+}
+p span {
+    /* font: 700 4em/1 "Oswald", sans-serif; */
+    font: 700 4em/1 'Rammetto One', sans-serif;
+    letter-spacing: 0;
+    padding: .25em 0 .325em;
+    display: block;
+    margin: 0 auto;
+    text-shadow: 0 0 80px rgba(255, 255, 255, 0.686);
+    background: url(../img/배경2.jpg) repeat-y;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: aitf 80s linear infinite;
+    -webkit-transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+}
+
+@keyframes flicker {
+    0%,18%,22%,25%,53%,57%,100% {
+        text-shadow:
+            0 0 4px #fff,
+            0 0 11px #fff,
+            0 0 19px #fff,
+            0 0 40px #fff,
+            0 0 80px #fff,
+            0 0 90px #fff
+    }20%,24%,55% {
+        text-shadow: none;
+    }
+}
+
+@keyframes backcolor{
+    20%{
+        background: #083c3c;
+    }
+    40%{
+        background: #08173c;
+    }
+    60%{
+        background: #25083c;
+    }
+    80%{
+        background: #3c0810;
+    }
+}
+@-webkit-keyframes aitf {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.neon{
+    /* position: relative; */
+    float: left; 
+    width: 20%;
+    height: 5%;
+    padding:15px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#YGX{
+    border: 1px solid white;
+    color: white;
+}
+#YGX:hover{
+    background-color: white;
+    color: black;
+}
+#WAYB{
+    border: 1px solid rgb(80, 202, 229);
+    color: rgb(80, 202, 229);
+}
+#WAYB:hover{
+    background-color: rgb(80, 202, 229);
+    color: black;
+}
+#LACHCA{
+    border: 1px solid rgb(225, 79, 143);
+    color: rgb(225, 79, 143);
+}
+#LACHCA:hover{
+    background-color: rgb(225, 79, 143);
+    color: black;
+}
+#HooK{
+    border: 1px solid rgb(224, 20, 20);
+    color: rgb(224, 20, 20);
+}
+#HooK:hover{
+    background-color: rgb(224, 20, 20);
+    color: black;
+}
