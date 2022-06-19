@@ -24,6 +24,7 @@
     "@socket.io/admin-ui": "^0.3.0",
     "ejs": "^3.1.6",
     "express": "^4.18.1",
+    "firebase": "^9.8.3",
     "socket.io": "^4.5.1",
     "socket.io-client": "^4.5.1"
   },
