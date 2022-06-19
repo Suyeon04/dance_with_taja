@@ -1,12 +1,12 @@
-const socket = io();
+import {io} from "socket.io-client"
 
-const form = document.querySelector(".welcome");
-const list = document.getElementById("list");
+const form = document.querySelector(".wprtbody");
 const select = document.querySelector("#select");
 const start = document.querySelector(".Startbtn");
 // 방장 닉넴
 const name = document.querySelector(".input-name2");
 
+const socket = io('http://localhoset:3000');
 
 let version = 0; // 방 버전
 let roomName = 0; // 방 이름
@@ -22,22 +22,24 @@ function handleRoomSubmit(event) {
   name.value = "";
 }
 
+
+
 function showRoom(){
   location.replace('/charView');
   localStorage.setItem("roomName",JSON.stringify(roomName));
   localStorage.setItem("version",JSON.stringify(version));
 }
-socket.on("room_change", (nickname, rooms)=>{
-  const new_list = form.querySelector('.gamelist');
+socket.on("room_change", (rooms)=>{
+  const new_list = document.querySelector('.wprtbody');
   rooms.forEach((room)=>{
-    const tr = document.createElement("tr");
-    tr.innerText=`<td class="number">${count}</td>
-    <td class="NickName">${nickname}</td>
-    <td class="Language">${room}</td>
+    let tr = document.createElement('tr');
+    tr.innerHTML=`<td class="number">${count}</td>
+    <td class="NickName">${room.version}</td>
+    <td class="Language">${room.key}</td>
     <td class="Startbtn" id = ${count}><button class="Clickbtn" onclick="addUser()">CLICK</button></td>`;
-    new_list.append(new_list);
+    new_list.append(tr);
     count++;
-    console.log("hsidfhisd")
+    console.log(room.version, room.key)
   })
 });
 

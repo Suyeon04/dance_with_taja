@@ -1,3 +1,8 @@
+const io = require('socket.io')(3002)
+
+io.on('connection', socket =>{
+  log(socket.id)
+})
 import express from 'express';
 import { Server } from 'socket.io';
 import { instrument } from '@socket.io/admin-ui';
@@ -29,7 +34,7 @@ const wsServer = new Server(httpServer,{
     }
 });
 
-function publicRooms() {
+function publicRooms(version) {
     const {
       sockets: {
         adapter: { sids, rooms },
@@ -37,8 +42,8 @@ function publicRooms() {
     } = wsServer;
     const publicRooms = [];
     rooms.forEach((_, key) => {
-      if (sids.get(key) === undefined) {
-        publicRooms.push(key);
+      if (sids.get(publicRooms.key) === undefined) {
+        publicRooms.push({key:key, version : version});
       }
     });
     return publicRooms;
@@ -53,12 +58,12 @@ wsServer.on("connection", (socket) => {
     socket.onAny((event) => {
       console.log(`Socket Event: ${event}`);
     });
-    socket.on("enter_room", (roomName, _version, done) => {
+    socket.on("enter_room", (roomName, version, done) => {
       socket.join(roomName);
-     (version) => (socket["version"] = version);
       done();
+      (version) =>(socket["version"] = version)
       socket.to(roomName).emit("welcome", countRoom(roomName));
-      wsServer.sockets.emit("room_change", socket.nickname, publicRooms());
+      wsServer.sockets.emit("room_change", publicRooms(version));
     });
     socket.on("disconnecting", () => {
       socket.rooms.forEach((room) =>
