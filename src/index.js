@@ -1,8 +1,3 @@
-const io = require('socket.io')(3002)
-
-io.on('connection', socket =>{
-  log(socket.id)
-})
 import express from 'express';
 import { Server } from 'socket.io';
 import { instrument } from '@socket.io/admin-ui';
