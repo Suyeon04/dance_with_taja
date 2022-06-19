@@ -1,9 +1,8 @@
-const socket = io();
-
-const form = document.getElementById("welcome");
-const list = document.getElementById("list");
+import axios from 'axios';
+const form = document.querySelector(".wprtbody");
 const select = document.querySelector("#select");
 const start = document.querySelector(".Startbtn");
+// 방장 닉넴
 const name = document.querySelector(".input-name2");
 
 let version = 0; // 방 버전
@@ -11,57 +10,40 @@ let roomName = 0; // 방 이름
 let count = 1; // 방 번호
 let roomCount = 0;
 
-function handleRoomSubmit(event) {
-  event.preventDefault();
-  console.log(name.value + " "+ version);
-  socket.emit("enter_room", name.value);//emit 마지막 argument는 funciton
-  socket.emit("nickname", name.value);
-  roomName = name.value;
-  name.value = "";
-  showRoom();
-}
+// //방장 방만들기
+// function handleRoomSubmit(event) {
+//   console.log(name.value + " "+ version);
+//   socket.emit("enter_room", name.value, version, showRoom);//emit 마지막 argument는 funciton
+//   socket.emit("nickname", name.value);
+//   roomName = name.value;
+//   name.value = "";
+// }
 
-function showRoom(){
-  location.replace('/charView');
-  localStorage.setItem("roomName",JSON.stringify(roomName));
-  localStorage.setItem("version",JSON.stringify(version));
-}
-//방 생성 누르면 이거 실행
-select.addEventListener("click", createList);
+// function showRoom(){
+//   location.replace('/charView');
+//   localStorage.setItem("roomName",JSON.stringify(roomName));
+//   localStorage.setItem("version",JSON.stringify(version));
+// }
+// socket.on("room_change", (rooms)=>{
+//   const new_list = document.querySelector('.wprtbody');
+//   rooms.forEach((room)=>{
+//     let tr = document.createElement('tr');
+//     tr.innerHTML=`<td class="number">${count}</td>
+//     <td class="NickName">${room.version}</td>
+//     <td class="Language">${room.key}</td>
+//     <td class="Startbtn" id = ${count}><button class="Clickbtn" onclick="addUser()">CLICK</button></td>`;
+//     new_list.append(tr);
+//     count++;
+//     console.log(room.version, room.key)
+//   })
+// });
 
-socket.on("room_change", (rooms, nickname)=>{
-  const roomlist = welcome.querySelector("ul");
-  roomlist.innerHTML= "";
-  count = 0;
-   rooms.forEach((room)=>{
-       if(room.room!=undefined&&room.door==open) {
-         createList();
-       }
-   })
-});
 
-function createList(){ //요소 추가
-  let tagArea = document.getElementById('tagArea');
-  let new_list = document.createElement('tr');
-  new_list.innerHTML = `<td class="number">${count}</td><td class="NickName">${version}</td><td class="Language">${name.value}</td><td class="Startbtn" id = ${count}><button class="Clickbtn">CLICK</button></td>`
-  count++;
-  tagArea.appendChild(new_list);
-}
-
-function addBtnEvent(e) { 
-  if (e.target.dataset.password === 'true') {
-      const password = prompt('비밀번호를 입력하세요');
-      location.href = '/room/' + e.target.dataset.id + '?password=' + password;
-  } else {
-      location.href = '/room/' + e.target.dataset.id;
-  }
-}
-
-start.addEventListener("click", addUser);
-
-function addUser(e){
-  //socket.emit("enter_room", {room: input.value, id : },showRoom);
-}
+// function addUser(e){
+//   socket.emit("nickname", input.value);
+//   //socket.emit("enter_room", {room: input.value, id : },showRoom);
+//   socket.emit("enter_room", name.value, version, showRoom);//emit 마지막 argument는 funciton
+// }
 
 //오디오
 // let musicimg=document.querySelector(".btnimg");
@@ -185,13 +167,6 @@ function windowOnClick2(event) {
   closeButton2.addEventListener("click", toggleModal2);
   cancelButton2.addEventListener("click", toggleModal2);
 //  CLICK 모달창 end
-
-// 버튼 클릭시 이동
-function moveView(){
-  location.href="http://localhost:3000/charView";
-}
-
-
 
 
 

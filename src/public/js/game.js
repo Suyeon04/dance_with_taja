@@ -46,6 +46,8 @@ const x =
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">`;
 
+let startWord = 'start';
+
 let str = x.split('\n');
 let input_text = '';
 
@@ -68,6 +70,11 @@ effect1.hidden=true;
 effect2.hidden=true;
 effect3.hidden=true;
 changeWord();
+function letmeStart(){
+    if(input==startWord){
+        socket.emit('newUserConnect', showRoom)
+    }
+}
 
 function changeWord(){
     // if(order==str.length-1){
