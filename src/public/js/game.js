@@ -1,3 +1,10 @@
+//복사 방지
+window.addEventListener("copy", (e) => {
+    alert("정정당당히 경쟁해라!");
+    e.preventDefault();
+    e.clipboardData.clearData("Text"); // 클립보드에 저장된 컨텐츠 삭제
+});
+
 // 오디오
 let playbtn=document.querySelector("#playbtn");
 let musicimg=document.querySelector(".btnimg");
@@ -44,7 +51,10 @@ const x =
 `<!DOCTYPE html>
 <html lang="en">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">`;
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">`;
 
 let startWord = 'start';
 
@@ -57,18 +67,29 @@ let text = document.querySelector('.word-display'); // 타자미리보기
 let input = document.querySelector('.word-input'); //타자치는곳
 let NowText=document.querySelector('.NowText'); // 현재 타자치는 부분
 let TotalText=document.querySelector('.TotalText');// 타자 총 수
+let endingbtn=document.querySelector('.ending'); // ending 버튼
 /*effect 조명 */
 let effect1=document.querySelector('#b1');
 let effect2=document.querySelector('#b2');
 let effect3=document.querySelector('#b3');
+/*effect 꽃가루 */
+let effect4_1=document.querySelector('#b4_1');
+let effect4_2=document.querySelector('#b4_2');
+/*effect 음표효과 */
+let effect5=document.querySelector('#b5');
 
 let charEls = [];
-let order = 0;
+let order = -1;
 
 TotalText.innerHTML=str.length;
 effect1.hidden=true;
 effect2.hidden=true;
 effect3.hidden=true;
+effect4_1.hidden=true;
+effect4_2.hidden=true;
+effect5.hidden=true;
+// endingbtn.hidden=true;
+
 changeWord();
 function letmeStart(){
     if(input==startWord){
@@ -85,7 +106,12 @@ function changeWord(){
     if(order != str.length){
         populateText(str[order]);
     }else{
-        alert("끝")
+        // alert("끝")
+        effect4_1.hidden=false;
+        effect4_2.hidden=false;
+        effect5.hidden=true;
+        ClapSound.play();
+        endingbtn.hidden=false;
     }
     effect(order)
     NowText.innerHTML=order;
@@ -94,9 +120,13 @@ function effect(order){
     if(order==2){
         effect1.hidden=false;
         ClapSound.play();
-    }else if(order==3){
+    }else if(order==4){
         effect2.hidden=false;
         effect3.hidden=false;
+        ClapSound.play();
+    }else if(order==6){
+        effect1.hidden=true;
+        effect5.hidden=false;
         ClapSound.play();
     }
 }
@@ -180,3 +210,6 @@ input.addEventListener("keyup", () => {
     }
 })
 
+function move(){
+    location.href="http://localhost:3002/ranking";
+}
