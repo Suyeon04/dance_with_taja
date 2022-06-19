@@ -15,6 +15,14 @@ body::before {
     background-repeat: no-repeat;
     background-size: cover;
 }
+/*폰트*/
+@font-face {
+    font-family: 'HS-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/HS-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .namebox{
     position: absolute;
     border-radius: 80px;
@@ -74,7 +82,7 @@ button:disabled{ /* disabled 된 버튼 */
     transition-duration: 1s; /* transition 지속시간 */
 }
 .Mimage{width: 400px; height: 400px;}
-.Mimage:nth-child(1){background-image: url("/img/r1.png");}
+.Mimage:nth-child(1){background-image: url("/img/Group 72.png");}
 .Mimage:nth-child(2){background-image: url("/img/n1.png");}
 .Mimage:nth-child(3){background-image: url("/img/i1.png");}
 .Mimage:nth-child(4){background-image: url("/img/g1.png");}
@@ -91,6 +99,7 @@ button:disabled{ /* disabled 된 버튼 */
     font-size: 30px;
     /* margin-left: %; */
     line-height: 60px;
+    font-family: 'HS-Regular';
 }
 
 #select1{
@@ -118,9 +127,12 @@ button:disabled{ /* disabled 된 버튼 */
 }
 
 .complete{
+    font-family: 'HS-Regular';
     width: 100px; height: 30px; border:none; 
     color: white; background-color: gray; 
     margin-left: 250px;
+    font-size: 20px;
+    line-height: 35px;
 }
 .complete:hover{
     background-color: blueviolet;
@@ -129,7 +141,7 @@ button:disabled{ /* disabled 된 버튼 */
     background-color: blueviolet;
 }
 
-.Start{
+/* .Start{
     border:none;
     color: white; background-color: gray; 
     margin-top: 620px;
@@ -140,12 +152,82 @@ button:disabled{ /* disabled 된 버튼 */
 }
 .Start:hover{
     background-color: blueviolet;
+} */
+.Start{
+    margin-top: 620px;
+    margin-left: 690px;
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+    padding: 0.6em 2em;
+    border: none;
+    outline: none;
+    color: rgb(255, 255, 255);
+    background: rgba(17, 17, 17, 0.481);
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;  
 }
+.Start:before {
+    content: "";
+    background: linear-gradient(
+        45deg,
+        #ff0000,
+        #ff7300,
+        #fffb00,
+        #48ff00,
+        #00ffd5,
+        #002bff,
+        #7a00ff,
+        #ff00c8,
+        #ff0000
+    );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing-Start 20s linear infinite;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 10px;
+  }
 
+@keyframes glowing-Start {
+    0% {
+      background-position: 0 0;
+    }
+    50% {
+      background-position: 400% 0;
+    }
+    100% {
+      background-position: 0 0;
+    }
+  }
+
+.Start:after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(17, 17, 17, 0.481);
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+  }
 .youchar{
     border-radius: 30px;
     border: 3px solid white;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.251);
     width: 600px;
     height: 400px;
     z-index: 1;

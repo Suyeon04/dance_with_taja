@@ -64,9 +64,8 @@ function addUser(e){
 }
 
 //오디오
-let playbtn=document.querySelector("#playbtn");
-let musicimg=document.querySelector(".btnimg");
-let musicbtn=document.querySelector("#musicbtn");
+// let musicimg=document.querySelector(".btnimg");
+
 let cnt=1;
 let ClickSound=new Audio("/audio/clicksound.wav");
 let audio=new Audio();
@@ -80,11 +79,11 @@ function MusicPlay(){
   audio.volume=0.02;
   ClickSound.volume=0.1;
   if(cnt%2==1){
-    musicimg.src="../img/play.png"; //시작
+    //musicimg.src="../img/play.png"; //시작
     audio.play();
     ++cnt;
   }else if(cnt%2==0){
-    musicimg.src="../img/pause.png"; //멈춤
+    //musicimg.src="../img/pause.png"; //멈춤
     audio.pause()
     ++cnt; 
   }

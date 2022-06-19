@@ -15,13 +15,13 @@ function MusicPlay(){
   audio.volume=0.02;
   ClickSound.volume=0.1;
   if(cnt%2==1){
-    musicimg.src="../img/play.png"; //시작
-    audio.play();
-    ++cnt;
-  }else if(cnt%2==0){
     musicimg.src="../img/pause.png"; //멈춤
     audio.pause()
     ++cnt; 
+  }else if(cnt%2==0){
+    musicimg.src="../img/play.png"; //시작
+    audio.play();
+    ++cnt;
   }
 }
 function MusicSelect(){
@@ -55,8 +55,9 @@ let input = document.querySelector('.word-input'); //타자치는곳
 let NowText=document.querySelector('.NowText'); // 현재 타자치는 부분
 let TotalText=document.querySelector('.TotalText');// 타자 총 수
 /*effect 조명 */
-let effect1=document.querySelector('#effect1');
-let effect2=document.querySelector('#effect2');
+let effect1=document.querySelector('#b1');
+let effect2=document.querySelector('#b2');
+let effect3=document.querySelector('#b3');
 
 let charEls = [];
 let order = 0;
@@ -64,6 +65,7 @@ let order = 0;
 TotalText.innerHTML=str.length;
 effect1.hidden=true;
 effect2.hidden=true;
+effect3.hidden=true;
 changeWord();
 
 function changeWord(){
@@ -83,8 +85,9 @@ function changeWord(){
 function effect(order){
     if(order==2){
         effect1.hidden=false;
-    }else if(order==4){
+    }else if(order==3){
         effect2.hidden=false;
+        effect3.hidden=false;
     }
 }
 function populateText(str){
@@ -130,7 +133,7 @@ input.addEventListener("keyup", () => {
 
                 $(function(){
                     start=true;
-                    $("#out2").animate({opacity:0, top:'-35px'},1500); // 타자를 친 후 애니메이션
+                    $("#out2").animate({opacity:0, top:'-25px'},1500); // 타자를 친 후 애니메이션
                     /*!! input이 사라지는게 아니라 하나의 input을 가지고 사라지는 효과만 내줌 !! */
                     removeCorrectCharacter(); // 친 글자 사라지기
                 })
@@ -157,7 +160,7 @@ input.addEventListener("keyup", () => {
                 // }
 
                 $(function(){
-                    $("#out2").animate({opacity:100, top:'40px'}); // input 나타나는 애니메이션
+                    $("#out2").animate({opacity:100, top:'70px'}); // input 나타나는 애니메이션
                     start=true;
                     input.value=null; // input 나타난 후 썼던 글자 지워주기
                 })

@@ -5,12 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/game.css"/>
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="../img/logo.png">
     <title>게임실행화면</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 </head>
 <body>
     <div>
-        <button style="width: 50px; height: 50px;" class="btn" id="playbtn" onclick="MusicPlay()"><img class="btnimg" src="../img/pause.png"/></button>
+        <button style="width: 50px; height: 50px;" class="btn" id="playbtn" onclick="MusicPlay()"><img class="btnimg" src="../img/play.png"/></button>
         <button style="width: 50px; height: 50px;" class="btn" id="musicbtn" onclick="MusicSelect()"><img src="../img/music.png"/></button>
     </div>
     <div class="box" id="out1">
@@ -24,13 +25,28 @@
     </div>
 
     <p class="state"><span class="NowText">1</span><span>/</span><span class="TotalText">4</span></p>
+    
     <div class="effect">
-        <img src="/img/핀조명.png" id="effect1">
-        <img src="/img/핀조명.png" id="effect2">
-    </div>
+        <div class="bulb-holder" id="b1">
+            <div class="bulb">
+                <div class="light"></div>
+            </div>
+        </div>
+        <div class="bulb-holder" id="b2">
+            <div class="bulb">
+                <div class="light"></div>
+            </div>
+        </div>
+        <div class="bulb-holder" id="b3">
+            <div class="bulb">
+                <div class="light"></div>
+            </div>
+        </div>
+    </div>    
+        
     <div class="Characters">
-        <img src="/img/ygx/ygx1.png" id="mychar">
-        <img src="/img/wavy/wavy1.png" id="youchar">
+        <img src="/img/r1.png" id="mychar">
+        <img src="/img/n1.png" id="youchar">
         <!-- <span>1/4</span> -->
     </div>
 </body>
