@@ -1,6 +1,7 @@
 body{
     background-image: url("/img/배경.jpg");
     background-size: cover;
+    background-repeat: no-repeat;
 }
 /*폰트*/
 @font-face {
@@ -23,8 +24,37 @@ body{
     border-radius: 200px;
     width: 1000px;
     height: 60px;
-    top: 20px;
+    top: 50px;
     z-index: 1;
+}
+
+#out2{
+    /*타자input*/
+    border-radius: 200px;
+    width: 1000px;
+    height: 60px;
+    top: 70px;
+    right: 3px;
+    z-index: 2;
+}
+
+.word-display{
+    color: gray;
+    font-size: 18px;
+    line-height: 55px;
+    margin-left: 38px;
+    letter-spacing: 1px; /*글자자간*/
+}
+.word-input{
+    font-family: 'EliceDigitalBaeum_Bold';
+    font-size: 18px;
+    margin-left: 40px;
+    margin-top: 9px;
+    width: 900px;
+    height: 40px;
+    outline: none;
+    border: none;
+    letter-spacing: 1px; /*글자자간*/
 }
 
 /*음악버튼*/
@@ -49,34 +79,6 @@ body{
     padding-right: 5px;
 }
 
-#out2{
-    /*타자input*/
-    border-radius: 200px;
-    width: 1000px;
-    height: 60px;
-    top: 40px;
-    right: 3px;
-    z-index: 2;
-}
-
-.word-display{
-    color: gray;
-    font-size: 18px;
-    line-height: 55px;
-    margin-left: 38px;
-    letter-spacing: 1px; /*글자자간*/
-}
-.word-input{
-    font-family: 'EliceDigitalBaeum_Bold';
-    font-size: 18px;
-    margin-left: 40px;
-    margin-top: 9px;
-    width: 900px;
-    height: 40px;
-    outline: none;
-    border: none;
-    letter-spacing: 1px; /*글자자간*/
-}
 
 /*span 속성*/
 .correct{
@@ -92,33 +94,135 @@ body{
 /*상태*/
 .state{
     position: absolute;
-    left: 310px;
-    top: 140px;
+    left: 300px;
+    top: -15px;
     color: #FFFFFF;
     font-size: 30px;
 }
 /*효과(조명)*/
-#effect1{
+.bulb-holder{
+    width: 50px;
+    height: 40px;
+    background: black;
     position: absolute;
-    left: 550px;
-    bottom: 100px;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    transform: translate(510px,250px);/*(방향, 높이)*/
+    z-index: 1;
 }
+.bulb{
+    width: 50px;
+    height: 20px;
+    background: #fff;
+    border-radius: 60%;
+    transform: translate(0px,35px);
+    animation: light 2000ms infinite cubic-bezier(1, -0.45, 0, 1.89);
+}
+#b2{
+    transform: translate(420px,300px);/*(방향, 높이)*/
+}
+#b3{
+    transform: translate(600px,300px);/*(방향, 높이)*/
+}
+@keyframes light{
+    10%{
+        box-shadow: 0 1px 10px yellow,
+                0 2px 20px yellow,
+                10px 20px 30px yellow,            
+                -10px 20px 30px yellow,            
+                30px 50px 50px yellow,          
+                -30px 50px 50px yellow;
+
+    }
+    20%{
+        box-shadow: none;
+    }
+    30%{
+        box-shadow: 0 1px 10px lightcoral,
+                0 2px 20px lightcoral,
+                10px 20px 30px lightcoral,            
+                -10px 20px 30px lightcoral,            
+                30px 50px 50px lightcoral,          
+                -30px 50px 50px lightcoral;
+
+    }
+    40%{
+        box-shadow: none;
+    }
+    50%{
+        box-shadow: 0 1px 10px aqua,
+                0 2px 20px aqua,
+                10px 20px 30px aqua,            
+                -10px 20px 30px aqua,            
+                30px 50px 50px aqua,          
+                -30px 50px 50px aqua;
+
+    }
+    60%{
+        box-shadow: none;
+    }
+    70%{
+        box-shadow: 0 1px 10px purple,
+                0 2px 20px purple,
+                10px 20px 30px purple,            
+                -10px 20px 30px purple,            
+                30px 50px 50px purple,          
+                -30px 50px 50px purple;
+
+    }
+    80%{
+        box-shadow: 0 1px 10px tomato,
+        0 2px 20px tomato,
+        10px 20px 30px tomato,            
+        -10px 20px 30px tomato,            
+        30px 50px 50px tomato,          
+        -30px 50px 50px tomato;
+    } 
+    90%{
+        box-shadow: 0 1px 10px yellow,
+        0 2px 20px yellow,
+        10px 20px 30px yellow,            
+        -10px 20px 30px yellow,            
+        30px 50px 50px yellow,          
+        -30px 50px 50px yellow,
+        40px 60px 100px yellow,          
+        -40px 60px 100px yellow,
+        70px 70px 100px yellow,          
+        -70px 70px 100px yellow;
+    }
+    100%{
+        box-shadow: 0 1px 10px yellow,
+        0 2px 20px yellow,
+        10px 20px 30px yellow,            
+        -10px 20px 30px yellow,            
+        30px 50px 50px yellow,          
+        -30px 50px 50px yellow,
+        40px 60px 100px yellow,          
+        -40px 60px 100px yellow,
+        70px 70px 100px yellow,          
+        -70px 70px 100px yellow;
+    }
+}
+
 #effect2{
     position: absolute;
     transform: scaleX(-1);
     left: 470px;
     bottom: 100px;
 }
+
 /*캐릭터*/
 #mychar{
-    width: 350px;
-    height: 280px;
-    margin-left: 430px;
-    margin-top: 300px;
+    position: absolute;
+    width: 450px;
+    height: 360px;
+    margin-left: 310px;
+    margin-top: 250px;
 }
 #youchar{
-    width: 350px;
-    height: 280px;
-    margin-top: 90px;
-    margin-right: 350px;
+    position: absolute;
+    width: 450px;
+    height: 360px;
+    margin-left: 750px;
+    margin-top: 250px;
 }
