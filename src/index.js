@@ -6,12 +6,15 @@ var serviceAccount = require("./firebasekey.json");
 import express from 'express';
 import { Server } from 'socket.io';
 import http from "http";
+import bodyParser from 'body-parser'
 
 import path from 'path';
 const __dirname = path.resolve();
 
 const app = express();
 const router = express.Router();
+
+app.use(bodyParser.json())
 
 
 app.set("view engine", "ejs");
@@ -84,6 +87,7 @@ app.post("/list/make", async (req, res) => {
     data = false;
   }
   res.send(data);
+  
 })
 
 // const httpServer = http.createServer(app);
@@ -139,7 +143,26 @@ app.post("/list/make", async (req, res) => {
 
 //   });
 
-const handleListen = () => console.log(`Listening on http://localhost:3000`);
+ 
+  
+  // let data = true;
+  // let version = req.body.version || req.query.version;
+  // let nickname = req.body.nickname || req.query.nickname;
+  // const doc = db.collection("list").doc(nickname);
+  // const firebase = await doc.get()
+  // if (!firebase.exists) {
+  //   data = true;
+  //   let list={
+  //     version: version,
+  //     fighter: ""
+  //   }
+  //   await db.doc.set(list);
+  // } else {
+  //   data = false;
+  // }
+  // res.send(data);
+
+  //const paramCode  = req.body.barcode || req.query.barcode;
+
+const handleListen = () => console.log(`Listening on http://localhost:3002`);
 httpServer.listen(3002, handleListen);
-
-

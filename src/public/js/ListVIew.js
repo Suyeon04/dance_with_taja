@@ -1,40 +1,66 @@
 import axios from 'axios';
 const form = document.querySelector(".wprtbody");
+// const socket = io();
+const list = document.getElementById("list");
 const select = document.querySelector("#select");
 const start = document.querySelector(".Startbtn");
-// 방장 닉넴
-const name = document.querySelector(".input-name2");
+const name = document.querySelector(".input-name2");  // 방장 닉넴
 
-let version = 0; // 방 버전
-let roomName = 0; // 방 이름
-let count = 1; // 방 번호
+
+let version = 0;    // 방 버전
+let roomName = 0;   // 방 이름
+let count = 1;      // 방 번호
 let roomCount = 0;
 
-// //방장 방만들기
-// function handleRoomSubmit(event) {
-//   console.log(name.value + " "+ version);
-//   socket.emit("enter_room", name.value, version, showRoom);//emit 마지막 argument는 funciton
-//   socket.emit("nickname", name.value);
-//   roomName = name.value;
-//   name.value = "";
-// }
+// 방장 방만들기
+function handleRoomSubmit(event) {
+  // socket.emit("enter_room", name.value, version, showRoom);//emit 마지막 argument는 funciton
+  // socket.emit("nickname", name.value);
+
+  roomName = name.value;
+  console.log(roomName + " "+ version);
+
+  var inputdata = {version:version, roomName:roomName};
+
+  sendAjax('http://localhost:3002/list/make', inputdata)
+
+}
+
+//ajax 보내는 부분 : async api
+async function sendAjax(url, data){
+
+  var dataInfo = {
+      method : "POST",  //메소드 반드시 지정해줘야 app.js 파일에서 찾을수 있음.
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      }
+  };
+
+  const reqURL = await fetch(url,dataInfo);  
+  const result = await reqURL.json(); //JSON값 받아오기
+ 
+  console.log(result.test)
+}
+
+
 
 // function showRoom(){
 //   location.replace('/charView');
 //   localStorage.setItem("roomName",JSON.stringify(roomName));
 //   localStorage.setItem("version",JSON.stringify(version));
 // }
-// socket.on("room_change", (rooms)=>{
-//   const new_list = document.querySelector('.wprtbody');
+// socket.on("room_change", (nickname, rooms)=>{
+//   const new_list = form.querySelector('.gamelist');
 //   rooms.forEach((room)=>{
-//     let tr = document.createElement('tr');
-//     tr.innerHTML=`<td class="number">${count}</td>
-//     <td class="NickName">${room.version}</td>
-//     <td class="Language">${room.key}</td>
+//     const tr = document.createElement("tr");
+//     tr.innerText=`<td class="number">${count}</td>
+//     <td class="NickName">${nickname}</td>
+//     <td class="Language">${room}</td>
 //     <td class="Startbtn" id = ${count}><button class="Clickbtn" onclick="addUser()">CLICK</button></td>`;
-//     new_list.append(tr);
+//     new_list.append(new_list);
 //     count++;
-//     console.log(room.version, room.key)
+//     console.log("hsidfhisd")
 //   })
 // });
 
@@ -42,7 +68,6 @@ let roomCount = 0;
 // function addUser(e){
 //   socket.emit("nickname", input.value);
 //   //socket.emit("enter_room", {room: input.value, id : },showRoom);
-//   socket.emit("enter_room", name.value, version, showRoom);//emit 마지막 argument는 funciton
 // }
 
 //오디오
@@ -125,7 +150,7 @@ window.onload=()=>{
     showMenu=(value, v)=>{
       var dropbtn_content = document.querySelector('.dropbtn_content');
       var dropbtn = document.querySelector('.dropbtn');
-      version = value;
+      version = v;
       dropbtn_content.innerText = value;
       dropbtn_content.style.color = '#252525';
       dropbtn.style.borderColor = '#3992a8';
