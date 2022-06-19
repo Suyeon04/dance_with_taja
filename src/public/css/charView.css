@@ -82,7 +82,7 @@ button:disabled{ /* disabled 된 버튼 */
     transition-duration: 1s; /* transition 지속시간 */
 }
 .Mimage{width: 400px; height: 400px;}
-.Mimage:nth-child(1){background-image: url("/img/Group 72.png");}
+.Mimage:nth-child(1){background-image: url("/img/r1.png");}
 .Mimage:nth-child(2){background-image: url("/img/n1.png");}
 .Mimage:nth-child(3){background-image: url("/img/i1.png");}
 .Mimage:nth-child(4){background-image: url("/img/g1.png");}

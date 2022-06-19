@@ -4,12 +4,13 @@ let musicimg=document.querySelector(".btnimg");
 let musicbtn=document.querySelector("#musicbtn");
 let cnt=1;
 let ClickSound=new Audio("/audio/clicksound.wav");
+let ClapSound=new Audio("/audio/박수소리.wav");
 let audio=new Audio();
 audio.src="/audio/Music4.mp3";
 audio.autoplay=true;
 audio.volume=0.02;
 ClickSound.volume=0.1;
-
+ClapSound.volume=0.1;
 function MusicPlay(){
   ClickSound.play();
   audio.volume=0.02;
@@ -85,9 +86,11 @@ function changeWord(){
 function effect(order){
     if(order==2){
         effect1.hidden=false;
+        ClapSound.play();
     }else if(order==3){
         effect2.hidden=false;
         effect3.hidden=false;
+        ClapSound.play();
     }
 }
 function populateText(str){
