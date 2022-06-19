@@ -13,39 +13,39 @@ let roomName = 0; // 방 이름
 let count = 1; // 방 번호
 let roomCount = 0;
 
-//방장 방만들기
-function handleRoomSubmit(event) {
-  console.log(name.value + " "+ version);
-  socket.emit("enter_room", name.value, version, showRoom);//emit 마지막 argument는 funciton
-  socket.emit("nickname", name.value);
-  roomName = name.value;
-  name.value = "";
-}
+// 방장 방만들기
+// function handleRoomSubmit(event) {
+//   console.log(name.value + " "+ version);
+//   socket.emit("enter_room", name.value, version, showRoom);//emit 마지막 argument는 funciton
+//   socket.emit("nickname", name.value);
+//   roomName = name.value;
+//   name.value = "";
+// }
 
-function showRoom(){
-  location.replace('/charView');
-  localStorage.setItem("roomName",JSON.stringify(roomName));
-  localStorage.setItem("version",JSON.stringify(version));
-}
-socket.on("room_change", (nickname, rooms)=>{
-  const new_list = form.querySelector('.gamelist');
-  rooms.forEach((room)=>{
-    const tr = document.createElement("tr");
-    tr.innerText=`<td class="number">${count}</td>
-    <td class="NickName">${nickname}</td>
-    <td class="Language">${room}</td>
-    <td class="Startbtn" id = ${count}><button class="Clickbtn" onclick="addUser()">CLICK</button></td>`;
-    new_list.append(new_list);
-    count++;
-    console.log("hsidfhisd")
-  })
-});
+// function showRoom(){
+//   location.replace('/charView');
+//   localStorage.setItem("roomName",JSON.stringify(roomName));
+//   localStorage.setItem("version",JSON.stringify(version));
+// }
+// socket.on("room_change", (nickname, rooms)=>{
+//   const new_list = form.querySelector('.gamelist');
+//   rooms.forEach((room)=>{
+//     const tr = document.createElement("tr");
+//     tr.innerText=`<td class="number">${count}</td>
+//     <td class="NickName">${nickname}</td>
+//     <td class="Language">${room}</td>
+//     <td class="Startbtn" id = ${count}><button class="Clickbtn" onclick="addUser()">CLICK</button></td>`;
+//     new_list.append(new_list);
+//     count++;
+//     console.log("hsidfhisd")
+//   })
+// });
 
 
-function addUser(e){
-  socket.emit("nickname", input.value);
-  //socket.emit("enter_room", {room: input.value, id : },showRoom);
-}
+// function addUser(e){
+//   socket.emit("nickname", input.value);
+//   //socket.emit("enter_room", {room: input.value, id : },showRoom);
+// }
 
 //오디오
 // let musicimg=document.querySelector(".btnimg");
