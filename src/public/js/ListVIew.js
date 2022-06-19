@@ -1,4 +1,4 @@
-const socket = io();
+// const socket = io();
 
 const form = document.querySelector(".welcome");
 const list = document.getElementById("list");
@@ -14,13 +14,13 @@ let count = 1; // 방 번호
 let roomCount = 0;
 
 // 방장 방만들기
-// function handleRoomSubmit(event) {
-//   console.log(name.value + " "+ version);
-//   socket.emit("enter_room", name.value, version, showRoom);//emit 마지막 argument는 funciton
-//   socket.emit("nickname", name.value);
-//   roomName = name.value;
-//   name.value = "";
-// }
+function handleRoomSubmit(event) {
+  console.log(name.value + " "+ version);
+  // socket.emit("enter_room", name.value, version, showRoom);//emit 마지막 argument는 funciton
+  // socket.emit("nickname", name.value);
+  roomName = name.value;
+  name.value = "";
+}
 
 // function showRoom(){
 //   location.replace('/charView');

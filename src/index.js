@@ -69,7 +69,7 @@ app.post("/list/join", async (req, res) => {
 
 //방 만들기
 app.post("/list/make", async (req, res) => {
-  // console.log('/list/make 호출됨.');
+  console.log('/list/make 호출됨.');
   // let data = true;
   // let version = req.body.version || req.query.version;
   // let nickname = req.body.nickname || req.query.nickname;
