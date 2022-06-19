@@ -11,12 +11,13 @@
 
 <body>
     <div class="container">
+        <form action="/form" method="post">    
         <header>
             <span class="maintitle">Street TAJA Fighter</span>
             <button class="trigger">+</button>
             <!-- <button style="width: 50px; height: 50px;" class="btn" id="playbtn" onclick="MusicPlay()"><img class="btnimg" src="../img/pause.png"/></button>
             <button style="width: 50px; height: 50px;" class="btn" id="musicbtn" onclick="MusicSelect()"><img src="../img/music.png"/></button> -->
-                <!--모달창-->
+            <!--모달창-->
                 <div class="modal">
                     <div class="modal-content">
                         <span class="close-button">&times;</span>
@@ -32,12 +33,11 @@
                                     <img src="../img/arrow.png" class="dropbtn_click" style="width: 25px; height: 25px; float:right;" onclick="dropdown()"/>
                                 </button>
                                 <div class="dropdown-content">
-                                    <div class="code" onclick="showMenu(this.innerText, 0)">사칙연산 - JAVA</div>
-                                    <div class="code
-                                    " onclick="showMenu(this.innerText, 1)">역참조 배제하기 - JS</div>
-                                    <div class="code" onclick="showMenu(this.innerText, 2)">양의 정수 - JS</div>
-                                    <div class="code" onclick="showMenu(this.innerText, 3)">스크롤 만들기 - Android</div>
-                                    <div class="code" onclick="showMenu(this.innerText, 4)">파일 업로드 - PHP</div>
+                                    <div class="code" id="code1" onclick="showMenu(this.innerText, 0)">사칙연산 - JAVA</div>
+                                    <div class="code" id="code2" onclick="showMenu(this.innerText, 1)">역참조 배제하기 - JS</div>
+                                    <div class="code" id="code3" onclick="showMenu(this.innerText, 2)">양의 정수 - JS</div>
+                                    <div class="code" id="code4" onclick="showMenu(this.innerText, 3)">스크롤 만들기 - Android</div>
+                                    <div class="code" id="code5" onclick="showMenu(this.innerText, 4)">파일 업로드 - PHP</div>
                                 </div>
                             </div>
                             <!--방이름-->
@@ -47,7 +47,7 @@
                             </div> -->
                             <div class="title2">닉네임</div>
                             <div class="input-box2">
-                                <input type="text" class="input-name2"/>
+                                <input type="text" id="roomName" class="input-name2"/>
                             </div>
                         <div class="modal-btn">
                             <button id="select" type = "submit" onclick="handleRoomSubmit()">생성</button>
@@ -93,6 +93,7 @@
             </table>
             <img src="../img/logo.png" class="logo"/>
         </div>
+        </form>
     </div>
 </body>
 <script src = "/socket.io/socket.io.js"></script>

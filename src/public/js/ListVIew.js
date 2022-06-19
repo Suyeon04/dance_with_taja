@@ -10,6 +10,10 @@ let roomName = 0; // 방 이름
 let count = 1; // 방 번호
 let roomCount = 0;
 
+function handleRoomSubmit() {
+  roomName=document.body.querySelector("#roomName").value;
+}
+
 // //방장 방만들기
 // function handleRoomSubmit(event) {
 //   console.log(name.value + " "+ version);
@@ -45,6 +49,27 @@ let roomCount = 0;
 //   socket.emit("enter_room", name.value, version, showRoom);//emit 마지막 argument는 funciton
 // }
 
+let timerId = setInterval(() => {
+  let inputdata = document.body.querySelector('.아이디').value();
+  console.log(inputdata);
+  sendAjax('http://localhost:3002/list',inputdata)
+}, 2000);
+
+function sendAjax(url, data){
+  let data = {'email' : data};  //보내는 데이터
+  data = JSON.stringify(data);  //문자열로 보내야 에러안남
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', url);    //보내는 방식 설정
+  xhr.setRequestHeader('Content-Type', "application/json"); //서버로 보낼때 어떤 타입인지 명시
+  xhr.send(data);  
+
+  //ajax보내고 받아오는 부분.
+  xhr.addEventListener('load', function(){
+    var result = JSON.parse(xhr.responseText);  //받아온 자료 파싱.
+    if(result.result1 !== "ok") return;
+    document.querySelector('.ajaxresult').innerHTML=result.email;
+  })
+}
 //오디오
 // let musicimg=document.querySelector(".btnimg");
 
@@ -129,6 +154,7 @@ window.onload=()=>{
       dropbtn_content.innerText = value;
       dropbtn_content.style.color = '#252525';
       dropbtn.style.borderColor = '#3992a8';
+      version=v;
     }
   }
   window.onclick= (e)=>{
