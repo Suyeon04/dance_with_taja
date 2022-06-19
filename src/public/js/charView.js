@@ -9,6 +9,7 @@ audio.src="/audio/Music4.mp3";
 audio.autoplay=true;
 audio.volume=0.02;
 ClickSound.volume=0.1;
+audio.pause()
 
 function MusicPlay(){
   ClickSound.play();
