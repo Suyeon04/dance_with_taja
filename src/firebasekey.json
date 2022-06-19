@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "street-taja-fighter",
+  "private_key_id": "951a0a12cc70df66a2a14e14e19a56b87a9960ac",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDFXLjddqVY/NOC\nWtNXeIFcwXs58PTIpp8MDQzCfA2+GDNsm1NFCf7lT2F2hPwKKJ7pMJEP/a3DPflt\nUK4nOjcvCzLo5ai4k7/FGL6it3/GWVUKiebWZ8I5Vy4baYy0Ae0gwyfmdYmoQ9l9\nPDZxblSRo0SWR27FNgGmuDFnfdn7i9iRUsL9HeSwzJ5fMc9bNJs2vkY+umakOIqK\nmteQjaLsxtqn75xeZsC0pC3Qnu44igtX9W7ggYDmqhbmmKznpYnLhXbdDQxNN6AR\nj8K9QcMpwnasXevrXa4OlKjPCPijQ9F4wl2lvOqfgCVk7/DK8U89KBlMXNHj1OCp\nm6mdsEuxAgMBAAECggEAX73t3l2Os98eehe2e7H1S3p+3WpTTT1rXYy9GmHUxtl1\npOOq3wyMz1AVb0nu/Lyc7nHFhXTiRRs883dWrKf0mkk7/rheg4AFYUdyP3x2K1It\ny4l/ZpZ6JZfxwZGQFMj0cFbL9eQiDfMwQC0kGh3UP7xs6twnU9sxrN+g89wdEYX5\nJxrIrGGNBY+57dvtg1U9A8UBv0dAOHKffqO54l7zLy+3M+FBvJZWp2ezNX656Wrw\nrd4WQXqCWqkBzS14gZA8/tbredeHSxzX/JEhGdRvCl5jbi757U189mJgAnGxESiX\nDY1gQwD1GEQ/kOTezLGTA8fVUytyqyXEYfWtDB3LOwKBgQDowWxJ/zYYXp62Q/Th\nkX45rpL44KSmVAouDwGk54l/tjlABW5gWWouwOjmic5SQztap/e+HlE4AM+22FWF\nIbbOB7cdfuwT7vigcfbUfpCg8x4Av/26WYsJvDC2N3Z+EtQIkInLFyb+48hU1BAy\n35plxUhNGHsF1ftBw9WyeCvUiwKBgQDZEnC07mEFXbM2DRdnDVtnfphK9i3hM2yD\nQplb1qU2raBFHIhMoOB5WLk9hAlQS2DxmyAkD8swyL3KSHYnD25ifUX7eQXs/T52\nVoKydzCkONhkF1S/G/OANnRe9+EKQ+Uj3BhM+5hAS7qmgxfYF64WbMiUCNAD2/R+\npYhC4RlcMwKBgA0ELBsjQ5IvUG7e9AXdThLJuXxji7Glh4A15KClNiJHPYJgC2El\n/vMoZJ3n3PrquZoDRK6EIYShPvx5sqakUQXKlqn2nBstRQgr92LAxTPLBMWD9xuB\nwG3F8W9vQJgiU2s7MgmCfPLKKDzeMx21NXw1gSqWkOKtqcRuwDef0surAoGAGLL5\ncgzhqzujJZZNwGMLsHX+HCFwzPwN782HJ6T/vX36C4MYmyd/Ay+uPCqm6KT7DeKp\nwJCvfQiKV9bw4rblx30blmaJ3xJdphdn3aikNztkm9bvxKMIjOElUpz/1SwuiWsE\ntNW32DEFtuaZsvPW0iRkmjt6d8XyRurM21dDjHMCgYAJt0/hsPHsVJXFaxHZDbl5\nmAvq7A1e5IN/GqBpY2CRf0zXPyQFfn/FAzQK7IKYXMk0TW8rxsPmtrChGEa+zA+0\nISoKw2lsnmAZh7U/UGbzPNlaqQiYHTj91u8dOeyHONEk69ldjUzaxazAN12Fc/uT\nXMPCG+VnzcKgj9ytfqmKeA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-vcxkj@street-taja-fighter.iam.gserviceaccount.com",
+  "client_id": "114409926134217201070",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-vcxkj%40street-taja-fighter.iam.gserviceaccount.com"
+}

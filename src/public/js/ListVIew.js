@@ -1,6 +1,6 @@
 const socket = io();
 
-const form = document.querySelector(".welcome");
+const form = document.getElementById("welcome");
 const list = document.getElementById("list");
 const select = document.querySelector("#select");
 const start = document.querySelector(".Startbtn");
@@ -13,10 +13,10 @@ let roomName = 0; // 방 이름
 let count = 1; // 방 번호
 let roomCount = 0;
 
-//방장 방만들기
+//방 들어간 사람 처리
 function handleRoomSubmit(event) {
   console.log(name.value + " "+ version);
-  socket.emit("enter_room", name.value, version, showRoom);//emit 마지막 argument는 funciton
+  socket.emit("enter_room", name.value, showRoom);//emit 마지막 argument는 funciton
   socket.emit("nickname", name.value);
   roomName = name.value;
   name.value = "";
@@ -28,16 +28,16 @@ function showRoom(){
   localStorage.setItem("version",JSON.stringify(version));
 }
 socket.on("room_change", (nickname, rooms)=>{
-  const new_list = form.querySelector('.gamelist');
+  let new_list = form.querySelector('.sd');
   rooms.forEach((room)=>{
-    const tr = document.createElement("tr");
-    tr.innerText=`<td class="number">${count}</td>
+    new_list.innerHTML = "";
+    `<td class="number">${count}</td>
     <td class="NickName">${nickname}</td>
     <td class="Language">${room}</td>
-    <td class="Startbtn" id = ${count}><button class="Clickbtn" onclick="addUser()">CLICK</button></td>`;
-    new_list.append(new_list);
+    <td class="Startbtn" id = ${count}><button class="Clickbtn" onclick="addUser()">CLICK</button></td>`
     count++;
     console.log("hsidfhisd")
+    tagArea.appendChild(new_list);
   })
 });
 
