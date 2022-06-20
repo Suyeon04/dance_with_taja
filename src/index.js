@@ -26,11 +26,12 @@ const httpServer = http.createServer(app);
 app.set("view engine", "ejs");
 app.set("views", "src/public/html");
 app.use(express.static(`${__dirname}/public`));
-app.get("/", (req, res) => res.render("home/ListView"));
+app.get("/", (req, res) => res.render("home/index"));
 app.get("/charView", (req, res) => res.render("home/charView"));
 //src\public\html\home\charView.ejs
 app.get("/game", (req, res) => res.render("home/game"));
 app.get("/ranking", (req, res) => res.render("home/ranking"));
+app.get("/ListView", (req, res) => res.render("home/ListView"));
 
 let count = 2;
 
@@ -96,58 +97,17 @@ app.post("/list/make", async (req, res) => {
   res.send(data);
 })
 
-// 
-// const wsServer = new Server(httpServer,{
-//     cors: {
-//         origin: ["https://admin.socket.io"],
-//         credentials: true
-//     }
-// });
 
-// function publicRooms(version) {
-//     const {
-//       sockets: {
-//         adapter: { sids, rooms },
-//       },
-//     } = wsServer;
-//     const publicRooms = [];
-//     const hey = [];
-//     rooms.forEach((_, key) => {
-//       if (sids.get(key) === undefined) {
-//         publicRooms.push(key);
-//         hey.push({key:key, version : version});
-//       }
-//     });
-//     return hey;
-//   }
 
-// function countRoom(roomName) {
-//     return wsServer.sockets.adapter.rooms.get(roomName)?.size;
-// }
+const io = require("socket.io")(3000,{
+  cors:{
+    origin : ["http:/localhost:3002"]
+  }
+})
 
-// wsServer.on("connection", (socket) => {
-//     socket["nickname"] = "Anon";
-//     socket.onAny((event) => {
-//       console.log(`Socket Event: ${event}`);
-//     });
-//     socket.on("enter_room", (roomName, version, done) => {
-//       socket.join(roomName);
-//       done();
-//       (version) =>(socket["version"] = version)
-//       socket.to(roomName).emit("welcome", countRoom(roomName));
-//       wsServer.sockets.emit("room_change", publicRooms(version));
-//     });
-//     socket.on("disconnecting", () => {
-//       socket.rooms.forEach((room) =>
-//         socket.to(room).emit("bye", socket.nickname)
-//       );
-//     });
-//     socket.on("disconnect", () => {
-//         wsServer.sockets.emit("room_change", socket.nickname, publicRooms());
-//     });
-//     socket.on("nickname", (nickname) => (socket["nickname"] = nickname))
-
-//   });
+io.on("connection", (socket) => {
+  console.log(socket.id);
+});
 
  
   
