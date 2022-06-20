@@ -59,10 +59,12 @@ app.post("/list", async (req, res) => {
 //기존 방 들어가기
 app.post("/list/join", async (req, res) => {
   console.log('/list/join 호출됨.');
+  const paramVersion = req.body.version;
+  const paramNickName = req.body.roomName;
+  const paramRoomName = req.body.nickName;
+  console.log(paramRoomName+ " "+paramNickName)
   let data = true;
-  let roomName = req.body.roomName;
-  let nickname = req.body.nickname;
-  const doc = db.collection("list").doc(roomName);
+  const doc = db.collection("list").doc(paramRoomName);
   const firebase = await doc.get()
   if (!firebase.exists) {
     data = false;
@@ -70,36 +72,12 @@ app.post("/list/join", async (req, res) => {
   } else {
     if (firebase.data().fighter == "") {
       data = true;
-      await doc.update({ fighter: nickname });
+      await doc.update({ fighter: paramNickName });
     } else {
       data = false;
     }
   }
   res.send(data);
-
-  const paramVersion = req.body.version;
-  const paramRoomName = req.body.roomName;
-  const paramNickName = req.body.nickName;
-  
-  console.log(paramVersion, paramRoomName, paramNickName)
-
-  // let data = true;
-  // let roomName = req.body.roomName || req.query.roomName;
-  // let nickname = req.body.nickname || req.query.nickname;
-  // const doc = db.collection("list").doc(roomName);
-  // const firebase = await doc.get()
-  // if (!firebase.exists) {
-  //   data = false;
-  //   console.log('No such document!');
-  // } else {
-  //   if(firebase.data().fighter==""){
-  //     data = true;
-  //     await doc.update({fighter: nickname});
-  //   }else{
-  //     data = false;
-  //   }
-  // }
-  // res.send(data);
 })
 
 //방 만들기
@@ -124,17 +102,16 @@ app.post("/list/make", async (req, res) => {
   res.send(data);
 })
 
-
-
-const io = require("socket.io")(3000, {
-  cors: {
-    origin: ["http:/localhost:3002"]
-  }
-})
-
+// const io = require("socket.io")(3000, {
+//   cors: {
+//     origin: ["http:/localhost:3002"]
+//   }
+// })
+const io = require("socket.io")(3000)
 io.on("connection", (socket) => {
   console.log(socket.id);
 });
+
 
 
 

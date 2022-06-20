@@ -69,7 +69,7 @@ async function roomList() {
     td2.className ='Language'
 
     const td3 = document.createElement("td");
-    td3.innerHTML = `<td>${item.ninkname}</td>`;
+    td3.innerHTML = `<td>${item.nickname}</td>`;
     td3.id = `nickName${idx}`
     td3.className ='NickName'
 
