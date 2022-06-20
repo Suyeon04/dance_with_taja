@@ -168,5 +168,61 @@ io.on("connection", (socket) => {
   })
 });
 
+  const paramImgNumber = req.body.imgNumber;
+  console.log(paramImgNumber);
+  
+  // const paramRoomName = req.body.roomName;
+  // const char = req.body.roomName;
+  // const doc = db.collection("list").doc(paramRoomName);
+  // const firebase = await doc.get();
+ 
+  // if(firebase.id == nickName){
+  //   await doc.update({ maker: char});
+  // }else{
+  //   await doc.update({ partner: char});
+  // }
+  //r1, n1, i1, g1
+  //사진 이름 ==r1, n1, i1, g1
+  //지금 r1사진을 보고 있다 == r 넘겨주기
+
+  res.json({"data":"okay"})
+})
+  
+//상대방이 움직인 거 데이터 넘겨받기
+app.post("/moveChar/partner", async (req, res)=>{
+  console.log('/moveChar/partner 호출됨.');
+
+  // const paramRoomName = req.body.roomName;
+  // const nickName = req.body.nickName;
+  // const doc = db.collection("list").doc(paramRoomName);
+  // const firebase = await doc.get();
+
+  // if(firebase.id == nickName){
+  //   return firebase.data().partner;
+  // }else{
+  //   return firebase.data().maker;
+  // }
+})
+
+// 내 캐릭터 선택완료 값
+app.post("/makeChar", async (req, res)=>{
+  console.log('/makeChar 호출됨.');
+
+  const paramImgNumber = req.body.imgNumber;
+  console.log(paramImgNumber);
+  
+  res.json({"data":"okay"})
+})
+
+// 상대방 캐릭터 선택 완료 값 넘겨 받기
+app.post("/makeChar2", async (req, res)=>{
+  console.log('/makeChar2 호출됨.');
+
+  let data = "true"
+  
+  res.json({"data":data})
+})
+  
+
 const handleListen = () => console.log(`Listening on http://localhost:3002`);
 httpServer.listen(3002, handleListen);

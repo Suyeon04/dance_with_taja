@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/charView.css"/>
     <link rel="shortcut icon" type="image/x-icon" href="../img/logo.png">
-    <title>캐릭터선택화면</title>
+    <title>Street TAJA Fighter</title>
 </head>
 <body>
     
@@ -14,10 +14,10 @@
     <!-- <div class="namebox">
         <h1 style="color: black;">방이름 : 아무개방</h1>
     </div> -->
-    <img src="/img/textlogo.png" style="position: absolute; margin-left: 450px; margin-top: 30px;"/>
+    <img src="/img/textlogo.png" id="Maintitle"/>
     <div>
-        <button style="width: 50px; height: 50px;" class="btn" id="playbtn" onclick="MusicPlay()"><img class="btnimg" src="../img/pause.png"/></button>
-        <button style="width: 50px; height: 50px;" class="btn" id="musicbtn" onclick="MusicSelect()"><img src="../img/music.png"/></button>
+        <button class="btn" id="playbtn" onclick="MusicPlay()"><img class="btnimg" src="../img/pause.png"/></button>
+        <button class="btn" id="musicbtn" onclick="MusicSelect()"><img class="musicimg" src="../img/music.png"/></button>
     </div>
     <div class="content">
         <div class="mychar">
@@ -33,7 +33,7 @@
             <button class="Mprev">PREV</button>
             <button class="Mnext">NEXT</button>
             <h1 style="color: white; text-align: center;">mychar</h1>
-            <button class="complete" onclick="complete()">완료</button>
+            <button class="complete" id="mycomplete" onclick="complete()">COMPLETE</button>
         </div>
         <div class="youchar">
             <div class="Yalbum">
@@ -48,8 +48,8 @@
             <!-- <button class="Yprev">PREV</button>
             <button class="Ynext">NEXT</button> -->
             <h1 style="color: white; text-align: center;">youchar</h1>
+            <button class="complete" id="yourecomplete" onclick="complete2()">COMPLETE</button>
         </div>
-        <button class="Start" onclick="GameStart()">Play</button>
     </div> <!--content end-->
 
     <!-- <script type="module">

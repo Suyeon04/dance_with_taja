@@ -11,218 +11,485 @@ body{
     font-style: normal;
 }
 /*폰트end*/
-.box{
-    position: relative;
-    background-color: #FFFFFF;
-    margin: auto;
-    border-radius: 1.5em;
-    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
-}
-#out1{
-    /*타자미리보기*/
-    font-family: 'EliceDigitalBaeum_Bold';
-    border-radius: 200px;
-    width: 1000px;
-    height: 60px;
-    top: 50px;
-    z-index: 1;
-}
 
-#out2{
-    /*타자input*/
-    border-radius: 200px;
-    width: 1000px;
-    height: 60px;
-    top: 70px;
-    right: 3px;
-    z-index: 2;
-}
-
-.word-display{
-    color: gray;
-    font-size: 18px;
-    line-height: 55px;
-    margin-left: 38px;
-    letter-spacing: 1px; /*글자자간*/
-}
-.word-input{
-    font-family: 'EliceDigitalBaeum_Bold';
-    font-size: 18px;
-    margin-left: 40px;
-    margin-top: 9px;
-    width: 900px;
-    height: 40px;
-    outline: none;
-    border: none;
-    letter-spacing: 1px; /*글자자간*/
-}
-
-/*음악버튼*/
-.btn{
-    box-shadow: 0 0 2px rgb(234 57 184 / 90%), 0 0 4px rgb(234 57 184 / 40%), 0 0 1rem rgb(234 57 184 / 30%), 0 0 4rem rgb(234 57 184 / 10%);
-    border-color: #ea39b8;
-    background-color: purple;
-    border-radius: 50%;
-}
-#playbtn{
-    position: absolute;
-    left: 92%;
-    top: 4%;
-    padding-top: 5px;
-    padding-right: 3px;
-}
-#musicbtn{
-    position: absolute;
-    left: 96%;
-    top: 4%;
-    padding-top: 5px;
-    padding-right: 5px;
-}
-
-
-/*span 속성*/
-.correct{
-    color: rgb(141, 252, 141);
-}
-.generally{
-    color: gray;
-}
-.wrong{
-    color: rgb(250, 132, 132);
-}
-
-/*상태*/
-.state{
-    position: absolute;
-    left: 300px;
-    top: -15px;
-    color: #FFFFFF;
-    font-size: 30px;
-}
-/*효과(조명)*/
-.bulb-holder{
-    width: 50px;
-    height: 40px;
-    background: black;
-    position: absolute;
-    border-top-left-radius: 50%;
-    border-top-right-radius: 50%;
-    transform: translate(510px,250px);/*(방향, 높이)*/
-    z-index: 1;
-}
-.bulb{
-    width: 50px;
-    height: 20px;
-    background: #fff;
-    border-radius: 60%;
-    transform: translate(0px,35px);
-    animation: light 2000ms infinite cubic-bezier(1, -0.45, 0, 1.89);
-}
-#b2{
-    transform: translate(420px,300px);/*(방향, 높이)*/
-}
-#b3{
-    transform: translate(600px,300px);/*(방향, 높이)*/
-}
-@keyframes light{
-    10%{
-        box-shadow: 0 1px 10px yellow,
-                0 2px 20px yellow,
-                10px 20px 30px yellow,            
-                -10px 20px 30px yellow,            
-                30px 50px 50px yellow,          
-                -30px 50px 50px yellow;
-
+/*노트북 사이즈*/
+@media(max-width:1600px){
+    .box{
+        position: relative;
+        background-color: #FFFFFF;
+        margin: auto;
+        border-radius: 1.5em;
+        box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
     }
-    20%{
-        box-shadow: none;
+    #out1{
+        /*타자미리보기*/
+        font-family: 'EliceDigitalBaeum_Bold';
+        border-radius: 200px;
+        width: 1000px;
+        height: 60px;
+        top: 50px;
+        z-index: 1;
     }
-    30%{
-        box-shadow: 0 1px 10px lightcoral,
-                0 2px 20px lightcoral,
-                10px 20px 30px lightcoral,            
-                -10px 20px 30px lightcoral,            
-                30px 50px 50px lightcoral,          
-                -30px 50px 50px lightcoral;
-
+    
+    #out2{
+        /*타자input*/
+        border-radius: 200px;
+        width: 1000px;
+        height: 60px;
+        top: 70px;
+        right: 3px;
+        z-index: 2;
     }
-    40%{
-        box-shadow: none;
+    
+    .word-display{
+        color: gray;
+        font-size: 18px;
+        line-height: 55px;
+        margin-left: 38px;
+        letter-spacing: 1px; /*글자자간*/
     }
-    50%{
-        box-shadow: 0 1px 10px aqua,
-                0 2px 20px aqua,
-                10px 20px 30px aqua,            
-                -10px 20px 30px aqua,            
-                30px 50px 50px aqua,          
-                -30px 50px 50px aqua;
-
+    .word-input{
+        font-family: 'EliceDigitalBaeum_Bold';
+        font-size: 18px;
+        margin-left: 40px;
+        margin-top: 9px;
+        width: 900px;
+        height: 40px;
+        outline: none;
+        border: none;
+        letter-spacing: 1px; /*글자자간*/
     }
-    60%{
-        box-shadow: none;
+    
+    /*음악버튼*/
+    .btn{
+        box-shadow: 0 0 2px rgb(234 57 184 / 90%), 0 0 4px rgb(234 57 184 / 40%), 0 0 1rem rgb(234 57 184 / 30%), 0 0 4rem rgb(234 57 184 / 10%);
+        border-color: #ea39b8;
+        background-color: purple;
+        border-radius: 50%;
     }
-    70%{
-        box-shadow: 0 1px 10px purple,
-                0 2px 20px purple,
-                10px 20px 30px purple,            
-                -10px 20px 30px purple,            
-                30px 50px 50px purple,          
-                -30px 50px 50px purple;
-
+    #playbtn{
+        position: absolute;
+        left: 92%;
+        top: 4%;
+        padding-top: 5px;
+        padding-right: 3px;
     }
-    80%{
-        box-shadow: 0 1px 10px tomato,
-        0 2px 20px tomato,
-        10px 20px 30px tomato,            
-        -10px 20px 30px tomato,            
-        30px 50px 50px tomato,          
-        -30px 50px 50px tomato;
-    } 
-    90%{
-        box-shadow: 0 1px 10px yellow,
-        0 2px 20px yellow,
-        10px 20px 30px yellow,            
-        -10px 20px 30px yellow,            
-        30px 50px 50px yellow,          
-        -30px 50px 50px yellow,
-        40px 60px 100px yellow,          
-        -40px 60px 100px yellow,
-        70px 70px 100px yellow,          
-        -70px 70px 100px yellow;
+    #musicbtn{
+        position: absolute;
+        left: 96%;
+        top: 4%;
+        padding-top: 5px;
+        padding-right: 5px;
     }
-    100%{
-        box-shadow: 0 1px 10px yellow,
-        0 2px 20px yellow,
-        10px 20px 30px yellow,            
-        -10px 20px 30px yellow,            
-        30px 50px 50px yellow,          
-        -30px 50px 50px yellow,
-        40px 60px 100px yellow,          
-        -40px 60px 100px yellow,
-        70px 70px 100px yellow,          
-        -70px 70px 100px yellow;
+    
+    
+    /*span 속성*/
+    .correct{
+        color: rgb(141, 252, 141);
+    }
+    .generally{
+        color: gray;
+    }
+    .wrong{
+        color: rgb(250, 132, 132);
+    }
+    
+    /*상태*/
+    .state{
+        position: absolute;
+        left: 300px;
+        top: -15px;
+        color: #FFFFFF;
+        font-size: 30px;
+    }
+    /*효과(조명)*/
+    .bulb-holder{
+        width: 50px;
+        height: 40px;
+        background: black;
+        position: absolute;
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+        transform: rotate( 180deg );
+        margin-top: 580px;
+        margin-left: 400px;
+        /*transform: translate(380px,250px);*/ /*(방향, 높이)*/
+        z-index: 1;
+    }
+    .bulb{
+        width: 50px;
+        height: 20px;
+        background: #fff;
+        border-radius: 60%;
+        transform: translate(0px,35px);
+        animation: light 2000ms infinite cubic-bezier(1, -0.45, 0, 1.89);
+    }
+    #b2{
+        /*transform: translate(230px,500px); */ /*(방향, 높이)*/
+        transform: rotate( 230deg );
+        margin-top: 500px;
+        margin-left: 250px;
+    }
+    #b3{
+        transform: rotate( 130deg );
+        margin-top: 500px;
+        margin-left: 540px;
+        /* transform: translate(600px,300px);(방향, 높이) */
+    }
+    @keyframes light{
+        10%{
+            box-shadow: 0 1px 10px yellow,
+                    0 2px 20px yellow,
+                    10px 20px 30px yellow,            
+                    -10px 20px 30px yellow,            
+                    30px 50px 50px yellow,          
+                    -30px 50px 50px yellow;
+    
+        }
+        20%{
+            box-shadow: none;
+        }
+        30%{
+            box-shadow: 0 1px 10px lightcoral,
+                    0 2px 20px lightcoral,
+                    10px 20px 30px lightcoral,            
+                    -10px 20px 30px lightcoral,            
+                    30px 50px 50px lightcoral,          
+                    -30px 50px 50px lightcoral;
+    
+        }
+        40%{
+            box-shadow: none;
+        }
+        50%{
+            box-shadow: 0 1px 10px aqua,
+                    0 2px 20px aqua,
+                    10px 20px 30px aqua,            
+                    -10px 20px 30px aqua,            
+                    30px 50px 50px aqua,          
+                    -30px 50px 50px aqua;
+    
+        }
+        60%{
+            box-shadow: none;
+        }
+        70%{
+            box-shadow: 0 1px 10px purple,
+                    0 2px 20px purple,
+                    10px 20px 30px purple,            
+                    -10px 20px 30px purple,            
+                    30px 50px 50px purple,          
+                    -30px 50px 50px purple;
+    
+        }
+        80%{
+            box-shadow: 0 1px 10px tomato,
+            0 2px 20px tomato,
+            10px 20px 30px tomato,            
+            -10px 20px 30px tomato,            
+            30px 50px 50px tomato,          
+            -30px 50px 50px tomato;
+        } 
+        90%{
+            box-shadow: 0 1px 10px yellow,
+            0 2px 20px yellow,
+            10px 20px 30px yellow,            
+            -10px 20px 30px yellow,            
+            30px 50px 50px yellow,          
+            -30px 50px 50px yellow,
+            40px 60px 100px yellow,          
+            -40px 60px 100px yellow,
+            70px 70px 100px yellow,          
+            -70px 70px 100px yellow;
+        }
+        100%{
+            box-shadow: 0 1px 10px yellow,
+            0 2px 20px yellow,
+            10px 20px 30px yellow,            
+            -10px 20px 30px yellow,            
+            30px 50px 50px yellow,          
+            -30px 50px 50px yellow,
+            40px 60px 100px yellow,          
+            -40px 60px 100px yellow,
+            70px 70px 100px yellow,          
+            -70px 70px 100px yellow;
+        }
+    }
+    
+    /*transform: scaleX(-1);*/
+    
+    /*캐릭터*/
+    #mychar{
+        position: absolute;
+        width: 160px;
+        height: 250px;
+        /* margin-left: 350px;
+        margin-top: 300px; */
+        margin-left: 22%;
+        margin-top: 20%;
+    }
+    #youchar{
+        position: absolute;
+        width: 350px;
+        height: 250px;
+        margin-left: 930px;
+        margin-top: 330px;
+    }
+    
+    /*ending btn*/
+    .ending{
+        box-shadow: 0 0 2px rgb(234 57 184 / 90%), 0 0 4px rgb(234 57 184 / 40%), 0 0 1rem rgb(234 57 184 / 30%), 0 0 4rem rgb(234 57 184 / 10%);
+        border-color: #ea39b8;
+        background-color: purple;
+        border-radius: 50%;
+        padding: 10px;
+        padding-left: 15px;
+        position: absolute;
+        right: 10px;
+        bottom: 30px;
+    }
+    .ending:hover{
+        background-color: red;
     }
 }
 
-#effect2{
-    position: absolute;
-    transform: scaleX(-1);
-    left: 470px;
-    bottom: 100px;
-}
-
-/*캐릭터*/
-#mychar{
-    position: absolute;
-    width: 450px;
-    height: 360px;
-    margin-left: 310px;
-    margin-top: 250px;
-}
-#youchar{
-    position: absolute;
-    width: 450px;
-    height: 360px;
-    margin-left: 750px;
-    margin-top: 250px;
+/*PC모니터 사이즈*/
+@media(min-width:1900px){
+    .box{
+        position: relative;
+        background-color: #FFFFFF;
+        margin: auto;
+        border-radius: 1.5em;
+        box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+    }
+    #out1{
+        /*타자미리보기*/
+        font-family: 'EliceDigitalBaeum_Bold';
+        border-radius: 200px;
+        width: 1200px;
+        height: 80px;
+        top: 50px;
+        z-index: 1;
+    }
+    
+    #out2{
+        /*타자input*/
+        border-radius: 200px;
+        width: 1200px;
+        height: 80px;
+        top: 70px;
+        right: 3px;
+        z-index: 2;
+    }
+    
+    .word-display{
+        color: gray;
+        font-size: 30px;
+        line-height: 75px;
+        margin-left: 38px;
+        letter-spacing: 1px; /*글자자간*/
+    }
+    .word-input{
+        font-family: 'EliceDigitalBaeum_Bold';
+        font-size: 30px;
+        margin-left: 40px;
+        margin-top: 17px;
+        width: 900px;
+        height: 40px;
+        outline: none;
+        border: none;
+        letter-spacing: 1px; /*글자자간*/
+    }
+    
+    /*음악버튼*/
+    .btn{
+        box-shadow: 0 0 2px rgb(234 57 184 / 90%), 0 0 4px rgb(234 57 184 / 40%), 0 0 1rem rgb(234 57 184 / 30%), 0 0 4rem rgb(234 57 184 / 10%);
+        border-color: #ea39b8;
+        background-color: purple;
+        border-radius: 50%;
+    }
+    #playbtn{
+        position: absolute;
+        left: 92%;
+        top: 4%;
+        padding-top: 5px;
+        padding-right: 3px;
+    }
+    #musicbtn{
+        position: absolute;
+        left: 96%;
+        top: 4%;
+        padding-top: 5px;
+        padding-right: 5px;
+    }
+    
+    
+    /*span 속성*/
+    .correct{
+        color: rgb(141, 252, 141);
+    }
+    .generally{
+        color: gray;
+    }
+    .wrong{
+        color: rgb(250, 132, 132);
+    }
+    
+    /*상태*/
+    .state{
+        position: absolute;
+        left: 300px;
+        top: -15px;
+        color: #FFFFFF;
+        font-size: 30px;
+    }
+    /*효과(조명)*/
+    .bulb-holder{
+        width: 50px;
+        height: 40px;
+        background: black;
+        position: absolute;
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+        transform: rotate( 180deg );
+        margin-top: 580px;
+        margin-left: 400px;
+        /*transform: translate(380px,250px);*/ /*(방향, 높이)*/
+        z-index: 1;
+    }
+    .bulb{
+        width: 50px;
+        height: 20px;
+        background: #fff;
+        border-radius: 60%;
+        transform: translate(0px,35px);
+        animation: light 2000ms infinite cubic-bezier(1, -0.45, 0, 1.89);
+    }
+    #b2{
+        /*transform: translate(230px,500px); */ /*(방향, 높이)*/
+        transform: rotate( 230deg );
+        margin-top: 500px;
+        margin-left: 250px;
+    }
+    #b3{
+        transform: rotate( 130deg );
+        margin-top: 500px;
+        margin-left: 540px;
+        /* transform: translate(600px,300px);(방향, 높이) */
+    }
+    @keyframes light{
+        10%{
+            box-shadow: 0 1px 10px yellow,
+                    0 2px 20px yellow,
+                    10px 20px 30px yellow,            
+                    -10px 20px 30px yellow,            
+                    30px 50px 50px yellow,          
+                    -30px 50px 50px yellow;
+    
+        }
+        20%{
+            box-shadow: none;
+        }
+        30%{
+            box-shadow: 0 1px 10px lightcoral,
+                    0 2px 20px lightcoral,
+                    10px 20px 30px lightcoral,            
+                    -10px 20px 30px lightcoral,            
+                    30px 50px 50px lightcoral,          
+                    -30px 50px 50px lightcoral;
+    
+        }
+        40%{
+            box-shadow: none;
+        }
+        50%{
+            box-shadow: 0 1px 10px aqua,
+                    0 2px 20px aqua,
+                    10px 20px 30px aqua,            
+                    -10px 20px 30px aqua,            
+                    30px 50px 50px aqua,          
+                    -30px 50px 50px aqua;
+    
+        }
+        60%{
+            box-shadow: none;
+        }
+        70%{
+            box-shadow: 0 1px 10px purple,
+                    0 2px 20px purple,
+                    10px 20px 30px purple,            
+                    -10px 20px 30px purple,            
+                    30px 50px 50px purple,          
+                    -30px 50px 50px purple;
+    
+        }
+        80%{
+            box-shadow: 0 1px 10px tomato,
+            0 2px 20px tomato,
+            10px 20px 30px tomato,            
+            -10px 20px 30px tomato,            
+            30px 50px 50px tomato,          
+            -30px 50px 50px tomato;
+        } 
+        90%{
+            box-shadow: 0 1px 10px yellow,
+            0 2px 20px yellow,
+            10px 20px 30px yellow,            
+            -10px 20px 30px yellow,            
+            30px 50px 50px yellow,          
+            -30px 50px 50px yellow,
+            40px 60px 100px yellow,          
+            -40px 60px 100px yellow,
+            70px 70px 100px yellow,          
+            -70px 70px 100px yellow;
+        }
+        100%{
+            box-shadow: 0 1px 10px yellow,
+            0 2px 20px yellow,
+            10px 20px 30px yellow,            
+            -10px 20px 30px yellow,            
+            30px 50px 50px yellow,          
+            -30px 50px 50px yellow,
+            40px 60px 100px yellow,          
+            -40px 60px 100px yellow,
+            70px 70px 100px yellow,          
+            -70px 70px 100px yellow;
+        }
+    }
+    
+    /*transform: scaleX(-1);*/
+    
+    /*캐릭터*/
+    #mychar{
+        position: absolute;
+        width: 160px;
+        height: 250px;
+        /* margin-left: 350px;
+        margin-top: 300px; */
+        margin-left: 22%;
+        margin-top: 20%;
+    }
+    #youchar{
+        position: absolute;
+        width: 350px;
+        height: 250px;
+        margin-left: 930px;
+        margin-top: 330px;
+    }
+    
+    /*ending btn*/
+    .ending{
+        box-shadow: 0 0 2px rgb(234 57 184 / 90%), 0 0 4px rgb(234 57 184 / 40%), 0 0 1rem rgb(234 57 184 / 30%), 0 0 4rem rgb(234 57 184 / 10%);
+        border-color: #ea39b8;
+        background-color: purple;
+        border-radius: 50%;
+        padding: 10px;
+        padding-left: 15px;
+        position: absolute;
+        right: 10px;
+        bottom: 30px;
+    }
+    .ending:hover{
+        background-color: red;
+    }
 }
