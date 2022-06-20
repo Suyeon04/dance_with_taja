@@ -43,7 +43,7 @@ let McurPos= 1; // 현재 보고 있는 이미지의 인덱스 번호!
 let Mposition = 0; // 현재 .images 의 위치값!
 let YcurPos= 1; // 현재 보고 있는 이미지의 인덱스 번호!
 let Yposition = 0; // 현재 .images 의 위치값!
-const IMAGE_WIDTH = 400; // 한번 움직일 때 이동해야 할 거리!
+const IMAGE_WIDTH = 600; // 한번 움직일 때 이동해야 할 거리!
 
 // 요소 선택
 const MprevBtn = document.querySelector(".Mprev")
@@ -58,7 +58,6 @@ const Mimages = document.querySelector(".Mimages")
 const select1=document.querySelector("#select1"); // 내가 선택완료 됬을 때
 const select2=document.querySelector("#select2"); // 상대가 선택완료 됬을 때
 
-const Startbtn=document.querySelector(".Start"); // 게임 시작 버튼
 
 Minit();
 //Yinit();
@@ -67,7 +66,6 @@ Minit();
 // 선택완료 숨기기
 select1.hidden=true;
 select2.hidden=true;
-Startbtn.hidden=true;
 
 function Mprev(){
     
@@ -114,20 +112,31 @@ function Minit(){
 
 //완료되면 complete 버튼 색 바꾸고 div 뜨게 하기
 function complete(){
-    const completeBtn = document.querySelector(".complete")
+    const completeBtn = document.querySelector("#mycomplete")
+    completeBtn.classList.add("btncomplete");
     completeBtn.classList.add("completed");
     console.log(McurPos+"캐릭터 선택완료");
     // MprevBtn.setAttribute("disabled", 'true')
     // MnextBtn.setAttribute("disabled", 'true')
     MprevBtn.hidden=true;
     MnextBtn.hidden=true;
-    Startbtn.hidden=false; // 게임시작버튼 보이기
     
     //선택완료 보이기
     select1.hidden=false;
     // select2.hidden=false;
 }
 
-function GameStart(){
-    location.href="http://localhost:3000/game";
+function complete2(){
+    const completeBtn2 = document.querySelector("#yourecomplete")
+    completeBtn2.classList.add("btncomplete");
+    completeBtn2.classList.add("completed");
+    console.log(McurPos+"캐릭터 선택완료");
+    // MprevBtn.setAttribute("disabled", 'true')
+    // MnextBtn.setAttribute("disabled", 'true')
+    // MprevBtn.hidden=true;
+    // MnextBtn.hidden=true;
+    
+    //선택완료 보이기
+    // select1.hidden=false;
+    select2.hidden=false;
 }
