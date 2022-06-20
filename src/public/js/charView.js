@@ -80,6 +80,10 @@ function Mprev(){
     if(McurPos == 1){ /* 이미지 index값 0 되면 prev 못하게 */
         MprevBtn.setAttribute("disabled", 'true')
     }
+
+    // mychar이미지 변동 값 보내기
+    postImgNumber('http://localhost:3002/moveChar', McurPos)
+
  }
 function Mnext(){
     if(McurPos < 4){
@@ -100,7 +104,11 @@ function Mnext(){
         // 뒤로 못 가게 하기
         MnextBtn.setAttribute("disabled", 'true') // 못 누르는 버튼이 됨
     }
+
+    // mychar이미지 변동 값 보내기
+    postImgNumber('http://localhost:3002/moveChar', McurPos)
 }
+
 // 초기 랜더링 시 최초 호출 함수의 관습적 이름
 function Minit(){
     // 앞으로 가기는 처음부터 못누르게!
@@ -115,7 +123,7 @@ function complete(){
     const completeBtn = document.querySelector("#mycomplete")
     completeBtn.classList.add("btncomplete");
     completeBtn.classList.add("completed");
-    console.log(McurPos+"캐릭터 선택완료");
+    console.log(McurPos+" 캐릭터 선택완료");
     // MprevBtn.setAttribute("disabled", 'true')
     // MnextBtn.setAttribute("disabled", 'true')
     MprevBtn.hidden=true;
@@ -124,6 +132,11 @@ function complete(){
     //선택완료 보이기
     select1.hidden=false;
     // select2.hidden=false;
+
+    // mychar 선택 완료 값 넘기기
+    
+    postImgNumber('http://localhost:3002/makeChar', McurPos)
+
 }
 
 function complete2(){
@@ -139,4 +152,60 @@ function complete2(){
     //선택완료 보이기
     // select1.hidden=false;
     select2.hidden=false;
+
+    // mychar 선택 완료 값 가지고 오기
+
 }
+
+//ajax 보내는 부분 : async api
+async function sendAjax(url, data){
+
+    var dataInfo = {
+        method : "POST",  //메소드 반드시 지정해줘야 app.js 파일에서 찾을수 있음.
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        }
+    };
+  
+    const reqURL = await fetch(url,dataInfo);  
+    const result = await reqURL.json(); //JSON값 받아오기
+   
+    let answer = result.data
+
+    return answer;
+ 
+}
+
+//서버와 계속 통신하여 상대방의 정보 가지고 오기
+setInterval(async() => {
+    // 상대방 캐릭터 이동 정보
+    // 값에 따른 이미지 이동 함수 필요
+    postImgNumber('http://localhost:3002/moveChar', YcurPos);
+    
+    // 상대방 캐릭터 complete 정보
+    let inputdata = {test:1};
+    let result = await sendAjax('http://localhost:3002/makeChar2', inputdata);
+
+    if(result === "true") console.log('상대방 complete')
+    
+}, 1000);
+
+function postImgNumber(url, idx) {
+    // index : r, n, i, g
+    let imgNumber = "";
+    switch(idx-1) {
+        case 0 : imgNumber = "r";
+                 break;
+        case 1 : imgNumber = "n";
+                 break;
+        case 2 : imgNumber = "i";
+                 break;
+        case 3 : imgNumber = "g";
+                 break;
+    }
+
+    let inputdata = {imgNumber:imgNumber};
+    sendAjax(url, inputdata)
+}
+
