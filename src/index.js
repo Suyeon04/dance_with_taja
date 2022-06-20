@@ -132,7 +132,8 @@ app.post("/list/make", async (req, res) => {
   res.json({"test":"성공했다!!ㅜㅜ"})
 })
 
-//방금 넘어간 거 데이터 넘겨주기
+// 방금 넘어간 거 데이터 가져오기
+// 내가 움직이는거
 app.post("/moveChar", async (req, res)=>{
   console.log('/moveChar 호출됨.');
 
@@ -156,9 +157,10 @@ app.post("/moveChar", async (req, res)=>{
   res.json({"data":"okay"})
 })
   
-//상대방이 움직인 거 데이터 넘겨받기
-app.post("/moveChar/partner", async (req, res)=>{
-  console.log('/moveChar/partner 호출됨.');
+// 데이터 넘겨주기
+// 상대방이 움직이는거
+app.post("/moveChar2", async (req, res)=>{
+  console.log('/moveChar2 호출됨.');
 
   // const paramRoomName = req.body.roomName;
   // const nickName = req.body.nickName;
@@ -170,6 +172,21 @@ app.post("/moveChar/partner", async (req, res)=>{
   // }else{
   //   return firebase.data().maker;
   // }
+
+  let data = "n"
+
+  switch(data) {
+    case "r" : data = 1;
+             break;
+    case "n" : data = 2;
+             break;
+    case "i" : data = 3;
+             break;
+    case "g" : data = 4;
+             break;
+}
+  
+  res.json({"data":data})
 })
 
 // 내 캐릭터 선택완료 값
@@ -182,11 +199,20 @@ app.post("/makeChar", async (req, res)=>{
   res.json({"data":"okay"})
 })
 
-// 상대방 캐릭터 선택 완료 값 넘겨 받기
+// 상대방 캐릭터 선택 완료 값 넘겨 받기 
 app.post("/makeChar2", async (req, res)=>{
   console.log('/makeChar2 호출됨.');
 
-  let data = "true"
+  let data = "false"
+  
+  res.json({"data":data})
+})
+
+// 나와 상대방 complete 확인하고 넘겨주기: true, false
+app.post("/MYcomplete", async (req, res)=>{
+  console.log('/MYcomplete 호출됨.');
+
+  let data = "false"
   
   res.json({"data":data})
 })
