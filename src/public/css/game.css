@@ -107,7 +107,10 @@ body{
     position: absolute;
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
-    transform: translate(510px,250px);/*(방향, 높이)*/
+    transform: rotate( 180deg );
+    margin-top: 580px;
+    margin-left: 380px;
+    /*transform: translate(380px,250px);*/ /*(방향, 높이)*/
     z-index: 1;
 }
 .bulb{
@@ -119,10 +122,16 @@ body{
     animation: light 2000ms infinite cubic-bezier(1, -0.45, 0, 1.89);
 }
 #b2{
-    transform: translate(420px,300px);/*(방향, 높이)*/
+    /*transform: translate(230px,500px); */ /*(방향, 높이)*/
+    transform: rotate( 230deg );
+    margin-top: 500px;
+    margin-left: 230px;
 }
 #b3{
-    transform: translate(600px,300px);/*(방향, 높이)*/
+    transform: rotate( 130deg );
+    margin-top: 500px;
+    margin-left: 540px;
+    /* transform: translate(600px,300px);(방향, 높이) */
 }
 @keyframes light{
     10%{
@@ -211,15 +220,15 @@ body{
     position: absolute;
     width: 350px;
     height: 250px;
-    margin-left: 360px;
+    margin-left: 230px;
     margin-top: 300px;
 }
 #youchar{
     position: absolute;
     width: 350px;
     height: 250px;
-    margin-left: 750px;
-    margin-top: 310px;
+    margin-left: 930px;
+    margin-top: 330px;
 }
 
 /*ending btn*/

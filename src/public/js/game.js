@@ -88,7 +88,7 @@ effect3.hidden=true;
 effect4_1.hidden=true;
 effect4_2.hidden=true;
 effect5.hidden=true;
-// endingbtn.hidden=true;
+endingbtn.hidden=true;
 
 changeWord();
 function letmeStart(){
@@ -118,12 +118,13 @@ function changeWord(){
 }
 function effect(order){
     if(order==2){
-        effect1.hidden=false;
+        effect2.hidden=false;
         ClapSound.play();
     }else if(order==4){
-        effect2.hidden=false;
-        effect3.hidden=false;
+        effect1.hidden=false;
         ClapSound.play();
+    }else if(order==5){
+        effect3.hidden=false;
     }else if(order==6){
         effect1.hidden=true;
         effect5.hidden=false;
