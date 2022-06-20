@@ -39,52 +39,19 @@ let count = 2;
 app.post("/list", async (req, res) => {
   console.log('/list 호출됨.');
   let data = [];
-  const snapshot = await db.collection("list").where('fighter', '==', "").get;
-  if (snapshot.empty) {
+  let snapshot = await db.collection("list").where('fighter', '==', "").get();
+  if (await snapshot.empty) {
     console.log('No matching documents.');
   } else {
     snapshot.forEach(doc => {
       data.push({
-        version: doc.data().version,
-        name: doc.id()
+        language: doc.data().version,
+        nickname: doc.id
       });
     })
   }
-  res.send(data);
-  // let data = [];
-  // const snapshot = await db.collection("list").where('fighter', '==', "").get;
-  // if (snapshot.empty) {
-  //   console.log('No matching documents.');
-  // } else {
-  //   snapshot.forEach(doc => {
-  //     data.push({
-  //       version: doc.data().version,
-  //       name: doc.id()
-  //     });
-  //   })
-  // }
-  // res.send(data);
-
-  data = [
-    {
-      'language':'Android',
-      'ninkname':'쭈꾸',
-    }, {
-      'language':'JAVA',
-      'ninkname':'뿌꾸',
-    }, {
-      'language':'JavaScript',
-      'ninkname':'어피치',
-    }, {
-      'language':'Android',
-      'ninkname':'신기방기뿡뿡방기',
-    }, {
-      'language':'PHP',
-      'ninkname':'동방신기',
-    }
-  ]
-
-  res.json({"data":data})
+  console.log(data);
+  res.json({ "data": data })
 })
 
 
@@ -101,10 +68,10 @@ app.post("/list/join", async (req, res) => {
     data = false;
     console.log('No such document!');
   } else {
-    if(firebase.data().fighter==""){
+    if (firebase.data().fighter == "") {
       data = true;
-      await doc.update({fighter: nickname});
-    }else{
+      await doc.update({ fighter: nickname });
+    } else {
       data = false;
     }
   }
@@ -122,7 +89,7 @@ app.post("/list/make", async (req, res) => {
   const firebase = await hey.get()
   if (!firebase.exists) {
     data = true;
-    let list={
+    let list = {
       version: paramVersion,
       fighter: ""
     }
@@ -135,9 +102,9 @@ app.post("/list/make", async (req, res) => {
 
 
 
-const io = require("socket.io")(3000,{
-  cors:{
-    origin : ["http:/localhost:3002"]
+const io = require("socket.io")(3000, {
+  cors: {
+    origin: ["http:/localhost:3002"]
   }
 })
 
@@ -145,26 +112,26 @@ io.on("connection", (socket) => {
   console.log(socket.id);
 });
 
- 
-  
-  // let data = true;
-  // let version = req.body.version || req.query.version;
-  // let nickname = req.body.nickname || req.query.nickname;
-  // const doc = db.collection("list").doc(nickname);
-  // const firebase = await doc.get()
-  // if (!firebase.exists) {
-  //   data = true;
-  //   let list={
-  //     version: version,
-  //     fighter: ""
-  //   }
-  //   await db.doc.set(list);
-  // } else {
-  //   data = false;
-  // }
-  // res.send(data);
 
-  //const paramCode  = req.body.barcode || req.query.barcode;
+
+// let data = true;
+// let version = req.body.version || req.query.version;
+// let nickname = req.body.nickname || req.query.nickname;
+// const doc = db.collection("list").doc(nickname);
+// const firebase = await doc.get()
+// if (!firebase.exists) {
+//   data = true;
+//   let list={
+//     version: version,
+//     fighter: ""
+//   }
+//   await db.doc.set(list);
+// } else {
+//   data = false;
+// }
+// res.send(data);
+
+//const paramCode  = req.body.barcode || req.query.barcode;
 
 const handleListen = () => console.log(`Listening on http://localhost:3002`);
 httpServer.listen(3002, handleListen);
