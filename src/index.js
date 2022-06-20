@@ -53,6 +53,21 @@ io.on("connection", (socket) => {
   })
 });
 
+app.post("")
+
+const io = require("socket.io")(3000, {
+  cors: {
+    origin: ["http://localhost:3002"]
+  }
+})
+// const io = require("socket.io")(3000)
+io.on("connection", (socket) => {
+  console.log(socket.id);
+  socket.on('send-message', (message) =>{
+    socket.broadcast.emit('receive-message', message)
+  })
+});
+
 
 // 리스트 정보 보내기
 app.post("/list", async (req, res) => {
@@ -121,6 +136,8 @@ app.post("/list/make", async (req, res) => {
   res.send(data);
 })
 
+//----------------charView---------------
+
 //방금 넘어간 거 데이터 넘겨주기
 app.post("/moveChar", async (req, res)=>{
   console.log('/moveChar 호출됨.');
@@ -133,6 +150,7 @@ app.post("/moveChar", async (req, res)=>{
   }else{
     await doc.update({ partner: char});
   }
+  res.json({"data":"okay"})
   //r1, n1, i1, g1
   //사진 이름 ==r1, n1, i1, g1
   //지금 r1사진을 보고 있다 == r 넘겨주기
@@ -140,7 +158,6 @@ app.post("/moveChar", async (req, res)=>{
 
 //상대방이 움직인 거 데이터 넘겨받기 
 app.post("/moveChar/partner", async (req, res)=>{
-
   console.log('/moveChar/partner 호출됨.');
   const paramRoomName = req.body.roomName;
   const nickName = req.body.nickName;
@@ -153,68 +170,13 @@ app.post("/moveChar/partner", async (req, res)=>{
   }
 })
 
-app.post("")
-
-const io = require("socket.io")(3000, {
-  cors: {
-    origin: ["http://localhost:3002"]
-  }
-})
-// const io = require("socket.io")(3000)
-io.on("connection", (socket) => {
-  console.log(socket.id);
-  socket.on('send-message', (message) =>{
-    socket.broadcast.emit('receive-message', message)
-  })
-});
-
-  const paramImgNumber = req.body.imgNumber;
-  console.log(paramImgNumber);
-  
-  // const paramRoomName = req.body.roomName;
-  // const char = req.body.roomName;
-  // const doc = db.collection("list").doc(paramRoomName);
-  // const firebase = await doc.get();
- 
-  // if(firebase.id == nickName){
-  //   await doc.update({ maker: char});
-  // }else{
-  //   await doc.update({ partner: char});
-  // }
-  //r1, n1, i1, g1
-  //사진 이름 ==r1, n1, i1, g1
-  //지금 r1사진을 보고 있다 == r 넘겨주기
-
-  res.json({"data":"okay"})
-})
-  
-//상대방이 움직인 거 데이터 넘겨받기
-app.post("/moveChar/partner", async (req, res)=>{
-  console.log('/moveChar/partner 호출됨.');
-
-  // const paramRoomName = req.body.roomName;
-  // const nickName = req.body.nickName;
-  // const doc = db.collection("list").doc(paramRoomName);
-  // const firebase = await doc.get();
-
-  // if(firebase.id == nickName){
-  //   return firebase.data().partner;
-  // }else{
-  //   return firebase.data().maker;
-  // }
-})
-
-// 내 캐릭터 선택완료 값
-app.post("/makeChar", async (req, res)=>{
-  console.log('/makeChar 호출됨.');
-
-  const paramImgNumber = req.body.imgNumber;
-  console.log(paramImgNumber);
-  
-  res.json({"data":"okay"})
-})
 
 // 상대방 캐릭터 선택 완료 값 넘겨 받기
+// 내 캐릭터 선택 완료 값 넘겨 주기
+//이거는 남이 내꺼 보는 거잖앙
+// 그러면 남도 내가 완료했는지
+//봐야하는데 그게 없엉
+
 app.post("/makeChar2", async (req, res)=>{
   console.log('/makeChar2 호출됨.');
 

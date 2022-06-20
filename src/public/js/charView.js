@@ -3,6 +3,7 @@
 
 // const socket = io();
 
+
 //오디오
 let playbtn=document.querySelector("#playbtn");
 let musicimg=document.querySelector(".btnimg");

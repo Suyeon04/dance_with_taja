@@ -2,9 +2,10 @@ const socket = io('http://localhost:3000')
 socket.on('connect', () =>{
         console.log(socket.id);
 })
+init();
 
-
-
+function init(){
+}
 // 오디오
 let playbtn=document.querySelector("#playbtn");
 let musicimg=document.querySelector(".btnimg");
