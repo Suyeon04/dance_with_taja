@@ -109,7 +109,7 @@ body{
     border-top-right-radius: 50%;
     transform: rotate( 180deg );
     margin-top: 580px;
-    margin-left: 380px;
+    margin-left: 400px;
     /*transform: translate(380px,250px);*/ /*(방향, 높이)*/
     z-index: 1;
 }
@@ -125,7 +125,7 @@ body{
     /*transform: translate(230px,500px); */ /*(방향, 높이)*/
     transform: rotate( 230deg );
     margin-top: 500px;
-    margin-left: 230px;
+    margin-left: 250px;
 }
 #b3{
     transform: rotate( 130deg );
@@ -218,10 +218,12 @@ body{
 /*캐릭터*/
 #mychar{
     position: absolute;
-    width: 350px;
+    width: 160px;
     height: 250px;
-    margin-left: 230px;
-    margin-top: 300px;
+    /* margin-left: 350px;
+    margin-top: 300px; */
+    margin-left: 22%;
+    margin-top: 20%;
 }
 #youchar{
     position: absolute;

@@ -181,10 +181,10 @@ input.addEventListener("keyup", () => {
                 console.log("Well Done!")
 
                 // 리정 애니메이션
-                for(let i=2; i<10; i++){
+                for(let i=2; i<13; i++){
                     (x => {
                         setTimeout(() => {
-                        let str="/img/ygx/ygx"+x+".png"
+                        let str="/img/hook/"+x+".png"
                         char_r.src=str
                         },150*x)
                     })(i)
