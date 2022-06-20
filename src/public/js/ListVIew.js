@@ -3,27 +3,15 @@ const form = document.querySelector(".wprtbody");
 const list = document.getElementById("list");
 const select = document.querySelector("#select");
 const start = document.querySelector(".Startbtn");
-const name = document.querySelector(".input-name2");  // 방장 닉넴
+const name = document.querySelectorAll(".input-name2");  // 방장 닉넴
 
+// version 종류
+const versions = [ "JAVA", "JavaScript" ,  "Android" , "PHP" ]
 
 let version = 0;    // 방 버전
 let roomName = 0;   // 방 이름
 let count = 1;      // 방 번호
 let roomCount = 0;
-
-// 방장 방만들기
-function handleRoomSubmit(event) {
-  // socket.emit("enter_room", name.value, version, showRoom);//emit 마지막 argument는 funciton
-  // socket.emit("nickname", name.value);
-
-  roomName = name.value;
-  console.log(roomName + " "+ version);
-
-  var inputdata = {version:version, roomName:roomName};
-
-  sendAjax('http://localhost:3002/list/make', inputdata)
-
-}
 
 //ajax 보내는 부분 : async api
 async function sendAjax(url, data){
@@ -39,12 +27,52 @@ async function sendAjax(url, data){
   const reqURL = await fetch(url,dataInfo);  
   const result = await reqURL.json(); //JSON값 받아오기
  
-  console.log(result.test)
+  // console.log(result.test)
+
+  return result;
+}
+
+// 방장 방 만들기: post방식 fetch API
+function CreateRoom(event) {
+  // socket.emit("enter_room", name.value, version, showRoom);//emit 마지막 argument는 funciton
+  // socket.emit("nickname", name.value);
+
+  roomName = name[0].value;
+  console.log(roomName + " "+ version);
+
+  let inputdata = {version:version, roomName:roomName};
+  sendAjax('http://localhost:3002/list/make', inputdata)
+
+}
+
+// 기존 방 들어가기: version 저장
+const roomDataSet = (idx) => {
+  let language = document.querySelector(`#language${idx}`).outerText;
+
+  versions.map((item, idx) => {
+    if(language === item)  version = idx;
+  })
+
+}
+
+// 기존 방 들어가기: post방식 fetch API
+function handleRoomSubmit(event) {
+  // socket.emit("enter_room", name.value, version, showRoom);//emit 마지막 argument는 funciton
+  // socket.emit("nickname", name.value);
+
+  roomName = name[1].value;
+  console.log(roomName + " "+ version)
+
+  let inputdata = {version:version, roomName:roomName};
+  sendAjax('http://localhost:3002/list/join', inputdata)
+
 }
 
 
 
-// function showRoom(){
+
+function showRoom(){
+
 //   location.replace('/charView');
 //   localStorage.setItem("roomName",JSON.stringify(roomName));
 //   localStorage.setItem("version",JSON.stringify(version));
@@ -61,7 +89,7 @@ async function sendAjax(url, data){
 //     count++;
 //     console.log("hsidfhisd")
 //   })
-// });
+}
 
 
 // function addUser(e){

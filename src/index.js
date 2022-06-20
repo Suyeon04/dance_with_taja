@@ -51,7 +51,43 @@ app.post("/list", async (req, res) => {
     })
   }
   res.send(data);
+  // let data = [];
+  // const snapshot = await db.collection("list").where('fighter', '==', "").get;
+  // if (snapshot.empty) {
+  //   console.log('No matching documents.');
+  // } else {
+  //   snapshot.forEach(doc => {
+  //     data.push({
+  //       version: doc.data().version,
+  //       name: doc.id()
+  //     });
+  //   })
+  // }
+  // res.send(data);
+
+  data = [
+    {
+      'language':'Android',
+      'ninkname':'쭈꾸',
+    }, {
+      'language':'JAVA',
+      'ninkname':'뿌꾸',
+    }, {
+      'language':'JavaScript',
+      'ninkname':'어피치',
+    }, {
+      'language':'Android',
+      'ninkname':'신기방기뿡뿡방기',
+    }, {
+      'language':'PHP',
+      'ninkname':'동방신기',
+    }
+  ]
+
+  res.json({"data":data})
 })
+
+
 
 //기존 방 들어가기
 app.post("/list/join", async (req, res) => {
