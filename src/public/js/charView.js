@@ -1,12 +1,7 @@
-import { io } from "socket.io-client";
+// import { io } from "socket.io-client";
 // const io = require("socket.io-client")
 
-const socket = io();
-//const socket = io('http:/localhost:3000')
-socket.on('connect', () =>{
-        console.log(socket.id);
-})
-
+// const socket = io();
 
 //오디오
 let playbtn=document.querySelector("#playbtn");
@@ -68,7 +63,6 @@ const Mimages = document.querySelector(".Mimages")
 const select1=document.querySelector("#select1"); // 내가 선택완료 됬을 때
 const select2=document.querySelector("#select2"); // 상대가 선택완료 됬을 때
 
-const Startbtn=document.querySelector(".Start"); // 게임 시작 버튼
 
 Minit();
 //Yinit();
@@ -77,7 +71,6 @@ Minit();
 // 선택완료 숨기기
 select1.hidden=true;
 select2.hidden=true;
-Startbtn.hidden=true;
 
 function Mprev(){
     

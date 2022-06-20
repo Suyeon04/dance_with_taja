@@ -1,4 +1,3 @@
-// const socket = io();
 
 const form = document.querySelector(".welcome");
 const list = document.getElementById("list");

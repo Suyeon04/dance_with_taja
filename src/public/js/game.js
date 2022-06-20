@@ -1,3 +1,10 @@
+const socket = io('http://localhost:3000')
+socket.on('connect', () =>{
+        console.log(socket.id);
+})
+
+
+
 // 오디오
 let playbtn=document.querySelector("#playbtn");
 let musicimg=document.querySelector(".btnimg");
@@ -119,7 +126,9 @@ function populateText(str){
 function removeCorrectCharacter() { // 친 글자 사라지는 함수
     document.querySelectorAll('.correct').forEach(item => item.remove());
 }
-
+socket.on('receive-message', message=>{
+    console.log(message)
+})
 input.addEventListener("keyup", () => {
     const val = input.value
     let errorCount = 0;
@@ -133,6 +142,7 @@ input.addEventListener("keyup", () => {
             charEls[i].classList.add("correct");
         }
     })
+    socket.emit('send-message', val.length)
     if(val.length == str[order].length){
         $(function(){
             console.log(errorCount)
