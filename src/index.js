@@ -3,6 +3,12 @@ var firestore = require("firebase-admin/firestore");
 
 var serviceAccount = require("./firebasekey.json");
 
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount)
+});
+const db = firestore.getFirestore();
+
 const express = require("express");
 const http = require("http");
 const bodyParser = require("body-parser");
@@ -50,8 +56,8 @@ app.post("/list", async (req, res) => {
 app.post("/list/join", async (req, res) => {
   console.log('/list/join 호출됨.');
   let data = true;
-  let roomName = req.body.roomName || req.query.roomName;
-  let nickname = req.body.nickname || req.query.nickname;
+  let roomName = req.body.roomName;
+  let nickname = req.body.nickname;
   const doc = db.collection("list").doc(roomName);
   const firebase = await doc.get()
   if (!firebase.exists) {
@@ -72,22 +78,22 @@ app.post("/list/join", async (req, res) => {
 app.post("/list/make", async (req, res) => {
   console.log('/list/make 호출됨.');
   let data = true;
-  let version = req.body.version || req.query.version;
-  let nickname = req.body.nickname || req.query.nickname;
-  const doc = db.collection("list").doc(nickname);
-  const firebase = await doc.get()
+  const paramVersion = req.body.version;
+  const paramRoomName = req.body.roomName;
+  console.log(paramRoomName)
+  const hey = db.collection("list").doc(paramRoomName);
+  const firebase = await hey.get()
   if (!firebase.exists) {
     data = true;
     let list={
-      version: version,
+      version: paramVersion,
       fighter: ""
     }
-    await db.doc.set(list);
+    await hey.set(list);
   } else {
     data = false;
   }
   res.send(data);
-  
 })
 
 // 

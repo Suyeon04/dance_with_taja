@@ -1,4 +1,3 @@
-import axios from 'axios';
 const form = document.querySelector(".wprtbody");
 // const socket = io();
 const list = document.getElementById("list");
