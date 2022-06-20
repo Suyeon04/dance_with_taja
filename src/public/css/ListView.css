@@ -465,14 +465,17 @@ body {
       font-size: 20px;
     }
     #tdlaguage{
-      padding-left: 120px;
+      padding-left: 10%;
+      /* padding-left: 120px; */
     }
     #tdname{
-      padding-left: 150px;
-      padding-right: 90px;
+      /* padding-left: 150px;
+      padding-right: 90px; */
+      padding-left: 15%;
+      padding-right: 5em;
     }
     #tdclick{
-      padding-right:90px;
+      /* padding-right:90px; */
     }
     .wrapper {
       line-height: 1.5em;
