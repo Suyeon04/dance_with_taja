@@ -152,39 +152,14 @@ body::before {
         background-color: blueviolet;
     }
 
-    /* .Start{
-        border:none;
-        color: white; background-color: gray; 
-        margin-top: 620px;
-        margin-left: 690px;
-        width: 150px;
-        height: 50px;
-        font-size: 20px;
-    }
-    .Start:hover{
+    .complete:hover{
         background-color: blueviolet;
-    } */
-    .Start{
-        margin-top: 620px;
-        margin-left: 690px;
-        width: 150px;
-        height: 50px;
-        font-size: 20px;
-        padding: 0.6em 2em;
-        border: none;
-        outline: none;
-        color: rgb(255, 255, 255);
-        background: rgba(17, 17, 17, 0.481);
-        cursor: pointer;
-        position: relative;
-        z-index: 0;
-        border-radius: 10px;
-        user-select: none;
-        -webkit-user-select: none;
-        touch-action: manipulation;
-        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;  
     }
-    .Start:before {
+    .btncomplete{
+        background-color: blueviolet;
+    }
+    .completed:before{
+        background: rgba(17, 17, 17, 0.481);
         content: "";
         background: linear-gradient(
             45deg,
@@ -211,6 +186,17 @@ body::before {
         transition: opacity 0.3s ease-in-out;
         border-radius: 10px;
     }
+    .completed:after {
+        z-index: -1;
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba(17, 17, 17, 0.481);
+        left: 0;
+        top: 0;
+        border-radius: 10px;
+    }
 
     @keyframes glowing-Start {
         0% {
@@ -224,17 +210,6 @@ body::before {
         }
     }
 
-    .Start:after {
-        z-index: -1;
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background: rgba(17, 17, 17, 0.481);
-        left: 0;
-        top: 0;
-        border-radius: 10px;
-    }
     .youchar{
         border-radius: 30px;
         border: 3px solid white;
@@ -355,15 +330,15 @@ body::before {
         margin-top: 80px;
     } /* overflow 되면 숨긴다*/
     .Mimages{ 
-        display: flex; height: 400px; width: 2000px;
+        display: flex; height: 600px; width: 2400px;
         transition-property: transform; /* transform 속성에대해, js코드에 의해 transform 스타일 추가된다*/
         transition-duration: 1s; /* transition 지속시간 */
     }
     .Mimage{width: 500px; height: 400px; margin-left : 200px; margin-top: 10px;}
-    .Mimage:nth-child(1){background-image: url("/img/hook/1.png"); background-repeat: no-repeat;}
-    .Mimage:nth-child(2){background-image: url("/img/hook/1.png"); background-repeat: no-repeat;}
-    .Mimage:nth-child(3){background-image: url("/img/hook/1.png"); background-repeat: no-repeat;}
-    .Mimage:nth-child(4){background-image: url("/img/hook/1.png"); background-repeat: no-repeat;}
+    .Mimage:nth-child(1){background-image: url("/img/r1.png"); background-repeat: no-repeat;}
+    .Mimage:nth-child(2){background-image: url("/img/n1.png"); background-repeat: no-repeat;}
+    .Mimage:nth-child(3){background-image: url("/img/i1.png"); background-repeat: no-repeat;}
+    .Mimage:nth-child(4){background-image: url("/img/g1.png"); background-repeat: no-repeat;}
 
     .CharSelect{
         width: 800px;
@@ -408,9 +383,9 @@ body::before {
 
     .complete{
         font-family: 'HS-Regular';
-        width: 180px; height: 50px; border:none; 
+        width: 300px; height: 100px; border:none; 
         color: white; background-color: gray; 
-        margin-left: 300px;
+        margin-left: 250px;
         margin-top: 100px;
         font-size: 25px;
         line-height: 45px;
@@ -418,43 +393,11 @@ body::before {
     .complete:hover{
         background-color: blueviolet;
     }
-    .completed{
+    .btncomplete{
         background-color: blueviolet;
     }
-
-    /* .Start{
-        border:none;
-        color: white; background-color: gray; 
-        margin-top: 620px;
-        margin-left: 690px;
-        width: 150px;
-        height: 50px;
-        font-size: 20px;
-    }
-    .Start:hover{
-        background-color: blueviolet;
-    } */
-    .Start{
-        margin-top: 1100px;
-        margin-left: 1130px;
-        width: 300px;
-        height: 100px;
-        font-size: 20px;
-        padding: 0.6em 2em;
-        border: none;
-        outline: none;
-        color: rgb(255, 255, 255);
+    .completed:before{
         background: rgba(17, 17, 17, 0.481);
-        cursor: pointer;
-        position: relative;
-        z-index: 0;
-        border-radius: 10px;
-        user-select: none;
-        -webkit-user-select: none;
-        touch-action: manipulation;
-        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;  
-    }
-    .Start:before {
         content: "";
         background: linear-gradient(
             45deg,
@@ -481,6 +424,17 @@ body::before {
         transition: opacity 0.3s ease-in-out;
         border-radius: 10px;
     }
+    .completed:after {
+        z-index: -1;
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba(17, 17, 17, 0.481);
+        left: 0;
+        top: 0;
+        border-radius: 10px;
+    }
 
     @keyframes glowing-Start {
         0% {
@@ -494,17 +448,6 @@ body::before {
         }
     }
 
-    .Start:after {
-        z-index: -1;
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background: rgba(17, 17, 17, 0.481);
-        left: 0;
-        top: 0;
-        border-radius: 10px;
-    }
     .youchar{
         border-radius: 30px;
         border: 3px solid white;
@@ -538,7 +481,7 @@ body::before {
     #select2{
         position: absolute;
         /* left: 50px;  */
-        top: 200px;
+        top: 5px;
         z-index: 2;
     }
 
