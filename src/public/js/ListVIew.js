@@ -69,7 +69,8 @@ async function roomList() {
     td2.className ='Language'
 
     const td3 = document.createElement("td");
-    td3.innerHTML = `<td>${item.nickname}</td>`;
+    td3.innerHTML = `<td>${item.ninkname}</td>`;
+    td3.id = `nickName${idx}`
     td3.className ='NickName'
 
     const td4 = document.createElement("td");
@@ -102,12 +103,11 @@ function handleRoomSubmit(event) {
   // socket.emit("enter_room", name.value, version, showRoom);//emit 마지막 argument는 funciton
   // socket.emit("nickname", name.value);
   const name = document.querySelectorAll(".input-name2");
-  
-
+  const nickName = document.querySelector(`#nickName${version}`).outerText;
   roomName = name[1].value;
-  console.log(roomName + " "+ version)
+  console.log(roomName + " "+ version, nickName)
 
-  let inputdata = {version:version, roomName:roomName};
+  let inputdata = {version:version, roomName:roomName, nickName:nickName};
   sendAjax('http://localhost:3002/list/join', inputdata)
 
 }
@@ -277,4 +277,5 @@ function Aboutversion(idx){
     return "파일 업로드 - PHP";
   }
 }
+
 
