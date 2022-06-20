@@ -77,8 +77,9 @@ app.post("/list/join", async (req, res) => {
 
   const paramVersion = req.body.version;
   const paramRoomName = req.body.roomName;
+  const paramNickName = req.body.nickName;
   
-  console.log(paramVersion, paramRoomName)
+  console.log(paramVersion, paramRoomName, paramNickName)
 
   // let data = true;
   // let roomName = req.body.roomName || req.query.roomName;
