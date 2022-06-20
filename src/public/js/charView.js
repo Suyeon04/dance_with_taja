@@ -129,5 +129,5 @@ function complete(){
 }
 
 function GameStart(){
-    location.href="http://localhost:3000/game";
+    location.href="http://localhost:3002/game";
 }
