@@ -23,6 +23,7 @@ body {
 }
 /*폰트end*/
 
+/*공통된 css*/
 @keyframes flicker {/* .maintitle 애니메이션 */
   0%, 18%, 22%, 25%, 53%, 57%, 100% {
       text-shadow:
@@ -36,6 +37,23 @@ body {
   20%, 24%, 55% {        
       text-shadow: none;
   }    
+}
+
+.trigger:hover{
+  background-color: #44d9e8;
+}
+.modal-btn{
+  z-index: 1;
+}
+#cancel:hover{
+  color: #fff;
+  background-color: #AF4848;
+  opacity: 0.9;
+}
+#select:hover{
+  color: #fff;
+  background-color: #216282;
+  opacity: 0.9;
 }
 
 /*노트북 사이즈*/
@@ -90,12 +108,6 @@ body {
     background-color: transparent;
     font-size: 30px;
   }
-  .trigger:hover{
-    background-color: #44d9e8;
-  }
-  .modal-btn{
-    z-index: 1;
-  }
   #cancel {
     width: 127px; height: 48px;
     text-align: center;
@@ -103,11 +115,6 @@ body {
     top: 300px;
     cursor: pointer;
     position: absolute;
-  }
-  #cancel:hover{
-    color: #fff;
-    background-color: #AF4848;
-    opacity: 0.9;
   }
   #select {
     width: 127px; height: 48px;
@@ -118,12 +125,6 @@ body {
     cursor: pointer;
     position: absolute;
   }
-  #select:hover{
-    color: #fff;
-    background-color: #216282;
-    opacity: 0.9;
-  }
-
   .modal {
     z-index: 3;
     position: fixed;
@@ -539,9 +540,9 @@ body {
 /*PC모니터 사이즈*/
 @media(min-width:1900px){
   .maintitle{ /*<h1>스트릿타자파이터<h1>*/
-    margin-left: 35%;
-    margin-top: 100px;
     color: white;
+    margin-left: 33%;
+    margin-top: 100px;
     animation: flicker 1.5s infinite alternate;
     font-family: 'EliceDigitalBaeum-Bd';
     font-size: 90px;
@@ -562,12 +563,12 @@ body {
     background-color: transparent;
     font-size: 40px;
   }
-  .trigger:hover{
+  /* .trigger:hover{
     background-color: #44d9e8;
-  }
-  .modal-btn{
+  } */
+  /* .modal-btn{
     z-index: 1;
-  }
+  } */
   #cancel {
     width: 127px; height: 48px;
     text-align: center;
@@ -576,11 +577,11 @@ body {
     cursor: pointer;
     position: absolute;
   }
-  #cancel:hover{
+  /* #cancel:hover{
     color: #fff;
     background-color: #AF4848;
     opacity: 0.9;
-  }
+  } */
   #select {
     width: 127px; height: 48px;
     text-align: center;
@@ -590,11 +591,11 @@ body {
     cursor: pointer;
     position: absolute;
   }
-  #select:hover{
+  /* #select:hover{
     color: #fff;
     background-color: #216282;
     opacity: 0.9;
-  }
+  } */
 
   .modal {
     z-index: 3;
