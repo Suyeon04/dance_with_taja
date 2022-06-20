@@ -32,7 +32,7 @@ const httpServer = http.createServer(app);
 
 // 리스트 정보 보내기
 app.post("/list", async (req, res) => {
-  // console.log('/list 호출됨.');
+  console.log('/list 호출됨.');
   // let data = [];
   // const snapshot = await db.collection("list").where('fighter', '==', "").get;
   // if (snapshot.empty) {
@@ -46,11 +46,40 @@ app.post("/list", async (req, res) => {
   //   })
   // }
   // res.send(data);
+
+  let data = [
+    {
+      'language':'Android',
+      'ninkname':'쭈꾸',
+    }, {
+      'language':'JAVA',
+      'ninkname':'뿌꾸',
+    }, {
+      'language':'JavaScript',
+      'ninkname':'어피치',
+    }, {
+      'language':'Android',
+      'ninkname':'신기방기뿡뿡방기',
+    }, {
+      'language':'PHP',
+      'ninkname':'동방신기',
+    }
+  ]
+
+  res.json({"data":data})
 })
+
+
 
 //기존 방 들어가기
 app.post("/list/join", async (req, res) => {
-  // console.log('/list/join 호출됨.');
+  console.log('/list/join 호출됨.');
+
+  const paramVersion = req.body.version;
+  const paramRoomName = req.body.roomName;
+  
+  console.log(paramVersion, paramRoomName)
+
   // let data = true;
   // let roomName = req.body.roomName || req.query.roomName;
   // let nickname = req.body.nickname || req.query.nickname;

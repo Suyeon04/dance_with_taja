@@ -4,12 +4,10 @@ const form = document.querySelector(".welcome");
 const list = document.getElementById("list");
 const select = document.querySelector("#select");
 const start = document.querySelector(".Startbtn");
-const name = document.querySelector(".input-name2");  // 방장 닉넴
+const name = document.querySelectorAll(".input-name2");  // 방장 닉넴
 
-// version이랑 타이틀이 다른데 기존 방은 language만 보임 ?... [미해결]
-const versions = ["사칙연산 - JAVA", "역참조 배제하기 - JS"
-                , "양의 정수 - JS", "스크롤 만들기 - Android"
-                , "파일 업로드 - PHP"]
+// version 종류
+const versions = [ "JAVA", "JavaScript" ,  "Android" , "PHP" ]
 
 let version = 0;    // 방 버전
 let roomName = 0;   // 방 이름
@@ -30,7 +28,9 @@ async function sendAjax(url, data){
   const reqURL = await fetch(url,dataInfo);  
   const result = await reqURL.json(); //JSON값 받아오기
  
-  console.log(result.test)
+  // console.log(result.test)
+
+  return result;
 }
 
 // 방장 방 만들기: post방식 fetch API
@@ -38,23 +38,22 @@ function CreateRoom(event) {
   // socket.emit("enter_room", name.value, version, showRoom);//emit 마지막 argument는 funciton
   // socket.emit("nickname", name.value);
 
-  roomName = name.value;
+  roomName = name[0].value;
   console.log(roomName + " "+ version);
 
-  var inputdata = {version:version, roomName:roomName};
-
+  let inputdata = {version:version, roomName:roomName};
   sendAjax('http://localhost:3002/list/make', inputdata)
 
 }
 
 // 기존 방 들어가기: version 저장
-function roomDataSet(language) {
+const roomDataSet = (idx) => {
+  let language = document.querySelector(`#language${idx}`).outerText;
 
   versions.map((item, idx) => {
-    if(language === item) version = idx;
+    if(language === item)  version = idx;
   })
 
-  console.log('해당하는 방의 버전은 : ', version)
 }
 
 // 기존 방 들어가기: post방식 fetch API
@@ -62,12 +61,11 @@ function handleRoomSubmit(event) {
   // socket.emit("enter_room", name.value, version, showRoom);//emit 마지막 argument는 funciton
   // socket.emit("nickname", name.value);
 
-  roomName = name.value;
-  console.log(roomName + " "+ version);
+  roomName = name[1].value;
+  console.log(roomName + " "+ version)
 
-  //var inputdata = {version:version, roomName:roomName};
-
-  //sendAjax('http://localhost:3002/list/join', inputdata)
+  let inputdata = {version:version, roomName:roomName};
+  sendAjax('http://localhost:3002/list/join', inputdata)
 
 }
 
