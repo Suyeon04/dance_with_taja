@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" type="text/css" href="/css/ListView.css" />
     <link rel="shortcut icon" type="image/x-icon" href="../img/logo.png">
-    <script src = "/js/roomList.js"></script>
+    <script src = "/js/ListView.js"></script>
     <title>Street TAJA Fighter</title>
 </head>
 
@@ -14,13 +14,13 @@
     <div class="container">
         <header>
             <span class="maintitle">Street TAJA Fighter</span>
-            <button class="trigger">+</button>
+            <button class="trigger" onclick="toggleModal()">+</button>
             <!-- <button style="width: 50px; height: 50px;" class="btn" id="playbtn" onclick="MusicPlay()"><img class="btnimg" src="../img/pause.png"/></button>
             <button style="width: 50px; height: 50px;" class="btn" id="musicbtn" onclick="MusicSelect()"><img src="../img/music.png"/></button> -->
                 <!--모달창-->
                 <div class="modal">
                     <div class="modal-content">
-                        <span class="close-button">&times;</span>
+                        <span class="close-button" onclick="toggleModal()">&times;</span>
                         <h1 class="title">방 생성</h1>
                             <!--속성 드롭바-->
                             <section id="theme">
@@ -51,7 +51,7 @@
                             </div>
                         <div class="modal-btn">
                             <button id="select" type = "submit" onclick="CreateRoom()">생성</button>
-                            <button id="cancel">취소</button>
+                            <button id="cancel" onclick="toggleModal()">취소</button>
                         </div>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
             <!--모달창-->
             <div class="modal2">
                 <div class="modal-content2">
-                    <span class="close-button2">&times;</span>
+                    <span class="close-button2" onclick="toggleModal2()">&times;</span>
                     <h1 class="title" style="text-align: center;">닉네임 입력</h1>
                         <div class="title2" id="modal2-name1">닉네임</div>
                         <div class="input-box2" id="modal2-name2">
@@ -82,7 +82,7 @@
                         </div>
                     <div class="modal-btn2">
                         <button id="select2" type = "submit" onclick="handleRoomSubmit()">GO!</button>
-                        <button id="cancel2">취소</button>
+                        <button id="cancel2" onclick="toggleModal2()">취소</button>
                     </div>
                 </div>
             </div>
@@ -98,6 +98,6 @@
         </div>
     </div>
 </body>
-<script src = "/js/ListView.js"></script>
+<!-- <script src = "/socket.io/socket.io.js"></script> -->
 
 </html>
