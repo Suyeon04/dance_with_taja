@@ -42,7 +42,9 @@ body {
 @media(max-width:1600px){
   .maintitle{ /*<h1>스트릿타자파이터<h1>*/
     color: white;
-    padding: 10em 10 1em;
+    /* padding: 10em 10 1em; */
+    margin-left: 35%;
+    margin-top: 100px;
     animation: flicker 1.5s infinite alternate;
     font-family: 'EliceDigitalBaeum-Bd';
     font-size: 50px;
@@ -457,7 +459,7 @@ body {
       margin-bottom: 3em;
       width: 80%; /*테이블 가로 사이즈*/
       /* max-width: 2000px; */
-      margin-top: 20px;
+      margin-top: 60px;
     }
     .head td{
       /* padding: 1em 3em; */
@@ -509,7 +511,7 @@ body {
     }
 
     td{
-      padding: 1em 2em;
+      padding: 1em 3em;
       text-align: center;
     }
 
