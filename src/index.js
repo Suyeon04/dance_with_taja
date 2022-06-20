@@ -88,14 +88,14 @@ app.post("/list", async (req, res) => {
   res.json({ "data": data })
 })
 
-
+let paramRoomName;
 
 //기존 방 들어가기
 app.post("/list/join", async (req, res) => {
   console.log('/list/join 호출됨.');
   const paramVersion = req.body.version;
   const paramNickName = req.body.roomName;
-  const paramRoomName = req.body.nickName;
+  paramRoomName = req.body.nickName;
   console.log(paramRoomName+ " "+paramNickName)
   let data = true;
   const doc = db.collection("list").doc(paramRoomName);
@@ -115,11 +115,12 @@ app.post("/list/join", async (req, res) => {
 })
 
 //방 만들기
+
 app.post("/list/make", async (req, res) => {
   console.log('/list/make 호출됨.');
   let data = true;
   const paramVersion = req.body.version;
-  const paramRoomName = req.body.roomName;
+  paramRoomName = req.body.roomName;
   console.log(paramRoomName)
   const hey = db.collection("list").doc(paramRoomName);
   const firebase = await hey.get()
@@ -127,7 +128,11 @@ app.post("/list/make", async (req, res) => {
     data = true;
     let list = {
       version: paramVersion,
-      fighter: ""
+      fighter: "",
+      maker : "r",
+      partner : "r",
+      makerSummit : false,
+      partnerSummit : false
     }
     await hey.set(list);
   } else {
@@ -147,34 +152,27 @@ app.post("/moveChar", async (req, res)=>{
   const doc = db.collection("list").doc(paramRoomName);
   const firebase = await doc.get();
   if(firebase.id == nickName){
-    await doc.update({ maker: char});
-  }else{
     await doc.update({ partner: char});
+  }else{
+    await doc.update({ maker: char});
   }
   res.json({"data":"okay"})
-  //r1, n1, i1, g1
-  //사진 이름 ==r1, n1, i1, g1
-  //지금 r1사진을 보고 있다 == r 넘겨주기
 })
   
 // 데이터 넘겨주기
 // 상대방이 움직이는거
 app.post("/moveChar2", async (req, res)=>{
   console.log('/moveChar2 호출됨.');
-
-  // const paramRoomName = req.body.roomName;
-  // const nickName = req.body.nickName;
-  // const doc = db.collection("list").doc(paramRoomName);
-  // const firebase = await doc.get();
-
-  // if(firebase.id == nickName){
-  //   return firebase.data().partner;
-  // }else{
-  //   return firebase.data().maker;
-  // }
-
-  let data = "n"
-
+  const paramRoomName = req.body.roomName;
+  const nickName = req.body.nickName;
+  const doc = db.collection("list").doc(paramRoomName);
+  const firebase = await doc.get();
+  let data = "n";
+  if(firebase.id == nickName){
+    data = firebase.data().partner;
+  }else{
+    data = firebase.data().maker;
+  }
   switch(data) {
     case "r" : data = 1;
              break;
@@ -185,7 +183,6 @@ app.post("/moveChar2", async (req, res)=>{
     case "g" : data = 4;
              break;
 }
-  
   res.json({"data":data})
 })
 
@@ -193,18 +190,43 @@ app.post("/moveChar2", async (req, res)=>{
 // 상대방 캐릭터 선택 완료 값 넘겨 받기 
 app.post("/makeChar2", async (req, res)=>{
   console.log('/makeChar2 호출됨.');
-
   let data = "false"
   
   res.json({"data":data})
 })
 
+app.post("/makeChar", async (req, res)=>{
+  console.log('/makeChar 호출됨.');
+  const paramImgNumber = req.body.imgNumber;
+  const doc = db.collection("list").doc(paramRoomName);
+  const firebase = await doc.get();
+  if(firebase.id == nickName){
+      await doc.update({
+        makerSummit : true
+      })
+  }else{
+      await doc.update({
+        dapartnerSummit : true
+      })
+  }
+  res.json({"data":"okay"})
+})
+
 // 나와 상대방 complete 확인하고 넘겨주기: true, false
 app.post("/MYcomplete", async (req, res)=>{
   console.log('/MYcomplete 호출됨.');
-
   let data = "false"
-  
+  const doc = db.collection("list").doc(paramRoomName);
+  const firebase = await doc.get();
+  if(firebase.id == nickName){
+    if(firebase.data().partnerSummit==true){
+      data = true;
+    }
+  }else{
+    if(firebase.data().makerSummit==true){
+      data = true;
+    }
+  }
   res.json({"data":data})
 })
   
