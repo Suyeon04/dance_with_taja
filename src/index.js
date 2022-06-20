@@ -3,23 +3,23 @@ var firestore = require("firebase-admin/firestore");
 
 var serviceAccount = require("./firebasekey.json");
 
-import express from 'express';
-import { Server } from 'socket.io';
-import http from "http";
-import bodyParser from 'body-parser'
+const express = require("express");
+const http = require("http");
+const bodyParser = require("body-parser");
 
-import path from 'path';
-const __dirname = path.resolve();
+const path = require("path");
+
 
 const app = express();
 const router = express.Router();
 
 app.use(bodyParser.json())
+const httpServer = http.createServer(app);
 
 
 app.set("view engine", "ejs");
 app.set("views", "src/public/html");
-app.use(express.static(`${__dirname}/src/public`));
+app.use(express.static(`${__dirname}/public`));
 app.get("/", (req, res) => res.render("home/ListView"));
 app.get("/charView", (req, res) => res.render("home/charView"));
 //src\public\html\home\charView.ejs
@@ -90,7 +90,7 @@ app.post("/list/make", async (req, res) => {
   
 })
 
-// const httpServer = http.createServer(app);
+// 
 // const wsServer = new Server(httpServer,{
 //     cors: {
 //         origin: ["https://admin.socket.io"],
