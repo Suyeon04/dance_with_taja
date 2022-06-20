@@ -230,10 +230,10 @@ body{
     }
     #youchar{
         position: absolute;
-        width: 350px;
+        width: 180px;
         height: 250px;
-        margin-left: 930px;
-        margin-top: 330px;
+        margin-left: 950px;
+        margin-top: 310px;
     }
     
     /*ending btn*/

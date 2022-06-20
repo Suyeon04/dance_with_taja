@@ -180,7 +180,7 @@ input.addEventListener("keyup", () => {
                 })
                 console.log("Well Done!")
 
-                // 리정 애니메이션
+                // my 애니메이션
                 for(let i=2; i<13; i++){
                     (x => {
                         setTimeout(() => {
@@ -190,7 +190,7 @@ input.addEventListener("keyup", () => {
                     })(i)
                 }
 
-                // 노제 애니메이션
+                // you 애니메이션
                 // for(let i=2;i<12;i++){
                 //     (y => {
                 //         setTimeout(() => {
