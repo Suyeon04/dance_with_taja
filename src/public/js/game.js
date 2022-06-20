@@ -1,9 +1,9 @@
 //복사 방지
-window.addEventListener("copy", (e) => {
-    alert("정정당당히 경쟁해라!");
-    e.preventDefault();
-    e.clipboardData.clearData("Text"); // 클립보드에 저장된 컨텐츠 삭제
-});
+// window.addEventListener("copy", (e) => {
+//     alert("정정당당히 경쟁해라!");
+//     e.preventDefault();
+//     e.clipboardData.clearData("Text"); // 클립보드에 저장된 컨텐츠 삭제
+// });
 
 // 오디오
 let playbtn=document.querySelector("#playbtn");

@@ -42,7 +42,7 @@ body {
 @media(max-width:1600px){
   .maintitle{ /*<h1>스트릿타자파이터<h1>*/
     color: white;
-    padding: 0em 0 0.5em;
+    padding: 10em 10 1em;
     animation: flicker 1.5s infinite alternate;
     font-family: 'EliceDigitalBaeum-Bd';
     font-size: 50px;
