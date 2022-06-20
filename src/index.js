@@ -138,7 +138,8 @@ app.post("/list/make", async (req, res) => {
 
 //----------------charView---------------
 
-//방금 넘어간 거 데이터 넘겨주기
+// 방금 넘어간 거 데이터 가져오기
+// 내가 움직이는거
 app.post("/moveChar", async (req, res)=>{
   console.log('/moveChar 호출됨.');
   const paramRoomName = req.body.roomName;
@@ -155,32 +156,54 @@ app.post("/moveChar", async (req, res)=>{
   //사진 이름 ==r1, n1, i1, g1
   //지금 r1사진을 보고 있다 == r 넘겨주기
 })
+  
+// 데이터 넘겨주기
+// 상대방이 움직이는거
+app.post("/moveChar2", async (req, res)=>{
+  console.log('/moveChar2 호출됨.');
 
-//상대방이 움직인 거 데이터 넘겨받기 
-app.post("/moveChar/partner", async (req, res)=>{
-  console.log('/moveChar/partner 호출됨.');
-  const paramRoomName = req.body.roomName;
-  const nickName = req.body.nickName;
-  const doc = db.collection("list").doc(paramRoomName);
-  const firebase = await doc.get();
-  if(firebase.id == nickName){
-    return firebase.data().partner;
-  }else{
-    return firebase.data().maker;
-  }
+  // const paramRoomName = req.body.roomName;
+  // const nickName = req.body.nickName;
+  // const doc = db.collection("list").doc(paramRoomName);
+  // const firebase = await doc.get();
+
+  // if(firebase.id == nickName){
+  //   return firebase.data().partner;
+  // }else{
+  //   return firebase.data().maker;
+  // }
+
+  let data = "n"
+
+  switch(data) {
+    case "r" : data = 1;
+             break;
+    case "n" : data = 2;
+             break;
+    case "i" : data = 3;
+             break;
+    case "g" : data = 4;
+             break;
+}
+  
+  res.json({"data":data})
 })
 
 
-// 상대방 캐릭터 선택 완료 값 넘겨 받기
-// 내 캐릭터 선택 완료 값 넘겨 주기
-//이거는 남이 내꺼 보는 거잖앙
-// 그러면 남도 내가 완료했는지
-//봐야하는데 그게 없엉
-
+// 상대방 캐릭터 선택 완료 값 넘겨 받기 
 app.post("/makeChar2", async (req, res)=>{
   console.log('/makeChar2 호출됨.');
 
-  let data = "true"
+  let data = "false"
+  
+  res.json({"data":data})
+})
+
+// 나와 상대방 complete 확인하고 넘겨주기: true, false
+app.post("/MYcomplete", async (req, res)=>{
+  console.log('/MYcomplete 호출됨.');
+
+  let data = "false"
   
   res.json({"data":data})
 })
