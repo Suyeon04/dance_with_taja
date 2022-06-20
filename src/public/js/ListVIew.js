@@ -1,25 +1,81 @@
-import axios from 'axios';
-const form = document.querySelector(".wprtbody");
+// const socket = io();
+
+const form = document.querySelector(".welcome");
+const list = document.getElementById("list");
 const select = document.querySelector("#select");
 const start = document.querySelector(".Startbtn");
-// 방장 닉넴
-const name = document.querySelector(".input-name2");
+const name = document.querySelector(".input-name2");  // 방장 닉넴
 
-let version = 0; // 방 버전
-let roomName = 0; // 방 이름
-let count = 1; // 방 번호
+// version이랑 타이틀이 다른데 기존 방은 language만 보임 ?... [미해결]
+const versions = ["사칙연산 - JAVA", "역참조 배제하기 - JS"
+                , "양의 정수 - JS", "스크롤 만들기 - Android"
+                , "파일 업로드 - PHP"]
+
+let version = 0;    // 방 버전
+let roomName = 0;   // 방 이름
+let count = 1;      // 방 번호
 let roomCount = 0;
 
-// 방장 방만들기
-// function handleRoomSubmit(event) {
-//   console.log(name.value + " "+ version);
-//   socket.emit("enter_room", name.value, version, showRoom);//emit 마지막 argument는 funciton
-//   socket.emit("nickname", name.value);
-//   roomName = name.value;
-//   name.value = "";
-// }
+//ajax 보내는 부분 : async api
+async function sendAjax(url, data){
 
-// function showRoom(){
+  var dataInfo = {
+      method : "POST",  //메소드 반드시 지정해줘야 app.js 파일에서 찾을수 있음.
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      }
+  };
+
+  const reqURL = await fetch(url,dataInfo);  
+  const result = await reqURL.json(); //JSON값 받아오기
+ 
+  console.log(result.test)
+}
+
+// 방장 방 만들기: post방식 fetch API
+function CreateRoom(event) {
+  // socket.emit("enter_room", name.value, version, showRoom);//emit 마지막 argument는 funciton
+  // socket.emit("nickname", name.value);
+
+  roomName = name.value;
+  console.log(roomName + " "+ version);
+
+  var inputdata = {version:version, roomName:roomName};
+
+  sendAjax('http://localhost:3002/list/make', inputdata)
+
+}
+
+// 기존 방 들어가기: version 저장
+function roomDataSet(language) {
+
+  versions.map((item, idx) => {
+    if(language === item) version = idx;
+  })
+
+  console.log('해당하는 방의 버전은 : ', version)
+}
+
+// 기존 방 들어가기: post방식 fetch API
+function handleRoomSubmit(event) {
+  // socket.emit("enter_room", name.value, version, showRoom);//emit 마지막 argument는 funciton
+  // socket.emit("nickname", name.value);
+
+  roomName = name.value;
+  console.log(roomName + " "+ version);
+
+  //var inputdata = {version:version, roomName:roomName};
+
+  //sendAjax('http://localhost:3002/list/join', inputdata)
+
+}
+
+
+
+
+function showRoom(){
+
 //   location.replace('/charView');
 //   localStorage.setItem("roomName",JSON.stringify(roomName));
 //   localStorage.setItem("version",JSON.stringify(version));
@@ -36,7 +92,7 @@ let roomCount = 0;
 //     count++;
 //     console.log("hsidfhisd")
 //   })
-// });
+}
 
 
 // function addUser(e){
@@ -124,7 +180,7 @@ window.onload=()=>{
     showMenu=(value, v)=>{
       var dropbtn_content = document.querySelector('.dropbtn_content');
       var dropbtn = document.querySelector('.dropbtn');
-      version = value;
+      version = v;
       dropbtn_content.innerText = value;
       dropbtn_content.style.color = '#252525';
       dropbtn.style.borderColor = '#3992a8';

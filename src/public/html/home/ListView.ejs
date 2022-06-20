@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" type="text/css" href="/css/ListView.css" />
     <link rel="shortcut icon" type="image/x-icon" href="../img/logo.png">
+    <script src = "/js/roomList.js"></script>
     <title>Street TAJA Fighter</title>
 </head>
 
@@ -50,7 +51,7 @@
                                 <input type="text" id="roomName" class="input-name2"/>
                             </div>
                         <div class="modal-btn">
-                            <button id="select" type = "submit" onclick="handleRoomSubmit()">생성</button>
+                            <button id="select" type = "submit" onclick="CreateRoom()">생성</button>
                             <button id="cancel">취소</button>
                         </div>
                     </div>
@@ -88,7 +89,10 @@
             </div>
             <!--모달창end-->
             <table id = "tagArea">
-                <tbody class="wprtbody" >
+                <tbody class="wprtbody">
+                    <script>
+                        roomList();
+                    </script>
                 </tbody>
             </table>
             <img src="../img/logo.png" class="logo"/>

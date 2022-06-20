@@ -6,12 +6,15 @@
 import express from 'express';
 import { Server } from 'socket.io';
 import http from "http";
+import bodyParser from 'body-parser'
 
 import path from 'path';
 const __dirname = path.resolve();
 
 const app = express();
 const router = express.Router();
+
+app.use(bodyParser.json())
 
 
 app.set("view engine", "ejs");
@@ -69,7 +72,13 @@ app.post("/list/join", async (req, res) => {
 
 //방 만들기
 app.post("/list/make", async (req, res) => {
-  // console.log('/list/make 호출됨.');
+  console.log('/list/make 호출됨.');
+
+  const paramVersion = req.body.version;
+  const paramRoomName = req.body.roomName;
+  
+  console.log(paramVersion, paramRoomName)
+  
   // let data = true;
   // let version = req.body.version || req.query.version;
   // let nickname = req.body.nickname || req.query.nickname;
@@ -86,6 +95,11 @@ app.post("/list/make", async (req, res) => {
   //   data = false;
   // }
   // res.send(data);
+
+  //const paramCode  = req.body.barcode || req.query.barcode;
+
+
+  res.json({"test":"성공했다!!ㅜㅜ"})
 })
 
 const handleListen = () => console.log(`Listening on http://localhost:3002`);
