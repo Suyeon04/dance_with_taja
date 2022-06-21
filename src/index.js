@@ -65,7 +65,7 @@ io.on("connection", socket =>{
     if(room?.size < 2) {
       socket.join(roomId)
       if(room.size == 2){
-       socket.to(roomId).emit('news_by_server');
+       socket.to(roomId).emit('news_by_server', room.size);
       }else{
         socket.to(roomId).emit("nothing");
       }

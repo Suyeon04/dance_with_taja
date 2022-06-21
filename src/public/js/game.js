@@ -3,15 +3,34 @@ socket.on('connect', () =>{
         console.log(socket.id);
 })
 
+socket.on("news_by_server", (newCount) => {
+    console.log(newCount);
+});
+socket.on("nothing", () => {
+    console.log("아직 사용자가 없어요ㅜㅜ");
+});
+  
+
 function handleRoomSubmit() {
     socket.emit("join-room", getParameterByName('roomname'));
+    console.log( getParameterByName('roomname'))
 }
 handleRoomSubmit();
 
+// 시작 전 count
+let start=document.querySelector(".start");
+let countspan = document.querySelector(".count");
+let counts=5;
+start.hidden=true;
+countspan.hidden=true;
+setTimeout(() => { clearInterval(timerId);  start.hidden=true; countspan.hidden=true;}, 6000);
+// 5초 후에 정지
+let timerId = setInterval(() =>{
+    start.hidden=false; countspan.hidden=false;
+    countspan.innerText=counts--;
+}, 1000);
+
 socket.on("news_by_server", () => {
-    let timerId = setInterval(() => count.innerText=counts--, 1000);
-    // 5초 후에 정지
-    setTimeout(() => { clearInterval(timerId);  start.hidden=true; count.hidden=true;}, 5000);
 });
 
 // 오디오
@@ -67,18 +86,7 @@ function MusicSelect(){
   }
 }
 
-// 시작 전 count
-let start=document.querySelector(".start");
-let countspan = document.querySelector(".count");
-let counts=5;
-start.hidden=true;
-countspan.hidden=true;
-setTimeout(() => { clearInterval(timerId);  start.hidden=true; countspan.hidden=true;}, 6000);
-// 5초 후에 정지
-let timerId = setInterval(() =>{
-    start.hidden=false; countspan.hidden=false;
-    countspan.innerText=counts--;
-}, 1000);
+
 
 //캐릭터 랜덤
 function randchar(){
