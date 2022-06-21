@@ -10,6 +10,18 @@ audio.autoplay=true;
 audio.volume=0.02;
 ClickSound.volume=0.1;
 
+// 게임 접속 정보 가져오기
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+    results = regex.exec(location.search);
+
+    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+console.log("유저 이름:", getParameterByName('nickname'));
+console.log("게임방 이름:",getParameterByName('roomname'));
+
 function MusicPlay(){
   ClickSound.play();
   audio.volume=0.02;

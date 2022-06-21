@@ -11,6 +11,7 @@ audio.volume=0.02;
 ClickSound.volume=0.1;
 audio.pause()
 
+
 function MusicPlay(){
   ClickSound.play();
   audio.volume=0.02;
@@ -29,7 +30,7 @@ function MusicSelect(){
   audio=null;
   ClickSound.play();
   let rand=Math.floor(Math.random() * 5)+1;
-  console.log(rand)
+  //console.log(rand)
   switch(rand){
       case 1 : audio=new Audio("/audio/Music1.mp3"); break;
       case 2 : audio=new Audio("/audio/Music2.mp3"); break;
@@ -75,7 +76,7 @@ function Mprev(){
     
     Mimages.style.transform = `translateX(${Mposition}px)` /* images 스타일 transform, x축 변경*/
     McurPos -= 1; /* curPos 값 감소*/
-    console.log(McurPos) // 이미지 번호 넘겨줄 위치
+    //console.log(McurPos) // 이미지 번호 넘겨줄 위치
     }
     if(McurPos == 1){ /* 이미지 index값 0 되면 prev 못하게 */
         MprevBtn.setAttribute("disabled", 'true')
@@ -98,7 +99,7 @@ function Mnext(){
         */
         Mimages.style.transform = `translateX(${Mposition}px)`
         McurPos += 1;
-        console.log(McurPos) // 이미지 번호 넘겨줄 위치
+        //console.log(McurPos) // 이미지 번호 넘겨줄 위치
     }
     if(McurPos == 4){
         // 뒤로 못 가게 하기
@@ -112,7 +113,7 @@ function Mnext(){
 // 초기 랜더링 시 최초 호출 함수의 관습적 이름
 function Minit(){
     // 앞으로 가기는 처음부터 못누르게!
-    console.log(McurPos) // 이미지 번호 넘겨줄 위치
+    //console.log(McurPos) // 이미지 번호 넘겨줄 위치
     MprevBtn.setAttribute("disabled", 'true')
     MprevBtn.addEventListener("click", Mprev)
     MnextBtn.addEventListener("click", Mnext)
@@ -126,7 +127,7 @@ function Yprev(){
     
     Yimages.style.transform = `translateX(${Yposition}px)` /* images 스타일 transform, x축 변경*/
     YcurPos -= 1; /* curPos 값 감소*/
-    console.log(YcurPos) // 이미지 번호 넘겨줄 위치
+    //console.log(YcurPos) // 이미지 번호 넘겨줄 위치
     }
     if(YcurPos == 1){ /* 이미지 index값 0 되면 prev 못하게 */
         // YprevBtn.setAttribute("disabled", 'true')
@@ -145,7 +146,7 @@ function Ynext(){
         */
         Yimages.style.transform = `translateX(${Yposition}px)`
         YcurPos += 1;
-        console.log(YcurPos) // 이미지 번호 넘겨줄 위치
+        //console.log(YcurPos) // 이미지 번호 넘겨줄 위치
     }
     if(YcurPos == 4){
         // 뒤로 못 가게 하기
@@ -156,7 +157,7 @@ function Ynext(){
 // 초기 랜더링 시 최초 호출 함수의 관습적 이름
 function Yinit(){
     // 앞으로 가기는 처음부터 못누르게!
-    console.log(YcurPos) // 이미지 번호 넘겨줄 위치
+    //console.log(YcurPos) // 이미지 번호 넘겨줄 위치
     // YprevBtn.setAttribute("disabled", 'true')
     // YprevBtn.addEventListener("click", Yprev)
     // YnextBtn.addEventListener("click", Ynext)
