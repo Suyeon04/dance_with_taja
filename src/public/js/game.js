@@ -87,7 +87,6 @@ function MusicSelect(){
 }
 
 
-
 //캐릭터 랜덤
 function randchar(){
 
