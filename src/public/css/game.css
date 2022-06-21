@@ -162,13 +162,13 @@ body{
     #b2{
         /*transform: translate(230px,500px); */ /*(방향, 높이)*/
         transform: rotate( 230deg );
-        margin-top: 500px;
-        margin-left: 250px;
+        margin-top: 520px;
+        margin-left: 240px;
     }
     #b2_1{
         transform: rotate( 230deg );
-        margin-top: 400px;
-        margin-left: 250px;
+        margin-top: 570px;
+        margin-left: 150px;
     }
     #b3{
         transform: rotate( 130deg );
@@ -177,16 +177,16 @@ body{
         /* transform: translate(600px,300px);(방향, 높이) */
     }
     #b4_1{
-        height: 600px; 
+        height: 700px; 
         position: absolute; 
-        margin-left: 50px; 
-        margin-top: 20px;
+        margin-left: 10px; 
+        margin-top: -100px;
     }
     #b4_2{
-        height: 600px; 
+        height: 700px; 
         position: absolute; 
-        margin-left: 400px; 
-        margin-top: 20px;
+        margin-left: 370px; 
+        margin-top: -100px;
     }
     #b5{
         height:300px; 
@@ -274,6 +274,25 @@ body{
         }
     }
     
+    /*상대 캐릭터 이펙트*/
+    #c4_1{
+        height: 700px; 
+        position: absolute; 
+        margin-left: 10px; 
+        margin-top: -100px;
+    }
+    #c4_2{
+        height: 700px; 
+        position: absolute; 
+        margin-left: 370px; 
+        margin-top: -100px;
+    }
+    #c5{
+        height:300px; 
+        position: absolute; 
+        margin-left: 300px; 
+        margin-top: 230px;
+    }
     /*transform: scaleX(-1);*/
     
     /*캐릭터*/

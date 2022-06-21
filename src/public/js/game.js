@@ -47,18 +47,19 @@ function MusicSelect(){
       case 5 : audio=new Audio("/audio/Music5.wav"); break;
   }
 }
-// count
 
-// ;
+// 시작 전 count
 let start=document.querySelector(".start");
-let count = document.querySelector(".count");
-let counts=4;
-
-
-let timerId = setInterval(() => count.innerText=counts--, 1000);
-
+let countspan = document.querySelector(".count");
+let counts=5;
+start.hidden=true;
+countspan.hidden=true;
+setTimeout(() => { clearInterval(timerId);  start.hidden=true; countspan.hidden=true;}, 6000);
 // 5초 후에 정지
-setTimeout(() => { clearInterval(timerId);  start.hidden=true; count.hidden=true;}, 5000);
+let timerId = setInterval(() =>{
+    start.hidden=false; countspan.hidden=false;
+    countspan.innerText=counts--;
+}, 1000);
 
 //캐릭터 랜덤
 function randchar(){
@@ -101,9 +102,9 @@ let order = -1;
 TotalText.innerHTML=str.length;
 // effect2.hidden=true;
 // effect3.hidden=true;
-// effect4_1.hidden=true;
-// effect4_2.hidden=true;
-// effect5.hidden=true;
+effect4_1.hidden=true;
+effect4_2.hidden=true;
+effect5.hidden=true;
 endingbtn.hidden=true;
 
 changeWord();
@@ -163,9 +164,9 @@ $(document).ready(function(){
     // $("#mychar").animate({width:'351px', height:'450px'},2000);
     // $("#mychar").animate({width:'251px', height:'350px'},1500);
     // $('#mychar').css({width:'351px', height:'450px'});
-    $('#mychar').css({width:'27%'});
+    $('#mychar').css({width:'20%'});
     // , , marginleft:'10%'
-    $('#mychar').css({height:'50%'});
+    $('#mychar').css({height:'60%'});
     // $('#mychar').animate($('#mychar').css({'transform':'rotate('+test0+'deg)'}),2000);
    }
    myeffect1=myeffect;
