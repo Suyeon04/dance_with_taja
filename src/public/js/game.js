@@ -49,17 +49,21 @@ function MusicSelect(){
 }
 
 // 시작 전 count
+let timer = () =>{
+    setTimeout(() => { clearInterval(timerId);  start.hidden=true; countspan.hidden=true;}, 6000);
+    let timerId=setInterval(() =>{
+        start.hidden=false; countspan.hidden=false;
+        countspan.innerText=counts--;
+    }, 1000);
+}
+// setTimeout(()=>timer(), 10000);
 let start=document.querySelector(".start");
 let countspan = document.querySelector(".count");
 let counts=5;
 start.hidden=true;
 countspan.hidden=true;
-setTimeout(() => { clearInterval(timerId);  start.hidden=true; countspan.hidden=true;}, 6000);
-// 5초 후에 정지
-let timerId = setInterval(() =>{
-    start.hidden=false; countspan.hidden=false;
-    countspan.innerText=counts--;
-}, 1000);
+//5초 후에 정지
+//let timerstop = () => setTimeout(() => { clearInterval(timerId);  start.hidden=true; countspan.hidden=true;}, 6000);
 
 //캐릭터 랜덤
 function randchar(){
