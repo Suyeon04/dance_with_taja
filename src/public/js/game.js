@@ -5,6 +5,8 @@
 //     e.clipboardData.clearData("Text"); // 클립보드에 저장된 컨텐츠 삭제
 // });
 
+// const { RedisStore } = require("@socket.io/admin-ui");
+
 // 오디오
 let playbtn=document.querySelector("#playbtn");
 let musicimg=document.querySelector(".btnimg");
@@ -61,15 +63,14 @@ let startWord = 'start';
 let str = x.split('\n');
 let input_text = '';
 
-const char_r = document.getElementById("mychar"); // 리정 이미지
-const char_n = document.getElementById("youchar"); // 노제 이미지
+const char_my = document.getElementById("mychar"); // 리정 이미지
+const char_youre = document.getElementById("youchar"); // 노제 이미지
 let text = document.querySelector('.word-display'); // 타자미리보기
 let input = document.querySelector('.word-input'); //타자치는곳
 let NowText=document.querySelector('.NowText'); // 현재 타자치는 부분
 let TotalText=document.querySelector('.TotalText');// 타자 총 수
 let endingbtn=document.querySelector('.ending'); // ending 버튼
 /*effect 조명 */
-let effect1=document.querySelector('#b1');
 let effect2=document.querySelector('#b2');
 let effect3=document.querySelector('#b3');
 /*effect 꽃가루 */
@@ -82,7 +83,6 @@ let charEls = [];
 let order = -1;
 
 TotalText.innerHTML=str.length;
-effect1.hidden=true;
 effect2.hidden=true;
 effect3.hidden=true;
 effect4_1.hidden=true;
@@ -104,6 +104,7 @@ function changeWord(){
     console.log("order : "+order+ " str : "+str.length);
     order++;
     if(order != str.length){
+        effect(order)
         populateText(str[order]);
     }else{
         // alert("끝")
@@ -113,24 +114,73 @@ function changeWord(){
         ClapSound.play();
         endingbtn.hidden=false;
     }
-    effect(order)
     NowText.innerHTML=order;
 }
+let overcolor;// 지고 있는 사람 빨간색
+$(document).ready(function(){
+    function coloreffect(){
+    $("#out1").css("background-color", "lightcoral");
+    $(".word-display").css("color", "white");
+    // $(".box").css("background-color", "green");
+   }
+   overcolor=coloreffect;
+});
+
+let wincolor;// 이기고 있는 사람 초록색
+$(document).ready(function(){
+    function coloreffect(){
+    $("#out1").css("background-color", "aquamarine");
+    $(".word-display").css("color", "white");
+    // $(".box").css("background-color", "green");
+   }
+   wincolor=coloreffect;
+});
+
+let identicalcolor;// 대전 중
+$(document).ready(function(){
+    function coloreffect(){
+    $("#out1").css("background-color", "chocolate");
+    $(".word-display").css("color", "white");
+    // $(".box").css("background-color", "green");
+   }
+   identicalcolor=coloreffect;
+});
+
+let myeffect1; // 캐릭터가 커지는 효과
+$(document).ready(function(){
+    function myeffect(){
+    $("#mychar").animate({width:'230px', height:'300px'},2000);
+    $("#mychar").animate({width:'180px', height:'250px'},1500);
+   }
+   myeffect1=myeffect;
+});
+
 function effect(order){
-    if(order==2){
+    if(order==1){
         effect2.hidden=false;
+        overcolor();
         ClapSound.play();
+    }else if(order==2){
+        wincolor();
+        myeffect1();
+        ClapSound.play();
+    }else if(order==3){
+        identicalcolor();
+        effect3.hidden=false;
+        // myeffect1();
     }else if(order==4){
-        effect1.hidden=false;
+        identicalcolor();
+        effect5.hidden=false;
+        // myeffect1();
         ClapSound.play();
     }else if(order==5){
-        effect3.hidden=false;
-    }else if(order==6){
-        effect1.hidden=true;
-        effect5.hidden=false;
+        effect5.hidden=true;
+        wincolor();
+        myeffect1();
         ClapSound.play();
     }
 }
+
 function populateText(str){
     charEls=[];
     str.split("").map(letter => {
@@ -174,19 +224,19 @@ input.addEventListener("keyup", () => {
 
                 $(function(){
                     start=true;
-                    $("#out2").animate({opacity:0, top:'-25px'},1500); // 타자를 친 후 애니메이션
+                    $("#out2").animate({opacity:0, top:'-25px'},4000); // 타자를 친 후 애니메이션
                     /*!! input이 사라지는게 아니라 하나의 input을 가지고 사라지는 효과만 내줌 !! */
                     removeCorrectCharacter(); // 친 글자 사라지기
                 })
-                console.log("Well Done!")
+                // console.log("Well Done!")
 
                 // my 애니메이션
-                for(let i=2; i<13; i++){
+                for(let i=2; i<14; i++){
                     (x => {
                         setTimeout(() => {
                         let str="/img/hook/"+x+".png"
-                        char_r.src=str
-                        },150*x)
+                        char_my.src=str
+                        },100*x)
                     })(i)
                 }
 

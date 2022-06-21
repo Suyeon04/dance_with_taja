@@ -133,7 +133,7 @@ body{
     #b3{
         transform: rotate( 130deg );
         margin-top: 500px;
-        margin-left: 540px;
+        margin-left: 600px;
         /* transform: translate(600px,300px);(방향, 높이) */
     }
     @keyframes light{
@@ -221,7 +221,7 @@ body{
     /*캐릭터*/
     #mychar{
         position: absolute;
-        width: 160px;
+        width: 180px;
         height: 250px;
         /* margin-left: 350px;
         margin-top: 300px; */

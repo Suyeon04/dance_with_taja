@@ -92,11 +92,11 @@ body::before {
         transition-property: transform; /* transform 속성에대해, js코드에 의해 transform 스타일 추가된다*/
         transition-duration: 1s; /* transition 지속시간 */
     }
-    .Mimage{width: 500px; height: 400px; margin-left : 200px; margin-top: 10px;}
-    .Mimage:nth-child(1){background-image: url("/img/hook/1.png"); background-repeat: no-repeat;}
-    .Mimage:nth-child(2){background-image: url("/img/hook/1.png"); background-repeat: no-repeat;}
-    .Mimage:nth-child(3){background-image: url("/img/hook/1.png"); background-repeat: no-repeat;}
-    .Mimage:nth-child(4){background-image: url("/img/hook/1.png"); background-repeat: no-repeat;}
+    .Mimage{width: 500px; height: 400px; margin-left : 205px; margin-top: 10px;}
+    .Mimage:nth-child(1){background-image: url("/img/r1.png"); background-repeat: no-repeat;}
+    .Mimage:nth-child(2){background-image: url("/img/n1.png"); background-repeat: no-repeat;}
+    .Mimage:nth-child(3){background-image: url("/img/i1.png"); background-repeat: no-repeat;}
+    .Mimage:nth-child(4){background-image: url("/img/g1.png"); background-repeat: no-repeat;}
 
     .CharSelect{
         width: 600px;
@@ -232,16 +232,16 @@ body::before {
         transition-property: transform; /* transform 속성에대해, js코드에 의해 transform 스타일 추가된다*/
         transition-duration: 1s; /* transition 지속시간 */
     }
-    .Yimage{width: 500px; height: 400px; margin-left : 200px; margin-top: 10px;}
-    .Yimage:nth-child(1){background-image: url("/img/hook/1.png"); background-repeat: no-repeat;}
-    .Yimage:nth-child(2){background-image: url("/img/hook/1.png"); background-repeat: no-repeat;}
-    .Yimage:nth-child(3){background-image: url("/img/hook/1.png"); background-repeat: no-repeat;}
-    .Yimage:nth-child(4){background-image: url("/img/hook/1.png"); background-repeat: no-repeat;}
+    .Yimage{width: 500px; height: 400px; margin-left : 205px; margin-top: 10px;}
+    .Yimage:nth-child(1){background-image: url("/img/r1.png"); background-repeat: no-repeat;}
+    .Yimage:nth-child(2){background-image: url("/img/n1.png"); background-repeat: no-repeat;}
+    .Yimage:nth-child(3){background-image: url("/img/i1.png"); background-repeat: no-repeat;}
+    .Yimage:nth-child(4){background-image: url("/img/g1.png"); background-repeat: no-repeat;}
 
     #select2{
         position: absolute;
         /* left: 50px;  */
-        top: 200px;
+        top: 5px;
         z-index: 2;
     }
 

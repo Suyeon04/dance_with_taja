@@ -43,7 +43,7 @@ let McurPos= 1; // 현재 보고 있는 이미지의 인덱스 번호!
 let Mposition = 0; // 현재 .images 의 위치값!
 let YcurPos= 1; // 현재 보고 있는 이미지의 인덱스 번호!
 let Yposition = 0; // 현재 .images 의 위치값!
-const IMAGE_WIDTH = 600; // 한번 움직일 때 이동해야 할 거리!
+const IMAGE_WIDTH = 500; // 한번 움직일 때 이동해야 할 거리!
 
 // 요소 선택
 const MprevBtn = document.querySelector(".Mprev")
