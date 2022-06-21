@@ -172,9 +172,27 @@ body{
     }
     #b3{
         transform: rotate( 130deg );
-        margin-top: 500px;
-        margin-left: 600px;
+        margin-top: 300px;
+        margin-left: 250px;
         /* transform: translate(600px,300px);(방향, 높이) */
+    }
+    #b4_1{
+        height: 600px; 
+        position: absolute; 
+        margin-left: 50px; 
+        margin-top: 20px;
+    }
+    #b4_2{
+        height: 600px; 
+        position: absolute; 
+        margin-left: 400px; 
+        margin-top: 20px;
+    }
+    #b5{
+        height:300px; 
+        position: absolute; 
+        margin-left: 300px; 
+        margin-top: 230px;
     }
     @keyframes light{
         10%{
@@ -444,7 +462,13 @@ body{
     #b2{
         /*transform: translate(230px,500px); */ /*(방향, 높이)*/
         transform: rotate( 230deg );
-        margin-top: 1000px;
+        margin-top: 950px;
+        margin-left: 400px;
+    }
+    #b2_1{
+        /*transform: translate(230px,500px); */ /*(방향, 높이)*/
+        transform: rotate( 230deg );
+        margin-top: 1050px;
         margin-left: 250px;
     }
     #b3{
@@ -452,6 +476,24 @@ body{
         margin-top: 500px;
         margin-left: 540px;
         /* transform: translate(600px,300px);(방향, 높이) */
+    }
+    #b4_1{
+        height: 600px; 
+        position: absolute; 
+        margin-left: 50px; 
+        margin-top: 20px;
+    }
+    #b4_2{
+        height: 600px; 
+        position: absolute; 
+        margin-left: 400px; 
+        margin-top: 20px;
+    }
+    #b5{
+        height:300px; 
+        position: absolute; 
+        margin-left: 300px; 
+        margin-top: 230px;
     }
     @keyframes light{
         10%{

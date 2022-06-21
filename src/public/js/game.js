@@ -59,8 +59,8 @@ let timerId = setInterval(() => count.innerText=counts--, 1000);
 
 // 5초 후에 정지
 setTimeout(() => { clearInterval(timerId);  start.hidden=true; count.hidden=true;}, 5000);
-//캐릭터 랜덤
 
+//캐릭터 랜덤
 function randchar(){
 
 }
@@ -107,11 +107,6 @@ TotalText.innerHTML=str.length;
 endingbtn.hidden=true;
 
 changeWord();
-function letmeStart(){
-    if(input==startWord){
-        socket.emit('newUserConnect', showRoom)
-    }
-}
 
 function changeWord(){
     // if(order==str.length-1){
