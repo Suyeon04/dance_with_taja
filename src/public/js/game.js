@@ -2,7 +2,13 @@ const socket = io('http://localhost:3000')
 socket.on('connect', () =>{
         console.log(socket.id);
 })
-init();
+function handleRoomSubmit() {
+    socket.emit("join-room", "hello");
+    roomName = input.value;
+    input.value = "";
+}
+handleRoomSubmit();
+
 
 function init(){
 }
