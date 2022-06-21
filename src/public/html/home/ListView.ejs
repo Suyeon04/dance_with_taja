@@ -9,10 +9,8 @@
     <script src = "/js/ListView.js"></script>
     <title>Street TAJA Fighter</title>
 </head>
-
 <body>
-    <div class="container">
-        <form action="/form" method="post">    
+    <div class="container"> 
         <header>
             <span class="maintitle">Street TAJA Fighter</span>
             <button class="trigger" onclick="toggleModal()">+</button>
@@ -72,7 +70,7 @@
             </table>
         </div>
         <div >
-            <form action="./game" name="loginForm" method="get">
+            <form action="../game" method="get">
                 <p>닉네임: <input type="text" name="nickname" /></p>
                 <p>방이름: <input type="text" name="roomname" /></p>
                 <input type="submit" value="시작하기" />
@@ -104,7 +102,6 @@
             </table>
             <img src="../img/logo.png" class="logo"/>
         </div>
-        </form>
     </div>
 </body>
 <!-- <script src = "/socket.io/socket.io.js"></script> -->

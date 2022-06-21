@@ -62,7 +62,7 @@ io.on("connection", socket =>{
   io["nickname"] = "Anon";
   socket.on("join-room", (roomId)=>{
     const room = io.sockets.adapter.rooms.get(roomId);
-    if( room.size < 2) {
+    if(room?.size < 2) {
       socket.join(roomId)
       if(room.size == 2){
        socket.to(roomId).emit('news_by_server');
@@ -70,7 +70,7 @@ io.on("connection", socket =>{
         socket.to(roomId).emit("nothing");
       }
     }else {
-      io.of(`/${roomName}`).emit("can't join link")
+      io.of(`/${roomId}`).emit("can't join link")
     }
   })
    socket.on("disconnecting", () => {

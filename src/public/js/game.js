@@ -2,10 +2,9 @@ const socket = io('http://localhost:3000')
 socket.on('connect', () =>{
         console.log(socket.id);
 })
+
 function handleRoomSubmit() {
-    socket.emit("join-room", "hello");
-    roomName = input.value;
-    input.value = "";
+    socket.emit("join-room", getParameterByName('roomname'));
 }
 handleRoomSubmit();
 
@@ -34,7 +33,6 @@ function getParameterByName(name) {
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
     var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
     results = regex.exec(location.search);
-
     return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 
