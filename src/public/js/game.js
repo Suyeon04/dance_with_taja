@@ -56,6 +56,7 @@ let timer = () =>{
         countspan.innerText=counts--;
     }, 1000);
 }
+//test
 // setTimeout(()=>timer(), 10000);
 let start=document.querySelector(".start");
 let countspan = document.querySelector(".count");
