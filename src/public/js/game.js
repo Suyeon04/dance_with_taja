@@ -49,22 +49,20 @@ function MusicSelect(){
 }
 
 // 시작 전 count
+let startcount=document.querySelector(".start");
+let countspan = document.querySelector(".count");
+let counts=5;
+startcount.hidden=true;
+countspan.hidden=true;
 let timer = () =>{
-    setTimeout(() => { clearInterval(timerId);  start.hidden=true; countspan.hidden=true;}, 6000);
+    setTimeout(() => { clearInterval(timerId);  startcount.hidden=true; countspan.hidden=true;}, 6000);
     let timerId=setInterval(() =>{
-        start.hidden=false; countspan.hidden=false;
+        startcount.hidden=false; countspan.hidden=false;
         countspan.innerText=counts--;
     }, 1000);
 }
 //test
 // setTimeout(()=>timer(), 10000);
-let start=document.querySelector(".start");
-let countspan = document.querySelector(".count");
-let counts=5;
-start.hidden=true;
-countspan.hidden=true;
-//5초 후에 정지
-//let timerstop = () => setTimeout(() => { clearInterval(timerId);  start.hidden=true; countspan.hidden=true;}, 6000);
 
 //캐릭터 랜덤
 function randchar(){
@@ -85,31 +83,35 @@ let startWord = 'start';
 let str = x.split('\n');
 let input_text = '';
 
-const char_my = document.getElementById("mychar"); // 리정 이미지
-const char_youre = document.getElementById("youchar"); // 노제 이미지
+const char_my = document.getElementById("mychar"); // 나의 이미지
+const char_youre = document.getElementById("youchar"); // 상대 이미지
 let text = document.querySelector('.word-display'); // 타자미리보기
 let input = document.querySelector('.word-input'); //타자치는곳
 let NowText=document.querySelector('.NowText'); // 현재 타자치는 부분
 let TotalText=document.querySelector('.TotalText');// 타자 총 수
 let endingbtn=document.querySelector('.ending'); // ending 버튼
 /*effect 조명 */
-let effect2=document.querySelector('#b2');
-let effect3=document.querySelector('#b3');
+let m1=document.querySelector('#m1');
+let m2=document.querySelector('#m2');
 /*effect 꽃가루 */
-let effect4_1=document.querySelector('#b4_1');
-let effect4_2=document.querySelector('#b4_2');
+let m4_1=document.querySelector('#m4_1');
+let m4_2=document.querySelector('#m4_2');
+let y4_1=document.querySelector('#y4_1');
+let y4_2=document.querySelector('#y4_2');
 /*effect 음표효과 */
-let effect5=document.querySelector('#b5');
+let m5=document.querySelector('#m5');
+let y5=document.querySelector('#y5');
 
 let charEls = [];
 let order = -1;
 
 TotalText.innerHTML=str.length;
-// effect2.hidden=true;
-// effect3.hidden=true;
-effect4_1.hidden=true;
-effect4_2.hidden=true;
-effect5.hidden=true;
+m4_1.hidden=true;
+m4_2.hidden=true;
+y4_1.hidden=true;
+y4_2.hidden=true;
+m5.hidden=true;
+y5.hidden=true;
 endingbtn.hidden=true;
 
 changeWord();
@@ -121,13 +123,13 @@ function changeWord(){
     //console.log("order : "+order+ " str : "+str.length);
     order++;
     if(order != str.length){
-        effect(order)
+        effects(order)
         populateText(str[order]);
     }else{
         // alert("끝")
-        effect4_1.hidden=false;
-        effect4_2.hidden=false;
-        effect5.hidden=true;
+        m4_1.hidden=false;
+        m4_2.hidden=false;
+        m5.hidden=true;
         ClapSound.play();
         endingbtn.hidden=false;
     }
@@ -177,29 +179,31 @@ $(document).ready(function(){
    myeffect1=myeffect;
 });
 
-function effect(order){
+function effects(order){
     if(order==1){
-        effect2.hidden=false;
         overcolor();
-        ClapSound.play();
     }else if(order==2){
         wincolor();
         myeffect1();
         ClapSound.play();
     }else if(order==3){
         identicalcolor();
-        effect3.hidden=false;
         // myeffect1();
     }else if(order==4){
         identicalcolor();
-        effect5.hidden=false;
+        m5.hidden=false;
         // myeffect1();
         ClapSound.play();
     }else if(order==5){
-        effect5.hidden=true;
+        m5.hidden=true;
         wincolor();
         myeffect1();
         ClapSound.play();
+    }else if(order==7){
+        m4_1.hidden=false;
+        m4_2.hidden=false;
+        y4_1.hidden=false;
+        y4_2.hidden=false;
     }
 }
 
@@ -246,7 +250,7 @@ input.addEventListener("keyup", () => {
 
                 $(function(){
                     start=true;
-                    $("#out2").animate({opacity:0, top:'-25px'},4000); // 타자를 친 후 애니메이션
+                    $("#out2").animate({opacity:0, top:'-25px'},2000); // 타자를 친 후 애니메이션
                     /*!! input이 사라지는게 아니라 하나의 input을 가지고 사라지는 효과만 내줌 !! */
                     removeCorrectCharacter(); // 친 글자 사라지기
                 })

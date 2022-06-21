@@ -130,6 +130,7 @@ body{
     }
     
     /*상태*/
+    
     .state{
         position: absolute;
         left: 300px;
@@ -138,62 +139,6 @@ body{
         font-size: 30px;
     }
     /*효과(조명)*/
-    .bulb-holder{
-        width: 50px;
-        height: 40px;
-        background: black;
-        position: absolute;
-        border-top-left-radius: 50%;
-        border-top-right-radius: 50%;
-        transform: rotate( 180deg );
-        margin-top: 580px;
-        margin-left: 400px;
-        /*transform: translate(380px,250px);*/ /*(방향, 높이)*/
-        z-index: 1;
-    }
-    .bulb{
-        width: 50px;
-        height: 20px;
-        background: #fff;
-        border-radius: 60%;
-        transform: translate(0px,35px);
-        animation: light 2000ms infinite cubic-bezier(1, -0.45, 0, 1.89);
-    }
-    #b2{
-        /*transform: translate(230px,500px); */ /*(방향, 높이)*/
-        transform: rotate( 230deg );
-        margin-top: 520px;
-        margin-left: 240px;
-    }
-    #b2_1{
-        transform: rotate( 230deg );
-        margin-top: 570px;
-        margin-left: 150px;
-    }
-    #b3{
-        transform: rotate( 130deg );
-        margin-top: 300px;
-        margin-left: 250px;
-        /* transform: translate(600px,300px);(방향, 높이) */
-    }
-    #b4_1{
-        height: 700px; 
-        position: absolute; 
-        margin-left: 10px; 
-        margin-top: -100px;
-    }
-    #b4_2{
-        height: 700px; 
-        position: absolute; 
-        margin-left: 370px; 
-        margin-top: -100px;
-    }
-    #b5{
-        height:300px; 
-        position: absolute; 
-        margin-left: 300px; 
-        margin-top: 230px;
-    }
     @keyframes light{
         10%{
             box-shadow: 0 1px 10px yellow,
@@ -273,27 +218,98 @@ body{
             -70px 70px 100px yellow;
         }
     }
-    
-    /*상대 캐릭터 이펙트*/
-    #c4_1{
+    .bulb-holder{
+        width: 50px;
+        height: 40px;
+        background: black;
+        position: absolute;
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+        transform: rotate( 180deg );
+        margin-top: 580px;
+        margin-left: 400px;
+        /*transform: translate(380px,250px);*/ /*(방향, 높이)*/
+        z-index: 1;
+    }
+    .bulb{
+        width: 50px;
+        height: 20px;
+        background: #fff;
+        border-radius: 60%;
+        transform: translate(0px,35px);
+        animation: light 2000ms infinite cubic-bezier(1, -0.45, 0, 1.89);
+    }
+    #m1{
+        transform: rotate( 130deg );
+        margin-top: 300px;
+        margin-left: 250px;
+    }
+    #m2{
+        /*transform: translate(230px,500px); */ /*(방향, 높이)*/
+        transform: rotate( 230deg );
+        margin-top: 520px;
+        margin-left: 240px;
+    }
+    #m3{
+        transform: rotate( 230deg );
+        margin-top: 570px;
+        margin-left: 150px;
+    }
+
+    #m4_1{
         height: 700px; 
         position: absolute; 
-        margin-left: 800px; 
+        margin-left: 10px; 
         margin-top: -100px;
     }
-    #c4_2{
+    #m4_2{
         height: 700px; 
         position: absolute; 
         margin-left: 370px; 
         margin-top: -100px;
     }
-    #c5{
+    #m5{
         height:300px; 
         position: absolute; 
         margin-left: 300px; 
         margin-top: 230px;
     }
-    /*transform: scaleX(-1);*/
+    
+    /*상대 캐릭터 이펙트*/
+    #y1{
+        transform: rotate( 230deg );
+        margin-top: 300px;
+        margin-left: 1220px;
+    }
+    #y2{
+        transform: rotate( 130deg );
+        margin-top: 520px;
+        margin-left: 1230px;
+    }
+    #y3{
+        transform: rotate( 130deg );
+        margin-top: 570px;
+        margin-left: 1300px;
+    }
+    
+    #y4_1{
+        height: 700px; 
+        position: absolute; 
+        margin-left: 700px; 
+        margin-top: -100px;
+    }
+    #y4_2{
+        height: 700px; 
+        position: absolute; 
+        margin-left: 1100px; 
+        margin-top: -100px;
+    }
+    #y5{
+        height:400px; 
+        position: absolute; 
+        margin-left: 850px; 
+        margin-top: 180px;
+    }
     
     /*캐릭터*/
     #mychar{
@@ -313,7 +329,6 @@ body{
         bottom: 10%;
     }
     
-    /*ending btn*/
     .ending{
         box-shadow: 0 0 2px rgb(234 57 184 / 90%), 0 0 4px rgb(234 57 184 / 40%), 0 0 1rem rgb(234 57 184 / 30%), 0 0 4rem rgb(234 57 184 / 10%);
         border-color: #ea39b8;
