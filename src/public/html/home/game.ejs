@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/game.css"/>
     <link rel="shortcut icon" type="image/x-icon" href="../img/logo.png">
-    <title>게임실행화면</title>
+    <title>Street TAJA Fighter</title>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 </head>
 <body>
+    <div class="start">
+        <span class="count">5</span>
+    </div>
     <div>
         <button style="width: 50px; height: 50px;" class="btn" id="playbtn" onclick="MusicPlay()"><img class="btnimg" src="../img/play.png"/></button>
         <button style="width: 50px; height: 50px;" class="btn" id="musicbtn" onclick="MusicSelect()"><img src="../img/music.png"/></button>
@@ -27,12 +30,12 @@
     <p class="state"><span class="NowText">1</span><span>/</span><span class="TotalText">4</span></p>
     
     <div class="effect">
-        <div class="bulb-holder" id="b1">
+        <div class="bulb-holder" id="b2">
             <div class="bulb">
                 <div class="light"></div>
             </div>
         </div>
-        <div class="bulb-holder" id="b2">
+        <div class="bulb-holder" id="b2_1">
             <div class="bulb">
                 <div class="light"></div>
             </div>
@@ -42,13 +45,17 @@
                 <div class="light"></div>
             </div>
         </div>
-    </div>    
-        
-    <div class="Characters">
-        <img src="/img/r1.png" id="mychar">
-        <img src="/img/n1.png" id="youchar">
-        <!-- <span>1/4</span> -->
     </div>
+    <div class="effect2">
+        <img id="b4_1" src="/img/꽃가루효과.gif" style="height: 600px; position: absolute; margin-left: 50px; margin-top: 20px;"/>
+        <img id="b4_2" src="/img/꽃가루효과.gif" style="height: 600px; position: absolute; margin-left: 400px; margin-top: 20px;"/>
+        <img id="b5" src="/img/꽃가루효과2.gif" style="height:300px; position: absolute; margin-left: 300px; margin-top: 230px;"/>
+    </div>
+    <div class="Characters">
+        <img src="/img/hook/1.png" id="mychar">
+        <img src="/img/lachica/1.png" id="youchar">
+    </div>
+    <button class="ending" onclick="move()"><img src="/img/endingbtn.png"></button>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.1/socket.io.js"></script>
 <script src = "/js/game.js"></script>

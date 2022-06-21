@@ -49,7 +49,11 @@ let McurPos= 1; // 현재 보고 있는 이미지의 인덱스 번호!
 let Mposition = 0; // 현재 .images 의 위치값!
 let YcurPos= 1; // 현재 보고 있는 이미지의 인덱스 번호!
 let Yposition = 0; // 현재 .images 의 위치값!
+<<<<<<< HEAD
 const IMAGE_WIDTH = 600; // 한번 움직일 때 이동해야 할 거리!
+=======
+const IMAGE_WIDTH = 500; // 한번 움직일 때 이동해야 할 거리!
+>>>>>>> hyuna
 
 // 요소 선택
 const MprevBtn = document.querySelector(".Mprev")
@@ -57,8 +61,13 @@ const MnextBtn = document.querySelector(".Mnext")
 const Mimages = document.querySelector(".Mimages")
 
 // const youchar = document.querySelector(".youchar")
+<<<<<<< HEAD
 // const YprevBtn = document.querySelector(".Yprev")
 // const YnextBtn = document.querySelector(".Ynext")
+=======
+const YprevBtn = document.querySelector(".Yprev")
+const YnextBtn = document.querySelector(".Ynext")
+>>>>>>> hyuna
 const Yimages = document.querySelector(".Yimages")
 
 const select1=document.querySelector("#select1"); // 내가 선택완료 됬을 때
@@ -127,7 +136,11 @@ function Minit(){
 function Yprev(){
     
     if(YcurPos > 1){
+<<<<<<< HEAD
     // YnextBtn.removeAttribute("disabled") /* disabled 속성 제거*/
+=======
+    YnextBtn.removeAttribute("disabled") /* disabled 속성 제거*/
+>>>>>>> hyuna
     Yposition += IMAGE_WIDTH /* position 값 증가 */
     
     Yimages.style.transform = `translateX(${Yposition}px)` /* images 스타일 transform, x축 변경*/
@@ -135,12 +148,20 @@ function Yprev(){
     console.log(YcurPos) // 이미지 번호 넘겨줄 위치
     }
     if(YcurPos == 1){ /* 이미지 index값 0 되면 prev 못하게 */
+<<<<<<< HEAD
         // YprevBtn.setAttribute("disabled", 'true')
+=======
+        YprevBtn.setAttribute("disabled", 'true')
+>>>>>>> hyuna
     }
  }
 function Ynext(){
     if(YcurPos < 4){
+<<<<<<< HEAD
         // YprevBtn.removeAttribute("disabled")
+=======
+        YprevBtn.removeAttribute("disabled")
+>>>>>>> hyuna
         Yposition -= IMAGE_WIDTH
         /*
             트랜스폼(변형)의 네가지 속성값(함수)
@@ -155,32 +176,50 @@ function Ynext(){
     }
     if(YcurPos == 4){
         // 뒤로 못 가게 하기
+<<<<<<< HEAD
         // YnextBtn.setAttribute("disabled", 'true') // 못 누르는 버튼이 됨
     }
 }
 
+=======
+        YnextBtn.setAttribute("disabled", 'true') // 못 누르는 버튼이 됨
+    }
+}
+>>>>>>> hyuna
 // 초기 랜더링 시 최초 호출 함수의 관습적 이름
 function Yinit(){
     // 앞으로 가기는 처음부터 못누르게!
     console.log(YcurPos) // 이미지 번호 넘겨줄 위치
+<<<<<<< HEAD
     // YprevBtn.setAttribute("disabled", 'true')
     // YprevBtn.addEventListener("click", Yprev)
     // YnextBtn.addEventListener("click", Ynext)
 }
 
+=======
+    YprevBtn.setAttribute("disabled", 'true')
+    YprevBtn.addEventListener("click", Yprev)
+    YnextBtn.addEventListener("click", Ynext)
+}
+>>>>>>> hyuna
 //완료되면 complete 버튼 색 바꾸고 div 뜨게 하기
 function complete(){
     const completeBtn = document.querySelector("#mycomplete")
     completeBtn.classList.add("btncomplete");
     completeBtn.classList.add("completed");
+<<<<<<< HEAD
     console.log(McurPos+" 캐릭터 선택완료");
     // MprevBtn.setAttribute("disabled", 'true')
     // MnextBtn.setAttribute("disabled", 'true')
+=======
+    console.log(McurPos+"캐릭터 선택완료");
+>>>>>>> hyuna
     MprevBtn.hidden=true;
     MnextBtn.hidden=true;
     
     //선택완료 보이기
     select1.hidden=false;
+<<<<<<< HEAD
     // select2.hidden=false;
 
     // mychar 선택 완료 값 넘기기
@@ -272,3 +311,19 @@ function postImgNumber(url, idx) {
     return sendAjax(url, inputdata)
 }
 
+=======
+}
+
+//youchar
+function complete2(){
+    const completeBtn2 = document.querySelector("#yourecomplete")
+    completeBtn2.classList.add("btncomplete");
+    completeBtn2.classList.add("completed");
+    console.log(YcurPos+"캐릭터 선택완료");
+    YprevBtn.hidden=true;
+    YnextBtn.hidden=true;
+    
+    //선택완료 보이기
+    select2.hidden=false;
+}
+>>>>>>> hyuna

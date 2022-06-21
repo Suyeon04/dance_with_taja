@@ -14,6 +14,7 @@ body{
 
 /*노트북 사이즈*/
 @media(max-width:1600px){
+<<<<<<< HEAD
     .box{
         position: relative;
         background-color: #FFFFFF;
@@ -82,6 +83,111 @@ body{
         padding-right: 5px;
     }
     
+=======
+    .start{
+        position: absolute;
+        width: 1400px;
+        height: 760px;
+        background-color: #0a0a0aa6;
+        /* top: 50px;
+        left: 460px; */
+        z-index: 3;
+    }
+    .count{
+        font-size: 500px;
+        margin-left: 39%;
+        margin-top: 10px;
+        color: #fff;
+        color: #fcedd8;
+        font-family: 'Niconne', cursive;
+        animation: Startani 1s 5 normal;
+        text-shadow: 5px 5px 0px #eb452b, 
+                    10px 10px 0px #efa032, 
+                    15px 15px 0px #46b59b, 
+                    20px 20px 0px #017e7f, 
+                    25px 25px 0px #052939, 
+                    30px 30px 0px #c11a2b, 
+                    35px 35px 0px #c11a2b, 
+                    40px 40px 0px #c11a2b, 
+                    45px 45px 0px #c11a2b;
+    }
+    @keyframes Startani {
+        from{
+            margin-left: 0px;
+        }
+        to{
+            margin-left: 500px;
+        }
+    }
+    .box{
+        position: relative;
+        background-color: #FFFFFF;
+        margin: auto;
+        border-radius: 1.5em;
+        box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+    }
+    #out1{
+        /*타자미리보기*/
+        font-family: 'EliceDigitalBaeum_Bold';
+        border-radius: 200px;
+        width: 1000px;
+        height: 60px;
+        top: 50px;
+        z-index: 1;
+    }
+    
+    #out2{
+        /*타자input*/
+        border-radius: 200px;
+        width: 1000px;
+        height: 60px;
+        top: 70px;
+        right: 3px;
+        z-index: 2;
+    }
+    
+    .word-display{
+        color: gray;
+        font-size: 18px;
+        line-height: 55px;
+        margin-left: 38px;
+        letter-spacing: 1px; /*글자자간*/
+    }
+    .word-input{
+        font-family: 'EliceDigitalBaeum_Bold';
+        font-size: 18px;
+        margin-left: 40px;
+        margin-top: 9px;
+        width: 900px;
+        height: 40px;
+        outline: none;
+        border: none;
+        letter-spacing: 1px; /*글자자간*/
+    }
+    
+    /*음악버튼*/
+    .btn{
+        box-shadow: 0 0 2px rgb(234 57 184 / 90%), 0 0 4px rgb(234 57 184 / 40%), 0 0 1rem rgb(234 57 184 / 30%), 0 0 4rem rgb(234 57 184 / 10%);
+        border-color: #ea39b8;
+        background-color: purple;
+        border-radius: 50%;
+    }
+    #playbtn{
+        position: absolute;
+        left: 92%;
+        top: 4%;
+        padding-top: 5px;
+        padding-right: 3px;
+    }
+    #musicbtn{
+        position: absolute;
+        left: 96%;
+        top: 4%;
+        padding-top: 5px;
+        padding-right: 5px;
+    }
+    
+>>>>>>> hyuna
     
     /*span 속성*/
     .correct{
@@ -130,10 +236,22 @@ body{
         margin-top: 500px;
         margin-left: 250px;
     }
+<<<<<<< HEAD
     #b3{
         transform: rotate( 130deg );
         margin-top: 500px;
         margin-left: 540px;
+=======
+    #b2_1{
+        transform: rotate( 230deg );
+        margin-top: 400px;
+        margin-left: 250px;
+    }
+    #b3{
+        transform: rotate( 130deg );
+        margin-top: 500px;
+        margin-left: 600px;
+>>>>>>> hyuna
         /* transform: translate(600px,300px);(방향, 높이) */
     }
     @keyframes light{
@@ -221,6 +339,7 @@ body{
     /*캐릭터*/
     #mychar{
         position: absolute;
+<<<<<<< HEAD
         width: 160px;
         height: 250px;
         /* margin-left: 350px;
@@ -234,6 +353,22 @@ body{
         height: 250px;
         margin-left: 930px;
         margin-top: 330px;
+=======
+        /* width: 180px;
+        height: 250px; */
+        /* margin-left: 350px;
+        margin-top: 300px; */
+        left: 22%;
+        right: 78%;
+        bottom: 10%;
+    }
+    #youchar{
+        position: absolute;
+        width: 180px;
+        height: 250px;
+        margin-left: 950px;
+        margin-top: 310px;
+>>>>>>> hyuna
     }
     
     /*ending btn*/
@@ -255,6 +390,44 @@ body{
 
 /*PC모니터 사이즈*/
 @media(min-width:1900px){
+<<<<<<< HEAD
+=======
+    .start{
+        position: absolute;
+        width: 2540px;
+        height: 1300px;
+        background-color: #0a0a0aa6;
+        /* top: 50px;
+        left: 460px; */
+        z-index: 3;
+    }
+    .count{
+        font-size: 900px;
+        margin-left: 39%;
+        margin-top: 10px;
+        color: #fff;
+        color: #fcedd8;
+        font-family: 'Niconne', cursive;
+        animation: Startani 1s 5 normal;
+        text-shadow: 5px 5px 0px #eb452b, 
+                    10px 10px 0px #efa032, 
+                    15px 15px 0px #46b59b, 
+                    20px 20px 0px #017e7f, 
+                    25px 25px 0px #052939, 
+                    30px 30px 0px #c11a2b, 
+                    35px 35px 0px #c11a2b, 
+                    40px 40px 0px #c11a2b, 
+                    45px 45px 0px #c11a2b;
+    }
+    @keyframes Startani {
+        from{
+            margin-left: -10px;
+        }
+        to{
+            margin-left: 1000px;
+        }
+    }
+>>>>>>> hyuna
     .box{
         position: relative;
         background-color: #FFFFFF;
@@ -266,7 +439,11 @@ body{
         /*타자미리보기*/
         font-family: 'EliceDigitalBaeum_Bold';
         border-radius: 200px;
+<<<<<<< HEAD
         width: 1200px;
+=======
+        width: 1600px;
+>>>>>>> hyuna
         height: 80px;
         top: 50px;
         z-index: 1;
@@ -275,7 +452,11 @@ body{
     #out2{
         /*타자input*/
         border-radius: 200px;
+<<<<<<< HEAD
         width: 1200px;
+=======
+        width: 1600px;
+>>>>>>> hyuna
         height: 80px;
         top: 70px;
         right: 3px;
@@ -338,6 +519,7 @@ body{
     /*상태*/
     .state{
         position: absolute;
+<<<<<<< HEAD
         left: 300px;
         top: -15px;
         color: #FFFFFF;
@@ -347,6 +529,17 @@ body{
     .bulb-holder{
         width: 50px;
         height: 40px;
+=======
+        left: 20%;
+        top: -40px;
+        color: #FFFFFF;
+        font-size: 40px;
+    }
+    /*효과(조명)*/
+    .bulb-holder{
+        width: 80px;
+        height: 50px;
+>>>>>>> hyuna
         background: black;
         position: absolute;
         border-top-left-radius: 50%;
@@ -358,8 +551,13 @@ body{
         z-index: 1;
     }
     .bulb{
+<<<<<<< HEAD
         width: 50px;
         height: 20px;
+=======
+        width: 80px;
+        height: 50px;
+>>>>>>> hyuna
         background: #fff;
         border-radius: 60%;
         transform: translate(0px,35px);
@@ -368,7 +566,11 @@ body{
     #b2{
         /*transform: translate(230px,500px); */ /*(방향, 높이)*/
         transform: rotate( 230deg );
+<<<<<<< HEAD
         margin-top: 500px;
+=======
+        margin-top: 1000px;
+>>>>>>> hyuna
         margin-left: 250px;
     }
     #b3{
@@ -462,6 +664,7 @@ body{
     /*캐릭터*/
     #mychar{
         position: absolute;
+<<<<<<< HEAD
         width: 160px;
         height: 250px;
         /* margin-left: 350px;
@@ -475,6 +678,23 @@ body{
         height: 250px;
         margin-left: 930px;
         margin-top: 330px;
+=======
+        /* width:600px;
+        height:900px; */
+        width:451px;
+        height:600px;
+        /* margin-left: 350px;
+        margin-top: 300px; */
+        margin-left: 22%;
+        bottom: 15%;
+    }
+    #youchar{
+        position: absolute;
+        width:451px;
+        height:600px;
+        margin-left: 60%;
+        bottom: 15%;
+>>>>>>> hyuna
     }
     
     /*ending btn*/
@@ -492,4 +712,8 @@ body{
     .ending:hover{
         background-color: red;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> hyuna
