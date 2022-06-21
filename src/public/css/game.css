@@ -14,6 +14,41 @@ body{
 
 /*노트북 사이즈*/
 @media(max-width:1600px){
+    .start{
+        position: absolute;
+        width: 1400px;
+        height: 760px;
+        background-color: #0a0a0aa6;
+        /* top: 50px;
+        left: 460px; */
+        z-index: 3;
+    }
+    .count{
+        font-size: 500px;
+        margin-left: 39%;
+        margin-top: 10px;
+        color: #fff;
+        color: #fcedd8;
+        font-family: 'Niconne', cursive;
+        animation: Startani 1s 5 normal;
+        text-shadow: 5px 5px 0px #eb452b, 
+                    10px 10px 0px #efa032, 
+                    15px 15px 0px #46b59b, 
+                    20px 20px 0px #017e7f, 
+                    25px 25px 0px #052939, 
+                    30px 30px 0px #c11a2b, 
+                    35px 35px 0px #c11a2b, 
+                    40px 40px 0px #c11a2b, 
+                    45px 45px 0px #c11a2b;
+    }
+    @keyframes Startani {
+        from{
+            margin-left: 0px;
+        }
+        to{
+            margin-left: 500px;
+        }
+    }
     .box{
         position: relative;
         background-color: #FFFFFF;
@@ -128,6 +163,11 @@ body{
         /*transform: translate(230px,500px); */ /*(방향, 높이)*/
         transform: rotate( 230deg );
         margin-top: 500px;
+        margin-left: 250px;
+    }
+    #b2_1{
+        transform: rotate( 230deg );
+        margin-top: 400px;
         margin-left: 250px;
     }
     #b3{
@@ -256,6 +296,41 @@ body{
 
 /*PC모니터 사이즈*/
 @media(min-width:1900px){
+    .start{
+        position: absolute;
+        width: 2540px;
+        height: 1300px;
+        background-color: #0a0a0aa6;
+        /* top: 50px;
+        left: 460px; */
+        z-index: 3;
+    }
+    .count{
+        font-size: 900px;
+        margin-left: 39%;
+        margin-top: 10px;
+        color: #fff;
+        color: #fcedd8;
+        font-family: 'Niconne', cursive;
+        animation: Startani 1s 5 normal;
+        text-shadow: 5px 5px 0px #eb452b, 
+                    10px 10px 0px #efa032, 
+                    15px 15px 0px #46b59b, 
+                    20px 20px 0px #017e7f, 
+                    25px 25px 0px #052939, 
+                    30px 30px 0px #c11a2b, 
+                    35px 35px 0px #c11a2b, 
+                    40px 40px 0px #c11a2b, 
+                    45px 45px 0px #c11a2b;
+    }
+    @keyframes Startani {
+        from{
+            margin-left: -10px;
+        }
+        to{
+            margin-left: 1000px;
+        }
+    }
     .box{
         position: relative;
         background-color: #FFFFFF;
@@ -339,15 +414,15 @@ body{
     /*상태*/
     .state{
         position: absolute;
-        left: 300px;
-        top: -15px;
+        left: 20%;
+        top: -40px;
         color: #FFFFFF;
-        font-size: 30px;
+        font-size: 40px;
     }
     /*효과(조명)*/
     .bulb-holder{
-        width: 50px;
-        height: 40px;
+        width: 80px;
+        height: 50px;
         background: black;
         position: absolute;
         border-top-left-radius: 50%;
@@ -359,8 +434,8 @@ body{
         z-index: 1;
     }
     .bulb{
-        width: 50px;
-        height: 20px;
+        width: 80px;
+        height: 50px;
         background: #fff;
         border-radius: 60%;
         transform: translate(0px,35px);
@@ -369,7 +444,7 @@ body{
     #b2{
         /*transform: translate(230px,500px); */ /*(방향, 높이)*/
         transform: rotate( 230deg );
-        margin-top: 500px;
+        margin-top: 1000px;
         margin-left: 250px;
     }
     #b3{
@@ -463,20 +538,21 @@ body{
     /*캐릭터*/
     #mychar{
         position: absolute;
+        /* width:600px;
+        height:900px; */
         width:451px;
-        height:620px;
-
+        height:600px;
         /* margin-left: 350px;
         margin-top: 300px; */
         margin-left: 22%;
-        margin-top: 15%;
+        bottom: 15%;
     }
     #youchar{
         position: absolute;
         width:451px;
         height:600px;
         margin-left: 60%;
-        margin-top: 15%;
+        bottom: 15%;
     }
     
     /*ending btn*/
