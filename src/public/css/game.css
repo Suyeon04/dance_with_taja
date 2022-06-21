@@ -267,7 +267,7 @@ body{
         /*타자미리보기*/
         font-family: 'EliceDigitalBaeum_Bold';
         border-radius: 200px;
-        width: 1200px;
+        width: 1600px;
         height: 80px;
         top: 50px;
         z-index: 1;
@@ -276,7 +276,7 @@ body{
     #out2{
         /*타자input*/
         border-radius: 200px;
-        width: 1200px;
+        width: 1600px;
         height: 80px;
         top: 70px;
         right: 3px;
@@ -463,19 +463,20 @@ body{
     /*캐릭터*/
     #mychar{
         position: absolute;
-        width: 160px;
-        height: 250px;
+        width:451px;
+        height:620px;
+
         /* margin-left: 350px;
         margin-top: 300px; */
         margin-left: 22%;
-        margin-top: 20%;
+        margin-top: 15%;
     }
     #youchar{
         position: absolute;
-        width: 350px;
-        height: 250px;
-        margin-left: 930px;
-        margin-top: 330px;
+        width:451px;
+        height:600px;
+        margin-left: 60%;
+        margin-top: 15%;
     }
     
     /*ending btn*/
