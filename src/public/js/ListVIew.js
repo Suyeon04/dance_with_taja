@@ -1,22 +1,12 @@
-<<<<<<< HEAD
-=======
-// const socket = io();
->>>>>>> hyuna
-
 const form = document.querySelector(".welcome");
 const list = document.getElementById("list");
 const select = document.querySelector("#select");
 const start = document.querySelector(".Startbtn");  // 방장 닉넴
 
-<<<<<<< HEAD
-// version 종류
-const versions = [ "JAVA", "JavaScript" ,  "Android" , "PHP" ]
-=======
 // version이랑 타이틀이 다른데 기존 방은 language만 보임 ?... [미해결]
 const versions = ["사칙연산 - JAVA", "역참조 배제하기 - JS"
                 , "양의 정수 - JS", "스크롤 만들기 - Android"
                 , "파일 업로드 - PHP"]
->>>>>>> hyuna
 
 let version = 0;    // 방 버전
 let roomName = 0;   // 방 이름

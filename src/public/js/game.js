@@ -9,9 +9,12 @@ function handleRoomSubmit() {
 }
 handleRoomSubmit();
 
+socket.on("news_by_server", () => {
+    let timerId = setInterval(() => count.innerText=counts--, 1000);
+    // 5초 후에 정지
+    setTimeout(() => { clearInterval(timerId);  start.hidden=true; count.hidden=true;}, 5000);
+});
 
-function init(){
-}
 // 오디오
 let playbtn=document.querySelector("#playbtn");
 let musicimg=document.querySelector(".btnimg");
@@ -60,10 +63,7 @@ let count = document.querySelector(".count");
 let counts=4;
 
 
-let timerId = setInterval(() => count.innerText=counts--, 1000);
 
-// 5초 후에 정지
-setTimeout(() => { clearInterval(timerId);  start.hidden=true; count.hidden=true;}, 5000);
 //캐릭터 랜덤
 
 function randchar(){
