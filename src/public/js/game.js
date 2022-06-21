@@ -65,8 +65,34 @@ let timer = () =>{
 // setTimeout(()=>timer(), 10000);
 
 //캐릭터 랜덤
+const char_my = document.getElementById("mychar"); // 나의 이미지
+const char_your = document.getElementById("youchar"); // 상대 이미지
+let mychar;
+let yourchar;
+randchar();
+function shuffle(array){
+    array.sort(() => Math.random() - 0.5);
+}
 function randchar(){
+    let numbers = [1,2,3,4];
+    shuffle(numbers);
+    
+    switch(numbers[0]){
+        case 1 : mychar="hook"; break;
+        case 2 : mychar="lachica"; break;
+        case 3 : mychar="wavy"; break;
+        case 4 : mychar="ygx"; break;
+    }
+    char_my.src="/img/"+mychar+"/1.png";
 
+    switch(numbers[1]){
+        case 1 : yourchar="hook"; break;
+        case 2 : yourchar="lachica"; break;
+        case 3 : yourchar="wavy"; break;
+        case 4 : yourchar="ygx"; break;
+    }
+    char_your.src="/img/"+yourchar+"/1.png";
+    console.log(mychar+" "+yourchar);
 }
 // 타자
 const x = 
@@ -76,6 +102,9 @@ const x =
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">`;
 
 let startWord = 'start';
@@ -83,8 +112,6 @@ let startWord = 'start';
 let str = x.split('\n');
 let input_text = '';
 
-const char_my = document.getElementById("mychar"); // 나의 이미지
-const char_youre = document.getElementById("youchar"); // 상대 이미지
 let text = document.querySelector('.word-display'); // 타자미리보기
 let input = document.querySelector('.word-input'); //타자치는곳
 let NowText=document.querySelector('.NowText'); // 현재 타자치는 부분
@@ -98,7 +125,7 @@ let m4_1=document.querySelector('#m4_1');
 let m4_2=document.querySelector('#m4_2');
 let y4_1=document.querySelector('#y4_1');
 let y4_2=document.querySelector('#y4_2');
-/*effect 음표효과 */
+/*effect 작은 꽃가루 */
 let m5=document.querySelector('#m5');
 let y5=document.querySelector('#y5');
 
@@ -121,19 +148,22 @@ function changeWord(){
     //     console.log("타자 끝")
     // }
     //console.log("order : "+order+ " str : "+str.length);
-    order++;
-    if(order != str.length){
-        effects(order)
-        populateText(str[order]);
-    }else{
+    
+    if(order >= str.length-1){
         // alert("끝")
         m4_1.hidden=false;
         m4_2.hidden=false;
-        m5.hidden=true;
+        y4_1.hidden=false;
+        y4_2.hidden=false;
         ClapSound.play();
         endingbtn.hidden=false;
+        return 0;        
+    }else{
+        order++;
+        NowText.innerHTML=order+1;
+        effects(order)
+        populateText(str[order]);
     }
-    NowText.innerHTML=order;
 }
 let overcolor;// 지고 있는 사람 빨간색
 $(document).ready(function(){
@@ -165,45 +195,117 @@ $(document).ready(function(){
    identicalcolor=coloreffect;
 });
 
-let myeffect1; // 캐릭터가 커지는 효과
+let mysizeup; // 나의 캐릭터 커지기
 $(document).ready(function(){
-    function myeffect(){
+    function chareffect(){
     // $("#mychar").animate({width:'351px', height:'450px'},2000);
     // $("#mychar").animate({width:'251px', height:'350px'},1500);
     // $('#mychar').css({width:'351px', height:'450px'});
-    $('#mychar').css({width:'20%'});
-    // , , marginleft:'10%'
-    $('#mychar').css({height:'60%'});
-    // $('#mychar').animate($('#mychar').css({'transform':'rotate('+test0+'deg)'}),2000);
+    $('#mychar').css({width:'30%'});
+    $('#mychar').css({height:'55%'});
    }
-   myeffect1=myeffect;
+   mysizeup=chareffect;
 });
 
+let mysizedown; // 나의 캐릭터 작아지기
+$(document).ready(function(){
+    function chareffect(){
+    $('#mychar').css({width:'20%'});
+    $('#mychar').css({height:'38%'});
+   }
+   mysizedown=chareffect;
+});
+
+let youresizeup; // 상대 캐릭터 커지기
+$(document).ready(function(){
+    function chareffect(){
+    // $("#mychar").animate({width:'351px', height:'450px'},2000);
+    // $("#mychar").animate({width:'251px', height:'350px'},1500);
+    // $('#mychar').css({width:'351px', height:'450px'});
+    $('#youchar').css({width:'30%'});
+    $('#youchar').css({height:'55%'});
+   }
+   yoursizeup=chareffect;
+});
+
+let yoursizedown; // 상대 캐릭터 커지기
+$(document).ready(function(){
+    function myeffect(){
+    $('#youchar').css({width:'20%'});
+    $('#youchar').css({height:'38%'});
+   }
+   yoursizedown=myeffect;
+});
+
+function mydance(){ // 나의 캐릭터 춤
+    // my 애니메이션
+    let x=2;
+    for(let i=1; i<=26; i++){
+        if(x<14){
+            (m => {
+                setTimeout(() => {
+                let str="/img/"+mychar+"/"+m+".png"
+                char_my.src=str
+                },150*m)
+            })(x)
+            ++x;
+        }else{
+            x=2;
+        }
+    }
+}
+function yourdane(){
+    // you 애니메이션
+    let x=2;
+    for(let i=1;i<=26;i++){
+        
+        if(x<14){
+            
+            (y => {
+                setTimeout(() => {
+                let str="/img/"+yourchar+"/"+y+".png"
+                char_your.src=str
+                },150*y)
+                // console.log("x"+y);
+            })(x)
+            ++x;
+        }else{
+            x=2;
+        }
+    }
+}
 function effects(order){
-    if(order==1){
-        overcolor();
-    }else if(order==2){
-        wincolor();
-        myeffect1();
-        ClapSound.play();
-    }else if(order==3){
-        identicalcolor();
-        // myeffect1();
-    }else if(order==4){
-        identicalcolor();
-        m5.hidden=false;
-        // myeffect1();
-        ClapSound.play();
-    }else if(order==5){
-        m5.hidden=true;
-        wincolor();
-        myeffect1();
-        ClapSound.play();
-    }else if(order==7){
-        m4_1.hidden=false;
-        m4_2.hidden=false;
-        y4_1.hidden=false;
-        y4_2.hidden=false;
+    switch(order){
+        case 1 : overcolor(); 
+                 mysizedown();
+                 yoursizeup(); 
+                 yourdane(); break;
+
+        case 2 : wincolor();
+                 mysizeup();
+                 yoursizedown();
+                 ClapSound.play(); 
+                 mydance(); break;
+
+        case 3 : identicalcolor(); 
+                 mysizedown(); break;
+
+        case 4 : identicalcolor();
+                //  m5.hidden=false;
+                // ClapSound.play(); 
+                break;
+
+        case 5 : wincolor();
+                 m5.hidden=true;
+                 mysizeup();
+                 yoursizedown();
+                 ClapSound.play(); break;
+
+        case 6 : identicalcolor();
+                 mysizedown(); break;
+        case 7 : break;
+        case 8 : break;
+        case 9 : break;
     }
 }
 
@@ -245,7 +347,7 @@ input.addEventListener("keyup", () => {
     })
     if(val.length == str[order].length){
         $(function(){
-            console.log(errorCount)
+            // console.log(errorCount)
             if(errorCount === 0){
 
                 $(function(){
@@ -254,27 +356,6 @@ input.addEventListener("keyup", () => {
                     /*!! input이 사라지는게 아니라 하나의 input을 가지고 사라지는 효과만 내줌 !! */
                     removeCorrectCharacter(); // 친 글자 사라지기
                 })
-                // console.log("Well Done!")
-
-                // my 애니메이션
-                for(let i=2; i<14; i++){
-                    (x => {
-                        setTimeout(() => {
-                        let str="/img/hook/"+x+".png"
-                        char_my.src=str
-                        },150*x)
-                    })(i)
-                }
-
-                // you 애니메이션
-                // for(let i=2;i<12;i++){
-                //     (y => {
-                //         setTimeout(() => {
-                //         let str="/img/wavy"+y+".png"
-                //         char_n.src=str
-                //         },150*y)
-                //     })(i)
-                // }
 
                 $(function(){
                     $("#out2").animate({opacity:100, top:'70px'}); // input 나타나는 애니메이션
