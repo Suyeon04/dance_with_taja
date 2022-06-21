@@ -149,8 +149,11 @@ $(document).ready(function(){
 let myeffect1; // 캐릭터가 커지는 효과
 $(document).ready(function(){
     function myeffect(){
-    $("#mychar").animate({width:'230px', height:'300px'},2000);
-    $("#mychar").animate({width:'180px', height:'250px'},1500);
+    // $("#mychar").animate({width:'351px', height:'450px'},2000);
+    // $("#mychar").animate({width:'251px', height:'350px'},1500);
+    $('#mychar').css({width:'351px', height:'450px'});
+    // $('#mychar').animate(,2000);
+    // $('#mychar').animate($('#mychar').css({'transform':'rotate('+test0+'deg)'}),2000);
    }
    myeffect1=myeffect;
 });
@@ -236,7 +239,7 @@ input.addEventListener("keyup", () => {
                         setTimeout(() => {
                         let str="/img/hook/"+x+".png"
                         char_my.src=str
-                        },100*x)
+                        },150*x)
                     })(i)
                 }
 

@@ -221,12 +221,13 @@ body{
     /*캐릭터*/
     #mychar{
         position: absolute;
-        width: 180px;
-        height: 250px;
+        /* width: 180px;
+        height: 250px; */
         /* margin-left: 350px;
         margin-top: 300px; */
-        margin-left: 22%;
-        margin-top: 20%;
+        left: 22%;
+        right: 78%;
+        bottom: 10%;
     }
     #youchar{
         position: absolute;
