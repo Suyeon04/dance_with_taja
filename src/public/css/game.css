@@ -433,13 +433,15 @@ body{
         position: absolute;
         width: 50px;
         height: 400px;
-        background: rgb(189, 177, 177);
+        /* background: rgb(189, 177, 177); */
         transform:rotate(180deg);
+        border-radius: 10px;
     }
     .progs{
         position: absolute;
+        border-radius: 10px;
         width: 50px;
-        height: 10%; /*진행률 바꾸는 곳*/
+        height: 100%; /*진행률 바꾸는 곳*/
         background: rgb(196, 87, 218);
         color:#fff;
         text-align: center;
@@ -455,11 +457,13 @@ body{
     }
 
     #mycount{ /*승리 횟수*/
+        font-family: 'EliceDigitalBaeum_Bold';
         position: absolute;
         left: 5%;
         font-size: 40px;
     }
     #youcount{ /*승리 횟수*/
+        font-family: 'EliceDigitalBaeum_Bold';
         position: absolute;
         right: 4%;
         font-size: 40px;
