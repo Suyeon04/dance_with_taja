@@ -135,6 +135,8 @@ let m5=document.querySelector('#m5');
 let y5=document.querySelector('#y5');
 //프레임효과
 let m6=document.querySelector('#m6');
+let m7=document.querySelector('#m7');
+let m8=document.querySelector('#m8');
 
 let charEls = [];
 let order = -1;
@@ -153,7 +155,10 @@ y4_1.hidden=true;
 y4_2.hidden=true;
 m5.hidden=true;
 y5.hidden=true;
-// m6.hidden=true;
+m6.hidden=true;
+m7.hidden=true;
+m8.hidden=true;
+
 endingbtn.hidden=true;
 
 changeWord();
@@ -176,8 +181,8 @@ function changeWord(){
     }else{
         order++;
         NowText.innerHTML=order+1;
-        //myeffects(order);
-        effects(order);
+        myeffects(order);
+        //effects(order);
         populateText(str[order]);
     }
 }
@@ -217,6 +222,7 @@ $(document).ready(function(){
     // $("#mychar").animate({width:'351px', height:'450px'},2000);
     // $("#mychar").animate({width:'251px', height:'350px'},1500);
     // $('#mychar').css({width:'351px', height:'450px'});
+    m9.hidden=true;
     $('#mychar').css({width:'26%'});
     $('#mychar').css({height:'55%'});
    }
@@ -291,65 +297,35 @@ function yourdane(){
     }
 }
 // test
-function effects(order){
-    switch(order){
-        case 1 : overcolor(); 
-                 mysizedown();
-                 yoursizeup(); 
-                 yourdane(); break;
-
-        case 2 : wincolor();
-                 mysizeup();
-                 yoursizedown();
-                 ClapSound.play(); 
-                 mydance(); break;
-
-        case 3 : identicalcolor(); 
-                 mysizedown(); break;
-
-        case 4 : identicalcolor();
-                //  m5.hidden=false;
-                // ClapSound.play(); 
-                break;
-
-        case 5 : wincolor();
-                 m5.hidden=true;
-                 mysizeup();
-                 yoursizedown();
-                 ClapSound.play(); break;
-
-        case 6 : identicalcolor();
-                 mysizedown(); break;
-        case 7 : break;
-        case 8 : break;
-        case 9 : break;
-        case 10 : break;
-        case 11 : break;
-    }
-}
-
-// 내가 이겼을때 효과
-// function myeffects(order){
+// function effects(order){
 //     switch(order){
-//         case 1 : ClapSound.play(); 
-//                  m1.hidden=false; break;
+//         case 1 : overcolor(); 
+//                  mysizedown();
+//                  yoursizeup(); 
+//                  yourdane(); break;
 
-//         case 2 : ClapSound.play();
-//                  m2.hidden=false; break;
+//         case 2 : wincolor();
+//                  mysizeup();
+//                  yoursizedown();
+//                  ClapSound.play(); 
+//                  mydance(); break;
 
-//         case 3 : ClapSound.play();
-//                  m3.hidden=false; break;
+//         case 3 : identicalcolor(); 
+//                  mysizedown(); break;
 
-//         case 4 : ClapSound.play();
-//                  m5.hidden=false; break;
+//         case 4 : identicalcolor();
+//                 //  m5.hidden=false;
+//                 // ClapSound.play(); 
+//                 break;
 
-//         case 5 : ClapSound.play();
+//         case 5 : wincolor();
 //                  m5.hidden=true;
-//                  m4_1.hidden=false; 
-//                  m4_2.hidden=false; break;
+//                  mysizeup();
+//                  yoursizedown();
+//                  ClapSound.play(); break;
 
-//         case 6 : ClapSound.play();
-//                  m5.hidden=true; break;
+//         case 6 : identicalcolor();
+//                  mysizedown(); break;
 //         case 7 : break;
 //         case 8 : break;
 //         case 9 : break;
@@ -357,6 +333,53 @@ function effects(order){
 //         case 11 : break;
 //     }
 // }
+
+// 내가 이겼을때 효과
+function myeffects(order){
+    switch(order){
+        case 1 : ClapSound.play();
+                 m1.hidden=false; break;
+
+        case 2 : ClapSound.play();
+                 m2.hidden=false; break;
+
+        case 3 : ClapSound.play();
+                 m3.hidden=false; break;
+
+        case 4 : ClapSound.play();
+                 m5.hidden=false; break;
+
+        case 5 : ClapSound.play();
+                 m5.hidden=true;
+                 m4_1.hidden=false; 
+                 m4_2.hidden=false; break;
+
+        case 6 : ClapSound.play();
+                 m4_1.hidden=true;
+                 m4_2.hidden=true;
+                 m5.hidden=true; 
+                 m6.hidden=false; break;
+        case 7 : ClapSound.play();
+                 m6.hidden=true; 
+                 m7.hidden=false; break;
+        case 8 : ClapSound.play();
+                 m7.hidden=true; 
+                 m5.hidden=false; break;
+        case 9 : ClapSound.play(); 
+                 m5.hidden=true; break;
+    }
+}
+function effectsinit(){
+    m1.hidden=true;
+    m2.hidden=true;
+    m3.hidden=true;
+    m4_1.hidden=true;
+    m4_2.hidden=true;
+    m5.hidden=true;
+    m6.hidden=true;
+    m7.hidden=true;
+    m8.hidden=true;
+}
 
 function populateText(str){
     charEls=[];

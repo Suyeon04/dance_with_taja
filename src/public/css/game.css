@@ -612,10 +612,19 @@ body{
         left: 465px; 
         bottom: 3%;
     }
-    #m7{
-        height: 500px;
+    #m7{ /*미러볼*/
+        height: 230px;
         position: absolute;
-        top: 400px;
+        left: 270px;
+        bottom: 50%;
+    }
+    #m8{ /*조명*/
+        position: absolute;
+        height: 750px;
+        width: 650px;
+        left: 315px;
+        bottom: 2%;
+        z-index: 2;
     }
     /*상대 캐릭터 이펙트*/
     #y1{
@@ -661,17 +670,39 @@ body{
     }
     /*프로그래스 바*/
     .prog{
+        position: absolute;
         width: 50px;
-        height: 500px;
+        height: 450px;
         background: rgb(189, 177, 177);
+        transform:rotate(180deg);
     }
     .progs{
-        width: 10%;
-        height: 50px;
-        background: rgb(225, 149, 240);
+        position: absolute;
+        width: 50px;
+        height: 10%; /*진행률 바꾸는 곳*/
+        background: rgb(196, 87, 218);
         color:#fff;
         text-align: center;
-        line-height: 50px;
+        /* line-height: 40px; */
+    }
+    #myprog{
+        margin-left: 80px;
+        margin-top: 90px;
+    }
+    #yourprog{
+        margin-left: 1800px;
+        margin-top: 90px;
+    }
+
+    #mycount{ /*승리 횟수*/
+        position: absolute;
+        left: 5%;
+        font-size: 40px;
+    }
+    #youcount{ /*승리 횟수*/
+        position: absolute;
+        right: 4%;
+        font-size: 40px;
     }
     
     /*캐릭터*/
@@ -679,6 +710,8 @@ body{
         position: absolute;
         width:400px;
         height:400px;
+        /* width: 26%;
+        height: 55%; */
         margin-left: 20%;
         bottom: 5%;
     }
