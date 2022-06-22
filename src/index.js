@@ -72,7 +72,7 @@ io.on("connection", (socket) =>{
         socket.server.in(roomId).emit('news_by_server');
       }
      }else {
-       io.of(rooms).emit("can't join link")
+       io.emit("can't join link")
      }
   })
   socket.on("nicknames", (person)=>{
