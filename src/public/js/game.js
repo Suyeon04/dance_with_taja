@@ -166,6 +166,11 @@ let input = document.querySelector('.word-input'); //타자치는곳
 let NowText=document.querySelector('.NowText'); // 현재 타자치는 부분
 let TotalText=document.querySelector('.TotalText');// 타자 총 수
 let endingbtn=document.querySelector('.ending'); // ending 버튼
+let prog_my=document.querySelector('#mycount'); //승리 횟수 id
+let prog_you=document.querySelector('#youcount'); // 승리 횟수 상대 id
+let mycount=0; // 승리 횟수
+let youcount=0; // 승리 횟수
+
 /*effect 조명 */
 let m1=document.querySelector('#m1');
 let m2=document.querySelector('#m2');
@@ -215,6 +220,7 @@ async function changeWord(){
     order++;
     if(order != str.length){
         //effect(order)
+        removeCorrectCharacter();
         populateText(str[order]);
     }else{
         // alert("끝")
@@ -224,6 +230,7 @@ async function changeWord(){
         y4_2.hidden=false;
         ClapSound.play();
         endingbtn.hidden=false;
+        // 승자 알려주기
 
         // rank 데이터 전송
         let inputdata = {nickname:getParameterByName('nickname'), typing:""};
@@ -395,36 +402,72 @@ function effectsinit(){
     m8.hidden=true;
 }
 function myeffects(order){
+    console.log(order);
     switch(order){
-        case 1 : ClapSound.play();
+        case 0 : ClapSound.play();
                  m1.hidden=false; break;
 
-        case 2 : ClapSound.play();
+        case 1 : ClapSound.play();
                  m2.hidden=false; break;
 
-        case 3 : ClapSound.play();
+        case 2 : ClapSound.play();
                  m3.hidden=false; break;
 
-        case 4 : ClapSound.play();
+        case 3 : ClapSound.play();
                  m5.hidden=false; break;
 
-        case 5 : ClapSound.play();
+        case 4 : ClapSound.play();
                  effectsinit();
                  m4_1.hidden=false; 
                  m4_2.hidden=false; break;
 
-        case 6 : ClapSound.play();
+        case 5 : ClapSound.play();
                  effectsinit();
                  m5.hidden=true; 
                  m6.hidden=false; break;
-        case 7 : ClapSound.play();
+        case 6 : ClapSound.play();
                  m6.hidden=true; 
                  m7.hidden=false; break;
-        case 8 : ClapSound.play();
+        case 7 : ClapSound.play();
                  m7.hidden=true; 
                  m5.hidden=false; break;
-        case 9 : ClapSound.play(); 
+        case 8 : ClapSound.play(); 
                  m5.hidden=true; break;
+    }
+}
+
+function youeffects(order){
+    switch(order){
+        case 0 : ClapSound.play();
+                 y1.hidden=false; 
+                 console.log("y1"); break;
+
+        case 1 : ClapSound.play();
+                 y2.hidden=false; break;
+
+        case 2 : ClapSound.play();
+                 y3.hidden=false; break;
+
+        case 3 : ClapSound.play();
+                 y5.hidden=false; break;
+
+        case 4 : ClapSound.play();
+                 effectsinit();
+                 y4_1.hidden=false; 
+                 y4_2.hidden=false; break;
+
+        case 5 : ClapSound.play();
+                 effectsinit();
+                 y5.hidden=true; 
+                 y6.hidden=false; break;
+        case 6 : ClapSound.play();
+                 y6.hidden=true; 
+                 y7.hidden=false; break;
+        case 7 : ClapSound.play();
+                 y7.hidden=true; 
+                 y5.hidden=false; break;
+        case 8 : ClapSound.play(); 
+                 y5.hidden=true; break;
     }
 }
 
@@ -458,6 +501,8 @@ socket.on("bye", () => {
 socket.on("receive", (length)=>{
     console.log(length +" "+val_length)
     if(length==str[order].length){
+        youeffects(order);
+        yourdane();
         gonext();
     }
     if(length>val_length){
@@ -484,11 +529,15 @@ input.addEventListener("keyup", () => {
         }
     })
     if(val.length == str[order].length&&errorCount==0){
+        myeffects(order);
+        mydance();
         gonext(val_length);
     }
 })
 function gonext(val_length){
     ifwin+=val_length;
+    ++mycount;
+    prog_my.innerText=mycount;
     $(function(){
         start=true;
         $("#out2").animate({opacity:0, top:'-25px'},4000); // 타자를 친 후 애니메이션
@@ -496,15 +545,6 @@ function gonext(val_length){
         removeCorrectCharacter(); // 친 글자 사라지기
     })
     // console.log("Well Done!")
-    // my 애니메이션
-    for(let i=2; i<14; i++){
-        (x => {
-            setTimeout(() => {
-            let str="/img/hook/"+x+".png"
-            char_my.src=str
-            },150*x)
-        })(i)
-    }
     $(function(){
         $("#out2").animate({opacity:100, top:'70px'}); // input 나타나는 애니메이션
         start=true;
