@@ -22,12 +22,14 @@
   "homepage": "https://github.com/Suyeon04/dance_with_taja#readme",
   "dependencies": {
     "@socket.io/admin-ui": "^0.3.0",
+    "axios": "^0.27.2",
     "body-parser": "^1.20.0",
     "ejs": "^3.1.6",
     "express": "^4.18.1",
     "request": "^2.88.2",
     "socket.io": "^4.5.1",
-    "socket.io-client": "^4.5.1"
-  },
-  "type": "module"
+    "socket.io-client": "^4.5.1",
+    "bufferutil": "^3.0.3",
+    "utf-8-validate": "^4.0.0"
+  }
 }

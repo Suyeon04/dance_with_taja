@@ -42,7 +42,11 @@ body::before {
         width: 50vw;
         height: 10vh;
         position: absolute;
+<<<<<<< HEAD
+        margin-left: 450px; 
+=======
         margin-left: 390px; 
+>>>>>>> hyuna
         margin-top: 30px;
     }
     /*음악버튼*/
@@ -92,11 +96,19 @@ body::before {
         transition-property: transform; /* transform 속성에대해, js코드에 의해 transform 스타일 추가된다*/
         transition-duration: 1s; /* transition 지속시간 */
     }
+<<<<<<< HEAD
+    .Mimage{width: 500px; height: 400px; margin-left : 200px; margin-top: 10px;}
+    .Mimage:nth-child(1){background-image: url("/img/hook/1.png"); background-repeat: no-repeat;}
+    .Mimage:nth-child(2){background-image: url("/img/hook/1.png"); background-repeat: no-repeat;}
+    .Mimage:nth-child(3){background-image: url("/img/hook/1.png"); background-repeat: no-repeat;}
+    .Mimage:nth-child(4){background-image: url("/img/hook/1.png"); background-repeat: no-repeat;}
+=======
     .Mimage{width: 500px; height: 400px; margin-left : 205px; margin-top: 10px;}
     .Mimage:nth-child(1){background-image: url("/img/r1.png"); background-repeat: no-repeat;}
     .Mimage:nth-child(2){background-image: url("/img/n1.png"); background-repeat: no-repeat;}
     .Mimage:nth-child(3){background-image: url("/img/i1.png"); background-repeat: no-repeat;}
     .Mimage:nth-child(4){background-image: url("/img/g1.png"); background-repeat: no-repeat;}
+>>>>>>> hyuna
 
     .CharSelect{
         width: 600px;
@@ -232,16 +244,28 @@ body::before {
         transition-property: transform; /* transform 속성에대해, js코드에 의해 transform 스타일 추가된다*/
         transition-duration: 1s; /* transition 지속시간 */
     }
+<<<<<<< HEAD
+    .Yimage{width: 500px; height: 400px; margin-left : 200px; margin-top: 10px;}
+    .Yimage:nth-child(1){background-image: url("/img/hook/1.png"); background-repeat: no-repeat;}
+    .Yimage:nth-child(2){background-image: url("/img/hook/1.png"); background-repeat: no-repeat;}
+    .Yimage:nth-child(3){background-image: url("/img/hook/1.png"); background-repeat: no-repeat;}
+    .Yimage:nth-child(4){background-image: url("/img/hook/1.png"); background-repeat: no-repeat;}
+=======
     .Yimage{width: 500px; height: 400px; margin-left : 205px; margin-top: 10px;}
     .Yimage:nth-child(1){background-image: url("/img/r1.png"); background-repeat: no-repeat;}
     .Yimage:nth-child(2){background-image: url("/img/n1.png"); background-repeat: no-repeat;}
     .Yimage:nth-child(3){background-image: url("/img/i1.png"); background-repeat: no-repeat;}
     .Yimage:nth-child(4){background-image: url("/img/g1.png"); background-repeat: no-repeat;}
+>>>>>>> hyuna
 
     #select2{
         position: absolute;
         /* left: 50px;  */
+<<<<<<< HEAD
+        top: 200px;
+=======
         top: 5px;
+>>>>>>> hyuna
         z-index: 2;
     }
 
@@ -330,7 +354,11 @@ body::before {
         margin-top: 80px;
     } /* overflow 되면 숨긴다*/
     .Mimages{ 
+<<<<<<< HEAD
+        display: flex; height: 600px; width: 2400px;
+=======
         display: flex; height: 400px; width: 2000px;
+>>>>>>> hyuna
         transition-property: transform; /* transform 속성에대해, js코드에 의해 transform 스타일 추가된다*/
         transition-duration: 1s; /* transition 지속시간 */
     }
@@ -472,7 +500,11 @@ body::before {
         transition-property: transform; /* transform 속성에대해, js코드에 의해 transform 스타일 추가된다*/
         transition-duration: 1s; /* transition 지속시간 */
     }
+<<<<<<< HEAD
+    .Yimage{width: 500px; height: 400px; margin-left : 200px; margin-top: 10px;}
+=======
     .Yimage{width: 500px; height: 400px; margin-left : 170px; margin-top: 10px;}
+>>>>>>> hyuna
     .Yimage:nth-child(1){background-image: url("/img/hook/1.png"); background-repeat: no-repeat;}
     .Yimage:nth-child(2){background-image: url("/img/hook/1.png"); background-repeat: no-repeat;}
     .Yimage:nth-child(3){background-image: url("/img/hook/1.png"); background-repeat: no-repeat;}

@@ -1,10 +1,7 @@
-// const socket = io();
-
 const form = document.querySelector(".welcome");
 const list = document.getElementById("list");
 const select = document.querySelector("#select");
-const start = document.querySelector(".Startbtn");
-const name = document.querySelector(".input-name2");  // 방장 닉넴
+const start = document.querySelector(".Startbtn");  // 방장 닉넴
 
 // version이랑 타이틀이 다른데 기존 방은 language만 보임 ?... [미해결]
 const versions = ["사칙연산 - JAVA", "역참조 배제하기 - JS"
@@ -30,49 +27,90 @@ async function sendAjax(url, data){
   const reqURL = await fetch(url,dataInfo);  
   const result = await reqURL.json(); //JSON값 받아오기
  
-  console.log(result.test)
+  // console.log(result.test)
+
+  return result.data;
 }
 
 // 방장 방 만들기: post방식 fetch API
 function CreateRoom(event) {
   // socket.emit("enter_room", name.value, version, showRoom);//emit 마지막 argument는 funciton
   // socket.emit("nickname", name.value);
+  
+  const name = document.querySelectorAll(".input-name2");
 
-  roomName = name.value;
+  roomName = name[0].value;
   console.log(roomName + " "+ version);
 
-  var inputdata = {version:version, roomName:roomName};
-
+  let inputdata = {version:version, roomName:roomName};
   sendAjax('http://localhost:3002/list/make', inputdata)
 
 }
 
+// 기존 방 그리기
+async function roomList() {
+  let inputdata = {test:1};
+  let data = await sendAjax('http://localhost:3002/list', inputdata)
+
+  let wprtbody = document.querySelector('.wprtbody')
+
+  data.map((item, idx) => {
+    let x = Aboutversion(item.language);
+    const tr = document.createElement("tr");
+
+    const td1 = document.createElement("td");
+    td1.innerHTML = `<td>${idx}</td>`;
+    td1.id = `idx${idx}`
+    td1.className ='number'
+
+    const td2 = document.createElement("td");
+    td2.innerHTML = `<td>${x}</td>`;
+    td2.id = `language${idx}`
+    td2.className ='Language'
+
+    const td3 = document.createElement("td");
+    td3.innerHTML = `<td>${item.nickname}</td>`;
+    td3.id = `nickName${idx}`
+    td3.className ='NickName'
+
+    const td4 = document.createElement("td");
+    td4.innerHTML = `<td id=${idx}><button class="Clickbtn"  onClick="roomDataSet(${idx})">CLICK</button></td>`;
+    td4.className ='Startbtn'
+
+    tr.append(td1)
+    tr.append(td2)
+    tr.append(td3)
+    tr.append(td4)
+
+    wprtbody.append(tr)
+  })
+}
+
 // 기존 방 들어가기: version 저장
-function roomDataSet(language) {
+const roomDataSet = (index) => {
+  let language = document.querySelector(`#language${index}`).outerText;
 
   versions.map((item, idx) => {
-    if(language === item) version = idx;
+    if(index === idx)  version = idx;
   })
 
-  console.log('해당하는 방의 버전은 : ', version)
+  toggleModal2()
+
 }
 
 // 기존 방 들어가기: post방식 fetch API
 function handleRoomSubmit(event) {
   // socket.emit("enter_room", name.value, version, showRoom);//emit 마지막 argument는 funciton
   // socket.emit("nickname", name.value);
+  const name = document.querySelectorAll(".input-name2");
+  const nickName = document.querySelector(`#nickName${version}`).outerText;
+  roomName = name[1].value;
+  console.log(roomName + " "+ version, nickName)
 
-  roomName = name.value;
-  console.log(roomName + " "+ version);
-
-  //var inputdata = {version:version, roomName:roomName};
-
-  //sendAjax('http://localhost:3002/list/join', inputdata)
+  let inputdata = {version:version, roomName:roomName, nickName:nickName};
+  sendAjax('http://localhost:3002/list/join', inputdata)
 
 }
-
-
-
 
 function showRoom(){
 
@@ -141,7 +179,6 @@ function MusicSelect(){
 
 //모달창
 var trigger = document.querySelector(".trigger");
-var modal = document.querySelector(".modal");
 var closeButton = document.querySelector(".close-button");
 var cancelButton = document.querySelector("#cancel");
 
@@ -150,18 +187,21 @@ var cancelButton = document.querySelector("#cancel");
 function toggleModal() {
     // music.play();
     // audio.play();
+    
+    var modal = document.querySelector(".modal");
     modal.classList.toggle("show-modal");
 }
 
 function windowOnClick(event) {
+    var modal = document.querySelector(".modal");
     if (event.target === modal) {
         toggleModal();
     }
 }
 
-trigger.addEventListener("click", toggleModal);
-closeButton.addEventListener("click", toggleModal);
-cancel.addEventListener("click", toggleModal);
+// trigger.addEventListener("click", toggleModal);
+// closeButton.addEventListener("click", toggleModal);
+// cancel.addEventListener("click", toggleModal);
 window.addEventListener("click", windowOnClick);
 window.onload=()=>{
     document.querySelector('.dropbtn_click').onclick = ()=>{
@@ -203,15 +243,16 @@ window.onload=()=>{
 
 // CLICK 모달창
 var Clickbtns = document.querySelectorAll(".Clickbtn");
-var modal2 = document.querySelector(".modal2");
+// var modal2 = document.querySelector(".modal2");
 var closeButton2 = document.querySelector(".close-button2");
 var cancelButton2 = document.querySelector("#cancel2");
 
 //console.log(modal);
 
 function toggleModal2() {
-      modal2.classList.toggle("show-modal2");
-  }
+  var modal2 = document.querySelector(".modal2");
+  modal2.classList.toggle("show-modal2");
+}
 
 function windowOnClick2(event) {
       if (event.target === modal2) {
@@ -220,9 +261,22 @@ function windowOnClick2(event) {
   }
 
   Clickbtns.forEach(b => b.addEventListener("click", toggleModal2));
-  closeButton2.addEventListener("click", toggleModal2);
-  cancelButton2.addEventListener("click", toggleModal2);
+// closeButton2.addEventListener("click", toggleModal2);
+ // cancelButton2.addEventListener("click", toggleModal2);
 //  CLICK 모달창 end
 
+function Aboutversion(idx){
+  if(idx == 1){
+    return "사칙연산 - JAVA";
+  }else if(idx == 2){
+    return "역참조 배제하기 - JS";
+  }else if(idx == 3){
+    return "양의 정수 - JS";
+  }else if(idx == 4){
+    return "스크롤 만들기 - Android";
+  }else if(idx == 5){
+    return "파일 업로드 - PHP";
+  }
+}
 
 
