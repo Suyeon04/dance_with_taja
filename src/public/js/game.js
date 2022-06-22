@@ -137,7 +137,7 @@ endingbtn.hidden=true;
 
 changeWord();
 
-function changeWord(){
+async function changeWord(){
     // if(order==str.length-1){
     //     console.log("타자 끝")
     // }
@@ -153,6 +153,10 @@ function changeWord(){
         effect5.hidden=true;
         ClapSound.play();
         endingbtn.hidden=false;
+
+        // rank 데이터 전송
+        let inputdata = {nickname:getParameterByName('nickname'), typing:""};
+        let data = await sendAjax('http://localhost:3002/ranking/record', inputdata)
     }
     NowText.innerHTML=order;
 }
@@ -255,7 +259,6 @@ socket.on("bye", (left, newCount) => {
     // addMessage(`${left} left ㅠㅠ`);
     //상대방이 떠났을 때
     toggleModal()
-    //alert('상대방이 게임방을 떠났습니다. 새로운 게임을 진행하려면 메인으로 이동해주세요.')
 });
   
 socket.on("receive", (length)=>{
@@ -350,4 +353,21 @@ function windowOnClick(event) {
     if (event.target === modal) {
         toggleModal();
     }
+}
+
+//ajax 보내는 부분 : async api
+async function sendAjax(url, data){
+
+    var dataInfo = {
+        method : "POST",  //메소드 반드시 지정해줘야 app.js 파일에서 찾을수 있음.
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        }
+    };
+  
+    const reqURL = await fetch(url,dataInfo);  
+    const result = await reqURL.json(); //JSON값 받아오기
+  
+    return result.data;
 }

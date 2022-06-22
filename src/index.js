@@ -262,6 +262,10 @@ io.on("connection", (socket) =>{
 app.post("/ranking/record",async (req, res)=>{
     console.log('ranking 기록하기');
 
+    const paramNickname = req.body.nickname;
+    const paramTyping = req.body.typing;
+
+    console.log(paramNickname,paramTyping);
 
     // const doc = db.collection('ranking').doc(paramNickName);
     // let list = {
