@@ -4,14 +4,26 @@ socket.on('connect', () =>{
 })
 
 function handleRoomSubmit() {
-    socket.emit("join-room", getParameterByName('roomname'));
+    socket.emit("join-room", getParameterByName('roomname'), getParameterByName('nickname'));
 }
 handleRoomSubmit();
 
-socket.on("news_by_server", () => {
-    timer();
-    //console.log("못들어온다ㅜㅜ");
+socket.on("news_by_server", (id) => {
+    let partnerId = id;//남의 아이디 가져오기
+    console.log(partnerId+"님이 들어왔습니다")
+    setTimeout(function() {
+        socket.emit("start",getParameterByName('roomname'));
+      }, 3000);//모달창에 누가들어왔습니다
+      //3초뒤에 게임이 시작됩니다 또느
+      // 버튼을 누르면 게임이 시작됩니다
 });
+
+socket.on("go",()=>{
+    //5..4..3..2..1
+    timer();
+})
+
+
 socket.on("can't join link", () => {
     console.log("못들어온다ㅜㅜ");
 });
@@ -138,10 +150,6 @@ endingbtn.hidden=true;
 changeWord();
 
 function changeWord(){
-    // if(order==str.length-1){
-    //     console.log("타자 끝")
-    // }
-    //console.log("order : "+order+ " str : "+str.length);
     order++;
     if(order != str.length){
         effect(order)
@@ -154,7 +162,7 @@ function changeWord(){
         ClapSound.play();
         endingbtn.hidden=false;
     }
-    NowText.innerHTML=order;
+    NowText.innerHTML=str[order];
 }
 let overcolor;// 지고 있는 사람 빨간색
 $(function(){
@@ -249,17 +257,16 @@ function populateText(str){
 function removeCorrectCharacter() { // 친 글자 사라지는 함수
     document.querySelectorAll('.correct').forEach(item => item.remove());
 }
-socket.on("bye", (left, newCount) => {
-    // const h3 = room.querySelector("h3");
-    // h3.innerText = `Room ${roomName} (${newCount})`;
-    // addMessage(`${left} left ㅠㅠ`);
-    //상대방이 떠났을 때
+socket.on("bye", () => {
     toggleModal()
-    //alert('상대방이 게임방을 떠났습니다. 새로운 게임을 진행하려면 메인으로 이동해주세요.')
+    socket.emit("remove_room",getParameterByName('roomname'))
 });
   
 socket.on("receive", (length)=>{
     console.log(length +" "+val_length)
+    if(length==str[order].length){
+        gonext();
+    }
     if(length>val_length){
         overcolor();
     }else{
@@ -282,54 +289,34 @@ input.addEventListener("keyup", () => {
             socket.emit('give_length', getParameterByName('roomname'),val_length) //서버에 내가 친 코드 넘기기 
         }
     })
-    let x = true;
-    socket.on("lose", (length)=>{
-        x = false;//졌을때
-    })
-    if(val.length == str[order].length||x==false){
-        $(function(){
-            console.log(errorCount)
-            if(errorCount === 0 || x!=false){
-                if(errorCount==0&&val.length == str[order].length)
-                    socket.emit('success', getParameterByName('roomname')) //서버에 내가 친 코드 넘기기
-                $(function(){
-                    start=true;
-                    $("#out2").animate({opacity:0, top:'-25px'},4000); // 타자를 친 후 애니메이션
-                    /*!! input이 사라지는게 아니라 하나의 input을 가지고 사라지는 효과만 내줌 !! */
-                    removeCorrectCharacter(); // 친 글자 사라지기
-                })
-                // console.log("Well Done!")
-
-                // my 애니메이션
-                for(let i=2; i<14; i++){
-                    (x => {
-                        setTimeout(() => {
-                        let str="/img/hook/"+x+".png"
-                        char_my.src=str
-                        },150*x)
-                    })(i)
-                }
-
-                // you 애니메이션
-                // for(let i=2;i<12;i++){
-                //     (y => {
-                //         setTimeout(() => {
-                //         let str="/img/wavy"+y+".png"
-                //         char_n.src=str
-                //         },150*y)
-                //     })(i)
-                // }
-
-                $(function(){
-                    $("#out2").animate({opacity:100, top:'70px'}); // input 나타나는 애니메이션
-                    start=true;
-                    input.value=null; // input 나타난 후 썼던 글자 지워주기
-                })
-                changeWord() // 다음 타자로 넘어가기
-            }
-        })
+    if(val.length == str[order].length&&errorCount==0){
+        gonext();
     }
 })
+function gonext(){
+    $(function(){
+        start=true;
+        $("#out2").animate({opacity:0, top:'-25px'},4000); // 타자를 친 후 애니메이션
+        /*!! input이 사라지는게 아니라 하나의 input을 가지고 사라지는 효과만 내줌 !! */
+        removeCorrectCharacter(); // 친 글자 사라지기
+    })
+    // console.log("Well Done!")
+    // my 애니메이션
+    for(let i=2; i<14; i++){
+        (x => {
+            setTimeout(() => {
+            let str="/img/hook/"+x+".png"
+            char_my.src=str
+            },150*x)
+        })(i)
+    }
+    $(function(){
+        $("#out2").animate({opacity:100, top:'70px'}); // input 나타나는 애니메이션
+        start=true;
+        input.value=null; // input 나타난 후 썼던 글자 지워주기
+    })
+    changeWord() // 다음 타자로 넘어가기
+}
 
 function move(){
     location.replace("http://localhost:3002/ranking");
