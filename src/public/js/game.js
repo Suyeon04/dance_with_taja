@@ -162,7 +162,8 @@ function changeWord(){
         ClapSound.play();
         endingbtn.hidden=false;
     }
-    NowText.innerHTML=str[order];
+    NowText.innerText = '';
+    NowText.innerText=str[order];
 }
 let overcolor;// 지고 있는 사람 빨간색
 $(function(){

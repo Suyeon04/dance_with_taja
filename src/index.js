@@ -35,8 +35,6 @@ io.on("connection", (socket) =>{
     const room = io.of(rooms).adapter.rooms.get(roomId)
      if(room === undefined || room.size <= 2) {
       if(room === undefined ||room.size === 2) {
-        rooms.push(roomId)
-        rooms = rooms.filter(r => r !== roomId);
         console.log(rooms);
         socket.server.in(roomId).emit('news_by_server', id);
       }
@@ -44,20 +42,17 @@ io.on("connection", (socket) =>{
        io.emit("can't join link")
      }
   })
-  socket.on("start",(room)=>{
+  socket.on('start',(room)=>{
     socket.to(room).emit('go');
-  } )
+  })
   socket.on('give_length', (room, length)=>{
     socket.to(room).emit('receive',length);
   })
   socket.on("disconnecting", () => {
     socket.rooms.forEach((room) =>
       socket.to(room).emit("bye")
-    );
-  });
-  socket.on("remove_room", (room)=>{
-      rooms[room] = null;
-  })
+      )
+    })
 })
 app.post("/ranking/record",async (req, res)=>{
     console.log('ranking 기록하기');
