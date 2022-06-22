@@ -183,9 +183,6 @@ let y5=document.querySelector('#y5');
 let m6=document.querySelector('#m6');
 let m7=document.querySelector('#m7');
 let m8=document.querySelector('#m8');
-// norespect 효과
-let mysticker=document.querySelector('#mysticker');
-let yoursticker = document.querySelector('#yoursticker');
 
 let charEls = [];
 let order = -1;
@@ -207,8 +204,6 @@ y5.hidden=true;
 m6.hidden=true;
 m7.hidden=true;
 m8.hidden=true;
-mysticker.hidden=true;
-yoursticker.hidden=true;
 
 endingbtn.hidden=true;
 
