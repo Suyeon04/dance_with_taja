@@ -12,6 +12,31 @@ body{
 }
 /*폰트end*/
 
+/* Alert : 게임방 입장 */
+.inAlert{
+    z-index: 10;
+    position: absolute;
+    top: -4%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 50vh;
+    padding: 2vh;
+    font-family: 'EliceDigitalBaeum_Bold';
+    box-shadow: 0px 1px 10px rgba(206, 160, 252, 0.9);
+
+    border-radius: 2vh;
+    -moz-border-radius: 2vh;
+    -khtml-border-radius: 2vh;
+    -webkit-border-radius: 2vh;
+
+    background-color: rgb(229, 198, 250);
+
+    opacity: 1;
+    transition: all 0.3s ease 0s;
+}
+/* Alert : 게임방 입장 - end */
+
 /* 모달창 : 상대방 게임방 나감 CSS */
 .modal {
     z-index: 3;

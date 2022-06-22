@@ -11,12 +11,21 @@ handleRoomSubmit();
 socket.on("news_by_server", (id) => {
     let partnerId = id;//남의 아이디 가져오기
     console.log(partnerId+"님이 들어왔습니다")
+    showAlert(partnerId)
     setTimeout(function() {
         socket.emit("start",getParameterByName('roomname'));
-      }, 3000);//모달창에 누가들어왔습니다
-      //3초뒤에 게임이 시작됩니다 또느
-      // 버튼을 누르면 게임이 시작됩니다
+    }, 3000);//모달창에 누가들어왔습니다
+    //3초뒤에 게임이 시작됩니다 또느
+    // 버튼을 누르면 게임이 시작됩니다
 });
+
+function showAlert(str) {
+    let div = document.querySelector('.inAlert')
+    div.innerText = str+"님이 게임방에 입장하였습니다."
+    div.style.top = "6%";
+    
+    setTimeout(() => {div.style.opacity =  0}, 1500);
+}
 
 socket.on("go",()=>{
     //5..4..3..2..1
@@ -149,7 +158,7 @@ endingbtn.hidden=true;
 
 changeWord();
 
-function changeWord(){
+async function changeWord(){
     order++;
     if(order != str.length){
         effect(order)
@@ -161,6 +170,10 @@ function changeWord(){
         effect5.hidden=true;
         ClapSound.play();
         endingbtn.hidden=false;
+
+        // rank 데이터 전송
+        let inputdata = {nickname:getParameterByName('nickname'), typing:""};
+        let data = await sendAjax('http://localhost:3002/ranking/record', inputdata)
     }
     NowText.innerText = '';
     NowText.innerText=str[order];
@@ -338,4 +351,21 @@ function windowOnClick(event) {
     if (event.target === modal) {
         toggleModal();
     }
+}
+
+//ajax 보내는 부분 : async api
+async function sendAjax(url, data){
+
+    var dataInfo = {
+        method : "POST",  //메소드 반드시 지정해줘야 app.js 파일에서 찾을수 있음.
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        }
+    };
+  
+    const reqURL = await fetch(url,dataInfo);  
+    const result = await reqURL.json(); //JSON값 받아오기
+  
+    return result.data;
 }
