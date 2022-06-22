@@ -12,6 +12,75 @@ body{
 }
 /*폰트end*/
 
+/* 모달창 : 상대방 게임방 나감 CSS */
+.modal {
+    z-index: 3;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+.title{
+    margin-bottom: 3vh;
+    text-align: center;
+    font-size: 3vh;
+    font-family: 'EliceDigitalBaeum_Bold';
+}
+.subtitle{
+    line-height: 5vh;
+    font-family: 'EliceDigitalBaeum_Bold';
+}
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 1rem 1.5rem;
+    width: 500px;
+    height: 350px;
+    border-radius: 0.5rem;
+}
+.modal-btn{
+    margin-top: 15vh;
+    float: right;
+    width: 10vh;
+    height: 4vh;
+    cursor: pointer;
+    
+    background-color: white;
+    box-shadow: 0px 1px 5px rgba(201, 151, 251, 0.9);
+
+    border: none;
+    border-radius: 1.5vh;
+    -moz-border-radius: 1.5vh;
+    -khtml-border-radius: 1.5vh;
+    -webkit-border-radius: 1.5vh;
+
+    text-align: center;
+    font-family: 'EliceDigitalBaeum_Bold';
+
+    transition: all 0.3s ease 0s;
+}
+
+.modal-btn:hover {
+    transform: translateY(-5px);
+    background-color: rgb(214, 170, 255);
+}
+.show-modal {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+/* 모달창 : 상대방 게임방 나감 CSS - end */
+
 /*노트북 사이즈*/
 @media(max-width:1600px){
     .start{
