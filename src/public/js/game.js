@@ -429,11 +429,13 @@ function removeCorrectCharacter() { // 친 글자 사라지는 함수
     document.querySelectorAll('.correct').forEach(item => item.remove());
 }
 socket.on("bye", (left, newCount) => {
-    const h3 = room.querySelector("h3");
-    h3.innerText = `Room ${roomName} (${newCount})`;
-    addMessage(`${left} left ㅠㅠ`);
+    // const h3 = room.querySelector("h3");
+    // h3.innerText = `Room ${roomName} (${newCount})`;
+    // addMessage(`${left} left ㅠㅠ`);
     //상대방이 떠났을 때
-  });
+    toggleModal()
+    //alert('상대방이 게임방을 떠났습니다. 새로운 게임을 진행하려면 메인으로 이동해주세요.')
+});
   
 socket.on("receive", (length)=>{
     console.log(length +" "+val_length)
@@ -488,5 +490,22 @@ input.addEventListener("keyup", () => {
 })
 
 function move(){
-    location.href="http://localhost:3002/ranking";
+    location.replace("http://localhost:3002/ranking");
+}
+
+function home(){
+    location.replace("http://localhost:3002/");
+}
+
+// 모달창 : 상대방 게임방 나감
+function toggleModal() {    
+    var modal = document.querySelector(".modal");
+    modal.classList.toggle("show-modal");
+}
+
+function windowOnClick(event) {
+    var modal = document.querySelector(".modal");
+    if (event.target === modal) {
+        toggleModal();
+    }
 }

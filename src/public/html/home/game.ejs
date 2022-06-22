@@ -103,6 +103,17 @@
         <img src="/img/lachica/1.png" id="youchar">
     </div>
     <button class="ending" onclick="move()"><img src="/img/endingbtn.png"></button>
+    <!-- 모달 창 : 상대방 게임방 나감 -->
+    <div class="modal">
+        <div class="modal-content">
+            <div class="title">게임 진행 불가</div>
+            <div class="subtitle">
+                상대방이 게임방을 나갔습니다.<br/>
+                메인 화면으로 이동하여 새로운 게임을 진행해주세요.
+            </div>
+            <button class="modal-btn" onclick="home()">메인으로</button>
+        </div>
+    </div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.1/socket.io.js"></script>
 <script src = "/js/game.js"></script>
