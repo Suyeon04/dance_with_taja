@@ -257,18 +257,60 @@ io.on("connection", (socket) =>{
 //   }
 //   res.json({"data":data})
 // })
+
+// ranking 기록하기 데이터 전달받기
 app.post("/ranking/record",async (req, res)=>{
     console.log('ranking 기록하기');
-    const doc = db.collection('ranking').doc(paramNickName);
-    let list = {
-      version: paramVersion, 
-      tasu : tasu
-    }
-    await doc.set(list);
+
+
+    // const doc = db.collection('ranking').doc(paramNickName);
+    // let list = {
+    //   version: paramVersion, 
+    //   tasu : tasu
+    // }
+    // await doc.set(list);
 })
+
+// ranking 리스트 데이터 전송하기
 app.post("/ranking",async (req, res)=>{
-  const doc = db.collection('ranking');
-  const rank = await doc.orderBy('name').get();
+  console.log('ranking list 전송하기');
+  let rank = [
+    { 
+      nickname:"John",
+      typing:"95"
+    }, { 
+      nickname:"Adam",
+      typing:"90"
+    }, { 
+      nickname:"Kevin",
+      typing:"85"
+    }, { 
+      nickname:"Smith",
+      typing:"80"
+    }, { 
+      nickname:"Michel",
+      typing:"75"
+    }, { 
+      nickname:"John",
+      typing:"70"
+    }, { 
+      nickname:"Adam",
+      typing:"65"
+    }, { 
+      nickname:"일등하고싶다",
+      typing:"60"
+    }, { 
+      nickname:"이등하고싶다",
+      typing:"55"
+    }, { 
+      nickname:"삼등하고싶다",
+      typing:"50"
+    }
+  ]
+
+  // const doc = db.collection('ranking');
+  // const rank = await doc.orderBy('name').get();
+
   res.json({"data":rank})
 })
 
