@@ -344,7 +344,7 @@ function yourdane(){
         }
     }
 }
-
+// test
 // function effects(order){
 //     switch(order){
 //         case 1 : overcolor(); 
