@@ -26,10 +26,11 @@ function showAlert(str) {
     
     setTimeout(() => {div.style.opacity =  0}, 1500);
 }
-
+let nowtime = 
 socket.on("go",()=>{
     //5..4..3..2..1
     timer();
+    nowdate = new Date();
 })
 
 
@@ -44,6 +45,7 @@ let countspan = document.querySelector(".count");
 let counts=5;
 start.hidden=true;
 countspan.hidden=true;
+let nowdate = 0;
 let timer = () =>{
     setTimeout(() => { 
         clearInterval(timerId);  
@@ -212,7 +214,7 @@ changeWord();
 async function changeWord(){
     order++;
     if(order != str.length){
-        effect(order)
+        //effect(order)
         populateText(str[order]);
     }else{
         // alert("끝")
@@ -226,14 +228,9 @@ async function changeWord(){
         // rank 데이터 전송
         let inputdata = {nickname:getParameterByName('nickname'), typing:""};
         let data = await sendAjax('http://localhost:3002/ranking/record', inputdata)
-        NowText.innerText = '';
-        NowText.innerText=str[order]; 
-        order++;
-        NowText.innerHTML=order+1;
-        myeffects(order);
-        //effects(order);
-        populateText(str[order]);
     }
+    NowText.innerHTML = '';
+    NowText.innerHTML=str[order];
 }
 
 let overcolor;// 지고 있는 사람 빨간색
@@ -443,12 +440,12 @@ function populateText(str){
 }
 
 // 어디에 필요한 함수일까..? 없어도 잘 돌아가긴 함
-// function resetCharEls(){
-//     charEls.map(charEl => {
-//         charEl.classList.remove("correct")
-//         charEl.classList.remove("wrong")
-//     })
-// }
+function resetCharEls(){
+    charEls.map(charEl => {
+        charEl.classList.remove("correct")
+        charEl.classList.remove("wrong")
+    })
+}
 
 function removeCorrectCharacter() { // 친 글자 사라지는 함수
     document.querySelectorAll('.correct').forEach(item => item.remove());
@@ -470,6 +467,7 @@ socket.on("receive", (length)=>{
     }// 컬러 재조합
 })
 let val_length = 0;
+let ifwin = 0;
 input.addEventListener("keyup", () => {
     const val = input.value;
     val_length = val.length;
@@ -486,10 +484,11 @@ input.addEventListener("keyup", () => {
         }
     })
     if(val.length == str[order].length&&errorCount==0){
-        gonext();
+        gonext(val_length);
     }
 })
-function gonext(){
+function gonext(val_length){
+    ifwin+=val_length;
     $(function(){
         start=true;
         $("#out2").animate({opacity:0, top:'-25px'},4000); // 타자를 친 후 애니메이션

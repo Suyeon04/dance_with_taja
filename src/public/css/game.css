@@ -404,6 +404,43 @@ body{
         margin-left: 850px; 
         margin-top: 180px;
     }
+
+    /*프로그래스 바*/
+    .prog{
+        position: absolute;
+        width: 50px;
+        height: 450px;
+        background: rgb(189, 177, 177);
+        transform:rotate(180deg);
+    }
+    .progs{
+        position: absolute;
+        width: 50px;
+        height: 10%; /*진행률 바꾸는 곳*/
+        background: rgb(196, 87, 218);
+        color:#fff;
+        text-align: center;
+        /* line-height: 40px; */
+    }
+    #myprog{
+        margin-left: 60px;
+        margin-top: 90px;
+    }
+    #yourprog{
+        margin-left: 1440px;
+        margin-top: 90px;
+    }
+
+    #mycount{ /*승리 횟수*/
+        position: absolute;
+        left: 5%;
+        font-size: 40px;
+    }
+    #youcount{ /*승리 횟수*/
+        position: absolute;
+        right: 4%;
+        font-size: 40px;
+    }
     
     /*캐릭터*/
     #mychar{
