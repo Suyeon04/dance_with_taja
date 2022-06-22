@@ -11,12 +11,21 @@ handleRoomSubmit();
 socket.on("news_by_server", (id) => {
     let partnerId = id;//남의 아이디 가져오기
     console.log(partnerId+"님이 들어왔습니다")
+    showAlert(partnerId)
     setTimeout(function() {
         socket.emit("start",getParameterByName('roomname'));
-      }, 3000);//모달창에 누가들어왔습니다
-      //3초뒤에 게임이 시작됩니다 또느
-      // 버튼을 누르면 게임이 시작됩니다
+    }, 3000);//모달창에 누가들어왔습니다
+    //3초뒤에 게임이 시작됩니다 또느
+    // 버튼을 누르면 게임이 시작됩니다
 });
+
+function showAlert(str) {
+    let div = document.querySelector('.inAlert')
+    div.innerText = str+"님이 게임방에 입장하였습니다."
+    div.style.top = "6%";
+    
+    setTimeout(() => {div.style.opacity =  0}, 1500);
+}
 
 socket.on("go",()=>{
     //5..4..3..2..1

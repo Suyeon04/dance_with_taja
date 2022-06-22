@@ -87,7 +87,7 @@ app.post("/ranking",async (req, res)=>{
       nickname:"Adam",
       typing:"90"
     }, { 
-      nickname:"Kevin",z
+      nickname:"Kevin",
       typing:"85"
     }, { 
       nickname:"Smith",
