@@ -361,6 +361,17 @@ function yourdane(){
 // }
 
 // 내가 이겼을때 효과
+function effectsinit(){
+    m1.hidden=true;
+    m2.hidden=true;
+    m3.hidden=true;
+    m4_1.hidden=true;
+    m4_2.hidden=true;
+    m5.hidden=true;
+    m6.hidden=true;
+    m7.hidden=true;
+    m8.hidden=true;
+}
 function myeffects(order){
     switch(order){
         case 1 : ClapSound.play();
@@ -376,13 +387,12 @@ function myeffects(order){
                  m5.hidden=false; break;
 
         case 5 : ClapSound.play();
-                 m5.hidden=true;
+                 effectsinit();
                  m4_1.hidden=false; 
                  m4_2.hidden=false; break;
 
         case 6 : ClapSound.play();
-                 m4_1.hidden=true;
-                 m4_2.hidden=true;
+                 effectsinit();
                  m5.hidden=true; 
                  m6.hidden=false; break;
         case 7 : ClapSound.play();
@@ -394,17 +404,6 @@ function myeffects(order){
         case 9 : ClapSound.play(); 
                  m5.hidden=true; break;
     }
-}
-function effectsinit(){
-    m1.hidden=true;
-    m2.hidden=true;
-    m3.hidden=true;
-    m4_1.hidden=true;
-    m4_2.hidden=true;
-    m5.hidden=true;
-    m6.hidden=true;
-    m7.hidden=true;
-    m8.hidden=true;
 }
 
 function populateText(str){
