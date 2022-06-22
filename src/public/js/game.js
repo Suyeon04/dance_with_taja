@@ -3,19 +3,19 @@ socket.on('connect', () =>{
         console.log(socket.id);
 })
 
-socket.on("news_by_server", (newCount) => {
-    console.log(newCount);
-});
-socket.on("nothing", () => {
-    console.log("아직 사용자가 없어요ㅜㅜ");
-});
-  
-
 function handleRoomSubmit() {
     socket.emit("join-room", getParameterByName('roomname'));
-    console.log( getParameterByName('roomname'))
 }
 handleRoomSubmit();
+
+socket.on("news_by_server", () => {
+    timer();
+    //console.log("못들어온다ㅜㅜ");
+});
+socket.on("can't join link", () => {
+    console.log("못들어온다ㅜㅜ");
+});
+
 
 // 시작 전 count
 let start=document.querySelector(".start");
@@ -23,15 +23,17 @@ let countspan = document.querySelector(".count");
 let counts=5;
 start.hidden=true;
 countspan.hidden=true;
-setTimeout(() => { clearInterval(timerId);  start.hidden=true; countspan.hidden=true;}, 6000);
-// 5초 후에 정지
-let timerId = setInterval(() =>{
-    start.hidden=false; countspan.hidden=false;
-    countspan.innerText=counts--;
-}, 1000);
-
-socket.on("news_by_server", () => {
-});
+let timer = () =>{
+    setTimeout(() => { 
+        clearInterval(timerId);  
+        start.hidden=true; 
+        countspan.hidden=true;
+    }, 6000);
+    let timerId=setInterval(() =>{
+        start.hidden=false; countspan.hidden=false;
+        countspan.innerText=counts--;
+    }, 1000);
+}
 
 // 오디오
 let playbtn=document.querySelector("#playbtn");
@@ -155,7 +157,7 @@ function changeWord(){
     NowText.innerHTML=order;
 }
 let overcolor;// 지고 있는 사람 빨간색
-$(document).ready(function(){
+$(function(){
     function coloreffect(){
     $("#out1").css("background-color", "lightcoral");
     $(".word-display").css("color", "white");
@@ -164,8 +166,9 @@ $(document).ready(function(){
    overcolor=coloreffect;
 });
 
+
 let wincolor;// 이기고 있는 사람 초록색
-$(document).ready(function(){
+$(function(){
     function coloreffect(){
     $("#out1").css("background-color", "aquamarine");
     $(".word-display").css("color", "white");
@@ -246,11 +249,25 @@ function populateText(str){
 function removeCorrectCharacter() { // 친 글자 사라지는 함수
     document.querySelectorAll('.correct').forEach(item => item.remove());
 }
-socket.on('receive-message', message=>{
-    console.log(message)
+socket.on("bye", (left, newCount) => {
+    const h3 = room.querySelector("h3");
+    h3.innerText = `Room ${roomName} (${newCount})`;
+    addMessage(`${left} left ㅠㅠ`);
+    //상대방이 떠났을 때
+  });
+  
+socket.on("receive", (length)=>{
+    console.log(length +" "+val_length)
+    if(length>val_length){
+        overcolor();
+    }else{
+        wincolor();
+    }// 컬러 재조합
 })
+let val_length = 0;
 input.addEventListener("keyup", () => {
-    const val = input.value
+    const val = input.value;
+    val_length = val.length;
     let errorCount = 0;
     let start=false;
     val.split("").map((letter, i) => {
@@ -260,14 +277,19 @@ input.addEventListener("keyup", () => {
         }else{
             charEls[i].classList= ``;
             charEls[i].classList.add("correct");
+            socket.emit('give_length', getParameterByName('roomname'),val_length) //서버에 내가 친 코드 넘기기 
         }
     })
-    socket.emit('send-message', val.length)
-    if(val.length == str[order].length){
+    let x = true;
+    socket.on("lose", (length)=>{
+        x = false;//졌을때
+    })
+    if(val.length == str[order].length||x==false){
         $(function(){
             console.log(errorCount)
-            if(errorCount === 0){
-
+            if(errorCount === 0 || x!=false){
+                if(errorCount==0&&val.length == str[order].length)
+                    socket.emit('success', getParameterByName('roomname')) //서버에 내가 친 코드 넘기기
                 $(function(){
                     start=true;
                     $("#out2").animate({opacity:0, top:'-25px'},4000); // 타자를 친 후 애니메이션

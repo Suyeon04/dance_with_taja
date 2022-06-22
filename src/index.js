@@ -58,21 +58,46 @@ const io = require("socket.io")(3000, {
 //   })
 // });
 
-io.on("connection", socket =>{
-  io["nickname"] = "Anon";
-  socket.on("join-room", (roomId)=>{
-    const room = io.sockets.adapter.rooms.get(roomId);
-    if(room?.size < 2) {
-      socket.join(roomId)
-      if(room.size == 2){
-       socket.to(roomId).emit('news_by_server', room.size);
-      }else{
-        socket.to(roomId).emit("nothing");
+let rooms = [];
+const nicknames = {};
+
+io.on("connection", (socket) =>{
+  socket.on("join-room",roomId => {
+    socket.join(roomId)
+    const room = io.of(rooms).adapter.rooms.get(roomId)
+     if(room === undefined || room.size <= 2) {
+      if(room === undefined ||room.size === 2) {
+        rooms = rooms.filter(r => r.data.roomname !== roomname);
+        console.log(rooms);
+        socket.server.in(roomId).emit('news_by_server');
       }
-    }else {
-      io.of(`/${roomId}`).emit("can't join link")
-    }
+     }else {
+       io.of(rooms).emit("can't join link")
+     }
   })
+  socket.on("nicknames", (person)=>{
+    
+  })
+  socket.on('give_length', (room, length)=>{
+    socket.to(room).emit('receive',length);
+  })
+  socket.on('success', (room)=>{
+    socket.to(room).emit('lose');
+  })
+  // socket.on("join-room", (roomId)=>{
+    
+  //   let x = io._nsps.get('/').adapter.rooms.get(roomName).size;
+  //   if(z < 2) {
+  //     socket.join(roomId)
+  //     if(countRoom(roomId) == 2){
+  //      socket.to(roomId).emit('news_by_server', roomId);
+  //     }else{
+  //       socket.to(roomId).emit("nothing");
+  //     }
+  //   }else {
+  //     io.of(`/${roomId}`).emit("can't join link")
+  //   }
+  // })
    socket.on("disconnecting", () => {
     socket.rooms.forEach((room) =>
       socket.to(room).emit("bye", socket.nickname)
