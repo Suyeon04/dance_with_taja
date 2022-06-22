@@ -105,6 +105,7 @@ const x =
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">`;
 
 let startWord = 'start';
@@ -120,6 +121,10 @@ let endingbtn=document.querySelector('.ending'); // ending 버튼
 /*effect 조명 */
 let m1=document.querySelector('#m1');
 let m2=document.querySelector('#m2');
+let m3=document.querySelector('#m3');
+let y1=document.querySelector('#y1');
+let y2=document.querySelector('#y2');
+let y3=document.querySelector('#y3');
 /*effect 꽃가루 */
 let m4_1=document.querySelector('#m4_1');
 let m4_2=document.querySelector('#m4_2');
@@ -128,17 +133,27 @@ let y4_2=document.querySelector('#y4_2');
 /*effect 작은 꽃가루 */
 let m5=document.querySelector('#m5');
 let y5=document.querySelector('#y5');
+//프레임효과
+let m6=document.querySelector('#m6');
 
 let charEls = [];
 let order = -1;
 
 TotalText.innerHTML=str.length;
+m1.hidden=true;
+m2.hidden=true;
+m3.hidden=true;
+y1.hidden=true;
+y2.hidden=true;
+y3.hidden=true;
+
 m4_1.hidden=true;
 m4_2.hidden=true;
 y4_1.hidden=true;
 y4_2.hidden=true;
 m5.hidden=true;
 y5.hidden=true;
+// m6.hidden=true;
 endingbtn.hidden=true;
 
 changeWord();
@@ -161,7 +176,8 @@ function changeWord(){
     }else{
         order++;
         NowText.innerHTML=order+1;
-        effects(order)
+        //myeffects(order);
+        effects(order);
         populateText(str[order]);
     }
 }
@@ -201,7 +217,7 @@ $(document).ready(function(){
     // $("#mychar").animate({width:'351px', height:'450px'},2000);
     // $("#mychar").animate({width:'251px', height:'350px'},1500);
     // $('#mychar').css({width:'351px', height:'450px'});
-    $('#mychar').css({width:'30%'});
+    $('#mychar').css({width:'26%'});
     $('#mychar').css({height:'55%'});
    }
    mysizeup=chareffect;
@@ -222,13 +238,13 @@ $(document).ready(function(){
     // $("#mychar").animate({width:'351px', height:'450px'},2000);
     // $("#mychar").animate({width:'251px', height:'350px'},1500);
     // $('#mychar').css({width:'351px', height:'450px'});
-    $('#youchar').css({width:'30%'});
+    $('#youchar').css({width:'26%'});
     $('#youchar').css({height:'55%'});
    }
    yoursizeup=chareffect;
 });
 
-let yoursizedown; // 상대 캐릭터 커지기
+let yoursizedown; // 상대 캐릭터 작아지기
 $(document).ready(function(){
     function myeffect(){
     $('#youchar').css({width:'20%'});
@@ -274,6 +290,7 @@ function yourdane(){
         }
     }
 }
+// test
 function effects(order){
     switch(order){
         case 1 : overcolor(); 
@@ -310,6 +327,36 @@ function effects(order){
         case 11 : break;
     }
 }
+
+// 내가 이겼을때 효과
+// function myeffects(order){
+//     switch(order){
+//         case 1 : ClapSound.play(); 
+//                  m1.hidden=false; break;
+
+//         case 2 : ClapSound.play();
+//                  m2.hidden=false; break;
+
+//         case 3 : ClapSound.play();
+//                  m3.hidden=false; break;
+
+//         case 4 : ClapSound.play();
+//                  m5.hidden=false; break;
+
+//         case 5 : ClapSound.play();
+//                  m5.hidden=true;
+//                  m4_1.hidden=false; 
+//                  m4_2.hidden=false; break;
+
+//         case 6 : ClapSound.play();
+//                  m5.hidden=true; break;
+//         case 7 : break;
+//         case 8 : break;
+//         case 9 : break;
+//         case 10 : break;
+//         case 11 : break;
+//     }
+// }
 
 function populateText(str){
     charEls=[];
