@@ -1,12 +1,3 @@
-var admin = require("firebase-admin");
-var firestore = require("firebase-admin/firestore");
-
-var serviceAccount = require("./firebasekey.json");
-
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
-});
-const db = firestore.getFirestore();
 
 const express = require("express");
 const http = require("http");
@@ -267,20 +258,20 @@ io.on("connection", (socket) =>{
 //   }
 //   res.json({"data":data})
 // })
-app.post("/ranking/record",async (req, res)=>{
-    console.log('ranking 기록하기');
-    const doc = db.collection('ranking').doc(paramNickName);
-    let list = {
-      version: paramVersion, 
-      tasu : tasu
-    }
-    await doc.set(list);
-})
-app.post("/ranking",async (req, res)=>{
-  const doc = db.collection('ranking');
-  const rank = await doc.orderBy('name').get();
-  res.json({"data":rank})
-})
+// app.post("/ranking/record",async (req, res)=>{
+//     console.log('ranking 기록하기');
+//     const doc = db.collection('ranking').doc(paramNickName);
+//     let list = {
+//       version: paramVersion, 
+//       tasu : tasu
+//     }
+//     await doc.set(list);
+// })
+// app.post("/ranking",async (req, res)=>{
+//   const doc = db.collection('ranking');
+//   const rank = await doc.orderBy('name').get();
+//   res.json({"data":rank})
+// })
 
 const handleListen = () => console.log(`Listening on http://localhost:3002`);
 httpServer.listen(3002, handleListen);
