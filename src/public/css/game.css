@@ -343,7 +343,55 @@ body{
         margin-left: 300px; 
         margin-top: 230px;
     }
-    
+
+    .flip {
+        position: absolute;
+        width: 300px;
+        height: 350px;
+        perspective: 1100px;
+        z-index: 2;
+        animation: flipsticker 1s ease-in 4 Alternate;
+      }
+      
+      .sticker {
+        width: 100%; 
+        height: 100%; 
+        position: relative;
+        transition: .4s;
+        transform-style: preserve-3d;
+        animation: flipsticker 1s ease-in 4 Alternate;
+      }	
+      
+      .front, .back {
+        position: absolute;
+        width: 100%; 
+        height: 100%;
+        backface-visibility: hidden;
+        background-image: url(/img/norespectEffect.png);
+      }
+      
+       /* 뒷면은 사전에 미리 뒤집기 */
+      .back { 
+        transform: rotateY(180deg);
+      }
+
+      #mysticker{
+        left: 300px;
+      }
+      #yoursticker{
+        left: 890px;
+      }
+      /* 호버 시 뒤집기 */
+      @keyframes flipsticker {
+        from{
+            transform: rotateY(0deg);
+        }
+        to{
+            transform: rotateY(180deg);
+        }
+      }
+
+
     /*상대 캐릭터 이펙트*/
     #y1{
         transform: rotate( 230deg );
@@ -379,7 +427,44 @@ body{
         margin-left: 850px; 
         margin-top: 180px;
     }
-    
+
+     /*프로그래스 바*/
+     .prog{
+        position: absolute;
+        width: 50px;
+        height: 400px;
+        background: rgb(189, 177, 177);
+        transform:rotate(180deg);
+    }
+    .progs{
+        position: absolute;
+        width: 50px;
+        height: 10%; /*진행률 바꾸는 곳*/
+        background: rgb(196, 87, 218);
+        color:#fff;
+        text-align: center;
+        /* line-height: 40px; */
+    }
+    #myprog{
+        margin-left: 60px;
+        margin-top: 90px;
+    }
+    #yourprog{
+        margin-left: 1430px;
+        margin-top: 90px;
+    }
+
+    #mycount{ /*승리 횟수*/
+        position: absolute;
+        left: 5%;
+        font-size: 40px;
+    }
+    #youcount{ /*승리 횟수*/
+        position: absolute;
+        right: 4%;
+        font-size: 40px;
+    }
+
     /*캐릭터*/
     #mychar{
         position: absolute;
