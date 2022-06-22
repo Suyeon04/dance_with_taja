@@ -8,8 +8,12 @@
     <link rel="shortcut icon" type="image/x-icon" href="../img/logo.png">
     <title>Street TAJA Fighter</title>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
+    <div class="display1">
+
+    </div>
     <div class="start">
         <span class="count"></span>
     </div>
@@ -30,32 +34,70 @@
     <p class="state"><span class="NowText">1</span><span>/</span><span class="TotalText">4</span></p>
     
     <div class="effect">
-        <div class="bulb-holder" id="b2">
+        <!-- 나의조명 -->
+        <div class="bulb-holder" id="m1">
             <div class="bulb">
                 <div class="light"></div>
             </div>
         </div>
-        <div class="bulb-holder" id="b2_1">
+        <div class="bulb-holder" id="m2">
             <div class="bulb">
                 <div class="light"></div>
             </div>
         </div>
-        <div class="bulb-holder" id="b3">
+        <div class="bulb-holder" id="m3">
+            <div class="bulb">
+                <div class="light"></div>
+            </div>
+        </div>
+
+        <!-- 상대조명 -->
+        <div class="bulb-holder" id="y1">
+            <div class="bulb">
+                <div class="light"></div>
+            </div>
+        </div>
+        <div class="bulb-holder" id="y2">
+            <div class="bulb">
+                <div class="light"></div>
+            </div>
+        </div>
+        <div class="bulb-holder" id="y3">
             <div class="bulb">
                 <div class="light"></div>
             </div>
         </div>
     </div>
+
     <div class="effect2">
         <!-- 내꺼 -->
-        <img id="b4_1" src="/img/꽃가루효과.gif"/>
-        <img id="b4_2" src="/img/꽃가루효과.gif"/>
-        <img id="b5" src="/img/꽃가루효과2.gif"/>
+        <!-- 좋을 때 효과 -->
+        <img id="m4_1" src="/img/꽃가루효과.gif"/>
+        <img id="m4_2" src="/img/꽃가루효과.gif"/>
+        <img id="m5" src="/img/꽃가루효과2.gif"/>
+        <img id="m6" src="/img/프레임효과.gif"/>
+        <img id="m7" src="/img/미러볼효과.gif"/>
+        <img id="m8" src="/img/조명.png"/>
+        <!-- 안좋을 때 효과 -->
+        <div class="norespectz_my"></div>
         <!-- 상대 -->
-        <img id="c4_1" src="/img/꽃가루효과.gif"/>
-        <img id="c4_2" src="/img/꽃가루효과.gif"/>
-        <img id="c5" src="/img/꽃가루효과2.gif"/>
+        <img id="y4_1" src="/img/꽃가루효과.gif"/>
+        <img id="y4_2" src="/img/꽃가루효과.gif"/>
+        <img id="y5" src="/img/꽃가루효과2.gif"/>
+        <!-- <img id="y6" src="/img/프레임효과.gif"/> -->
+        <!--<img id="y8" src="/img/미러볼효과.gif"/> -->
     </div>
+
+    <!-- 게이지 바 -->
+    <p id="mycount">0</p>
+    <div class="prog" id="myprog">
+        <div class="progs" id="myprogressing"></div>
+    </div>
+    <p id="youcount">0</p>
+    <div class="prog" id="yourprog">
+        <div class="progs" id="yourprogressing"></div>
+    </div>
+
     <div class="Characters">
         <img src="/img/hook/1.png" id="mychar">
         <img src="/img/lachica/1.png" id="youchar">

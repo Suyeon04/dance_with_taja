@@ -224,6 +224,7 @@ body{
     }
     
     /*상태*/
+    
     .state{
         position: absolute;
         left: 300px;
@@ -232,64 +233,6 @@ body{
         font-size: 30px;
     }
     /*효과(조명)*/
-    .bulb-holder{
-        width: 50px;
-        height: 40px;
-        background: black;
-        position: absolute;
-        border-top-left-radius: 50%;
-        border-top-right-radius: 50%;
-        transform: rotate( 180deg );
-        margin-top: 580px;
-        margin-left: 400px;
-        /*transform: translate(380px,250px);*/ /*(방향, 높이)*/
-        z-index: 1;
-    }
-    .bulb{
-        width: 50px;
-        height: 20px;
-        background: #fff;
-        border-radius: 60%;
-        transform: translate(0px,35px);
-        animation: light 2000ms infinite cubic-bezier(1, -0.45, 0, 1.89);
-    }
-    #b2{
-        /*transform: translate(230px,500px); */ /*(방향, 높이)*/
-        transform: rotate( 230deg );
-        margin-top: 520px;
-        margin-left: 240px;
-    }
-    #b2_1{
-        transform: rotate( 230deg );
-        margin-top: 570px;
-        margin-left: 150px;
-    }
-    #b3{
-        transform: rotate( 130deg );
-        margin-top: 500px;
-        margin-left: 600px;
-        margin-top: 300px;
-        margin-left: 250px;
-        /* transform: translate(600px,300px);(방향, 높이) */
-    }
-    #b4_1{
-        height: 700px; 
-        position: absolute; 
-        margin-left: 10px; 
-        margin-top: -100px;
-    }
-    #b4_2{
-        height: 700px; 
-        position: absolute; 
-        margin-left: 370px; 
-        margin-top: -100px;
-    }
-    #b5{
-        height:300px; 
-        position: absolute; 
-        margin-left: 300px; 
-        margin-top: 230px;
-    }
     @keyframes light{
         10%{
             box-shadow: 0 1px 10px yellow,
@@ -369,47 +312,116 @@ body{
             -70px 70px 100px yellow;
         }
     }
-    
-    /*상대 캐릭터 이펙트*/
-    #c4_1{
+    .bulb-holder{
+        width: 50px;
+        height: 40px;
+        background: black;
+        position: absolute;
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+        transform: rotate( 180deg );
+        margin-top: 580px;
+        margin-left: 400px;
+        /*transform: translate(380px,250px);*/ /*(방향, 높이)*/
+        z-index: 1;
+    }
+    .bulb{
+        width: 50px;
+        height: 20px;
+        background: #fff;
+        border-radius: 60%;
+        transform: translate(0px,35px);
+        animation: light 2000ms infinite cubic-bezier(1, -0.45, 0, 1.89);
+    }
+    #m1{
+        transform: rotate( 130deg );
+        margin-top: 300px;
+        margin-left: 250px;
+    }
+    #m2{
+        /*transform: translate(230px,500px); */ /*(방향, 높이)*/
+        transform: rotate( 230deg );
+        margin-top: 520px;
+        margin-left: 240px;
+    }
+    #m3{
+        transform: rotate( 230deg );
+        margin-top: 570px;
+        margin-left: 150px;
+    }
+
+    #m4_1{
         height: 700px; 
         position: absolute; 
-        margin-left: 800px; 
+        margin-left: 10px; 
         margin-top: -100px;
     }
-    #c4_2{
+    #m4_2{
         height: 700px; 
         position: absolute; 
         margin-left: 370px; 
         margin-top: -100px;
     }
-    #c5{
+    #m5{
         height:300px; 
         position: absolute; 
         margin-left: 300px; 
         margin-top: 230px;
     }
-    /*transform: scaleX(-1);*/
+    
+    /*상대 캐릭터 이펙트*/
+    #y1{
+        transform: rotate( 230deg );
+        margin-top: 300px;
+        margin-left: 1220px;
+    }
+    #y2{
+        transform: rotate( 130deg );
+        margin-top: 520px;
+        margin-left: 1230px;
+    }
+    #y3{
+        transform: rotate( 130deg );
+        margin-top: 570px;
+        margin-left: 1300px;
+    }
+    
+    #y4_1{
+        height: 700px; 
+        position: absolute; 
+        margin-left: 700px; 
+        margin-top: -100px;
+    }
+    #y4_2{
+        height: 700px; 
+        position: absolute; 
+        margin-left: 1100px; 
+        margin-top: -100px;
+    }
+    #y5{
+        height:400px; 
+        position: absolute; 
+        margin-left: 850px; 
+        margin-top: 180px;
+    }
     
     /*캐릭터*/
     #mychar{
         position: absolute;
-        /* width: 180px;
-        height: 250px; */
-        /* margin-left: 350px;
-        margin-top: 300px; */
-        left: 22%;
-        /* right: 78%; */
+        width: 300px;
+        height: 300px;
+        left: 20%;
         bottom: 10%;
     }
     #youchar{
         position: absolute;
-        left: 60%;
+        width: 300px;
+        height: 300px;
+        left: 58%;
         /* right: 78%; */
         bottom: 10%;
     }
     
-    /*ending btn*/
     .ending{
         box-shadow: 0 0 2px rgb(234 57 184 / 90%), 0 0 4px rgb(234 57 184 / 40%), 0 0 1rem rgb(234 57 184 / 30%), 0 0 4rem rgb(234 57 184 / 10%);
         border-color: #ea39b8;
@@ -474,7 +486,7 @@ body{
         /*타자미리보기*/
         font-family: 'EliceDigitalBaeum_Bold';
         border-radius: 200px;
-        width: 1600px;
+        width: 1200px;
         height: 80px;
         top: 50px;
         z-index: 1;
@@ -483,7 +495,7 @@ body{
     #out2{
         /*타자input*/
         border-radius: 200px;
-        width: 1600px;
+        width: 1200px;
         height: 80px;
         top: 70px;
         right: 3px;
@@ -492,14 +504,14 @@ body{
     
     .word-display{
         color: gray;
-        font-size: 30px;
+        font-size: 25px;
         line-height: 75px;
         margin-left: 38px;
         letter-spacing: 1px; /*글자자간*/
     }
     .word-input{
         font-family: 'EliceDigitalBaeum_Bold';
-        font-size: 30px;
+        font-size: 25px;
         margin-left: 40px;
         margin-top: 17px;
         width: 900px;
@@ -518,7 +530,7 @@ body{
     }
     #playbtn{
         position: absolute;
-        left: 92%;
+        left: 93%;
         top: 4%;
         padding-top: 5px;
         padding-right: 3px;
@@ -551,64 +563,8 @@ body{
         color: #FFFFFF;
         font-size: 40px;
     }
+
     /*효과(조명)*/
-    .bulb-holder{
-        width: 80px;
-        height: 50px;
-        background: black;
-        position: absolute;
-        border-top-left-radius: 50%;
-        border-top-right-radius: 50%;
-        transform: rotate( 180deg );
-        margin-top: 580px;
-        margin-left: 400px;
-        /*transform: translate(380px,250px);*/ /*(방향, 높이)*/
-        z-index: 1;
-    }
-    .bulb{
-        width: 80px;
-        height: 50px;
-        background: #fff;
-        border-radius: 60%;
-        transform: translate(0px,35px);
-        animation: light 2000ms infinite cubic-bezier(1, -0.45, 0, 1.89);
-    }
-    #b2{
-        /*transform: translate(230px,500px); */ /*(방향, 높이)*/
-        transform: rotate( 230deg );
-        margin-top: 950px;
-        margin-left: 400px;
-    }
-    #b2_1{
-        /*transform: translate(230px,500px); */ /*(방향, 높이)*/
-        transform: rotate( 230deg );
-        margin-top: 1050px;
-        margin-left: 250px;
-    }
-    #b3{
-        transform: rotate( 130deg );
-        margin-top: 500px;
-        margin-left: 540px;
-        /* transform: translate(600px,300px);(방향, 높이) */
-    }
-    #b4_1{
-        height: 600px; 
-        position: absolute; 
-        margin-left: 50px; 
-        margin-top: 20px;
-    }
-    #b4_2{
-        height: 600px; 
-        position: absolute; 
-        margin-left: 400px; 
-        margin-top: 20px;
-    }
-    #b5{
-        height:300px; 
-        position: absolute; 
-        margin-left: 300px; 
-        margin-top: 230px;
-    }
     @keyframes light{
         10%{
             box-shadow: 0 1px 10px yellow,
@@ -688,27 +644,177 @@ body{
             -70px 70px 100px yellow;
         }
     }
+
+    .bulb-holder{
+        width: 80px;
+        height: 50px;
+        background: black;
+        position: absolute;
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+        transform: rotate( 180deg );
+        margin-top: 580px;
+        margin-left: 400px;
+        /*transform: translate(380px,250px);*/ /*(방향, 높이)*/
+        z-index: 1;
+    }
+    .bulb{
+        width: 80px;
+        height: 50px;
+        background: #fff;
+        border-radius: 60%;
+        transform: translate(0px,35px);
+        animation: light 2000ms infinite cubic-bezier(1, -0.45, 0, 1.89);
+    }
+    #m1{
+        transform: rotate( 130deg );
+        margin-top: 400px;
+        margin-left: 300px;
+    }
+    #m2{
+        transform: rotate( 230deg );
+        margin-top: 630px;
+        margin-left: 260px;
+    }
+    #m3{
+        transform: rotate( 230deg );
+        margin-top: 720px;
+        margin-left: 150px;
+    }
+    #m4_1{
+        height: 950px; 
+        position: absolute; 
+        left: 20px; 
+        top: 5px;
+    }
+    #m4_2{
+        height: 950px;
+        position: absolute; 
+        left: 450px; 
+        top: 5px;
+    }
+    #m5{
+        height:500px; 
+        position: absolute; 
+        left: 400px; 
+        top: 350px;
+    }
+    #m6{ /*프레임효과*/
+        height:600px;
+        width: 450px;
+        position: absolute; 
+        left: 465px; 
+        bottom: 3%;
+    }
+    #m7{ /*미러볼*/
+        height: 230px;
+        position: absolute;
+        left: 270px;
+        bottom: 50%;
+    }
+    #m8{ /*조명*/
+        position: absolute;
+        height: 750px;
+        width: 650px;
+        left: 315px;
+        bottom: 2%;
+        z-index: 2;
+    }
+    /*상대 캐릭터 이펙트*/
+    #y1{
+        transform: rotate( 230deg );
+        margin-top: 400px;
+        margin-left: 1500px;
+    }
+    #y2{
+        transform: rotate( 130deg );
+        margin-top: 630px;
+        margin-left: 1580px;
+    }
+    #y3{
+        transform: rotate( 130deg );
+        margin-top: 720px;
+        margin-left: 1680px;
+    }
     
-    /*transform: scaleX(-1);*/
+    #y4_1{
+        height: 950px;
+        position: absolute; 
+        left: 950px; 
+        top: 5px;
+    }
+    #y4_2{
+        height: 950px; 
+        position: absolute; 
+        left: 1350px; 
+        top: 5px;
+    }
+    #y5{
+        height:500px; 
+        position: absolute; 
+        left: 1000px;
+        top: 350px;
+    }
+    #y6{ /*프레임효과*/
+        height:600px;
+        width: 450px;
+        position: absolute; 
+        left: 1050px; 
+        bottom: 3%;
+    }
+    /*프로그래스 바*/
+    .prog{
+        position: absolute;
+        width: 50px;
+        height: 450px;
+        background: rgb(189, 177, 177);
+        transform:rotate(180deg);
+    }
+    .progs{
+        position: absolute;
+        width: 50px;
+        height: 10%; /*진행률 바꾸는 곳*/
+        background: rgb(196, 87, 218);
+        color:#fff;
+        text-align: center;
+        /* line-height: 40px; */
+    }
+    #myprog{
+        margin-left: 80px;
+        margin-top: 90px;
+    }
+    #yourprog{
+        margin-left: 1800px;
+        margin-top: 90px;
+    }
+
+    #mycount{ /*승리 횟수*/
+        position: absolute;
+        left: 5%;
+        font-size: 40px;
+    }
+    #youcount{ /*승리 횟수*/
+        position: absolute;
+        right: 4%;
+        font-size: 40px;
+    }
     
     /*캐릭터*/
     #mychar{
         position: absolute;
-        /* width:600px;
-        height:900px; */
-        width:451px;
-        height:600px;
-        /* margin-left: 350px;
-        margin-top: 300px; */
-        margin-left: 22%;
-        bottom: 15%;
+        width:400px;
+        height:400px;
+        /* width: 26%;
+        height: 55%; */
+        margin-left: 20%;
+        bottom: 5%;
     }
     #youchar{
         position: absolute;
-        width:451px;
-        height:600px;
-        margin-left: 60%;
-        bottom: 15%;
+        width:400px;
+        height:400px;
+        margin-left: 53%;
+        bottom: 5%;
     }
     
     /*ending btn*/
