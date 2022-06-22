@@ -469,64 +469,8 @@ body{
         color: #FFFFFF;
         font-size: 40px;
     }
+
     /*효과(조명)*/
-    .bulb-holder{
-        width: 80px;
-        height: 50px;
-        background: black;
-        position: absolute;
-        border-top-left-radius: 50%;
-        border-top-right-radius: 50%;
-        transform: rotate( 180deg );
-        margin-top: 580px;
-        margin-left: 400px;
-        /*transform: translate(380px,250px);*/ /*(방향, 높이)*/
-        z-index: 1;
-    }
-    .bulb{
-        width: 80px;
-        height: 50px;
-        background: #fff;
-        border-radius: 60%;
-        transform: translate(0px,35px);
-        animation: light 2000ms infinite cubic-bezier(1, -0.45, 0, 1.89);
-    }
-    #b2{
-        /*transform: translate(230px,500px); */ /*(방향, 높이)*/
-        transform: rotate( 230deg );
-        margin-top: 950px;
-        margin-left: 400px;
-    }
-    #b2_1{
-        /*transform: translate(230px,500px); */ /*(방향, 높이)*/
-        transform: rotate( 230deg );
-        margin-top: 1050px;
-        margin-left: 250px;
-    }
-    #b3{
-        transform: rotate( 130deg );
-        margin-top: 500px;
-        margin-left: 540px;
-        /* transform: translate(600px,300px);(방향, 높이) */
-    }
-    #b4_1{
-        height: 600px; 
-        position: absolute; 
-        margin-left: 50px; 
-        margin-top: 20px;
-    }
-    #b4_2{
-        height: 600px; 
-        position: absolute; 
-        margin-left: 400px; 
-        margin-top: 20px;
-    }
-    #b5{
-        height:300px; 
-        position: absolute; 
-        margin-left: 300px; 
-        margin-top: 230px;
-    }
     @keyframes light{
         10%{
             box-shadow: 0 1px 10px yellow,
@@ -606,26 +550,111 @@ body{
             -70px 70px 100px yellow;
         }
     }
+
+    .bulb-holder{
+        width: 80px;
+        height: 50px;
+        background: black;
+        position: absolute;
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+        transform: rotate( 180deg );
+        margin-top: 580px;
+        margin-left: 400px;
+        /*transform: translate(380px,250px);*/ /*(방향, 높이)*/
+        z-index: 1;
+    }
+    .bulb{
+        width: 80px;
+        height: 50px;
+        background: #fff;
+        border-radius: 60%;
+        transform: translate(0px,35px);
+        animation: light 2000ms infinite cubic-bezier(1, -0.45, 0, 1.89);
+    }
+    #m1{
+        transform: rotate( 130deg );
+        margin-top: 500px;
+        margin-left: 540px;
+    }
+    #m2{
+        transform: rotate( 230deg );
+        margin-top: 950px;
+        margin-left: 400px;
+    }
+    #m3{
+        transform: rotate( 230deg );
+        margin-top: 1050px;
+        margin-left: 250px;
+    }
+    #m4_1{
+        height: 1300px; 
+        position: absolute; 
+        left: 20px; 
+        top: 5px;
+    }
+    #m4_2{
+        height: 1300px;
+        position: absolute; 
+        left: 600px; 
+        top: 5px;
+    }
+    #m5{
+        height:700px; 
+        position: absolute; 
+        left: 600px; 
+        top: 350px;
+    }
     
-    /*transform: scaleX(-1);*/
+    /*상대 캐릭터 이펙트*/
+    #y1{
+        transform: rotate( 230deg );
+        margin-top: 500px;
+        margin-left: 1920px;
+    }
+    #y2{
+        transform: rotate( 130deg );
+        margin-top: 950px;
+        margin-left: 2100px;
+    }
+    #y3{
+        transform: rotate( 130deg );
+        margin-top: 1050px;
+        margin-left: 2250px;
+    }
+    
+    #y4_1{
+        height: 1300px;
+        position: absolute; 
+        left: 1300px; 
+        top: 5px;
+    }
+    #y4_2{
+        height: 1300px; 
+        position: absolute; 
+        left: 1800px; 
+        top: 5px;
+    }
+    #y5{
+        height:700px; 
+        position: absolute; 
+        left: 1300px;
+        top: 350px;
+    }
     
     /*캐릭터*/
     #mychar{
         position: absolute;
-        /* width:600px;
-        height:900px; */
-        width:451px;
+        width:600px;
         height:600px;
-        /* margin-left: 350px;
-        margin-top: 300px; */
         margin-left: 22%;
         bottom: 15%;
     }
     #youchar{
         position: absolute;
-        width:451px;
+        width:600px;
         height:600px;
-        margin-left: 60%;
+        margin-left: 53%;
         bottom: 15%;
     }
     
