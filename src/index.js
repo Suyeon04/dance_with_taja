@@ -1,13 +1,3 @@
-var admin = require("firebase-admin");
-var firestore = require("firebase-admin/firestore");
-
-var serviceAccount = require("./firebasekey.json");
-
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
-});
-const db = firestore.getFirestore();
-
 const express = require("express");
 const http = require("http");
 const bodyParser = require("body-parser");

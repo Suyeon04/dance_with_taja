@@ -1,43 +1,28 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/index.css"/>
-<<<<<<< HEAD
-    <link rel="shortcut icon" type="image/x-icon" href="../img/로고.png">
-=======
-    <link rel="shortcut icon" type="image/x-icon" href="/img/logo.png">
->>>>>>> hyuna
+    <link rel="stylesheet" type="text/css" href="/css/index.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../img/logo.png">
     <title>Street TAJA Fighter</title>
 </head>
+
 <body>
-
-    <p>
-        Street TAJA Fighter
-        <span>
-          Street TAJA Fighter
-        </span>
-        &mdash; press any key &mdash;
-    </p>
-
-    <div style="position:absolute; width:800px; bottom: 150px; left: 25%;">
-        <div class="neon" id="YGX">YGX</div>
-        <div class="neon" id="WAYB">WAYB</div>
-        <div class="neon" id="LACHCA">LACHCA</div>
-        <div class="neon" id="HooK">HooK</div>
+    <header class="title">
+        <span class="maintitle white">스트릿 </span>
+        <span class="maintitle purple">타자</span>
+        <span class="maintitle white">파이터</span>
+    </header>
+    <div class="mainbody">
+        <form class="InsertForm" action="./game" name="loginForm" method="get">
+            <p>닉네임: <input type="text" name="nickname" /></p>
+            <p>방이름: <input type="text" name="roomname" /></p>
+            <input class="startBtn" type="submit" value="시작하기" />
+        </form>
     </div>
-    
 </body>
-<script>
-    window.addEventListener("keydown", (e) => move1())
-    function move1(){
-<<<<<<< HEAD
-        location.href='/ListView';
-=======
-        location.href='http://localhost:3002/';
->>>>>>> hyuna
-    }
-</script>
+<!-- <script src = "/socket.io/socket.io.js"></script> -->
+
 </html>
