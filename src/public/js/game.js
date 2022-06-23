@@ -158,8 +158,17 @@ function randchar(){
 // <meta http-equiv="X-UA-Compatible" content="IE=edge">
 // <meta http-equiv="X-UA-Compatible" content="IE=edge">`;
 
-const x = 
-`<!DOCTYPE html>`;
+const x = `var idx = Math.floor(Math.random(1)*this.word_data.length);
+this.word = this.word_data[idx];
+var wordString = this.obj("wordArea");
+var typingArea = this.obj("typingText");
+var timeArea = this.obj("typingTime");
+this.timeFlag = true;
+this.timeInt = window.clearInterval(sentence.timeInt);
+this.timeSecond = 0;
+var wordAccuracy = Math.floor(this.wordTrueCnt / this.word.length*100);
+$("#accuracyText").text(wordAccuracy + "%");
+$("#accuracyDiv").css("width" , wordAccuracy + "%");`;
 
 let startWord = 'start';
 
@@ -170,7 +179,8 @@ let text = document.querySelector('.word-display'); // 타자미리보기
 let input = document.querySelector('.word-input'); //타자치는곳
 let NowText=document.querySelector('.NowText'); // 현재 타자치는 부분
 let TotalText=document.querySelector('.TotalText');// 타자 총 수
-//let endingbtn=document.querySelector('.ending'); // ending 버튼
+let endingbtn=document.querySelector('.ending'); // ending 버튼
+
 
 let prog_my=document.querySelector('#mycount'); //승리 횟수 id
 let prog_you=document.querySelector('#youcount'); // 승리 횟수 상대 id
@@ -230,7 +240,8 @@ y6.hidden=true;
 m7.hidden=true;
 m8.hidden=true;
 
-//endingbtn.hidden=true;
+endingbtn.hidden=true;
+
 function ending(){
     // 승자 알려주기
     if(mycount>youcount){
@@ -238,11 +249,15 @@ function ending(){
         mysizedown();
         mywin.hidden=false;
         youover.hidden=false;
+        endingbtn.hidden=false;
+        document.querySelector(".ending").onclick=function(){move()}
     }else{
         yoursizedown();
         mysizedown();
         youwin.hidden=false;
         myover.hidden=false;
+        endingbtn.hidden=false;
+        document.querySelector(".ending").onclick=function(){home()}
     }
 }
 
@@ -261,6 +276,11 @@ async function changeWord(){
     }else{
         // alert("끝")
         if(mycount>youcount){
+            m4_1.hidden=false;
+            m4_2.hidden=false;
+            y4_1.hidden=false;
+            y4_2.hidden=false;
+            ClapSound.play();
             let tasu = ((new Date()-nowdate-6000)/ifwin/1000);
             let inputdata = {nickname:getParameterByName('nickname'), typing:tasu};
             let data = await sendAjax('http://localhost:3002/ranking/record', inputdata)
@@ -270,7 +290,8 @@ async function changeWord(){
         y4_1.hidden=false;
         y4_2.hidden=false;
         ClapSound.play();
-        
+
+        console.log("rank 전송");
         // rank 데이터 전송
         let inputdata = {nickname:getParameterByName('nickname'), typing:""};
         let data = await sendAjax('http://localhost:3002/ranking/record', inputdata)
@@ -495,7 +516,7 @@ function removeCorrectCharacter() { // 친 글자 사라지는 함수
     document.querySelectorAll('.correct').forEach(item => item.remove());
 }
 socket.on("bye", () => {
-    toggleModal()
+    if(order<str.length) toggleModal()
     socket.emit("remove_room",getParameterByName('roomname'))
 });
   
@@ -561,10 +582,12 @@ function gonext(val_length){
 }
 
 function move(){
+    console.log("move");
     location.replace("http://localhost:3002/ranking");
 }
 
 function home(){
+    console.log("hoem");
     location.replace("http://localhost:3002/");
 }
 
