@@ -164,18 +164,18 @@ function randchar(){
 // <meta http-equiv="X-UA-Compatible" content="IE=edge">
 // <meta http-equiv="X-UA-Compatible" content="IE=edge">`;
 
-// const x = `var idx = Math.floor(Math.random(1)*this.word_data.length);
-// this.word = this.word_data[idx];
-// var wordString = this.obj("wordArea");
-// var typingArea = this.obj("typingText");
-// var timeArea = this.obj("typingTime");
-// this.timeFlag = true;
-// this.timeInt = window.clearInterval(sentence.timeInt);
-// this.timeSecond = 0;
-// var wordAccuracy = Math.floor(this.wordTrueCnt / this.word.length*100);
-// $("#accuracyText").text(wordAccuracy + "%");
-// $("#accuracyDiv").css("width" , wordAccuracy + "%");`;
-const x = `var idx = Math.floor(Math.random(1)*this.word_data.length);`;
+const x = `var idx = Math.floor(Math.random(1)*this.word_data.length);
+this.word = this.word_data[idx];
+var wordString = this.obj("wordArea");
+var typingArea = this.obj("typingText");
+var timeArea = this.obj("typingTime");
+this.timeFlag = true;
+this.timeInt = window.clearInterval(sentence.timeInt);
+this.timeSecond = 0;
+var wordAccuracy = Math.floor(this.wordTrueCnt / this.word.length*100);
+$("#accuracyText").text(wordAccuracy + "%");
+$("#accuracyDiv").css("width" , wordAccuracy + "%");`;
+// const x = `var idx = Math.floor(Math.random(1)*this.word_data.length);`;
 
 let startWord = 'start';
 
@@ -252,7 +252,8 @@ let result_win=document.querySelector("#win_result");
 result_win.hidden=true;
 let result_over=document.querySelector("#over_result");
 result_over.hidden=true;
-
+let box=document.querySelector("#out1");
+let box2=document.querySelector("#out2");
 function ending(){
     // 승자 알려주기
     if(mycount>youcount){
@@ -261,6 +262,8 @@ function ending(){
         mywin.hidden=false;
         youover.hidden=false;
         endingbtn.hidden=false;
+        box.hidden=true;
+        box2.hidden=true;
         setTimeout(()=>result_win.hidden=false,3000)
         document.querySelector(".ending").onclick=function(){move()}
     }else{
@@ -269,6 +272,8 @@ function ending(){
         youwin.hidden=false;
         myover.hidden=false;
         endingbtn.hidden=false;
+        box.hidden=true;
+        box2.hidden=true;
         setTimeout(()=>result_over.hidden=false,3000)
         document.querySelector(".ending").onclick=function(){home()}
     }
