@@ -299,7 +299,8 @@ async function changeWord(){
             y4_1.hidden=false;
             y4_2.hidden=false;
             ClapSound.play();
-            let tasu = ((new Date()-nowdate-6000)/ifwin/1000);
+            let tasu = (ifwin/((new Date()-nowdate)/1000-6)*60);
+            //let tasu = (ifwin/((new Date()-nowdate)/1000-6));
             let inputdata = {nickname:getParameterByName('nickname'), typing:tasu};
             let data = await sendAjax('http://localhost:3002/ranking/record', inputdata)
         }

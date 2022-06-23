@@ -1,3 +1,13 @@
+var admin = require("firebase-admin");
+var firestore = require("firebase-admin/firestore");
+
+var serviceAccount = require("./firebasekey.json");
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount)
+});
+const db = firestore.getFirestore();
+
 const express = require("express");
 const http = require("http");
 const bodyParser = require("body-parser");
@@ -62,20 +72,20 @@ app.post("/ranking/record",async (req, res)=>{
 
     console.log(paramNickname,paramTyping);
 
-    // const doc = db.collection('ranking').doc(paramNickName);
-    // let list = {
-    //   version: paramVersion, 
-    //   tasu : tasu
-    // }
-    //await doc.set(list);
+     const doc = db.collection('ranking').doc(paramNickname);
+     let list = {
+       version: paramVersion, 
+       tasu : tasu
+     }
+    await doc.set(list);
 })
 
 // ranking 리스트 데이터 전송하기
 app.post("/ranking",async (req, res)=>{
   console.log('ranking list 전송하기');
-  // const doc = db.collection('ranking');
-  // const rank = await doc.orderBy('name').limit(10).get();
-  // res.json({"data":rank})
+   const doc = db.collection('ranking');
+   const rank = await doc.orderBy('name').limit(10).get();
+   res.json({"data":rank})
 })
 
 const handleListen = () => console.log(`Listening on http://localhost:3002`);
