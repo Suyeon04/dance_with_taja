@@ -506,7 +506,7 @@ body{
         bottom: 10%;
     }
     
-    /* .ending{
+    .ending{
         box-shadow: 0 0 2px rgb(234 57 184 / 90%), 0 0 4px rgb(234 57 184 / 40%), 0 0 1rem rgb(234 57 184 / 30%), 0 0 4rem rgb(234 57 184 / 10%);
         border-color: #ea39b8;
         background-color: purple;
@@ -519,7 +519,7 @@ body{
     }
     .ending:hover{
         background-color: red;
-    } */
+    }
     #mywin{
         position: absolute;
         height: 300px;
