@@ -36,6 +36,7 @@ socket.on("go",()=>{
     //5..4..3..2..1
     timer();
     nowdate = new Date();
+    document.querySelector('.display1').style.display = "block"
 })
 
 
