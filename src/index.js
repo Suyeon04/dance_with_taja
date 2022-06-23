@@ -74,8 +74,7 @@ app.post("/ranking/record",async (req, res)=>{
 
      const doc = db.collection('ranking').doc(paramNickname);
      let list = {
-       version: paramVersion, 
-       tasu : tasu
+       tasu : paramTyping
      }
     await doc.set(list);
 })
@@ -84,8 +83,16 @@ app.post("/ranking/record",async (req, res)=>{
 app.post("/ranking",async (req, res)=>{
   console.log('ranking list 전송하기');
    const doc = db.collection('ranking');
-   const rank = await doc.orderBy('name').limit(10).get();
-   res.json({"data":rank})
+   const rank = await doc.orderBy('tasu').limit(10).get();
+   let data = [];
+   rank.forEach(doc => {
+    let x = {
+      nickname : doc.id,
+      typing : doc.data().tasu
+    }
+    data.push(x)
+  });
+   res.json({"data":data})
 })
 
 const handleListen = () => console.log(`Listening on http://localhost:3002`);
