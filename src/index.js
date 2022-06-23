@@ -35,7 +35,6 @@ io.on("connection", (socket) =>{
     const room = io.of(rooms).adapter.rooms.get(roomId)
      if(room === undefined || room.size <= 2) {
       if(room === undefined ||room.size === 2) {
-        console.log(rooms);
         socket.server.in(roomId).emit('news_by_server', id);
       }
      }else {
@@ -63,54 +62,19 @@ app.post("/ranking/record",async (req, res)=>{
 
     console.log(paramNickname,paramTyping);
 
-    // const doc = db.collection('ranking').doc(paramNickName);
-    // let list = {
-    //   version: paramVersion, 
-    //   tasu : tasu
-    // }
-    // await doc.set(list);
+    const doc = db.collection('ranking').doc(paramNickName);
+    let list = {
+      version: paramVersion, 
+      tasu : tasu
+    }
+    await doc.set(list);
 })
 
 // ranking 리스트 데이터 전송하기
 app.post("/ranking",async (req, res)=>{
   console.log('ranking list 전송하기');
-  let rank = [
-    { 
-      nickname:"John",
-      typing:"95"
-    }, { 
-      nickname:"Adam",
-      typing:"90"
-    }, { 
-      nickname:"Kevin",
-      typing:"85"
-    }, { 
-      nickname:"Smith",
-      typing:"80"
-    }, { 
-      nickname:"Michel",
-      typing:"75"
-    }, { 
-      nickname:"John",
-      typing:"70"
-    }, { 
-      nickname:"Adam",
-      typing:"65"
-    }, { 
-      nickname:"일등하고싶다",
-      typing:"60"
-    }, { 
-      nickname:"이등하고싶다",
-      typing:"55"
-    }, { 
-      nickname:"삼등하고싶다",
-      typing:"50"
-    }
-  ]
-
-  // const doc = db.collection('ranking');
-  // const rank = await doc.orderBy('name').get();
-
+  const doc = db.collection('ranking');
+  const rank = await doc.orderBy('name').limit(10).get();
   res.json({"data":rank})
 })
 

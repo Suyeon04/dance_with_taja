@@ -248,11 +248,19 @@ changeWord();
 async function changeWord(){
     order++;
     if(order != str.length){
+        // debugger;
         //effect(order)
-        removeCorrectCharacter();
+        // removeCorrectCharacter();
+        document.getElementsByClassName('word-display')[0].innerHTML = "";
         populateText(str[order]);
+        // debugger;
     }else{
         // alert("끝")
+        if(mycount>youcount){
+            let tasu = ((new Date()-nowdate-6000)/ifwin/1000);
+            let inputdata = {nickname:getParameterByName('nickname'), typing:tasu};
+            let data = await sendAjax('http://localhost:3002/ranking/record', inputdata)
+        }
         m4_1.hidden=false;
         m4_2.hidden=false;
         y4_1.hidden=false;
