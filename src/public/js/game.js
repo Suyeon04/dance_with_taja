@@ -145,18 +145,21 @@ function randchar(){
     console.log(mychar+" "+yourchar);
 }
 // 타자
+// const x = 
+// `<!DOCTYPE html>
+// <html lang="en">
+// <meta http-equiv="X-UA-Compatible" content="IE=edge">
+// <meta name="viewport" content="width=device-width, initial-scale=1.0">
+// <meta http-equiv="X-UA-Compatible" content="IE=edge">
+// <meta http-equiv="X-UA-Compatible" content="IE=edge">
+// <meta http-equiv="X-UA-Compatible" content="IE=edge">
+// <meta http-equiv="X-UA-Compatible" content="IE=edge">
+// <meta http-equiv="X-UA-Compatible" content="IE=edge">
+// <meta http-equiv="X-UA-Compatible" content="IE=edge">
+// <meta http-equiv="X-UA-Compatible" content="IE=edge">`;
+
 const x = 
-`<!DOCTYPE html>
-<html lang="en">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">`;
+`<!DOCTYPE html>`;
 
 let startWord = 'start';
 
@@ -246,6 +249,7 @@ function ending(){
 changeWord();
 
 async function changeWord(){
+    if(order<str.length)
     order++;
     if(order != str.length){
         // debugger;
@@ -497,7 +501,7 @@ socket.on("bye", () => {
   
 socket.on("receive", (length1)=>{
     console.log(length1 +" "+val_length)
-    if(length1==str[order].length){
+    if(order<str.length&&length1==str[order].length){
         yoursizeup();
         mysizedown();
         prog_you.innerText=++youcount;
@@ -528,7 +532,7 @@ input.addEventListener("keyup", () => {
             socket.emit('give_length', getParameterByName('roomname'),val_length) //서버에 내가 친 코드 넘기기 
         }
     })
-    if(val.length == str[order].length&&errorCount==0){
+    if(order<str.length&&val.length == str[order].length&&errorCount==0){
         mysizeup();
         yoursizedown();
         myeffects(order);
