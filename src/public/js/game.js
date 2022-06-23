@@ -361,9 +361,7 @@ function yourdane(){
     // you 애니메이션
     let x=2;
     for(let i=1;i<=26;i++){
-        
         if(x<14){
-            
             (y => {
                 setTimeout(() => {
                 let str="/img/"+yourchar+"/"+y+".png"
@@ -377,43 +375,6 @@ function yourdane(){
         }
     }
 }
-// test
-// function effects(order){
-//     switch(order){
-//         case 1 : overcolor(); 
-//                  mysizedown();
-//                  yoursizeup(); 
-//                  yourdane(); break;
-
-//         case 2 : wincolor();
-//                  mysizeup();
-//                  yoursizedown();
-//                  ClapSound.play(); 
-//                  mydance(); break;
-
-//         case 3 : identicalcolor(); 
-//                  mysizedown(); break;
-
-//         case 4 : identicalcolor();
-//                 //  m5.hidden=false;
-//                 // ClapSound.play(); 
-//                 break;
-
-//         case 5 : wincolor();
-//                  m5.hidden=true;
-//                  mysizeup();
-//                  yoursizedown();
-//                  ClapSound.play(); break;
-
-//         case 6 : identicalcolor();
-//                  mysizedown(); break;
-//         case 7 : break;
-//         case 8 : break;
-//         case 9 : break;
-//         case 10 : break;
-//         case 11 : break;
-//     }
-// }
 
 function effectsinit(){
     m1.hidden=true;
@@ -534,6 +495,7 @@ socket.on("receive", (length)=>{
         youeffects(order);
         yourdane();
         gonext();
+        prog_my.innerText=++mycount;
     }
     if(length>val_length){
         overcolor();
@@ -566,6 +528,7 @@ input.addEventListener("keyup", () => {
         ++mycount;
         prog_my.innerText=mycount;
         gonext(val_length);
+        prog_you.innerText=++youcount;
     }
 })
 function gonext(val_length){
