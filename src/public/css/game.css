@@ -941,3 +941,7 @@ body{
         background-color: red;
     }
 }
+
+.display1{
+    display: none;
+}
