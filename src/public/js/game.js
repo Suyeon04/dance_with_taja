@@ -228,6 +228,20 @@ m7.hidden=true;
 m8.hidden=true;
 
 //endingbtn.hidden=true;
+function ending(){
+    // 승자 알려주기
+    if(mycount>youcount){
+        yoursizedown();
+        mysizedown();
+        mywin.hidden=false;
+        youover.hidden=false;
+    }else{
+        yoursizedown();
+        mysizedown();
+        youwin.hidden=false;
+        myover.hidden=false;
+    }
+}
 
 changeWord();
 
@@ -244,19 +258,7 @@ async function changeWord(){
         y4_1.hidden=false;
         y4_2.hidden=false;
         ClapSound.play();
-        //endingbtn.hidden=false;
-        // 승자 알려주기
-        if(mycount>youcount){
-            yoursizedown();
-            mysizedown();
-            mywin.hidden=false;
-            youover.hidden=false;
-        }else{
-            yoursizedown();
-            mysizedown();
-            youwin.hidden=false;
-            myover.hidden=false;
-        }
+        
         // rank 데이터 전송
         let inputdata = {nickname:getParameterByName('nickname'), typing:""};
         let data = await sendAjax('http://localhost:3002/ranking/record', inputdata)
@@ -449,9 +451,9 @@ function youeffects(order){
                  y6.hidden=false; break;
         case 6 : ClapSound.play();
                  y6.hidden=true; 
-                 y7.hidden=false; break;
+                 //y7.hidden=false; break;
         case 7 : effectSound.play();
-                 y7.hidden=true; 
+                 //y7.hidden=true; 
                  y5.hidden=false; break;
         case 8 : ClapSound.play(); 
                  y5.hidden=true; break;
@@ -485,19 +487,17 @@ socket.on("bye", () => {
     socket.emit("remove_room",getParameterByName('roomname'))
 });
   
-socket.on("receive", (length)=>{
-    console.log(length +" "+val_length)
-    if(length==str[order].length){
+socket.on("receive", (length1)=>{
+    console.log(length1 +" "+val_length)
+    if(length1==str[order].length){
         yoursizeup();
         mysizedown();
-        ++youcount;
-        prog_you.innerText=youcount;
+        prog_you.innerText=++youcount;
         youeffects(order);
         yourdane();
         gonext();
-        prog_my.innerText=++mycount;
     }
-    if(length>val_length){
+    if(length1>val_length){
         overcolor();
     }else{
         wincolor();
@@ -525,10 +525,8 @@ input.addEventListener("keyup", () => {
         yoursizedown();
         myeffects(order);
         mydance();
-        ++mycount;
-        prog_my.innerText=mycount;
+        prog_my.innerText=++mycount;
         gonext(val_length);
-        prog_you.innerText=++youcount;
     }
 })
 function gonext(val_length){
@@ -545,6 +543,8 @@ function gonext(val_length){
         start=true;
         input.value=null; // input 나타난 후 썼던 글자 지워주기
     })
+    console.log(order)
+    if(order==str.length-1) ending() // 결과 넘어가기
     changeWord() // 다음 타자로 넘어가기
 }
 
