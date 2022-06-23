@@ -12,6 +12,34 @@ body{
 }
 /*폰트end*/
 
+.result{
+    z-index: 10;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 50vh;
+    padding: 2vh;
+
+    font-family: 'EliceDigitalBaeum_Bold';
+    
+    border-radius: 2vh;
+    -moz-border-radius: 2vh;
+    -khtml-border-radius: 2vh;
+    -webkit-border-radius: 2vh;
+
+    opacity: 1;
+    transition: all 0.3s ease 0s;
+}
+#win_result{
+    box-shadow: 0px 1px 10px rgba(160, 232, 252, 0.9);
+    background-color: rgb(219, 237, 241);
+}
+#over_result{
+    box-shadow: 0px 1px 10px rgba(252, 160, 160, 0.9);
+    background-color: rgb(227, 158, 151);
+}
 /* Alert : 게임방 입장 */
 .inAlert{
     z-index: 10;
@@ -368,6 +396,13 @@ body{
         margin-left: 300px; 
         margin-top: 230px;
     }
+    #m6{ /*프레임효과*/
+        height:600px;
+        width: 450px;
+        position: absolute; 
+        left: 465px; 
+        bottom: 3%;
+    }
 
     .flip {
         position: absolute;
@@ -449,6 +484,13 @@ body{
         position: absolute; 
         margin-left: 850px; 
         margin-top: 180px;
+    }
+    #y6{ /*프레임효과*/
+        height:600px;
+        width: 450px;
+        position: absolute; 
+        left: 1050px; 
+        bottom: 3%;
     }
 
     /*프로그래스 바*/

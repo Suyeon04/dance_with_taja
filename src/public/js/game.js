@@ -26,6 +26,11 @@ function showAlert(str) {
     
     setTimeout(() => {div.style.opacity =  0}, 1500);
 }
+// function showresult(who){
+//     let win=document.querySelector("#win_result")
+//     let over=document.querySelector("#over_result")
+//     if(who)
+// }
 let nowtime = 
 socket.on("go",()=>{
     //5..4..3..2..1
@@ -158,17 +163,18 @@ function randchar(){
 // <meta http-equiv="X-UA-Compatible" content="IE=edge">
 // <meta http-equiv="X-UA-Compatible" content="IE=edge">`;
 
-const x = `var idx = Math.floor(Math.random(1)*this.word_data.length);
-this.word = this.word_data[idx];
-var wordString = this.obj("wordArea");
-var typingArea = this.obj("typingText");
-var timeArea = this.obj("typingTime");
-this.timeFlag = true;
-this.timeInt = window.clearInterval(sentence.timeInt);
-this.timeSecond = 0;
-var wordAccuracy = Math.floor(this.wordTrueCnt / this.word.length*100);
-$("#accuracyText").text(wordAccuracy + "%");
-$("#accuracyDiv").css("width" , wordAccuracy + "%");`;
+// const x = `var idx = Math.floor(Math.random(1)*this.word_data.length);
+// this.word = this.word_data[idx];
+// var wordString = this.obj("wordArea");
+// var typingArea = this.obj("typingText");
+// var timeArea = this.obj("typingTime");
+// this.timeFlag = true;
+// this.timeInt = window.clearInterval(sentence.timeInt);
+// this.timeSecond = 0;
+// var wordAccuracy = Math.floor(this.wordTrueCnt / this.word.length*100);
+// $("#accuracyText").text(wordAccuracy + "%");
+// $("#accuracyDiv").css("width" , wordAccuracy + "%");`;
+const x = `var idx = Math.floor(Math.random(1)*this.word_data.length);`;
 
 let startWord = 'start';
 
@@ -241,6 +247,10 @@ m7.hidden=true;
 m8.hidden=true;
 
 endingbtn.hidden=true;
+let result_win=document.querySelector("#win_result");
+result_win.hidden=true;
+let result_over=document.querySelector("#over_result");
+result_over.hidden=true;
 
 function ending(){
     // 승자 알려주기
@@ -250,6 +260,7 @@ function ending(){
         mywin.hidden=false;
         youover.hidden=false;
         endingbtn.hidden=false;
+        setTimeout(()=>result_win.hidden=false,3000)
         document.querySelector(".ending").onclick=function(){move()}
     }else{
         yoursizedown();
@@ -257,6 +268,7 @@ function ending(){
         youwin.hidden=false;
         myover.hidden=false;
         endingbtn.hidden=false;
+        setTimeout(()=>result_over.hidden=false,3000)
         document.querySelector(".ending").onclick=function(){home()}
     }
 }
@@ -410,7 +422,26 @@ function yourdane(){
         }
     }
 }
-
+function myclap(){
+    for(let i=14; i<=24; i++){
+        (m => {
+            setTimeout(() => {
+            let str="/img/"+mychar+"/"+m+".png"
+            char_my.src=str
+            },150*m)
+        })(i)
+    }
+}
+function myclap(){
+    for(let i=14; i<=24; i++){
+        (m => {
+            setTimeout(() => {
+            let str="/img/"+mychar+"/"+m+".png"
+            char_my.src=str
+            },150*m)
+        })(i)
+    }
+}
 function effectsinit(){
     m1.hidden=true;
     m2.hidden=true;
@@ -421,6 +452,13 @@ function effectsinit(){
     m6.hidden=true;
     m7.hidden=true;
     m8.hidden=true;
+    y1.hidden=true;
+    y2.hidden=true;
+    y3.hidden=true;
+    y4_1.hidden=true;
+    y4_2.hidden=true;
+    y5.hidden=true;
+    y6.hidden=true;
 }
 // 내가 이겼을때 효과
 function myeffects(order){
@@ -448,12 +486,15 @@ function myeffects(order){
                  m5.hidden=true; 
                  m6.hidden=false; break;
         case 6 : effectSound.play();
+                 effectsinit();
                  m6.hidden=true; 
                  //m7.hidden=false; break;
         case 7 : ClapSound.play();
+                 effectsinit();
                  //m7.hidden=true; 
                  m5.hidden=false; break;
-        case 8 : effectSound.play(); 
+        case 8 : effectSound.play();
+                 effectsinit();
                  m5.hidden=true; break;
     }
 }
