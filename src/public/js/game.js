@@ -65,12 +65,14 @@ let musicbtn=document.querySelector("#musicbtn");
 let cnt=1;
 let ClickSound=new Audio("/audio/clicksound.wav");
 let ClapSound=new Audio("/audio/박수소리.wav");
+let effectSound=new Audio("/audio/[스우파]믓찌다.mp3");
 let audio=new Audio();
-audio.src="/audio/Music4.mp3";
+audio.src="/audio/David Guetta - Hey Mama.mp3";
 audio.autoplay=true;
 audio.volume=0.02;
 ClickSound.volume=0.1;
 ClapSound.volume=0.1;
+effectSound.volume=0.1;
 
 // 게임 접속 정보 가져오기
 function getParameterByName(name) {
@@ -93,7 +95,7 @@ function MusicPlay(){
     ++cnt; 
   }else if(cnt%2==0){
     musicimg.src="../img/play.png"; //시작
-    audio.play();
+    //audio.play();
     ++cnt;
   }
 }
@@ -165,11 +167,21 @@ let text = document.querySelector('.word-display'); // 타자미리보기
 let input = document.querySelector('.word-input'); //타자치는곳
 let NowText=document.querySelector('.NowText'); // 현재 타자치는 부분
 let TotalText=document.querySelector('.TotalText');// 타자 총 수
-let endingbtn=document.querySelector('.ending'); // ending 버튼
+//let endingbtn=document.querySelector('.ending'); // ending 버튼
+
 let prog_my=document.querySelector('#mycount'); //승리 횟수 id
 let prog_you=document.querySelector('#youcount'); // 승리 횟수 상대 id
 let mycount=0; // 승리 횟수
 let youcount=0; // 승리 횟수
+/*ending */
+let mywin=document.querySelector('#mywin');
+let youwin=document.querySelector('#youwin');
+let myover=document.querySelector('#myover');
+let youover=document.querySelector('#youover');
+mywin.hidden=true;
+youwin.hidden=true;
+myover.hidden=true;
+youover.hidden=true;
 
 /*effect 조명 */
 let m1=document.querySelector('#m1');
@@ -191,10 +203,12 @@ let m6=document.querySelector('#m6');
 let m7=document.querySelector('#m7');
 let m8=document.querySelector('#m8');
 
+let y6=document.querySelector('#y6');
+
 let charEls = [];
 let order = -1;
 
-TotalText.innerHTML=str.length;
+TotalText.innerText=str.length;
 m1.hidden=true;
 m2.hidden=true;
 m3.hidden=true;
@@ -209,10 +223,11 @@ y4_2.hidden=true;
 m5.hidden=true;
 y5.hidden=true;
 m6.hidden=true;
+y6.hidden=true;
 m7.hidden=true;
 m8.hidden=true;
 
-endingbtn.hidden=true;
+//endingbtn.hidden=true;
 
 changeWord();
 
@@ -237,10 +252,26 @@ async function changeWord(){
         y4_1.hidden=false;
         y4_2.hidden=false;
         ClapSound.play();
-        endingbtn.hidden=false;
+        //endingbtn.hidden=false;
+        // 승자 알려주기
+        if(mycount>youcount){
+            yoursizedown();
+            mysizedown();
+            mywin.hidden=false;
+            youover.hidden=false;
+        }else{
+            yoursizedown();
+            mysizedown();
+            youwin.hidden=false;
+            myover.hidden=false;
+        }
+        // rank 데이터 전송
+        let inputdata = {nickname:getParameterByName('nickname'), typing:""};
+        let data = await sendAjax('http://localhost:3002/ranking/record', inputdata)
     }
-    NowText.innerHTML = '';
-    NowText.innerHTML=str[order];
+    //NowText.innerHTML = '';
+    //NowText.innerHTML=str[order];
+    NowText.innerText=order+1;
 }
 
 let overcolor;// 지고 있는 사람 빨간색
@@ -280,7 +311,7 @@ $(document).ready(function(){
     // $("#mychar").animate({width:'351px', height:'450px'},2000);
     // $("#mychar").animate({width:'251px', height:'350px'},1500);
     // $('#mychar').css({width:'351px', height:'450px'});
-    m9.hidden=true;
+    m8.hidden=true;
     $('#mychar').css({width:'26%'});
     $('#mychar').css({height:'55%'});
    }
@@ -296,7 +327,7 @@ $(document).ready(function(){
    mysizedown=chareffect;
 });
 
-let youresizeup; // 상대 캐릭터 커지기
+let yoursizeup; // 상대 캐릭터 커지기
 $(document).ready(function(){
     function chareffect(){
     // $("#mychar").animate({width:'351px', height:'450px'},2000);
@@ -353,7 +384,6 @@ function yourdane(){
     }
 }
 
-// 내가 이겼을때 효과
 function effectsinit(){
     m1.hidden=true;
     m2.hidden=true;
@@ -365,19 +395,20 @@ function effectsinit(){
     m7.hidden=true;
     m8.hidden=true;
 }
+// 내가 이겼을때 효과
 function myeffects(order){
     console.log(order);
     switch(order){
         case 0 : ClapSound.play();
                  m1.hidden=false; break;
 
-        case 1 : ClapSound.play();
+        case 1 : effectSound.play();
                  m2.hidden=false; break;
 
         case 2 : ClapSound.play();
                  m3.hidden=false; break;
 
-        case 3 : ClapSound.play();
+        case 3 : effectSound.play();
                  m5.hidden=false; break;
 
         case 4 : ClapSound.play();
@@ -385,17 +416,17 @@ function myeffects(order){
                  m4_1.hidden=false; 
                  m4_2.hidden=false; break;
 
-        case 5 : ClapSound.play();
+        case 5 : effectSound.play();
                  effectsinit();
                  m5.hidden=true; 
                  m6.hidden=false; break;
-        case 6 : ClapSound.play();
+        case 6 : effectSound.play();
                  m6.hidden=true; 
-                 m7.hidden=false; break;
+                 //m7.hidden=false; break;
         case 7 : ClapSound.play();
-                 m7.hidden=true; 
+                 //m7.hidden=true; 
                  m5.hidden=false; break;
-        case 8 : ClapSound.play(); 
+        case 8 : effectSound.play(); 
                  m5.hidden=true; break;
     }
 }
@@ -406,7 +437,7 @@ function youeffects(order){
                  y1.hidden=false; 
                  console.log("y1"); break;
 
-        case 1 : ClapSound.play();
+        case 1 : effectSound.play();
                  y2.hidden=false; break;
 
         case 2 : ClapSound.play();
@@ -420,14 +451,14 @@ function youeffects(order){
                  y4_1.hidden=false; 
                  y4_2.hidden=false; break;
 
-        case 5 : ClapSound.play();
+        case 5 : effectSound.play();
                  effectsinit();
                  y5.hidden=true; 
                  y6.hidden=false; break;
         case 6 : ClapSound.play();
                  y6.hidden=true; 
                  y7.hidden=false; break;
-        case 7 : ClapSound.play();
+        case 7 : effectSound.play();
                  y7.hidden=true; 
                  y5.hidden=false; break;
         case 8 : ClapSound.play(); 
@@ -465,6 +496,10 @@ socket.on("bye", () => {
 socket.on("receive", (length)=>{
     console.log(length +" "+val_length)
     if(length==str[order].length){
+        yoursizeup();
+        mysizedown();
+        ++youcount;
+        prog_you.innerText=youcount;
         youeffects(order);
         yourdane();
         gonext();
@@ -494,8 +529,12 @@ input.addEventListener("keyup", () => {
         }
     })
     if(val.length == str[order].length&&errorCount==0){
+        mysizeup();
+        yoursizedown();
         myeffects(order);
         mydance();
+        ++mycount;
+        prog_my.innerText=mycount;
         gonext(val_length);
         prog_you.innerText=++youcount;
     }

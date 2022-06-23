@@ -368,6 +368,52 @@ body{
         margin-left: 300px; 
         margin-top: 230px;
     }
+
+    .flip {
+        position: absolute;
+        width: 300px;
+        height: 350px;
+        perspective: 1100px;
+        z-index: 2;
+        animation: flipsticker 1s ease-in 4 Alternate;
+    }
+        
+    .sticker {
+    width: 100%; 
+    height: 100%; 
+    position: relative;
+    transition: .4s;
+    transform-style: preserve-3d;
+    animation: flipsticker 1s ease-in 4 Alternate;
+    }	
+        
+        .front, .back {
+        position: absolute;
+        width: 100%; 
+        height: 100%;
+        backface-visibility: hidden;
+        background-image: url(/img/norespectEffect.png);
+        }
+        
+        /* 뒷면은 사전에 미리 뒤집기 */
+        .back { 
+        transform: rotateY(180deg);
+        }
+
+        #mysticker{
+        left: 300px;
+        }
+        #yoursticker{
+        left: 890px;
+        }
+        @keyframes flipsticker {
+        from{
+            transform: rotateY(0deg);
+        }
+        to{
+            transform: rotateY(180deg);
+        }
+        }
     
     /*상대 캐릭터 이펙트*/
     #y1{
@@ -417,7 +463,8 @@ body{
         position: absolute;
         width: 50px;
         height: 10%; /*진행률 바꾸는 곳*/
-        background: rgb(196, 87, 218);
+        /* background: rgb(196, 87, 218); */
+        background-image: linear-gradient( 135deg, #FEC163 10%, #DE4313 100%);
         color:#fff;
         text-align: center;
         /* line-height: 40px; */
@@ -459,7 +506,7 @@ body{
         bottom: 10%;
     }
     
-    .ending{
+    /* .ending{
         box-shadow: 0 0 2px rgb(234 57 184 / 90%), 0 0 4px rgb(234 57 184 / 40%), 0 0 1rem rgb(234 57 184 / 30%), 0 0 4rem rgb(234 57 184 / 10%);
         border-color: #ea39b8;
         background-color: purple;
@@ -472,6 +519,30 @@ body{
     }
     .ending:hover{
         background-color: red;
+    } */
+    #mywin{
+        position: absolute;
+        height: 300px;
+        left: 460px;
+        bottom: 10%;
+    }
+    #youwin{
+        position: absolute;
+        height: 300px;
+        left: 750px;
+        bottom: 10%;
+    }
+    #myover{
+        position: absolute;
+        height: 400px;
+        left: 440px;
+        bottom: 10%;
+    }
+    #youover{
+        position: absolute;
+        height: 400px;
+        left: 720px;
+        bottom: 10%;
     }
 }
 
