@@ -33,7 +33,7 @@ app.post("")
 
 const io = require("socket.io")(3000, {
   cors: {
-    origin: ["http://localhost:3002"]
+    origin: ["http://10.96.124.5:3002"]
   }
 })
 

@@ -1,4 +1,4 @@
-const socket = io('http://localhost:3000')
+const socket = io('http://10.96.124.5:3000')
 socket.on('connect', () =>{
         console.log(socket.id);
 })
