@@ -219,6 +219,8 @@ body{
     letter-spacing: 1px; /*글자자간*/
 }
 .word-input{
+    width: 97%;
+    padding-left: 38px;
     font-size: 3vh;
     margin-top: 17px;
     outline: none;
