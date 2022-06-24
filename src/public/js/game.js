@@ -1,4 +1,6 @@
-const socket = io('http://10.96.124.5:3000')
+let http = "http://192.168.35.9:3002"
+
+const socket = io('http://192.168.35.9:3000')
 socket.on('connect', () =>{
         console.log(socket.id);
 })
@@ -75,7 +77,7 @@ let effectSound=new Audio("/audio/[스우파]믓찌다.mp3");
 let audio=new Audio();
 audio.src="/audio/David Guetta - Hey Mama.mp3";
 audio.autoplay=true;
-audio.volume=0.02;
+audio.volume=0.9;
 ClickSound.volume=0.1;
 ClapSound.volume=0.1;
 effectSound.volume=0.1;
@@ -302,7 +304,7 @@ async function changeWord(){
             let tasu = (ifwin/((new Date()-nowdate)/1000-6)*60);
             //let tasu = (ifwin/((new Date()-nowdate)/1000-6));
             let inputdata = {nickname:getParameterByName('nickname'), typing:tasu};
-            let data = await sendAjax('http://localhost:3002/ranking/record', inputdata)
+            let data = await sendAjax(`${http}/ranking/record`, inputdata)
         }
         m4_1.hidden=false;
         m4_2.hidden=false;
@@ -313,7 +315,7 @@ async function changeWord(){
         console.log("rank 전송");
         // rank 데이터 전송
         let inputdata = {nickname:getParameterByName('nickname'), typing:""};
-        let data = await sendAjax('http://localhost:3002/ranking/record', inputdata)
+        let data = await sendAjax(`${http}/ranking/record`, inputdata)
     }
     //NowText.innerHTML = '';
     //NowText.innerHTML=str[order];
@@ -631,12 +633,12 @@ function gonext(val_length){
 
 function move(){
     console.log("move");
-    location.replace("http://localhost:3002/ranking");
+    location.replace(`${http}/ranking`);
 }
 
 function home(){
     console.log("hoem");
-    location.replace("http://localhost:3002/");
+    location.replace(http);
 }
 
 // 모달창 : 상대방 게임방 나감

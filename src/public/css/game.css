@@ -1,16 +1,12 @@
 body{
-    background-image: url("/img/배경.jpg");
+    overflow: hidden;
+    background-image: url("/img/배경.svg");
+    width: 100%;
+    height: 100%;
     background-size: cover;
     background-repeat: no-repeat;
+    background-color: rgb(25,25,25);
 }
-/*폰트*/
-@font-face {
-    font-family: 'EliceDigitalBaeum_Bold';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_220508@1.0/EliceDigitalBaeum_Bold.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
-}
-/*폰트end*/
 
 .result{
     z-index: 10;
@@ -133,857 +129,439 @@ body{
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
 }
 /* 모달창 : 상대방 게임방 나감 CSS - end */
-
-/*노트북 사이즈*/
-@media(max-width:1600px){
-    .start{
-        position: absolute;
-        width: 1400px;
-        height: 760px;
-        background-color: #0a0a0aa6;
-        /* top: 50px;
-        left: 460px; */
-        z-index: 3;
+.start{
+    top: 0%;
+    left: 0%;
+    position: absolute;
+    width: 2540px;
+    height: 1300px;
+    background-color: #0a0a0aa6;
+    /* top: 50px;
+    left: 460px; */
+    z-index: 3;
+}
+.count{
+    font-size: 900px;
+    margin-left: 39%;
+    margin-top: 10px;
+    color: #fff;
+    color: #fcedd8;
+    font-family: 'Niconne', cursive;
+    animation: Startani 1s 5 normal;
+    text-shadow: 5px 5px 0px #eb452b, 
+                10px 10px 0px #efa032, 
+                15px 15px 0px #46b59b, 
+                20px 20px 0px #017e7f, 
+                25px 25px 0px #052939, 
+                30px 30px 0px #c11a2b, 
+                35px 35px 0px #c11a2b, 
+                40px 40px 0px #c11a2b, 
+                45px 45px 0px #c11a2b;
+}
+@keyframes Startani {
+    from{
+        margin-left: -10px;
     }
-    .count{
-        font-size: 500px;
-        margin-left: 39%;
-        margin-top: 10px;
-        color: #fff;
-        color: #fcedd8;
-        font-family: 'Niconne', cursive;
-        animation: Startani 1s 5 normal;
-        text-shadow: 5px 5px 0px #eb452b, 
-                    10px 10px 0px #efa032, 
-                    15px 15px 0px #46b59b, 
-                    20px 20px 0px #017e7f, 
-                    25px 25px 0px #052939, 
-                    30px 30px 0px #c11a2b, 
-                    35px 35px 0px #c11a2b, 
-                    40px 40px 0px #c11a2b, 
-                    45px 45px 0px #c11a2b;
+    to{
+        margin-left: 1000px;
     }
-    @keyframes Startani {
-        from{
-            margin-left: 0px;
-        }
-        to{
-            margin-left: 500px;
-        }
+}
+@keyframes flicker2 {/* .maintitle 애니메이션 */
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        text-shadow:
+        0 0 4px rgb(253, 226, 255),
+        0 0 11px rgb(253, 226, 255),
+        0 0 19px rgb(253, 226, 255),
+        0 0 40px rgb(253, 226, 255),
+        0 0 80px rgb(253, 226, 255),
+        0 0 90px rgb(253, 226, 255)
     }
-    .box{
-        position: relative;
-        background-color: #FFFFFF;
-        margin: auto;
-        border-radius: 1.5em;
-        box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
-    }
-    #out1{
-        /*타자미리보기*/
-        font-family: 'EliceDigitalBaeum_Bold';
-        border-radius: 200px;
-        width: 1000px;
-        height: 60px;
-        top: 50px;
-        z-index: 1;
-    }
-    
-    #out2{
-        /*타자input*/
-        border-radius: 200px;
-        width: 1000px;
-        height: 60px;
-        top: 70px;
-        right: 3px;
-        z-index: 2;
-    }
-    
-    .word-display{
-        color: gray;
-        font-size: 18px;
-        line-height: 55px;
-        margin-left: 38px;
-        letter-spacing: 1px; /*글자자간*/
-    }
-    .word-input{
-        font-family: 'EliceDigitalBaeum_Bold';
-        font-size: 18px;
-        margin-left: 40px;
-        margin-top: 9px;
-        width: 900px;
-        height: 40px;
-        outline: none;
-        border: none;
-        letter-spacing: 1px; /*글자자간*/
-    }
-    
-    /*음악버튼*/
-    .btn{
-        box-shadow: 0 0 2px rgb(234 57 184 / 90%), 0 0 4px rgb(234 57 184 / 40%), 0 0 1rem rgb(234 57 184 / 30%), 0 0 4rem rgb(234 57 184 / 10%);
-        border-color: #ea39b8;
-        background-color: purple;
-        border-radius: 50%;
-    }
-    #playbtn{
-        position: absolute;
-        left: 92%;
-        top: 4%;
-        padding-top: 5px;
-        padding-right: 3px;
-    }
-    #musicbtn{
-        position: absolute;
-        left: 96%;
-        top: 4%;
-        padding-top: 5px;
-        padding-right: 5px;
-    }
-    
-    
-    /*span 속성*/
-    .correct{
-        color: rgb(141, 252, 141);
-    }
-    .generally{
-        color: gray;
-    }
-    .wrong{
-        color: rgb(250, 132, 132);
-    }
-    
-    /*상태*/
-    
-    .state{
-        position: absolute;
-        left: 300px;
-        top: -15px;
-        color: #FFFFFF;
-        font-size: 30px;
-    }
-    /*효과(조명)*/
-    @keyframes light{
-        10%{
-            box-shadow: 0 1px 10px yellow,
-                    0 2px 20px yellow,
-                    10px 20px 30px yellow,            
-                    -10px 20px 30px yellow,            
-                    30px 50px 50px yellow,          
-                    -30px 50px 50px yellow;
-    
-        }
-        20%{
-            box-shadow: none;
-        }
-        30%{
-            box-shadow: 0 1px 10px lightcoral,
-                    0 2px 20px lightcoral,
-                    10px 20px 30px lightcoral,            
-                    -10px 20px 30px lightcoral,            
-                    30px 50px 50px lightcoral,          
-                    -30px 50px 50px lightcoral;
-    
-        }
-        40%{
-            box-shadow: none;
-        }
-        50%{
-            box-shadow: 0 1px 10px aqua,
-                    0 2px 20px aqua,
-                    10px 20px 30px aqua,            
-                    -10px 20px 30px aqua,            
-                    30px 50px 50px aqua,          
-                    -30px 50px 50px aqua;
-    
-        }
-        60%{
-            box-shadow: none;
-        }
-        70%{
-            box-shadow: 0 1px 10px purple,
-                    0 2px 20px purple,
-                    10px 20px 30px purple,            
-                    -10px 20px 30px purple,            
-                    30px 50px 50px purple,          
-                    -30px 50px 50px purple;
-    
-        }
-        80%{
-            box-shadow: 0 1px 10px tomato,
-            0 2px 20px tomato,
-            10px 20px 30px tomato,            
-            -10px 20px 30px tomato,            
-            30px 50px 50px tomato,          
-            -30px 50px 50px tomato;
-        } 
-        90%{
-            box-shadow: 0 1px 10px yellow,
-            0 2px 20px yellow,
-            10px 20px 30px yellow,            
-            -10px 20px 30px yellow,            
-            30px 50px 50px yellow,          
-            -30px 50px 50px yellow,
-            40px 60px 100px yellow,          
-            -40px 60px 100px yellow,
-            70px 70px 100px yellow,          
-            -70px 70px 100px yellow;
-        }
-        100%{
-            box-shadow: 0 1px 10px yellow,
-            0 2px 20px yellow,
-            10px 20px 30px yellow,            
-            -10px 20px 30px yellow,            
-            30px 50px 50px yellow,          
-            -30px 50px 50px yellow,
-            40px 60px 100px yellow,          
-            -40px 60px 100px yellow,
-            70px 70px 100px yellow,          
-            -70px 70px 100px yellow;
-        }
-    }
-    .bulb-holder{
-        width: 50px;
-        height: 40px;
-        background: black;
-        position: absolute;
-        border-top-left-radius: 50%;
-        border-top-right-radius: 50%;
-        transform: rotate( 180deg );
-        margin-top: 580px;
-        margin-left: 400px;
-        /*transform: translate(380px,250px);*/ /*(방향, 높이)*/
-        z-index: 1;
-    }
-    .bulb{
-        width: 50px;
-        height: 20px;
-        background: #fff;
-        border-radius: 60%;
-        transform: translate(0px,35px);
-        animation: light 2000ms infinite cubic-bezier(1, -0.45, 0, 1.89);
-    }
-    #m1{
-        transform: rotate( 130deg );
-        margin-top: 300px;
-        margin-left: 250px;
-    }
-    #m2{
-        /*transform: translate(230px,500px); */ /*(방향, 높이)*/
-        transform: rotate( 230deg );
-        margin-top: 520px;
-        margin-left: 240px;
-    }
-    #m3{
-        transform: rotate( 230deg );
-        margin-top: 570px;
-        margin-left: 150px;
-    }
-
-    #m4_1{
-        height: 700px; 
-        position: absolute; 
-        margin-left: 10px; 
-        margin-top: -100px;
-    }
-    #m4_2{
-        height: 700px; 
-        position: absolute; 
-        margin-left: 370px; 
-        margin-top: -100px;
-    }
-    #m5{
-        height:300px; 
-        position: absolute; 
-        margin-left: 300px; 
-        margin-top: 230px;
-    }
-    #m6{ /*프레임효과*/
-        height:600px;
-        width: 450px;
-        position: absolute; 
-        left: 465px; 
-        bottom: 3%;
-    }
-
-    .flip {
-        position: absolute;
-        width: 300px;
-        height: 350px;
-        perspective: 1100px;
-        z-index: 2;
-        animation: flipsticker 1s ease-in 4 Alternate;
-    }
-        
-    .sticker {
-    width: 100%; 
-    height: 100%; 
+    20%, 24%, 55% {        
+        text-shadow: none;
+    }    
+  }
+.box{
     position: relative;
-    transition: .4s;
-    transform-style: preserve-3d;
-    animation: flipsticker 1s ease-in 4 Alternate;
-    }	
-        
-        .front, .back {
-        position: absolute;
-        width: 100%; 
-        height: 100%;
-        backface-visibility: hidden;
-        background-image: url(/img/norespectEffect.png);
-        }
-        
-        /* 뒷면은 사전에 미리 뒤집기 */
-        .back { 
-        transform: rotateY(180deg);
-        }
+    background-color: #FFFFFF;
+    margin: auto;
+    border-radius: 1.5em;
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
 
-        #mysticker{
-        left: 300px;
-        }
-        #yoursticker{
-        left: 890px;
-        }
-        @keyframes flipsticker {
-        from{
-            transform: rotateY(0deg);
-        }
-        to{
-            transform: rotateY(180deg);
-        }
-        }
-    
-    /*상대 캐릭터 이펙트*/
-    #y1{
-        transform: rotate( 230deg );
-        margin-top: 300px;
-        margin-left: 1220px;
-    }
-    #y2{
-        transform: rotate( 130deg );
-        margin-top: 520px;
-        margin-left: 1230px;
-    }
-    #y3{
-        transform: rotate( 130deg );
-        margin-top: 570px;
-        margin-left: 1300px;
-    }
-    
-    #y4_1{
-        height: 700px; 
-        position: absolute; 
-        margin-left: 700px; 
-        margin-top: -100px;
-    }
-    #y4_2{
-        height: 700px; 
-        position: absolute; 
-        margin-left: 1100px; 
-        margin-top: -100px;
-    }
-    #y5{
-        height:400px; 
-        position: absolute; 
-        margin-left: 850px; 
-        margin-top: 180px;
-    }
-    #y6{ /*프레임효과*/
-        height:600px;
-        width: 450px;
-        position: absolute; 
-        left: 1050px; 
-        bottom: 3%;
-    }
+#out1, #out2, .word-input{
+    font-family: 'EliceDigitalBaeum_Bold';
+    width: 150vh;
+    height: 75px;
+    border-radius: 200px;
+}
 
-    /*프로그래스 바*/
-    .prog{
-        position: absolute;
-        width: 50px;
-        height: 450px;
-        background: rgb(189, 177, 177);
-        transform:rotate(180deg);
-    }
-    .progs{
-        position: absolute;
-        width: 50px;
-        height: 10%; /*진행률 바꾸는 곳*/
-        /* background: rgb(196, 87, 218); */
-        background-image: linear-gradient( 135deg, #FEC163 10%, #DE4313 100%);
-        color:#fff;
-        text-align: center;
-        /* line-height: 40px; */
-    }
-    #myprog{
-        margin-left: 60px;
-        margin-top: 90px;
-    }
-    #yourprog{
-        margin-left: 1440px;
-        margin-top: 90px;
-    }
+#out1{
+    /*타자미리보기*/
+    top: 50px;
+    z-index: 1;
+}
 
-    #mycount{ /*승리 횟수*/
-        position: absolute;
-        left: 5%;
-        font-size: 40px;
-    }
-    #youcount{ /*승리 횟수*/
-        position: absolute;
-        right: 4%;
-        font-size: 40px;
-    }
+#out2 {
+    /*타자input*/
+    top: 70px;
+    z-index: 2;
     
-    /*캐릭터*/
-    #mychar{
-        position: absolute;
-        width: 300px;
-        height: 300px;
-        left: 20%;
-        bottom: 10%;
-    }
-    #youchar{
-        position: absolute;
-        width: 300px;
-        height: 300px;
-        left: 58%;
-        /* right: 78%; */
-        bottom: 10%;
-    }
+    position: relative;
+    margin: auto;
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+
+.word-display{
+    color: gray;
+    font-size: 3vh;
+    line-height: 75px;
+    margin-left: 38px;
+    letter-spacing: 1px; /*글자자간*/
+}
+.word-input{
+    font-size: 3vh;
+    margin-top: 17px;
+    outline: none;
+    border: none;
+    letter-spacing: 1px; 
+    top: 70px;
+    z-index: 2;
+} 
+
+
+/*음악버튼*/
+.btns{
+    position: absolute;
+    right: 1%;
+    top: 4%;
+}
+.btn{
+    box-shadow: 0 0 2px rgb(234 57 184 / 90%), 0 0 4px rgb(234 57 184 / 40%), 0 0 1rem rgb(234 57 184 / 30%), 0 0 4rem rgb(234 57 184 / 10%);
+    border-color: #ea39b8;
+    background-color: purple;
+    border-radius: 50%;
+}
+#playbtn{
+    padding-top: 5px;
+    padding-right: 3px;
+    margin-right: 10px;
+}
+#musicbtn{
+    padding-top: 5px;
+    padding-right: 5px;
+}
+
+
+/*span 속성*/
+.correct{
+    color: rgb(141, 252, 141);
+}
+.generally{
+    color: gray;
+}
+.wrong{
+    color: rgb(250, 132, 132);
+}
+
+/*상태*/
+.state{
+    position: absolute;
+    left: 20%;
+    top: -40px;
+    font-size: 40px;
     
-    .ending{
-        box-shadow: 0 0 2px rgb(234 57 184 / 90%), 0 0 4px rgb(234 57 184 / 40%), 0 0 1rem rgb(234 57 184 / 30%), 0 0 4rem rgb(234 57 184 / 10%);
-        border-color: #ea39b8;
-        background-color: purple;
-        border-radius: 50%;
-        padding: 10px;
-        padding-left: 15px;
-        position: absolute;
-        right: 10px;
-        bottom: 30px;
+    color: white;
+    font-family: '116watermelon';
+    animation: flicker2 1.5s infinite alternate;
+}
+
+/*효과(조명)*/
+@keyframes light{
+    10%{
+        box-shadow: 0 1px 10px yellow,
+                0 2px 20px yellow,
+                10px 20px 30px yellow,            
+                -10px 20px 30px yellow,            
+                30px 50px 50px yellow,          
+                -30px 50px 50px yellow;
+
     }
-    .ending:hover{
-        background-color: red;
+    20%{
+        box-shadow: none;
     }
-    #mywin{
-        position: absolute;
-        height: 300px;
-        left: 460px;
-        bottom: 10%;
+    30%{
+        box-shadow: 0 1px 10px lightcoral,
+                0 2px 20px lightcoral,
+                10px 20px 30px lightcoral,            
+                -10px 20px 30px lightcoral,            
+                30px 50px 50px lightcoral,          
+                -30px 50px 50px lightcoral;
+
     }
-    #youwin{
-        position: absolute;
-        height: 300px;
-        left: 750px;
-        bottom: 10%;
+    40%{
+        box-shadow: none;
     }
-    #myover{
-        position: absolute;
-        height: 400px;
-        left: 440px;
-        bottom: 10%;
+    50%{
+        box-shadow: 0 1px 10px aqua,
+                0 2px 20px aqua,
+                10px 20px 30px aqua,            
+                -10px 20px 30px aqua,            
+                30px 50px 50px aqua,          
+                -30px 50px 50px aqua;
+
     }
-    #youover{
-        position: absolute;
-        height: 400px;
-        left: 720px;
-        bottom: 10%;
+    60%{
+        box-shadow: none;
+    }
+    70%{
+        box-shadow: 0 1px 10px purple,
+                0 2px 20px purple,
+                10px 20px 30px purple,            
+                -10px 20px 30px purple,            
+                30px 50px 50px purple,          
+                -30px 50px 50px purple;
+
+    }
+    80%{
+        box-shadow: 0 1px 10px tomato,
+        0 2px 20px tomato,
+        10px 20px 30px tomato,            
+        -10px 20px 30px tomato,            
+        30px 50px 50px tomato,          
+        -30px 50px 50px tomato;
+    } 
+    90%{
+        box-shadow: 0 1px 10px yellow,
+        0 2px 20px yellow,
+        10px 20px 30px yellow,            
+        -10px 20px 30px yellow,            
+        30px 50px 50px yellow,          
+        -30px 50px 50px yellow,
+        40px 60px 100px yellow,          
+        -40px 60px 100px yellow,
+        70px 70px 100px yellow,          
+        -70px 70px 100px yellow;
+    }
+    100%{
+        box-shadow: 0 1px 10px yellow,
+        0 2px 20px yellow,
+        10px 20px 30px yellow,            
+        -10px 20px 30px yellow,            
+        30px 50px 50px yellow,          
+        -30px 50px 50px yellow,
+        40px 60px 100px yellow,          
+        -40px 60px 100px yellow,
+        70px 70px 100px yellow,          
+        -70px 70px 100px yellow;
     }
 }
 
-/*PC모니터 사이즈*/
-@media(min-width:1900px){
-    .start{
-        position: absolute;
-        width: 2540px;
-        height: 1300px;
-        background-color: #0a0a0aa6;
-        /* top: 50px;
-        left: 460px; */
-        z-index: 3;
-    }
-    .count{
-        font-size: 900px;
-        margin-left: 39%;
-        margin-top: 10px;
-        color: #fff;
-        color: #fcedd8;
-        font-family: 'Niconne', cursive;
-        animation: Startani 1s 5 normal;
-        text-shadow: 5px 5px 0px #eb452b, 
-                    10px 10px 0px #efa032, 
-                    15px 15px 0px #46b59b, 
-                    20px 20px 0px #017e7f, 
-                    25px 25px 0px #052939, 
-                    30px 30px 0px #c11a2b, 
-                    35px 35px 0px #c11a2b, 
-                    40px 40px 0px #c11a2b, 
-                    45px 45px 0px #c11a2b;
-    }
-    @keyframes Startani {
-        from{
-            margin-left: -10px;
-        }
-        to{
-            margin-left: 1000px;
-        }
-    }
-    .box{
-        position: relative;
-        background-color: #FFFFFF;
-        margin: auto;
-        border-radius: 1.5em;
-        box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
-    }
-    #out1{
-        /*타자미리보기*/
-        font-family: 'EliceDigitalBaeum_Bold';
-        border-radius: 200px;
-        width: 1200px;
-        height: 80px;
-        top: 50px;
-        z-index: 1;
-    }
-    
-    #out2{
-        /*타자input*/
-        border-radius: 200px;
-        width: 1200px;
-        height: 80px;
-        top: 70px;
-        right: 3px;
-        z-index: 2;
-    }
-    
-    .word-display{
-        color: gray;
-        font-size: 25px;
-        line-height: 75px;
-        margin-left: 38px;
-        letter-spacing: 1px; /*글자자간*/
-    }
-    .word-input{
-        font-family: 'EliceDigitalBaeum_Bold';
-        font-size: 25px;
-        margin-left: 40px;
-        margin-top: 17px;
-        width: 900px;
-        height: 40px;
-        outline: none;
-        border: none;
-        letter-spacing: 1px; /*글자자간*/
-    }
-    
-    /*음악버튼*/
-    .btn{
-        box-shadow: 0 0 2px rgb(234 57 184 / 90%), 0 0 4px rgb(234 57 184 / 40%), 0 0 1rem rgb(234 57 184 / 30%), 0 0 4rem rgb(234 57 184 / 10%);
-        border-color: #ea39b8;
-        background-color: purple;
-        border-radius: 50%;
-    }
-    #playbtn{
-        position: absolute;
-        left: 93%;
-        top: 4%;
-        padding-top: 5px;
-        padding-right: 3px;
-    }
-    #musicbtn{
-        position: absolute;
-        left: 96%;
-        top: 4%;
-        padding-top: 5px;
-        padding-right: 5px;
-    }
-    
-    
-    /*span 속성*/
-    .correct{
-        color: rgb(141, 252, 141);
-    }
-    .generally{
-        color: gray;
-    }
-    .wrong{
-        color: rgb(250, 132, 132);
-    }
-    
-    /*상태*/
-    .state{
-        position: absolute;
-        left: 20%;
-        top: -40px;
-        color: #FFFFFF;
-        font-size: 40px;
-    }
+.bulb-holder{
+    width: 80px;
+    height: 50px;
+    background: black;
+    position: absolute;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    transform: rotate( 180deg );
+    margin-top: 580px;
+    margin-left: 400px;
+    /*transform: translate(380px,250px);*/ /*(방향, 높이)*/
+    z-index: 1;
+}
+.bulb{
+    width: 80px;
+    height: 50px;
+    background: #fff;
+    border-radius: 60%;
+    transform: translate(0px,35px);
+    animation: light 2000ms infinite cubic-bezier(1, -0.45, 0, 1.89);
+}
+#m1{
+    transform: rotate( 130deg );
+    margin-top: 400px;
+    margin-left: 300px;
+}
+#m2{
+    transform: rotate( 230deg );
+    margin-top: 630px;
+    margin-left: 260px;
+}
+#m3{
+    transform: rotate( 230deg );
+    margin-top: 720px;
+    margin-left: 150px;
+}
+#m4_1{
+    height: 950px; 
+    position: absolute; 
+    left: 20px; 
+    top: 5px;
+}
+#m4_2{
+    height: 950px;
+    position: absolute; 
+    left: 450px; 
+    top: 5px;
+}
+#m5{
+    height:500px; 
+    position: absolute; 
+    left: 400px; 
+    top: 350px;
+}
+#m6{ /*프레임효과*/
+    height:600px;
+    width: 450px;
+    position: absolute; 
+    left: 465px; 
+    bottom: 3%;
+}
+#m7{ /*미러볼*/
+    height: 230px;
+    position: absolute;
+    left: 270px;
+    bottom: 50%;
+}
+#m8{ /*조명*/
+    position: absolute;
+    height: 750px;
+    width: 650px;
+    left: 315px;
+    bottom: 2%;
+    z-index: 2;
+}
+/*상대 캐릭터 이펙트*/
+#y1{
+    transform: rotate( 230deg );
+    margin-top: 400px;
+    margin-left: 1500px;
+}
+#y2{
+    transform: rotate( 130deg );
+    margin-top: 630px;
+    margin-left: 1580px;
+}
+#y3{
+    transform: rotate( 130deg );
+    margin-top: 720px;
+    margin-left: 1680px;
+}
 
-    /*효과(조명)*/
-    @keyframes light{
-        10%{
-            box-shadow: 0 1px 10px yellow,
-                    0 2px 20px yellow,
-                    10px 20px 30px yellow,            
-                    -10px 20px 30px yellow,            
-                    30px 50px 50px yellow,          
-                    -30px 50px 50px yellow;
-    
-        }
-        20%{
-            box-shadow: none;
-        }
-        30%{
-            box-shadow: 0 1px 10px lightcoral,
-                    0 2px 20px lightcoral,
-                    10px 20px 30px lightcoral,            
-                    -10px 20px 30px lightcoral,            
-                    30px 50px 50px lightcoral,          
-                    -30px 50px 50px lightcoral;
-    
-        }
-        40%{
-            box-shadow: none;
-        }
-        50%{
-            box-shadow: 0 1px 10px aqua,
-                    0 2px 20px aqua,
-                    10px 20px 30px aqua,            
-                    -10px 20px 30px aqua,            
-                    30px 50px 50px aqua,          
-                    -30px 50px 50px aqua;
-    
-        }
-        60%{
-            box-shadow: none;
-        }
-        70%{
-            box-shadow: 0 1px 10px purple,
-                    0 2px 20px purple,
-                    10px 20px 30px purple,            
-                    -10px 20px 30px purple,            
-                    30px 50px 50px purple,          
-                    -30px 50px 50px purple;
-    
-        }
-        80%{
-            box-shadow: 0 1px 10px tomato,
-            0 2px 20px tomato,
-            10px 20px 30px tomato,            
-            -10px 20px 30px tomato,            
-            30px 50px 50px tomato,          
-            -30px 50px 50px tomato;
-        } 
-        90%{
-            box-shadow: 0 1px 10px yellow,
-            0 2px 20px yellow,
-            10px 20px 30px yellow,            
-            -10px 20px 30px yellow,            
-            30px 50px 50px yellow,          
-            -30px 50px 50px yellow,
-            40px 60px 100px yellow,          
-            -40px 60px 100px yellow,
-            70px 70px 100px yellow,          
-            -70px 70px 100px yellow;
-        }
-        100%{
-            box-shadow: 0 1px 10px yellow,
-            0 2px 20px yellow,
-            10px 20px 30px yellow,            
-            -10px 20px 30px yellow,            
-            30px 50px 50px yellow,          
-            -30px 50px 50px yellow,
-            40px 60px 100px yellow,          
-            -40px 60px 100px yellow,
-            70px 70px 100px yellow,          
-            -70px 70px 100px yellow;
-        }
-    }
+#y4_1{
+    height: 950px;
+    position: absolute; 
+    left: 950px; 
+    top: 5px;
+}
+#y4_2{
+    height: 950px; 
+    position: absolute; 
+    left: 1350px; 
+    top: 5px;
+}
+#y5{
+    height:500px; 
+    position: absolute; 
+    left: 1000px;
+    top: 350px;
+}
+#y6{ /*프레임효과*/
+    height:600px;
+    width: 450px;
+    position: absolute; 
+    left: 1050px; 
+    bottom: 3%;
+}
+/*프로그래스 바*/
+.prog{
+    position: absolute;
+    width: 50px;
+    height: 450px;
+    background: rgb(189, 177, 177);
+    transform:rotate(180deg);
+}
+.progs{
+    position: absolute;
+    width: 50px;
+    height: 10%; /*진행률 바꾸는 곳*/
+    background: rgb(196, 87, 218);
+    color:#fff;
+    text-align: center;
+    /* line-height: 40px; */
+}
+#myprog{
+    margin-left: 80px;
+    margin-top: 90px;
+    display: none;
+}
+#yourprog{
+    margin-left: 1800px;
+    margin-top: 90px;
+    display: none;
+}
 
-    .bulb-holder{
-        width: 80px;
-        height: 50px;
-        background: black;
-        position: absolute;
-        border-top-left-radius: 50%;
-        border-top-right-radius: 50%;
-        transform: rotate( 180deg );
-        margin-top: 580px;
-        margin-left: 400px;
-        /*transform: translate(380px,250px);*/ /*(방향, 높이)*/
-        z-index: 1;
-    }
-    .bulb{
-        width: 80px;
-        height: 50px;
-        background: #fff;
-        border-radius: 60%;
-        transform: translate(0px,35px);
-        animation: light 2000ms infinite cubic-bezier(1, -0.45, 0, 1.89);
-    }
-    #m1{
-        transform: rotate( 130deg );
-        margin-top: 400px;
-        margin-left: 300px;
-    }
-    #m2{
-        transform: rotate( 230deg );
-        margin-top: 630px;
-        margin-left: 260px;
-    }
-    #m3{
-        transform: rotate( 230deg );
-        margin-top: 720px;
-        margin-left: 150px;
-    }
-    #m4_1{
-        height: 950px; 
-        position: absolute; 
-        left: 20px; 
-        top: 5px;
-    }
-    #m4_2{
-        height: 950px;
-        position: absolute; 
-        left: 450px; 
-        top: 5px;
-    }
-    #m5{
-        height:500px; 
-        position: absolute; 
-        left: 400px; 
-        top: 350px;
-    }
-    #m6{ /*프레임효과*/
-        height:600px;
-        width: 450px;
-        position: absolute; 
-        left: 465px; 
-        bottom: 3%;
-    }
-    #m7{ /*미러볼*/
-        height: 230px;
-        position: absolute;
-        left: 270px;
-        bottom: 50%;
-    }
-    #m8{ /*조명*/
-        position: absolute;
-        height: 750px;
-        width: 650px;
-        left: 315px;
-        bottom: 2%;
-        z-index: 2;
-    }
-    /*상대 캐릭터 이펙트*/
-    #y1{
-        transform: rotate( 230deg );
-        margin-top: 400px;
-        margin-left: 1500px;
-    }
-    #y2{
-        transform: rotate( 130deg );
-        margin-top: 630px;
-        margin-left: 1580px;
-    }
-    #y3{
-        transform: rotate( 130deg );
-        margin-top: 720px;
-        margin-left: 1680px;
-    }
-    
-    #y4_1{
-        height: 950px;
-        position: absolute; 
-        left: 950px; 
-        top: 5px;
-    }
-    #y4_2{
-        height: 950px; 
-        position: absolute; 
-        left: 1350px; 
-        top: 5px;
-    }
-    #y5{
-        height:500px; 
-        position: absolute; 
-        left: 1000px;
-        top: 350px;
-    }
-    #y6{ /*프레임효과*/
-        height:600px;
-        width: 450px;
-        position: absolute; 
-        left: 1050px; 
-        bottom: 3%;
-    }
-    /*프로그래스 바*/
-    .prog{
-        position: absolute;
-        width: 50px;
-        height: 450px;
-        background: rgb(189, 177, 177);
-        transform:rotate(180deg);
-    }
-    .progs{
-        position: absolute;
-        width: 50px;
-        height: 10%; /*진행률 바꾸는 곳*/
-        background: rgb(196, 87, 218);
-        color:#fff;
-        text-align: center;
-        /* line-height: 40px; */
-    }
-    #myprog{
-        margin-left: 80px;
-        margin-top: 90px;
-    }
-    #yourprog{
-        margin-left: 1800px;
-        margin-top: 90px;
-    }
+#mycount{ /*승리 횟수*/
+    position: absolute;
+    left: 5%;
+    font-size: 40px;
+    color: white;
+    font-family: '116watermelon';
+    animation: flicker2 1.5s infinite alternate;
+}
+#youcount{ /*승리 횟수*/
+    position: absolute;
+    right: 4%;
+    font-size: 40px;
+    color: white;
+    font-family: '116watermelon';
+    animation: flicker2 1.5s infinite alternate;
+}
 
-    #mycount{ /*승리 횟수*/
-        position: absolute;
-        left: 5%;
-        font-size: 40px;
-    }
-    #youcount{ /*승리 횟수*/
-        position: absolute;
-        right: 4%;
-        font-size: 40px;
-    }
-    
-    /*캐릭터*/
-    #mychar{
-        position: absolute;
-        width:400px;
-        height:400px;
-        /* width: 26%;
-        height: 55%; */
-        margin-left: 20%;
-        bottom: 5%;
-    }
-    #youchar{
-        position: absolute;
-        width:400px;
-        height:400px;
-        margin-left: 53%;
-        bottom: 5%;
-    }
-    
-    /*ending btn*/
-    .ending{
-        box-shadow: 0 0 2px rgb(234 57 184 / 90%), 0 0 4px rgb(234 57 184 / 40%), 0 0 1rem rgb(234 57 184 / 30%), 0 0 4rem rgb(234 57 184 / 10%);
-        border-color: #ea39b8;
-        background-color: purple;
-        border-radius: 50%;
-        padding: 10px;
-        padding-left: 15px;
-        position: absolute;
-        right: 10px;
-        bottom: 30px;
-    }
-    .ending:hover{
-        background-color: red;
-    }
+/*캐릭터*/
+#mychar, #youchar{
+    position: absolute;
+    width:40vh;
+    height:40vh;
+
+}
+#mychar{
+    /* width: 26%;
+    height: 55%; */
+    left: 55%;
+    bottom: 5%;
+}
+#youchar{
+    right: 55%;
+    bottom: 5%;
+}
+
+
+/*ending btn*/
+.ending{
+    box-shadow: 0 0 2px rgb(234 57 184 / 90%), 0 0 4px rgb(234 57 184 / 40%), 0 0 1rem rgb(234 57 184 / 30%), 0 0 4rem rgb(234 57 184 / 10%);
+    border-color: #ea39b8;
+    background-color: purple;
+    border-radius: 50%;
+    padding: 10px;
+    padding-left: 15px;
+    position: absolute;
+    right: 10px;
+    bottom: 30px;
+}
+.ending:hover{
+    background-color: red;
 }
 
 .display1{
     display: none;
 }
+
+/*폰트*/
+@font-face {
+    font-family: 'EliceDigitalBaeum_Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_220508@1.0/EliceDigitalBaeum_Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+/*폰트end*/

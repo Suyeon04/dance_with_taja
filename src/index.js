@@ -1,12 +1,12 @@
-var admin = require("firebase-admin");
-var firestore = require("firebase-admin/firestore");
+// var admin = require("firebase-admin");
+// var firestore = require("firebase-admin/firestore");
 
-var serviceAccount = require("./firebasekey.json");
+// var serviceAccount = require("./firebasekey.json");
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
-});
-const db = firestore.getFirestore();
+// admin.initializeApp({
+//   credential: admin.credential.cert(serviceAccount)
+// });
+// const db = firestore.getFirestore();
 
 const express = require("express");
 const http = require("http");
@@ -33,7 +33,7 @@ app.post("")
 
 const io = require("socket.io")(3000, {
   cors: {
-    origin: ["http://10.96.124.5:3002"]
+    origin: ["http://192.168.35.9:3002"]
   }
 })
 
@@ -95,5 +95,5 @@ app.post("/ranking",async (req, res)=>{
    res.json({"data":data})
 })
 
-const handleListen = () => console.log(`Listening on http://localhost:3002`);
+const handleListen = () => console.log(`Listening on http://192.168.35.9:3002`);
 httpServer.listen(3002, handleListen);
