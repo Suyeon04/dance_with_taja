@@ -8,6 +8,7 @@ body {
     background-attachment: fixed;
     font-family: 'Cafe24Ohsquareair';
     /* background-image: linear-gradient(blue, pink); */
+    overflow-x: hidden;
   }
   /*폰트*/
   @font-face { /*제목 폰트*/
