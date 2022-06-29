@@ -33,7 +33,7 @@ app.post("")
 
 const io = require("socket.io")(3000, {
   cors: {
-    origin: ["http://192.168.35.9:3002"]
+    origin: ["http://10.96.123.65:3002"]
   }
 })
 
@@ -95,5 +95,5 @@ app.post("/ranking",async (req, res)=>{
    res.json({"data":data})
 })
 
-const handleListen = () => console.log(`Listening on http://192.168.35.9:3002`);
+const handleListen = () => console.log(`Listening on http://10.96.123.65:3002`);
 httpServer.listen(3002, handleListen);

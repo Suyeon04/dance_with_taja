@@ -17,7 +17,7 @@ async function sendAjax(url, data){
 
 async function rankList() {
     let inputdata = {test:1};
-    let data = await sendAjax('http://localhost:3002/ranking', inputdata)
+    let data = await sendAjax('http://10.96.123.65/ranking', inputdata)
 
     console.log(data)
 
@@ -60,5 +60,5 @@ async function rankList() {
 }
 
 function home(){
-    location.replace("http://localhost:3002/");
+    location.replace("http://10.96.123.65:3002/");
 }

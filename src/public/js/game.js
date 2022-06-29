@@ -1,6 +1,6 @@
-let http = "http://192.168.35.9:3002"
+let http = "http://10.96.123.65:3002"
 
-const socket = io('http://192.168.35.9:3000')
+const socket = io('http://10.96.123.65:3000')
 socket.on('connect', () =>{
         console.log(socket.id);
 })
